@@ -11,8 +11,15 @@
 |
 */
 
+use Illuminate\Support\Facades\Config;
+
+Route::get('/test', function () {
+    dd(config('theme.aaa'));
+});
+
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('theme.cryptoadmin.user.welcome');
 });
 
 Auth::routes();
