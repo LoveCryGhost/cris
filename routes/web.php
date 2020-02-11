@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+use Illuminate\Support\Facades\Config;
+
+Route::get('/test', function () {
+    dd(config('theme.aaa'));
 });
+
+
+Route::get('/', function () {
+    return view('theme.cryptoadmin.user.welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

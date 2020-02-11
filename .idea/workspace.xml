@@ -40,8 +40,8 @@
       <file leaf-file-name="header-user-profiles.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="65" lean-forward="true" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
+            <state relative-caret-position="479">
+              <caret line="47" column="30" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="47" selection-end-column="30" />
               <folding>
                 <element signature="n#style#0;n#li#0;n#ul#0;n#li#0;n#!!top" expanded="true" />
               </folding>
@@ -456,12 +456,12 @@
       <workItem from="1581342271121" duration="1409000" />
       <workItem from="1581343901624" duration="5000" />
       <workItem from="1581343911736" duration="4000" />
-      <workItem from="1581343949314" duration="10730000" />
+      <workItem from="1581343949314" duration="11117000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12148000" />
+    <option name="totallyTimeSpent" value="12535000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -769,8 +769,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="65" lean-forward="true" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
+        <state relative-caret-position="479">
+          <caret line="47" column="30" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="47" selection-end-column="30" />
           <folding>
             <element signature="n#style#0;n#li#0;n#ul#0;n#li#0;n#!!top" expanded="true" />
           </folding>
