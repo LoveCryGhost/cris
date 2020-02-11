@@ -60,7 +60,7 @@
                 <!-- /.social-auth-links -->
 
                 <div class="margin-top-30 text-center text-dark">
-                    <p>不是會員?   <a href="auth_register.html" class="text-info ml-20">註冊</a></p>
+                    <p>不是會員?   <a href="{{route('register')}}" class="text-info ml-20">註冊</a></p>
                 </div>
 
             </div>
