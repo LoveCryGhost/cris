@@ -15,20 +15,12 @@
                         <input type="text" name="search">
                     </div>
                 </li>
+
+                {{--消息通知--}}
                 @include(config('theme.user.header-notifications'))
 
-
-                <li>
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                        <i class="mdi mdi-logout-variant"></i>
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </li>
-
-
+                {{--使用者資料--}}
+                @include(config('theme.user.header-user-profiles'))
             </ul>
         </div>
     </nav>

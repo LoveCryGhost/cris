@@ -13,5 +13,6 @@ return [
 
             'welcome' => $user_style.'.welcome',
             'header-notifications' => $user_style.'.layouts.header-notifications',
+            'header-user-profiles' => $user_style.'.layouts.header-user-profiles',
         ]
     ];
