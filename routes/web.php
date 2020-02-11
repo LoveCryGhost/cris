@@ -25,8 +25,8 @@ Route::get('/', function () {
 
 //MultiAuth
 Auth::routes();
-Route::prefix('')->name('user.')->group(function(){
-    Route::resource('/','UserController');
+Route::middleware('auth')->prefix('/')->namespace('User')->name('user.')->group(function(){
+    Route::resource('profile','UserController');
 });
 
 
