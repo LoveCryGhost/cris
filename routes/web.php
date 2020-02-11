@@ -11,7 +11,8 @@
 |
 */
 
-use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/test', function () {
     dd(config('theme.aaa'));
@@ -22,5 +23,11 @@ Route::get('/', function () {
     return view('theme.cryptoadmin.user.welcome');
 });
 
+//MultiAuth
 Auth::routes();
+Route::prefix('')->name('user.')->group(function(){
+    Route::resource('/','UserController');
+});
+
+
 
