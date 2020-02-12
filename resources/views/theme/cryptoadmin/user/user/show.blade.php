@@ -18,91 +18,95 @@
 
             <!-- Main content -->
             <section class="content">
-                <div class="row">
+                <form method="post" action="{{route('users.update', ['user'=>Auth::user()->id])}}">
+                    @csrf
+                    @method('put')
+                    <div class="row">
+                        @include('theme.cryptoadmin.user.layouts.errors')
+                        {{--個人照片--}}
+                        <div class="col-xl-4 col-lg-5">
+                            <!-- Profile Image -->
+                            <div class="box bg-warning bg-deathstar-dark">
+                                <div class="box-body box-profile">
+                                    <img class="rounded img-fluid mx-auto d-block max-w-150" src="{{asset('theme/cryptoadmin/images/5.jpg')}}" alt="User profile picture">
 
-                    {{--個人照片--}}
-                    <div class="col-xl-4 col-lg-5">
-                        <!-- Profile Image -->
-                        <div class="box bg-warning bg-deathstar-dark">
-                            <div class="box-body box-profile">
-                                <img class="rounded img-fluid mx-auto d-block max-w-150" src="{{asset('theme/cryptoadmin/images/5.jpg')}}" alt="User profile picture">
+                                    <h2 class="profile-username text-center mb-0">{{Auth::user()->name}}</h2>
 
-                                <h2 class="profile-username text-center mb-0">{{Auth::user()->name}}</h2>
-
-                                <h4 class="text-center mt-0"><i class="fa fa-envelope-o mr-10"></i>{{Auth::user()->email}}</h4>
-                                <div class="row social-states">
-                                    <div class="col-6 text-right"><a href="#" class="link text-white"><i class="ion ion-ios-people-outline"></i> 254</a></div>
-                                    <div class="col-6 text-left"><a href="#" class="link text-white"><i class="ion ion-images"></i> 54</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.box -->
-                    </div>
-
-
-                    {{--相關訊息--}}
-                    <div class="col-xl-8 col-lg-7">
-                        <div class="box box-solid box-inverse box-dark">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">個人信息</h3>
-                            </div>
-                            <!-- /.box-header -->
-                            <div class="box-body">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">使用者名稱</label>
-                                            <div class="col-sm-10">
-                                                <input class="form-control" type="text" name="name" placeholder="使用者名稱">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">郵箱地址</label>
-                                            <div class="col-sm-10">
-                                                <input class="form-control" type="email" placeholder="{{Auth::user()->email}}">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">電話號碼</label>
-                                            <div class="col-sm-10">
-                                                <input class="form-control" type="tel" name="phone" placeholder="電話號碼">
-                                            </div>
-                                        </div>
-
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">自我介紹</label>
-                                            <div class="col-sm-10">
-                                                <textarea class="form-control" type="text" name="introduction" placeholder="自我介紹"></textarea>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">生日</label>
-                                            <div class="col-sm-10">
-                                                <input class="form-control" type="text" name="birthday" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label"></label>
-                                            <div class="col-sm-10">
-                                                <button type="submit" class="btn btn-warning">提交訊息</button>
-                                            </div>
-                                        </div>
+                                    <h4 class="text-center mt-0"><i class="fa fa-envelope-o mr-10"></i>{{Auth::user()->email}}</h4>
+                                    <div class="row social-states">
+                                        <div class="col-6 text-right"><a href="#" class="link text-white"><i class="ion ion-ios-people-outline"></i> 254</a></div>
+                                        <div class="col-6 text-left"><a href="#" class="link text-white"><i class="ion ion-images"></i> 54</a></div>
                                     </div>
-                                    <!-- /.col -->
                                 </div>
-                                <!-- /.row -->
                             </div>
-                            <!-- /.box-body -->
+                            <!-- /.box -->
                         </div>
+
+
+                        {{--相關訊息--}}
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="box box-solid box-inverse box-dark">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">個人信息</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">使用者名稱</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text" name="name" placeholder="使用者名稱" value="{{Auth::user()->name}}">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">郵箱地址</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="email" value="{{Auth::user()->email}}" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">電話號碼</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="tel" name="phone" placeholder="電話號碼">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">自我介紹</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" type="text" name="introduction" placeholder="自我介紹"></textarea>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">生日</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text" name="birthday" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label"></label>
+                                                <div class="col-sm-10">
+                                                    <button type="submit" class="btn btn-warning">提交訊息</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
-                    <!-- /.col -->
-                </div>
+                </form>
             </section>
             <!-- /.content -->
 

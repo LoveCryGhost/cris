@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 
 
+use App\Http\Requests\User\UserRequest;
 use App\Models\User;
 
 class UsersController extends UserCoreController
@@ -28,5 +29,10 @@ class UsersController extends UserCoreController
     public function show(User $user)
     {
         return view(config('theme.user.view').'user.show', compact('user'));
+    }
+
+    public function update(UserRequest $request,User $user)
+    {
+        dd($user, $request->all());
     }
 }

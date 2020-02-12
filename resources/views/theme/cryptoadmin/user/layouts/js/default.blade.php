@@ -59,9 +59,6 @@
 
 <script src="{{asset('theme/cryptoadmin/js/pages/statistic.js')}}"></script>
 
-<!--amcharts -->
-<link href="https://www.amcharts.com/lib/3/plugins/export/export.css" rel="stylesheet" type="text/css" />
-
 {{--<!--amcharts charts -->--}}
 <script src="http://www.amcharts.com/lib/3/amcharts.js" type="text/javascript"></script>
 <script src="http://www.amcharts.com/lib/3/serial.js" type="text/javascript"></script>
@@ -71,6 +68,40 @@
 <script src="http://www.amcharts.com/lib/3/plugins/export/export.min.js" type="text/javascript"></script>
 <script src="http://www.amcharts.com/lib/3/themes/light.js" type="text/javascript"></script>
 
+
+<!-- InputMask -->
+<!-- Bootstrap touchspin -->
+<script src="{{asset('theme/cryptoadmin/vendor_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js')}}"></script>
+<!-- Select2 -->
+<script src="{{asset('theme/cryptoadmin/vendor_components/select2/dist/js/select2.full.js')}}"></script>
+<script src="{{asset('theme/cryptoadmin/vendor_plugins/input-mask/jquery.inputmask.js')}}"></script>
+<script src="{{asset('theme/cryptoadmin/vendor_plugins/input-mask/jquery.inputmask.date.extensions.js')}}"></script>
+<script src="{{asset('theme/cryptoadmin/vendor_plugins/input-mask/jquery.inputmask.extensions.js')}}"></script>
+<!-- date-range-picker -->
+<script src="{{asset('theme/cryptoadmin/vendor_components/moment/min/moment.min.js')}}"></script>
+<script src="{{asset('theme/cryptoadmin/vendor_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+<!-- iCheck 1.0.1 -->
+<script src="{{asset('theme/cryptoadmin/vendor_plugins/iCheck/icheck.min.js')}}"></script>
+
+<script src="{{asset('theme/cryptoadmin/js/pages/advanced-form-element.js')}}"></script>
+<!-- bootstrap datepicker -->
+<script src="{{asset('theme/cryptoadmin/vendor_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+
+<!-- bootstrap color picker -->
+<script src="{{asset('theme/cryptoadmin/vendor_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js')}}"></script>
+
+<!-- bootstrap time picker -->
+<script src="{{asset('theme/cryptoadmin/vendor_plugins/timepicker/bootstrap-timepicker.min.js')}}"></script>
+
+<!-- SlimScroll -->
+<script src="{{asset('theme/cryptoadmin/vendor_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+
+
+
+<!-- FastClick -->
+<script src="{{asset('theme/cryptoadmin/vendor_components/fastclick/lib/fastclick.js')}}"></script>
+
+<!-- bootstrap time pi
 
 {{--<script src="{{asset('js/bootstrap-switch.js')}}"></script>--}}
 
