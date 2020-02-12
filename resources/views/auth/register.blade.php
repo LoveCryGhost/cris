@@ -77,7 +77,7 @@
                 <!-- /.social-auth-links -->
 
                 <div class="margin-top-30 text-center text-dark">
-                    <p>已經有帳務了? <a href="auth_login.html" class="text-info m-l-5">登入</a></p>
+                    <p>已經有帳號了? <a href="{{route('login')}}" class="text-info m-l-5">登入</a></p>
                 </div>
 
             </div>
