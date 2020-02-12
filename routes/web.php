@@ -24,7 +24,7 @@ Route::get('/', function () {
 });
 
 //MultiAuth
-Auth::routes();
+Auth::routes(['verify' => true]);
 Route::middleware('auth')->prefix('/')->namespace('User')->name('user.')->group(function(){
     Route::resource('profile','UserController');
 });
