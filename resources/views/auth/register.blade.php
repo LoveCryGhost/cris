@@ -21,11 +21,11 @@
                 <form action="{{route('register')}}" method="post" class="form-element">
                     @csrf
                     <div class="form-group has-feedback">
-                        <input type="text" class="form-control" name="name" placeholder="Full name">
+                        <input type="text" class="form-control" name="name" placeholder="Full name" value="{{old('name')}}">
                         <span class="ion ion-person form-control-feedback text-dark"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="email" class="form-control" name="email" placeholder="Email">
+                        <input type="email" class="form-control" name="email" placeholder="Email" value="{{old('email')}}">
                         <span class="ion ion-email form-control-feedback text-dark"></span>
                     </div>
                     <div class="form-group has-feedback">
@@ -36,8 +36,28 @@
                         <input type="password" class="form-control" name="password_confirmation" placeholder="Retype password">
                         <span class="ion ion-log-in form-control-feedback text-dark"></span>
                     </div>
-                    <div class="row">
 
+                    {{--驗證碼--}}
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <input id="captcha" class="form-control{{ $errors->has('captcha') ? ' is-invalid' : '' }}" name="captcha" placeholder="驗證碼">
+                            </div>
+                            <div class="col-md-4">
+                                <span class="form-control-feedback text-dark">
+                                    <img class="thumbnail captcha mt mb-2" src="{{ captcha_src('flat') }}" onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    @if ($errors->has('captcha'))
+                        <span class="text-danger text-right" role="alert">
+                            <strong>{{ $errors->first('captcha') }}</strong>
+                        </span>
+                    @endif
+
+                    {{--註冊提交按鈕--}}
+                    <div class="row">
                         <div class="col-12 text-center">
                             <button type="submit" class="btn my-20 btn-success">註冊</button>
                         </div>
