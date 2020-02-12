@@ -25,7 +25,6 @@
             <div id="app">
                 @guest
                     @include(config('theme.user.header'))
-
                 @else
                     @include(config('theme.user.header-login'))
                 @endguest

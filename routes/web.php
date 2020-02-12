@@ -37,8 +37,9 @@ Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->na
 Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
 
-Route::middleware('auth')->prefix('/')->namespace('User')->name('user.')->group(function(){
-    Route::resource('profile','UserController');
+Route::middleware('auth')->prefix('')->namespace('User')->name('')->group(function(){
+    //Route::resource('profile','UserController');
+    Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
 });
 
 

@@ -4,10 +4,13 @@ namespace App\Http\Controllers\User;
 
 
 
-class UserController extends UserCoreController
+use App\Models\User;
+
+class UsersController extends UserCoreController
 {
 
 
+    //顯示UserIndex
     public function index(){
         return redirect()->back()
             ->with(['toast'=> [
@@ -19,5 +22,11 @@ class UserController extends UserCoreController
                 "hideAfter" => 3000,
                 "stack" => 6
             ] ]);
+    }
+
+    //顯示使用者資料
+    public function show(User $user)
+    {
+        return view(config('theme.user.view').'user.show', compact('user'));
     }
 }

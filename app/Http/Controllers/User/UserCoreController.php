@@ -7,4 +7,5 @@ use App\Http\Controllers\Controller;
 
 class UserCoreController extends Controller
 {
+
 }

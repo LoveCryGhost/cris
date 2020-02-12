@@ -15,7 +15,7 @@
         </li>
         <!-- Menu Body -->
         <li class="user-body">
-            <a class="dropdown-item" href="{{route('user.profile.index')}}"><i class="ion ion-person"></i>會員資料</a>
+            <a class="dropdown-item" href="{{route('users.show', ['user'=> Auth::user()->id])}}"><i class="ion ion-person"></i>會員資料</a>
             {{--<a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-bag"></i> My Balance</a>--}}
             {{--<a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-email-unread"></i> Inbox</a>--}}
             {{--<a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-settings"></i> Account Setting</a>--}}

@@ -2,7 +2,11 @@
 
 $user_style='theme.cryptoadmin.user';
 return [
+
         'user'=> [
+
+            'view' => $user_style.'.',
+
             'user-app' => $user_style.'.layouts.user-app',
             'header' => $user_style.'.layouts.header',
             'header-login' => $user_style.'.layouts.header-login',
