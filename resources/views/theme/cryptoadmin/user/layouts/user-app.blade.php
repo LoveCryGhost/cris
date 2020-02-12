@@ -10,7 +10,7 @@
 @section('css')
     @parent
     @yield('css')
-    @include(config('theme.user.css'))
+    @include(config('theme.user.css.default'))
 @endsection
 
 
@@ -51,4 +51,4 @@
 @endsection
 
 {{--Footer--}}
-@include(config('theme.user.js'))
+@include(config('theme.user.js.default'))

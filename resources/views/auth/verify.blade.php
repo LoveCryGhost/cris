@@ -1,4 +1,3 @@
-
 @extends(config('theme.user.user-app'))
 
 @section('title','驗證 - 郵箱')

@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/test', function () {
-    dd(config('theme.aaa'));
+    session()->flash('success', '邮箱验证成功 ^_^');
+    dd(session());
 });
 
 
