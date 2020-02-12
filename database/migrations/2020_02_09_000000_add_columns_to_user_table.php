@@ -11,6 +11,7 @@ class AddColumnsToUserTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->boolean('is_active')->default(1);
             $table->string('avatar')->nullable();
+            $table->date('birthday')->nullable();
             $table->string('introduction')->nullable();
         });
     }
@@ -20,6 +21,7 @@ class AddColumnsToUserTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('is_active');
             $table->dropColumn('avatar');
+            $table->dropColumn('birthday');
             $table->dropColumn('introduction');
         });
     }

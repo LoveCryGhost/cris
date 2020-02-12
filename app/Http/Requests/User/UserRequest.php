@@ -34,8 +34,9 @@ class UserRequest extends Request
                         'name' => [
                             'required',
                             Rule::unique('users')->ignore($user->id),
+                            'regex:/^[A-Za-z0-9\-\_]+$/'
                         ],
-                        'birthday' => 'date'
+                        'birthday' => 'date|nullable'
                     ];
                 }
             case 'GET':
@@ -52,6 +53,7 @@ class UserRequest extends Request
         return [
             'name.required' => '用戶名稱不能為空',
             'name.unique' => '用戶名稱不能重複',
+            'name.regex' => '用戶名稱只能為英文字母 與 數字',
             'birthday.date' => '生日須為日期格式'
         ];
     }

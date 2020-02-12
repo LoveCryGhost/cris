@@ -10,21 +10,6 @@ use App\Models\User;
 class UsersController extends UserCoreController
 {
 
-
-    //顯示UserIndex
-    public function index(){
-        return redirect()->back()
-            ->with(['toast'=> [
-                "heading" => "爬蟲任務-創建成功",
-                "text" =>  '',
-                "position" => "bottom-right",
-                "loaderBg" => "#ff6849",
-                "icon" => "info",
-                "hideAfter" => 3000,
-                "stack" => 6
-            ] ]);
-    }
-
     //顯示使用者資料
     public function show(User $user)
     {
@@ -33,6 +18,16 @@ class UsersController extends UserCoreController
 
     public function update(UserRequest $request,User $user)
     {
-        dd($user, $request->all());
+        $user->update($request->all());
+        return redirect()->route('users.show',['user'=>$user->id])
+            ->with('toast', [
+                "heading" => "個人訊息 - 更新成功",
+                "text" =>  '',
+                "position" => "top-right",
+                "loaderBg" => "#ff6849",
+                "icon" => "success",
+                "hideAfter" => 3000,
+                "stack" => 6
+            ]);
     }
 }

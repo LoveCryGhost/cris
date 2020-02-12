@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -18,7 +19,7 @@ class User extends Authenticatable implements MustVerifyEmailContract
      */
     protected $fillable = [
         'name', 'email', 'password',
-        'is_active', 'avatar', 'introduction'
+        'birthday', 'is_active', 'avatar', 'introduction'
     ];
 
     /**
@@ -37,5 +38,11 @@ class User extends Authenticatable implements MustVerifyEmailContract
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'birthday'
     ];
+
+    public function setBirthdayAttribute($value)
+    {
+        $this->attributes['birthday'] =  Carbon::parse($value);
+    }
 }
