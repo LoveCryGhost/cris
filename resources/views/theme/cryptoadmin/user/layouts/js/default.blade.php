@@ -72,7 +72,6 @@
 <script src="http://www.amcharts.com/lib/3/themes/light.js" type="text/javascript"></script>
 
 
-
 {{--<script src="{{asset('js/bootstrap-switch.js')}}"></script>--}}
 
 {{--<script src="{{asset('theme/cryptoadmin/js/pages/amcharts/charts.js')}}" type="text/javascript"></script>--}}
