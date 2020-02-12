@@ -6,7 +6,7 @@
             </a>
         </div>
 
-        <div class="msg_box">您已經登入<button class="tst4 btn btn-danger btn-block mb-15">Danger Message</button></div>
+        <div class="msg_box">您已經登入</div>
 
         <div class="navbar-custom-menu r-side">
             <ul class="nav navbar-nav">
