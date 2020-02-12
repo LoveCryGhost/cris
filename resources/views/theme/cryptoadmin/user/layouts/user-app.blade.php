@@ -27,12 +27,10 @@
                     @include(config('theme.user.header'))
                 @else
                     @include(config('theme.user.header-login'))
+                    @include(config('theme.user.sidebar'))
                 @endguest
                 {{--內容--}}
                 @yield('content')
-
-                @include(config('theme.user.footer'))
-
             </div>
         </body>
     @endsection
@@ -40,6 +38,8 @@
 
     @section('app-content-footer')
         @yield('content-footer')
+        @include(config('theme.user.footer'))
+
     @endsection
 
 

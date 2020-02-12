@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="wrapper">
-    <div class="content-wrapper" style="margin-left: 0px;">
+    <div class="content-wrapper">
         <div class="container-full">
             <!-- Content Header (Page header) -->
             <div class="content-header">

@@ -6,14 +6,14 @@
 
         <div class="user-profile">
             <div class="ulogo">
-                <a href="../index.html">
+                <a href="index.html">
                     <!-- logo for regular state and mobile devices -->
-                    <h3><b>Crypto</b>Admin</h3>
+                    <h3><b>CC</b>Shop</h3>
                 </a>
             </div>
             <div class="profile-pic">
-                <img src="../../images/user5-128x128.jpg" alt="user">
-                <div class="profile-info"><h5 class="mt-15">John Doe</h5>
+                <img src="{{asset('theme/cryptoadmin/images/user5-128x128.jpg')}}" alt="user">
+                <div class="profile-info"><h5 class="mt-15">{{Auth::user()->name}}</h5>
                     <div class="text-center d-inline-block">
                         <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Settings"><i class="ion ion-gear-b"></i></a>
                         <a href="" class="link px-15" data-toggle="tooltip" title="" data-original-title="Email"><i class="ion ion-android-mail"></i></a>
