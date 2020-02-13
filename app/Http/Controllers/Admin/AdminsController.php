@@ -23,7 +23,7 @@ class AdminsController extends AdminCoreController
     public function edit(Admin $admin)
     {
         $this->authorize('update', $admin);
-        return view(config('theme.admin.view').'admin.show', compact('admin'));
+        return view(config('theme.admin.view').'admin.edit', compact('admin'));
     }
 
     public function update(AdminRequest $request,  ImageUploadHandler $uploader,Admin $admin)
@@ -37,7 +37,7 @@ class AdminsController extends AdminCoreController
             }
         }
         $admin->update($data);
-        return redirect()->route('admins.show',['admin'=>$admin->id])
+        return redirect()->route('admin.edit',['admin'=>$admin->id])
             ->with('toast', [
                 "heading" => "個人訊息 - 更新成功",
                 "text" =>  '',

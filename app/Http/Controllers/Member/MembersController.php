@@ -23,7 +23,7 @@ class MembersController extends MemberCoreController
     public function edit(Member $member)
     {
         $this->authorize('update', $member);
-        return view(config('theme.member.view').'member.show', compact('member'));
+        return view(config('theme.member.view').'member.edit', compact('member'));
     }
 
     public function update(MemberRequest $request,  ImageUploadHandler $uploader,Member $member)
@@ -37,7 +37,7 @@ class MembersController extends MemberCoreController
             }
         }
         $member->update($data);
-        return redirect()->route('member.show',['member'=>$member->id])
+        return redirect()->route('member.edit',['member'=>$member->id])
             ->with('toast', [
                 "heading" => "個人訊息 - 更新成功",
                 "text" =>  '',

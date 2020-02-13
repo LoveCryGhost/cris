@@ -21,7 +21,7 @@ class UsersController extends UserCoreController
     public function edit(User $user)
     {
         $this->authorize('update', $user);
-        return view(config('theme.user.view').'user.show', compact('user'));
+        return view(config('theme.user.view').'user.edit', compact('user'));
     }
 
     public function update(UserRequest $request,  ImageUploadHandler $uploader,User $user)
@@ -35,7 +35,7 @@ class UsersController extends UserCoreController
             }
         }
         $user->update($data);
-        return redirect()->route('users.show',['user'=>$user->id])
+        return redirect()->route('users.edit',['user'=>$user->id])
             ->with('toast', [
                 "heading" => "個人訊息 - 更新成功",
                 "text" =>  '',
