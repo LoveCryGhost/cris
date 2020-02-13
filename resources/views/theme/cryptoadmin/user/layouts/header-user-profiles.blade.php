@@ -1,12 +1,12 @@
 <li class="dropdown user user-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="User">
-        <img src="{{asset('theme/cryptoadmin/images/avatar/7.jpg')}}" class="user-image rounded-circle" alt="User Image">
+        <img src="{{ Auth::user()->avatar }}" class="user-image rounded-circle" alt="User Image">
     </a>
     <ul class="dropdown-menu animated flipInX">
         <!-- User image -->
         <li class="user-header bg-img" style="background-image: url({{asset('theme/cryptoadmin/images/user-info.jpg')}})" data-overlay="3">
             <div class="flexbox align-self-center">
-                <img src="{{asset('theme/cryptoadmin/images/avatar/7.jpg')}}" class="float-left rounded-circle" alt="User Image">
+                <img src="{{ Auth::user()->avatar }}" class="float-left rounded-circle" alt="User Image">
                 <h4 class="user-name align-self-center">
                     <span>{{Auth::user()->name}}</span><br>
                     <small>{{Auth::user()->email}}</small><br>
