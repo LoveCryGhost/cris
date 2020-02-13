@@ -21,7 +21,29 @@
             </a>
         </div>
 
-        <div class="msg_box">您已經登入</div>
+        <div class="msg_box">
+            您已經登入
+
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-fill">
+                全1
+            </button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-fill-2">
+                全2
+            </button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-lg">
+                大
+            </button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-md">
+                中
+            </button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-left">
+                左
+            </button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-right">
+                右
+            </button>
+            @include('theme.cryptoadmin.user.layouts.modal.modals')
+        </div>
 
         <div class="navbar-custom-menu r-side">
             <ul class="nav navbar-nav">
