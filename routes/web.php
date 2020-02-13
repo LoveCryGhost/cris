@@ -41,7 +41,6 @@ Route::prefix('')->group(function() {
         Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
         Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
         Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
-        Route::get('/', 'AdminController@index')->name('admin.dashboard');
 
         //Password Reset Route
         Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
@@ -68,10 +67,14 @@ Route::prefix('')->group(function() {
 
 
 
-
+//User
 Route::middleware('auth')->prefix('')->namespace('User')->name('')->group(function(){
-    //Route::resource('profile','UserController');
     Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
+});
+
+//Admin
+Route::prefix('admin')->namespace('Admin')->name('')->group(function(){
+    Route::get('/', 'AdminsController@index')->name('admin.index');
 });
 
 

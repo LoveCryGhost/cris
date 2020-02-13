@@ -6,7 +6,28 @@ return [
 
         'admin' => [
             'tools' => [
-                'guard-switcher'=> $admin_style.'.tools.guard-switcher']
+                'guard-switcher'=> $admin_style.'.tools.guard-switcher'],
+
+            'view' => $admin_style.'.',
+            'admin-app' => $admin_style.'.layouts.admin-app',
+            'header' => $admin_style.'.layouts.header',
+            'header-login' => $admin_style.'.layouts.header-login',
+            'footer' => $admin_style.'.layouts.footer',
+            'sidebar' => $admin_style.'.layouts.sidebar',
+
+            'welcome' => $admin_style.'.welcome',
+            'header-notifications' => $admin_style.'.layouts.header-notifications',
+            'header-admin-profiles' => $admin_style.'.layouts.header-admin-profiles',
+
+            'css' => [
+                'default' => $admin_style.'.layouts.css.default',
+                'toast' => $admin_style.'.layouts.css.toast'
+            ],
+
+            'js' => [
+                'default' =>$admin_style.'.layouts.js.default',
+                'toast' => $admin_style.'.layouts.js.toast',
+            ],
         ],
 
         'user'=> [

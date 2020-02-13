@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7cd3d220-28f1-4b8f-a28a-7b7694a50263" name="Default" comment="" />
+    <list default="true" id="7cd3d220-28f1-4b8f-a28a-7b7694a50263" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminCoreController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/AdminFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_02_12_000000_create_admins_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/AdminsTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/admin-login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/admin/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/admin-app.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/css/default.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/css/toast.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/errors.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/header-admin-profiles.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/header-login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/header-notifications.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/js/default.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/js/toast.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/modal/modal-fill-2.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/modal/modal-fill.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/modal/modal-left.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/modal/modal-lg.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/modal/modal-md.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/modal/modal-right.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/modal/modals.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/navigator.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AdminLoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/AdminLoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/theme.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/theme.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/tools/guard-switcher.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/tools/guard-switcher.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,12 +49,12 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file leaf-file-name="guard-switcher.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/tools/guard-switcher.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="435">
-              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+              <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -26,30 +62,27 @@
       <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="23" column="15" lean-forward="true" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+            <state relative-caret-position="269">
+              <caret line="63" column="19" lean-forward="true" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminLoginController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RedirectIfAuthenticated.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="24" column="57" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminLoginController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AdminLoginController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="570">
+              <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResetPasswordController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="RegisterController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-361" />
           </provider>
         </entry>
       </file>
@@ -76,11 +109,21 @@
       <find>Large</find>
       <find>Overflowing text to show scroll behavior</find>
       <find>App\User</find>
+      <find>$users</find>
+      <find>$user_array</find>
+      <find>$user</find>
+      <find>user</find>
+      <find>Auth::</find>
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>$user</replace>
       <replace>App\Models\User</replace>
+      <replace>$admins</replace>
+      <replace>$admin_array</replace>
+      <replace>$admin</replace>
+      <replace>admin</replace>
+      <replace>Auth::guard('admin')-&gt;</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -92,21 +135,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" />
-        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php" />
-        <option value="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
-        <option value="$PROJECT_DIR$/app/Events/ResetPassword.php" />
-        <option value="$PROJECT_DIR$/app/Listeners/ResetPassword.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/User/UserCoreController.php" />
-        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/sidebar.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/footer.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/welcome.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
-        <option value="$PROJECT_DIR$/../theme/crypto-currency-admin-main-file/HTML/crypto-sass/cryptoadmin-light/pages/member_profile.html" />
-        <option value="$PROJECT_DIR$/../theme/crypto-currency-admin-main-file/HTML/crypto-sass/cryptoadmin-light/pages/forms_advanced.html" />
-        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/js/default.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/errors.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/modal/modal-full-2.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/modal/modal-right.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/modal/modal-full.blade.php" />
@@ -137,12 +165,27 @@
         <option value="$PROJECT_DIR$/config/debugbar.php" />
         <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php" />
-        <option value="$PROJECT_DIR$/config/theme.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/header.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/tools/guard-switcher.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/config/auth.php" />
+        <option value="$PROJECT_DIR$/resources/views/auth/admin-login.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminCoreController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_02_12_000000_create_admins_table.php" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/AdminsTableSeeder.php" />
+        <option value="$PROJECT_DIR$/database/factories/AdminFactory.php" />
+        <option value="$PROJECT_DIR$/app/Models/Admin.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" />
+        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/admin/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/admin-app.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/header-login.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminsController.php" />
+        <option value="$PROJECT_DIR$/config/theme.php" />
+        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/header-admin-profiles.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/tools/guard-switcher.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AdminLoginController.php" />
       </list>
     </option>
   </component>
@@ -344,12 +387,85 @@
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Auth" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
               <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="User" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Middleware" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Requests" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Requests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="User" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Providers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="factories" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="migrations" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="seeds" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
@@ -361,6 +477,13 @@
               <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="auth" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
@@ -385,6 +508,26 @@
               <item name="theme" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="cryptoadmin" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="theme" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="cryptoadmin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="theme" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="cryptoadmin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="layouts" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
@@ -432,7 +575,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="web.php&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;theme.p&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;user-&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php&#10;user-pro&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php&#10;he&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;Controll&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;User&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/User.php&#10;header&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;head&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php&#10;app.ph&#9;FILE&#9;file:///Users/andyjung/www/web/config/app.php&#10;cont&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;show&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/user/show.blade.php&#10;CONTR&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;def&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/js/default.blade.php&#10;user&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php&#10;regis&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/register.blade.php&#10;side&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/sidebar.blade.php&#10;si&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/sidebar.blade.php&#10;them&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;log&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;web&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/welcome.blade.php&#10;we&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/welcome.blade.php&#10;theme&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;regist&#9;FILE&#9;file:///Users/andyjung/www/web/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php&#10;ResetPasswordController&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Auth/ResetPasswordController.php&#10;.e&#9;FILE&#9;file:///Users/andyjung/www/web/.env&#10;email&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/passwords/email.blade.php&#10;login&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/login.blade.php&#10;VerificationController&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Auth/VerificationController.php&#10;EnsureEmailIsVerified&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Middleware/EnsureEmailIsVerified.php&#10;hea&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;js&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/js.blade.php&#10;Ensure&#9;null&#9;null&#10;SendEmailVerificationNotification&#9;null&#9;null&#10;regi&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/register.blade.php&#10;the&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;th&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php" />
+    <property name="SearchEverywhereHistoryKey" value="web&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;them&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;AdminContro&#9;null&#9;null&#10;the&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;we&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;swi&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/tools/guard-switcher.blade.php&#10;head&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php&#10;web.php&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;theme.p&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;user-&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php&#10;user-pro&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php&#10;he&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;Controll&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;User&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/User.php&#10;header&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;app.ph&#9;FILE&#9;file:///Users/andyjung/www/web/config/app.php&#10;cont&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;show&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/user/show.blade.php&#10;CONTR&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;def&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/js/default.blade.php&#10;user&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php&#10;regis&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/register.blade.php&#10;side&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/sidebar.blade.php&#10;si&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/sidebar.blade.php&#10;log&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;theme&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;regist&#9;FILE&#9;file:///Users/andyjung/www/web/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php&#10;ResetPasswordController&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Auth/ResetPasswordController.php&#10;.e&#9;FILE&#9;file:///Users/andyjung/www/web/.env&#10;email&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/passwords/email.blade.php&#10;login&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/login.blade.php&#10;VerificationController&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Auth/VerificationController.php&#10;EnsureEmailIsVerified&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Middleware/EnsureEmailIsVerified.php&#10;hea&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;js&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/js.blade.php&#10;Ensure&#9;null&#9;null&#10;SendEmailVerificationNotification&#9;null&#9;null&#10;regi&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/register.blade.php&#10;th&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -441,18 +584,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin" />
       <recent name="$PROJECT_DIR$/public/images/default/avatars" />
       <recent name="$PROJECT_DIR$/public/images/default" />
       <recent name="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/css" />
       <recent name="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/js" />
-      <recent name="$PROJECT_DIR$/resources/views" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Auth" />
-      <recent name="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/tools" />
-      <recent name="$PROJECT_DIR$/public/uploads/images/avatars" />
-      <recent name="$PROJECT_DIR$/public/images/default/icons" />
-      <recent name="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/modal" />
+      <recent name="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin" />
+      <recent name="$PROJECT_DIR$/database/factories" />
+      <recent name="$PROJECT_DIR$/database/seeds" />
+      <recent name="$PROJECT_DIR$/database/migrations" />
+      <recent name="$PROJECT_DIR$/app/Models" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -483,12 +626,12 @@
       <workItem from="1581343949314" duration="11353000" />
       <workItem from="1581400248079" duration="3295000" />
       <workItem from="1581553732930" duration="6018000" />
-      <workItem from="1581566288103" duration="8540000" />
+      <workItem from="1581566288103" duration="12348000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55797000" />
+    <option name="totallyTimeSpent" value="59605000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -500,7 +643,7 @@
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2732475" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21745351" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32827103" />
@@ -523,7 +666,7 @@
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2732475" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21745351" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -552,213 +695,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../erp/resources/views/theme/cryptoadmin/layouts/member/_errors.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="6" lean-forward="true" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/UserCoreController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/EmailVerified.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="37" column="9" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="37" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/errors.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/modal/modal-right.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="18" lean-forward="true" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../erp/resources/views/theme/cryptoadmin/layouts/modals/modal_fill_1.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" lean-forward="true" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/common.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="124" column="18" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/modal/modal-fill-2.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../theme/crypto-currency-admin-main-file/HTML/crypto-sass/cryptoadmin-light/pages/component_modals.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="1266" column="21" lean-forward="true" selection-start-line="1266" selection-start-column="21" selection-end-line="1266" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/modal/modal-lg.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="35" lean-forward="true" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/modal/modal-fill.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/modal/modal-left.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="71" selection-start-line="6" selection-start-column="71" selection-end-line="6" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/modal/modal-md.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="62" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/modal/modals.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../article/resources/views/backend/products/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="60" column="32" lean-forward="true" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/images.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/js/toast.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../erp/database/temp/2019_12_20_095957_create_web_shop_categories_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="24" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/uploads/images/avatars/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="11" lean-forward="true" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/user/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="20" column="121" selection-start-line="20" selection-start-column="121" selection-end-line="20" selection-end-column="121" />
-          <folding>
-            <element signature="e#1744#1768#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/User/UserRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="749">
-          <caret line="59" column="59" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/uploads/images/avatars/202002/13/1_1581578141_HkByNxmVKM.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Policies/UserPolicy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-          <folding>
-            <element signature="e#32#52#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="4" selection-start-column="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/UsersTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="37" column="27" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="37" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-          <folding>
-            <element signature="e#47#83#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding>
-            <element signature="e#30#48#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/debugbar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -766,24 +702,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_02_09_000000_add_columns_to_user_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="44" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="20" column="36" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="27" column="44" selection-start-line="25" selection-start-column="8" selection-end-line="27" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -804,13 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/theme.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -842,13 +757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/tools/guard-switcher.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../erp/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="413">
@@ -863,13 +771,6 @@
           <folding>
             <element signature="e#23#96#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="23" column="15" lean-forward="true" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -894,19 +795,227 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AdminLoginController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="165">
+          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Authenticate.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/CheckForMaintenanceMode.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/EnsureEmailIsVerified.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-361" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminCoreController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_02_09_000000_add_columns_to_user_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="55" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="14" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_02_12_000000_create_admins_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/admin-login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#30#48#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/UsersTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="37" column="27" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="37" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="27" column="44" selection-start-line="25" selection-start-column="8" selection-end-line="27" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/factories/AdminFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/AdminsTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#7#28#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/navigator.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/header-notifications.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-252" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/footer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#style#0;n#footer#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/js/toast.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="29" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/header-login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="59" column="57" selection-start-line="59" selection-start-column="57" selection-end-line="59" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/admin-app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/admin/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="34" selection-start-column="34" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/header-admin-profiles.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="12" column="62" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
+          <folding>
+            <element signature="n#style#0;n#li#0;n#ul#0;n#li#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#li#1;n#ul#0;n#li#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/theme.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/tools/guard-switcher.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="63" column="19" lean-forward="true" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="24" column="57" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AdminLoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
+        </state>
       </provider>
     </entry>
   </component>

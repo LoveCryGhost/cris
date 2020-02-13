@@ -22,13 +22,13 @@ class RedirectIfAuthenticated
 
             case "admin":
                 if(Auth::guard($guard)->check()){
-                    return redirect()->route('admin.dashboard');
+                    return redirect()->route('admin.index');
                 }
                 break;
 
             case "member":
                 if(Auth::guard($guard)->check()){
-                    return redirect()->route('member.dashboard');
+                    return redirect()->route('member.index');
                 }
                 break;
 

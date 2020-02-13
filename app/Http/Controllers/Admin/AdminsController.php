@@ -1,21 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\User;
-
-
+namespace App\Http\Controllers\Admin;
 
 use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\User\UserRequest;
 use App\Models\User;
 
-class UsersController extends AdminCoreController
+class AdminsController extends AdminCoreController
 {
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
+    //Dashboard
+    public function index(){
+        return view(config('theme.admin.view').'admin.index', compact(''));
+    }
 
     //顯示使用者資料
     public function edit(User $user)

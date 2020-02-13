@@ -22,7 +22,7 @@
         </div>
 
         <div class="msg_box">
-            您已經登入為 - User
+            您已經登入 - Admin
 
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-fill">
                 全1
@@ -42,7 +42,7 @@
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-right">
                 右
             </button>
-            @include('theme.cryptoadmin.user.layouts.modal.modals')
+            @include('theme.cryptoadmin.admin.layouts.modal.modals')
         </div>
 
         <div class="navbar-custom-menu r-side">
@@ -54,10 +54,10 @@
                 </li>
 
                 {{--消息通知--}}
-                @include(config('theme.user.header-notifications'))
+                @include(config('theme.admin.header-notifications'))
 
                 {{--使用者資料--}}
-                @include(config('theme.user.header-user-profiles'))
+                @include(config('theme.admin.header-admin-profiles'))
 
                 {{--Guard-Switcher--}}
                 @include(config('theme.admin.tools.guard-switcher'))
