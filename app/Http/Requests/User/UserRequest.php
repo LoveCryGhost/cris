@@ -36,7 +36,8 @@ class UserRequest extends Request
                             Rule::unique('users')->ignore($user->id),
                             'regex:/^[A-Za-z0-9\-\_]+$/'
                         ],
-                        'birthday' => 'date|nullable'
+                        'birthday' => 'date|nullable',
+                        'avatar' => 'mimes:jpeg,bmp,png,gif|dimensions:min_width=208,min_height=208',
                     ];
                 }
             case 'GET':
@@ -54,7 +55,9 @@ class UserRequest extends Request
             'name.required' => '用戶名稱不能為空',
             'name.unique' => '用戶名稱不能重複',
             'name.regex' => '用戶名稱只能為英文字母 與 數字',
-            'birthday.date' => '生日須為日期格式'
+            'birthday.date' => '生日須為日期格式',
+            'avatar.mimes' =>'頭像必須是 jpeg, bmp, png, gif 的圖片格式',
+            'avatar.dimensions' => '圖片清晰度不夠，長寬必須達到 208px 以上',
         ];
     }
 }
