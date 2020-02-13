@@ -13,6 +13,7 @@ class AddColumnsToUserTable extends Migration
             $table->string('avatar')->nullable();
             $table->date('birthday')->nullable();
             $table->string('introduction')->nullable();
+
         });
     }
 

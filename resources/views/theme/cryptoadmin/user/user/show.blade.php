@@ -18,7 +18,7 @@
 
             <!-- Main content -->
             <section class="content">
-                <form method="post" action="{{route('users.update', ['user'=>$user->id])}}">
+                <form method="post" action="{{route('users.update', ['user'=>$user->id])}}" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="row">
@@ -30,7 +30,12 @@
                             <!-- Profile Image -->
                             <div class="box bg-warning bg-deathstar-dark">
                                 <div class="box-body box-profile">
-                                    <img class="rounded img-fluid mx-auto d-block max-w-150" src="{{asset('theme/cryptoadmin/images/5.jpg')}}" alt="User profile picture">
+                                    <div class="img-preview-frame text-center" >
+                                        <input type="file" name="avatar" id="avatar"  onchange="showPreview(this,['avatar_img'])" style="display: none;"/>
+                                        <label for="avatar">
+                                            <img id="avatar_img" class="rounded img-fluid mx-auto d-block max-w-150" style="cursor: pointer;" src="{{$user->avatar? asset($user->avatar):asset('theme/cryptoadmin/images/2.jpg')}}" width="200px">
+                                        </label>
+                                    </div>
 
                                     <h2 class="profile-username text-center mb-0">{{$user->name}}</h2>
 
@@ -114,5 +119,10 @@
 
         </div>
 @stop
+
+@section('js')
+@parent
+<script src="{{asset('js/images.js')}}"></script>
+@endsection
 
 

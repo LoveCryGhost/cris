@@ -12,11 +12,7 @@ class UsersTableSeeder extends Seeder
 
         // 头像假数据
         $avatars = [
-            '/images/default/icons/avatars/avatar_big_1.jpeg',
-            '/images/default/icons/avatars/avatar_big_2.jpeg',
-            '/images/default/icons/avatars/avatar_big_3.jpeg',
-            '/images/default/icons/avatars/avatar_big_4.jpeg',
-            '/images/default/icons/avatars/avatar_big_5.jpeg',
+            '/images/default/avatars/avatar.jpg',
         ];
 
         // 生成数据集合
@@ -39,7 +35,7 @@ class UsersTableSeeder extends Seeder
         $user = User::find(1);
         $user->name = 'user';
         $user->email = 'user@app.com';
-        $user->avatar = '/images/default/icons/avatars/avatar_big_1.jpeg';
+        $user->avatar = '/images/default/avatars/avatar.jpg';
         $user->save();
 
     }

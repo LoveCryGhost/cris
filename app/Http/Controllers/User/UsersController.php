@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 
 
+use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\User\UserRequest;
 use App\Models\User;
 
@@ -16,9 +17,17 @@ class UsersController extends UserCoreController
         return view(config('theme.user.view').'user.show', compact('user'));
     }
 
-    public function update(UserRequest $request,User $user)
+    public function update(UserRequest $request,  ImageUploadHandler $uploader,User $user)
     {
-        $user->update($request->all());
+
+        $data = $request->all();
+        if($request->avatar) {
+            $result = $uploader->save($request->avatar, 'avatars', $user->id);
+            if ($result) {
+                $data['avatar'] = $result['path'];
+            }
+        }
+        $user->update($data);
         return redirect()->route('users.show',['user'=>$user->id])
             ->with('toast', [
                 "heading" => "個人訊息 - 更新成功",
