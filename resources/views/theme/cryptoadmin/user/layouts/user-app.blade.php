@@ -10,7 +10,7 @@
 @section('css')
     @parent
     @yield('css')
-    @include(config('theme.user.css'))
+    @include(config('theme.user.css.default'))
 @endsection
 
 
@@ -25,15 +25,15 @@
             <div id="app">
                 @guest
                     @include(config('theme.user.header'))
-
                 @else
                     @include(config('theme.user.header-login'))
                 @endguest
                 {{--內容--}}
-                @yield('content')
-
-                @include(config('theme.user.footer'))
-
+                <div class="wrapper">
+                    <div class="content-wrapper" style="margin-left: 0px;">
+                        @yield('content')
+                    </div>
+                </div>
             </div>
         </body>
     @endsection
@@ -41,6 +41,8 @@
 
     @section('app-content-footer')
         @yield('content-footer')
+        @include(config('theme.user.footer'))
+
     @endsection
 
 
@@ -51,4 +53,4 @@
 @endsection
 
 {{--Footer--}}
-@include(config('theme.user.js'))
+@include(config('theme.user.js.default'))

@@ -37,7 +37,7 @@
                         <!-- /.col -->
                         <div class="col-6">
                             <div class="fog-pwd">
-                                <a href="javascript:void(0)"><i class="ion ion-locked"></i> 忘記密碼 ?</a><br>
+                                <a href="{{route('password.request')}}"><i class="ion ion-locked"></i> 忘記密碼 ?</a><br>
                             </div>
                         </div>
                         <!-- /.col -->
@@ -60,7 +60,7 @@
                 <!-- /.social-auth-links -->
 
                 <div class="margin-top-30 text-center text-dark">
-                    <p>不是會員?   <a href="auth_register.html" class="text-info ml-20">註冊</a></p>
+                    <p>不是會員?   <a href="{{route('register')}}" class="text-info ml-20">註冊</a></p>
                 </div>
 
             </div>

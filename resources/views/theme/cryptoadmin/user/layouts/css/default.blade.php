@@ -3,6 +3,8 @@
 <!-- Bootstrap 4.0-->
 <link rel="stylesheet" href="{{asset('theme/cryptoadmin/vendor_components/bootstrap/dist/css/bootstrap.css')}}">
 
+
+@include(config('theme.user.css.toast'))
 <!--amcharts -->
 <link href="https://www.amcharts.com/lib/3/plugins/export/export.css" rel="stylesheet" type="text/css" />
 
@@ -14,9 +16,6 @@
 
 <!-- Crypto Admin skins -->
 <link rel="stylesheet" href="{{asset('theme/cryptoadmin/css/skin_color.css')}}">
-
-<!-- toast CSS -->
-{{--<link href="{{asset('theme/cryptoadmin/vendor_components/jquery-toast-plugin-master/src/jquery.toast.css')}}" rel="stylesheet">--}}
 
 <!-- Pace style -->
 <link rel="stylesheet" href="{{asset('theme/cryptoadmin/vendor_plugins/pace/pace.min.css')}}">
@@ -33,4 +32,4 @@
 <!--amcharts -->
 <link href="https://www.amcharts.com/lib/3/plugins/export/export.css" rel="stylesheet" type="text/css" />
 
-<link rel="stylesheet" href="{{asset('css/bootstrap-switch.css')}}">
+{{--<link rel="stylesheet" href="{{asset('css/bootstrap-switch.css')}}">--}}
