@@ -58,6 +58,9 @@
 
                 {{--使用者資料--}}
                 @include(config('theme.user.header-user-profiles'))
+
+                {{--Guard-Switcher--}}
+                @include(config('theme.admin.tools.guard-switcher'))
             </ul>
         </div>
     </nav>

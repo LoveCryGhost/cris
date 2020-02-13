@@ -1,7 +1,13 @@
 <?php
 
+$admin_style = 'theme.cryptoadmin.admin';
 $user_style='theme.cryptoadmin.user';
 return [
+
+        'admin' => [
+            'tools' => [
+                'guard-switcher'=> $admin_style.'.tools.guard-switcher']
+        ],
 
         'user'=> [
 

@@ -26,12 +26,17 @@
                     </div>
                 </li>
                 <!-- Messages -->
-                <li>
-                    <a href="{{route('login')}}"  title="登入">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="{{route('login')}}"  title="登入">
                         <i class="mdi mdi-login-variant"></i>
                     </a>
                 </li>
+
+                {{--Guard-Switcher--}}
+                @include(config('theme.admin.tools.guard-switcher'))
             </ul>
         </div>
+
+
     </nav>
 </header>
