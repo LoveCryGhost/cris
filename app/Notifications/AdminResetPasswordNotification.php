@@ -44,7 +44,7 @@ class AdminResetPasswordNotification extends Notification
     {
         return (new MailMessage)
                     ->line('Admin Reset Password.')
-                    ->action('Notification Action', route('admin.password.reset', $this->token))
+                    ->action('Notification Action', route('admin.password.reset', ['token'=>$this->token,'email' => $notifiable->getEmailForPasswordReset()]))
                     ->line('Thank you for using our application!');
     }
 
