@@ -15,7 +15,7 @@ class MemberLoginController extends Controller
     }
 
 
-    // admin/login to show the login form
+    // member/login to show the login form
     public function showLoginForm()
     {
         return view('auth.member-login');
@@ -30,7 +30,7 @@ class MemberLoginController extends Controller
             "password" => "required|min:6"
         ]);
 
-        //attempt to log the admin in
+        //attempt to log the member in
         $credentials = [
             "email" => $request->email,
             "password" => $request->password

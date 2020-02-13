@@ -37,7 +37,7 @@
                         <!-- /.col -->
                         <div class="col-6">
                             <div class="fog-pwd">
-                                <a href="{{route('admin.password.request')}}"><i class="ion ion-locked"></i> 忘記密碼 ?</a><br>
+                                <a href="{{route('member.password.request')}}"><i class="ion ion-locked"></i> 忘記密碼 ?</a><br>
                             </div>
                         </div>
                         <!-- /.col -->

@@ -56,10 +56,10 @@ Route::prefix('')->group(function() {
         Route::post('/logout', 'Auth\MemberLoginController@logout')->name('member.logout');
 
         //Password Reset Route
-//        Route::post('/password/email', 'Auth\MemberForgotPasswordController@sendResetLinkEmail')->name('member.password.email');
-//        Route::get('/password/reset', 'Auth\MemberForgotPasswordController@showRequestForm')->name('member.password.request');
-//        Route::post('/password/reset', 'Auth\MemberResetPasswordController@reset')->name('member.password.update');
-//        Route::get('/password/reset/{token}', 'Auth\MemberResetPasswordController@showResetForm')->name('member.password.reset');
+        Route::post('/password/email', 'Auth\MemberForgotPasswordController@sendResetLinkEmail')->name('member.password.email');
+        Route::get('/password/reset', 'Auth\MemberForgotPasswordController@showRequestForm')->name('member.password.request');
+        Route::post('/password/reset', 'Auth\MemberResetPasswordController@reset')->name('member.password.update');
+        Route::get('/password/reset/{token}', 'Auth\MemberResetPasswordController@showResetForm')->name('member.password.reset');
     });
 });
 

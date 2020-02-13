@@ -1,4 +1,4 @@
-@extends(config('theme.admin.admin-app'))
+@extends(config('theme.member.member-app'))
 
 @section('title','忘記-密碼')
 
@@ -15,14 +15,14 @@
             </div>
             <!-- /.login-logo -->
             <div class="auth-body">
-                <p class="auth-msg text-black-50">Admin - 重置密碼</p>
+                <p class="auth-msg text-black-50">Member - 重置密碼</p>
                 @if (session('status'))
                     <div class="alert alert-success text-center" role="alert">
                         {{ __('密碼重置郵件已經發送至您的指定信箱!') }}
                     </div>
                 @endif
 
-                <form action="{{ route('admin.password.email') }}" method="post" class="form-element">
+                <form action="{{ route('member.password.email') }}" method="post" class="form-element">
                     @csrf
 
                     {{--驗證碼--}}
