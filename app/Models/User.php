@@ -45,4 +45,13 @@ class User extends Authenticatable implements MustVerifyEmailContract
     {
         $this->attributes['birthday'] =  Carbon::parse($value);
     }
+
+
+    public function getAvatarAttribute($value)
+    {
+        if (empty($value)) {
+            return '/images/default/avatars/avatar.jpg';
+        }
+        return $value;
+    }
 }
