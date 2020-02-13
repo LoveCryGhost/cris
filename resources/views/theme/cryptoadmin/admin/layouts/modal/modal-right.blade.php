@@ -12,10 +12,6 @@
                 <p>Your content comes hereleft</p>
 
             </div>
-            {{--<div class="modal-footer modal-footer-uniform">--}}
-            {{--<button type="button" class="btn btn-rounded btn-secondary" data-dismiss="modal">Close</button>--}}
-            {{--<button type="button" class="btn btn-rounded btn-primary float-right">Save changes</button>--}}
-            {{--</div>--}}
         </div>
     </div>
 </div>

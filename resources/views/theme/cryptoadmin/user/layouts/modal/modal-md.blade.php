@@ -14,7 +14,5 @@
                 <button type="button" class="btn btn-info btn-rounded" data-dismiss="modal">Close</button>
             </div>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>

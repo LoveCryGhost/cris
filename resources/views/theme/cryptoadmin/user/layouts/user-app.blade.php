@@ -23,7 +23,7 @@
     @section('app-content')
         <body class="hold-transition light-skin dark-sidebar sidebar-mini theme-yellow sidebar-collapse">
             <div id="app">
-                @guest
+                @guest('web')
                     @include(config('theme.user.header'))
                 @else
                     @include(config('theme.user.header-login'))
