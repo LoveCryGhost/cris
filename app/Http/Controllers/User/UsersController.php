@@ -8,7 +8,7 @@ use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\User\UserRequest;
 use App\Models\User;
 
-class UsersController extends AdminCoreController
+class UsersController extends UserCoreController
 {
 
     public function __construct()

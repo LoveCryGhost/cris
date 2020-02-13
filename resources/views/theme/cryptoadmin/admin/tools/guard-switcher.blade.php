@@ -20,7 +20,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/">
+                    <a href="{{route('member.login')}}">
                         <i class="fa fa-users text-primary"></i>Member
                         @if(Auth::guard('member')->check())
                             <span class="badge badge-pill badge-success">On</span>

@@ -1,8 +1,34 @@
 <?php
 
-$admin_style = 'theme.cryptoadmin.admin';
 $user_style='theme.cryptoadmin.user';
+$admin_style = 'theme.cryptoadmin.admin';
+$member_style = 'theme.cryptoadmin.member';
 return [
+
+        'user'=> [
+
+            'view' => $user_style.'.',
+
+            'user-app' => $user_style.'.layouts.user-app',
+            'header' => $user_style.'.layouts.header',
+            'header-login' => $user_style.'.layouts.header-login',
+            'footer' => $user_style.'.layouts.footer',
+            'sidebar' => $user_style.'.layouts.sidebar',
+
+            'welcome' => $user_style.'.welcome',
+            'header-notifications' => $user_style.'.layouts.header-notifications',
+            'header-user-profiles' => $user_style.'.layouts.header-user-profiles',
+
+            'css' => [
+                'default' => $user_style.'.layouts.css.default',
+                'toast' => $user_style.'.layouts.css.toast'
+            ],
+
+            'js' => [
+                'default' =>$user_style.'.layouts.js.default',
+                'toast' => $user_style.'.layouts.js.toast',
+            ],
+        ],
 
         'admin' => [
             'tools' => [
@@ -30,28 +56,28 @@ return [
             ],
         ],
 
-        'user'=> [
+        'member'=> [
 
-            'view' => $user_style.'.',
+            'view' => $member_style.'.',
 
-            'user-app' => $user_style.'.layouts.user-app',
-            'header' => $user_style.'.layouts.header',
-            'header-login' => $user_style.'.layouts.header-login',
-            'footer' => $user_style.'.layouts.footer',
-            'sidebar' => $user_style.'.layouts.sidebar',
+            'member-app' => $member_style.'.layouts.member-app',
+            'header' => $member_style.'.layouts.header',
+            'header-login' => $member_style.'.layouts.header-login',
+            'footer' => $member_style.'.layouts.footer',
+            'sidebar' => $member_style.'.layouts.sidebar',
 
-            'welcome' => $user_style.'.welcome',
-            'header-notifications' => $user_style.'.layouts.header-notifications',
-            'header-user-profiles' => $user_style.'.layouts.header-user-profiles',
+            'welcome' => $member_style.'.welcome',
+            'header-notifications' => $member_style.'.layouts.header-notifications',
+            'header-member-profiles' => $member_style.'.layouts.header-member-profiles',
 
             'css' => [
-                'default' => $user_style.'.layouts.css.default',
-                'toast' => $user_style.'.layouts.css.toast'
+                'default' => $member_style.'.layouts.css.default',
+                'toast' => $member_style.'.layouts.css.toast'
                 ],
 
             'js' => [
-                'default' =>$user_style.'.layouts.js.default',
-                'toast' => $user_style.'.layouts.js.toast',
+                'default' =>$member_style.'.layouts.js.default',
+                'toast' => $member_style.'.layouts.js.toast',
             ],
         ]
     ];

@@ -1,6 +1,6 @@
-@extends(config('theme.user.user-app'))
+@extends(config('theme.member.member-app'))
 
-@section('title','用戶-登入')
+@section('title','Member-登入')
 
 
 {{--清空--}}
@@ -9,15 +9,15 @@
 @section('content-header')
     <body class="hold-transition theme-yellow bg-img" data-overlay="3">
     <div class="auth-2-outer row align-items-center h-p100 m-0">
-        <div class="auth-2 bg-primary">
+        <div class="auth-2 badge-success">
             <div class="auth-logo font-size-30">
                 <a href="/" class="text-dark">主 頁</a>
             </div>
             <!-- /.login-logo -->
             <div class="auth-body">
-                <p class="auth-msg text-black-50">Admin - 登入 - 可享會員福利</p>
+                <p class="auth-msg text-black-50">Member 登入 - 可享會員福利</p>
 
-                <form action="{{route('admin.login.submit')}}" method="post" class="form-element">
+                <form action="{{route('member.login.submit')}}" method="post" class="form-element">
                     @csrf
                     <div class="form-group has-feedback">
                         <input type="email" class="form-control" name="email" required placeholder="Email" value="{{ old('email')}}">

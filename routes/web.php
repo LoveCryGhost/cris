@@ -41,7 +41,6 @@ Route::prefix('')->group(function() {
         Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
         Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
         Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
-
         //Password Reset Route
         Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
         Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showRequestForm')->name('admin.password.request');
@@ -55,13 +54,12 @@ Route::prefix('')->group(function() {
         Route::get('/login', 'Auth\MemberLoginController@showLoginForm')->name('member.login');
         Route::post('/login', 'Auth\MemberLoginController@login')->name('member.login.submit');
         Route::post('/logout', 'Auth\MemberLoginController@logout')->name('member.logout');
-        Route::get('/', 'MemberController@index')->name('member.dashboard');
 
         //Password Reset Route
-        Route::post('/password/email', 'Auth\MemberForgotPasswordController@sendResetLinkEmail')->name('member.password.email');
-        Route::get('/password/reset', 'Auth\MemberForgotPasswordController@showRequestForm')->name('member.password.request');
-        Route::post('/password/reset', 'Auth\MemberResetPasswordController@reset')->name('member.password.update');
-        Route::get('/password/reset/{token}', 'Auth\MemberResetPasswordController@showResetForm')->name('member.password.reset');
+//        Route::post('/password/email', 'Auth\MemberForgotPasswordController@sendResetLinkEmail')->name('member.password.email');
+//        Route::get('/password/reset', 'Auth\MemberForgotPasswordController@showRequestForm')->name('member.password.request');
+//        Route::post('/password/reset', 'Auth\MemberResetPasswordController@reset')->name('member.password.update');
+//        Route::get('/password/reset/{token}', 'Auth\MemberResetPasswordController@showResetForm')->name('member.password.reset');
     });
 });
 
@@ -73,14 +71,13 @@ Route::middleware('auth')->prefix('')->namespace('User')->name('')->group(functi
 });
 
 //Admin
-Route::prefix('admin')->namespace('Admin')->name('')->group(function(){
-    Route::get('/', 'AdminsController@index')->name('admin.index');
+Route::prefix('')->namespace('Admin')->name('')->group(function(){
+    Route::resource('admin', 'AdminsController');
 });
 
-
-
-Route::get('/test', function () {
-    dd(config('app.url'));
+//Member
+Route::prefix('')->namespace('Member')->group(function(){
+    Route::resource('member', 'MembersController');
 });
 
 
