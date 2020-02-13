@@ -35,6 +35,7 @@
                                     <h2 class="profile-username text-center mb-0">{{$user->name}}</h2>
 
                                     <h4 class="text-center mt-0"><i class="fa fa-envelope-o mr-10"></i>{{$user->email}}</h4>
+                                    <h5 class="text-center mt-0">加入時間 : {{$user->created_at->diffForHumans()}}</h5>
                                     <div class="row social-states">
                                         <div class="col-6 text-right"><a href="#" class="link text-white"><i class="ion ion-ios-people-outline"></i> 254</a></div>
                                         <div class="col-6 text-left"><a href="#" class="link text-white"><i class="ion ion-images"></i> 54</a></div>

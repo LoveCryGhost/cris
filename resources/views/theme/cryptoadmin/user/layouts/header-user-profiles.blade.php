@@ -9,7 +9,8 @@
                 <img src="{{asset('theme/cryptoadmin/images/avatar/7.jpg')}}" class="float-left rounded-circle" alt="User Image">
                 <h4 class="user-name align-self-center">
                     <span>{{Auth::user()->name}}</span><br>
-                    <small>{{Auth::user()->email}}</small>
+                    <small>{{Auth::user()->email}}</small><br>
+                    <small>加入時間 : {{Auth::user()->created_at->diffForHumans()}}</small>
                 </h4>
             </div>
         </li>

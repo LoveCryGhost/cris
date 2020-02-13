@@ -31,5 +31,5 @@ class UsersController extends UserCoreController
             ]);
     }
 
-    
+
 }
