@@ -2,7 +2,7 @@
 namespace App\Rules;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
-class CurrentPassword implements Rule
+class CurrentPasswordRule implements Rule
 {
     /**
      * Determine if the validation rule passes.

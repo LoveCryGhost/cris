@@ -58,7 +58,8 @@ class AdminMembersController extends AdminCoreController
         $this->validate($request, [
             'new_password' => ['required', 'string', 'min:8', 'confirmed'],
         ],[
-            'new_password.min' => '密碼最少為8位數字',
+            'new_password.required' => '新密碼不能為空 且 最少為8位數字',
+            'new_password.min' => '新密碼不能為空 且 最少為8位數字',
             'new_password.confirmed' => '密碼必須一致',
         ]);
 

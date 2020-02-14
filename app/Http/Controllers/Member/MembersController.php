@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Member;
 use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\Member\MemberRequest;
 use App\Models\Member;
-use App\Rules\CurrentPassword;
+use App\Rules\CurrentPasswordRule;
 use App\Services\Member\MemberService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -64,7 +64,7 @@ class MembersController extends MemberCoreController
 
         //驗證
         $this->validate($request, [
-            'old_password' => ['required', new CurrentPassword()],
+            'old_password' => ['required', new CurrentPasswordRule()],
             'new_password' => ['required', 'string', 'min:8', 'confirmed'],
         ],[
             'old_password.required' => '舊密碼不能為空',
