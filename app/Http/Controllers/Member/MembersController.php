@@ -26,7 +26,7 @@ class MembersController extends MemberCoreController
         return view(config('theme.member.view').'member.edit', compact('member'));
     }
 
-    public function update(MemberRequest $request,  ImageUploadHandler $uploader,Member $member)
+    public function update(MemberRequest $request, ImageUploadHandler $uploader, Member $member)
     {
         $this->authorize('update', $member);
         $data = $request->all();

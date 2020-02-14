@@ -18,7 +18,7 @@ return [
             'welcome' => $user_style.'.welcome',
             'header-notifications' => $user_style.'.layouts.header-notifications',
             'header-user-profiles' => $user_style.'.layouts.header-user-profiles',
-
+             'errors' => $user_style.'.layouts.errors',
             'css' => [
                 'default' => $user_style.'.layouts.css.default',
                 'toast' => $user_style.'.layouts.css.toast'
@@ -44,7 +44,7 @@ return [
             'welcome' => $admin_style.'.welcome',
             'header-notifications' => $admin_style.'.layouts.header-notifications',
             'header-admin-profiles' => $admin_style.'.layouts.header-admin-profiles',
-
+            'errors' => $admin_style.'.layouts.errors',
             'css' => [
                 'default' => $admin_style.'.layouts.css.default',
                 'toast' => $admin_style.'.layouts.css.toast'
@@ -69,7 +69,7 @@ return [
             'welcome' => $member_style.'.welcome',
             'header-notifications' => $member_style.'.layouts.header-notifications',
             'header-member-profiles' => $member_style.'.layouts.header-member-profiles',
-
+            'errors' => $member_style.'.layouts.errors',
             'css' => [
                 'default' => $member_style.'.layouts.css.default',
                 'toast' => $member_style.'.layouts.css.toast'

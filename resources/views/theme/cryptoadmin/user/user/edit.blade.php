@@ -23,7 +23,7 @@
                     @method('put')
                     <div class="row">
                         <div class="col-xl-12 col-lg-12">
-                            @include('theme.cryptoadmin.user.layouts.errors')
+                            @include(config('theme.user.view').'layouts.errors')
                         </div>
                         {{--個人照片--}}
                         <div class="col-xl-4 col-lg-5">

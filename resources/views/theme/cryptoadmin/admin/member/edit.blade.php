@@ -1,4 +1,4 @@
-@extends(config('theme.member.member-app'))
+@extends(config('theme.admin.admin-app'))
 
 @section('title','個人訊息')
 
@@ -18,12 +18,12 @@
 
             <!-- Main content -->
             <section class="content">
-                <form method="post" action="{{route('member.update', ['member'=>$member->id])}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('admin.member.update', ['member'=>$member->id])}}" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="row">
                         <div class="col-xl-12 col-lg-12">
-                            @include(config('theme.member.view').'layouts.errors')
+                            @include(config('theme.admin.view').'layouts.errors')
                         </div>
                         {{--個人照片--}}
                         <div class="col-xl-4 col-lg-5">
