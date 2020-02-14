@@ -111,9 +111,59 @@
 
                             </div>
                         </div>
-
                     </div>
                 </form>
+                {{--更改密碼--}}
+                <form method="post" action="{{route('member.update_password', ['member'=>$member->id])}}" >
+                    @csrf
+                    @method('put')
+                    <div class="row">
+                        <div class="col-xl-8 offset-xl-4 col-lg-8 offset-lg-4">
+                            <div class="box box-solid box-inverse box-dark">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">密碼</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">舊密碼</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text" name="old_password" placeholder="新密碼" >
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">新密碼</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text" name="new_password" placeholder="新密碼" >
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">再次確認密碼</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text" name="new_password_confirmation" placeholder="再次確認密碼" >
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label"></label>
+                                                <div class="col-sm-10">
+                                                    <button type="submit" class="btn btn-warning">提交訊息</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
             </section>
             <!-- /.content -->
 

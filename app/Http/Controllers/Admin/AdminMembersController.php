@@ -4,14 +4,22 @@ namespace App\Http\Controllers\Admin;
 
 use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\Admin\AdminMemberRequest;
-use App\Models\Member;
 
+use App\Models\Member;
+use App\Services\Member\MemberService;
+use Illuminate\Http\Request;
+
+/**
+
+ */
 class AdminMembersController extends AdminCoreController
 {
 
-    public function __construct()
+    protected $memberService;
+    public function __construct(MemberService $memberService)
     {
         $this->middleware('auth:admin');
+        $this->memberService = $memberService;
     }
 
     //Dashboard
@@ -26,16 +34,41 @@ class AdminMembersController extends AdminCoreController
 
     public function update(AdminMemberRequest $request , ImageUploadHandler $uploader, Member $member){
         $data = $request->all();
-        if($request->avatar) {
-            $result = $uploader->save($request->avatar, 'avatars', $member->id, 416);
-            if ($result) {
-                $data['avatar'] = $result['path'];
-            }
-        }
+
+        $data = $this->memberService->save_avatar($data, $member,$request, $uploader);
+
+
         $member->update($data);
         return redirect()->route('admin.member.index')
             ->with('toast', [
                 "heading" => "個人訊息 - 更新成功",
+                "text" =>  '',
+                "position" => "top-right",
+                "loaderBg" => "#ff6849",
+                "icon" => "success",
+                "hideAfter" => 3000,
+                "stack" => 6
+            ]);
+    }
+
+    //更新密碼
+    public function update_password(Request $request, Member $member)
+    {
+        //驗證
+        $this->validate($request, [
+            'new_password' => ['required', 'string', 'min:8', 'confirmed'],
+        ],[
+            'new_password.min' => '密碼最少為8位數字',
+            'new_password.confirmed' => '密碼必須一致',
+        ]);
+
+        $data = $request->all();
+        $data = $this->memberService->save_change_password($data, $member,$request);
+
+        $member->update($data);
+        return redirect()->route('admin.member.edit', ['member'=> $member->id])
+            ->with('toast', [
+                "heading" => "Member 密碼 - 更新成功",
                 "text" =>  '',
                 "position" => "top-right",
                 "loaderBg" => "#ff6849",
