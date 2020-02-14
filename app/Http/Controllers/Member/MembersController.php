@@ -5,38 +5,43 @@ namespace App\Http\Controllers\Member;
 use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\Member\MemberRequest;
 use App\Models\Member;
+use App\Services\Member\MemberService;
+
 
 class MembersController extends MemberCoreController
 {
 
-    public function __construct()
+    protected $memberService;
+    public function __construct(MemberService $memberService)
     {
         $this->middleware('auth:member');
+        $this->memberService = $memberService;
     }
 
     //Dashboard
     public function index(){
         return view(config('theme.member.view').'member.index', compact(''));
     }
-
-    //顯示使用者資料
+    
     public function edit(Member $member)
     {
         $this->authorize('update', $member);
         return view(config('theme.member.view').'member.edit', compact('member'));
     }
 
-    public function update(MemberRequest $request, ImageUploadHandler $uploader, Member $member)
+
+
+    public function update(MemberRequest $request, Member $member, ImageUploadHandler $uploader)
     {
         $this->authorize('update', $member);
+
+        //取得參數
         $data = $request->all();
-        if($request->avatar) {
-            $result = $uploader->save($request->avatar, 'avatars', $member->id, 416);
-            if ($result) {
-                $data['avatar'] = $result['path'];
-            }
-        }
+
+        $data = $this->memberService->save_avatar($data, $member, $request, $uploader);
+
         $member->update($data);
+
         return redirect()->route('member.edit',['member'=>$member->id])
             ->with('toast', [
                 "heading" => "個人訊息 - 更新成功",
