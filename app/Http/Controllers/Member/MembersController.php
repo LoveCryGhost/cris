@@ -22,7 +22,7 @@ class MembersController extends MemberCoreController
     public function index(){
         return view(config('theme.member.view').'member.index', compact(''));
     }
-    
+
     public function edit(Member $member)
     {
         $this->authorize('update', $member);

@@ -34,7 +34,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="members_list.html"><i class="ti-more"></i>會員清單</a></li>
+                    <li><a href="{{route('admin.member.index')}}"><i class="ti-more"></i>會員清單</a></li>
                 </ul>
             </li>
             <li class="treeview">

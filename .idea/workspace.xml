@@ -2,17 +2,316 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7cd3d220-28f1-4b8f-a28a-7b7694a50263" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Providers/RepositoryServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Member/MemberCoreRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Member/MemberRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Member/MemberRepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Repository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Member/MemberCoreService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Member/MemberService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Service.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Member/MembersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Member/MembersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X00b056ac88ac39b9862c798dcccc8bfd.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X012a2743ed5dac69083cf50103df54d7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X0220788e14344c514a845bda5237ec5c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X02973538f288f4e8ff5f07cc8e76926f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X032c190cdf0cecf65f4977007eb92b55.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X04c2f65e34aff56aeaacf9c380ab483a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X07e4f5d17090157211dd795087ba3cca.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X0890d74f8af5893986705ef8f0dd8c04.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X08b26ba4ec26bcb77c56b8e74ae26958.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X0953bb658d1aaf4a2cfcc96235ec8f03.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X0954c5e8bad487a56dd8b7002a21e9e3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X098bfdfbce069589ac30b7a70c6e24a9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X0a25a8dc23dcb852febc3f7ba63601ca.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X0af038b0fad1d7e151d11928cee9f7c2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X0b4ab5ab96f42624763c8ebcf4f60097.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X0bec489a281f72157bf99f97f8d1fb09.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X0cbfa70c1917c283230c300ff5753f8e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X0fd1616669b2d4582779406481ee961b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X0fdbbef8350d35bc3d14717338ecba5b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X12646d396c13341b7c122a0046174ad8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X13523f105802514453ad2ac0cffff556.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X135bb3e76b39dbcb860890a087b7af07.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X138e38091f00b28ebda7550d041f9592.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X13c4e37d99fe4c872eb0dcae2147b5ae.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X14b8a94df8a296e7ff23d0e18454c01a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X14d11e0d5c45ceb9f21fc8492f44d712.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X154e48f96790530453c51ca9f0e6a3b6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X15529cc711b69278ba46ab0899a05000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X15d859ec2e0e49ffcd1754193b487e02.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X16188a57e0b6b0186faf2b1ac623fb44.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X186495bde2ca705c09a12ab185c0aa29.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X18849f0187d2767d6d146a0d87b8ac46.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X18a70489f5b6d8d7de6998a4c1c30c2e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X18f210c6ae862003c2105b48b25a37f1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X1ae0e523d5b9670674d5fdfb43e84e58.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X1aeb27d7e338d354e8d148512be60a0b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X1ba2c44d2f6bc6fa6e19b56aaa8d4e99.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X1bba802272f8658ccc7e648976799079.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X1db05ab27939b298729094d547ce2dbd.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X1ff9de3a5403eebda4759c997527b7e7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X21f8e33dcfc269edbcf50038fc8d0074.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X226cf17470ae93bbd5918ffacf376161.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X22a192d45a0de317aa3bf374168554ab.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X2322a0e9b3812da228fe4d4cd8c8ec1c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X2344377050c33030ae0960dfd4c4076c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X23a15f1ea7fead2d543f07ab4b27115f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X23aefc43524154a7ce80d17fba1784b5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X23e0cab0ed89e64e49600d0e18487a1b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X240521166b21346c77297719d331c94c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X25f2a6b5ada5362c3df8af92fcf4855a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X2664729d6b04fc3f2217e7f717860907.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X27be562e51898d6a9c0824b3a3d570b7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X289fb3c596aa7327bf81266501a95a2b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X28c15431e445110c150730354e0dc051.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X29a47db338a344f8b078bfedd69d6fe1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X2a71f6007d9fef4fd0e7f54f3ae8ba50.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X2b3d40b38e47377c2c1f08210333ee08.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X2b4c338f4df206d282fc7b8c6ae7dd74.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X2cbb31e74efa694d40181f004c60ba03.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X2cdc9952beb7a304dd7b6a6a61223f91.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X2e7a6ee8add0ccafced744dc5b7f4b95.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X2ea3fef7af3413dd804da98e993c3d84.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X30add1105bedb16087a5194a88729e52.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X3120e1fd596969caeb9ae2d93125b8f6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X31b236e08d8273111289bf47cd59df4a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X31e8d7cd1d47ae54a204cf6a8a7fdb39.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X32d59935ae8cda6745e2763ba57a82a2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X334506785602dd0ffa7e257452e9731b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X3358bd4e65dfd4665b122e36a26bc078.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X3379e488b82bda2b4aa5ed8cdf0e2c22.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X339cf6b1274f5d07a1f6d67ccf321a0a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X345ac2f11399dfa94933f220b80b9852.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X349edbd0d3aaa94913278bf37b73fa17.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X352984690b7acd4654ab7a97ad461981.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X3611bdbeb7370a47beac53b30564e622.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X3693c416310060301ebe99d2dacbfa80.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X36ce96e286e264690d5882ff233be7d7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X375bd51f1cbf9721d14b05704e284531.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X37e28b16fd52185963136b99a2961e7f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X39f666d87652bfe2668a75258959bb5a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X39fa4ea5f45f747242b95d87dffe22f1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X3b4fc6c90b964f8af323e156d3033397.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X3b8abea5cd2985ad2e3f6e0150479f91.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X3b97102f2a3ab7033415bd0fb5ca1986.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X3c00e00a38fc59c78be6b02ffc140b97.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X3cf74e377fcc85f97e86c12f6bb3ea76.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X3d8f98dd00d952d5ee8361688a14195a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X3fa2cff72da44e2427e87fa14884bcea.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X404eccfd9f351ada71307fd41ce6f626.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X405e1eb1ae6085501c8b54b84ac0b00d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X40c34b3f01ccc6426427527c30baa0a3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X416690ba1fc4c4b799a75914b3b1c382.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X42bfbf1d4a7d85b95ea81f575bfcbc57.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X43c2930d0eb64a0d1603c761dacad428.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X4474c55a49aa9388d05fbe03f4e26dc1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X44e8ecfa0f3491d85f4ab4b8121022a9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X4639ce803ede8afdd0465b6928d4c8cf.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X47931db8f2b56a5d671579b215cfa01e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X4824f91ce5f3573e291e523e0d44b0f3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X4962b70fb037594aa54f4c5b02e1d61a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X4a28160711841242c66a5e3ad46b4e8b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X4abbd93f5b49337a437d5a1c8faa2a6e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X4be8cafdb2d5e793af81eedd43ecb070.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X4c5a2ce502ed0dd01c7bd8f209675fb0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X4ccd6f5f07cf7925eb6a3702739cd04b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X4d3cac59b1d96fa3c70fe45d3b82ec59.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X4dbedc9f3cdd914f48e5a169bc9a556c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X4e4e35b74bf34b1d5c3ff6e794c6297b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X4f665d4d61640125aa47bd5be1111aea.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X4fa47e690fd8f48c7445d968606e74b0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X538a48198f52d64112b729b9f9ee4a4a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X540a3bcd7161d6c91c6a0e3c8edb0146.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X5417b10306ca11243441c441e2220044.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X570f40e485946512d7f4d4b54a03f355.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X574c973db699b0c1c4592e9be5739f4a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X585de75efec832402f6fa2d9df825c77.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X58f62328039fc5af1d02cdd873d4b86e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X5984723889df2a77beff31d57c47675f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X5adb4e2590f9fb9bc97a4ef683d066d3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X5b089d56d5b4a6a45d5348b23f0b0966.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X5b280fa1ec15b747273bff5a3f9b39ba.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X5d4bb0eeadeec476e08abee14d05ea35.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X5d4fefe7b5d2c87f4aea4c43a1747578.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X5d8b9198da02959a9704a2bbd77090d2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X6252ffb6c9472c4cc0269fc4bae73b2f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X637b7f4abd6daa638d8839395f0bfd25.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X657f35aaf00b92fe879c3d36a0c521fa.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X66a15a252abcbb50ba21d5c9052f5f39.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X68eb08555fa97302d131f9587cde0377.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X690635d85c2a375e7acb1f92aa0fa977.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X69105b989eff1803db1ddf386ab72e31.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X69291654f573137f97447f01c7923268.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X6a590e1bc9a3dcd275d5aad460b42d32.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X6a8195bc7e95bed0feb4138e85b5474d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X6a99bbd345cb39aefccc9673ae31c5f8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X6af3d4de833c513b8f19aef772628fcb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X6b189189807e5df7fc83e4549b3fac31.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X6b74726c7caf18e07a7fa71965dda14e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X6bc35ddf391e776d0320e394a8511f7d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X6ec39c49c71970dca009bb2090faaf7b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X6f744de942096e50d8f0b041b664e193.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X725fbb8fa56d4ae726bdd236875377c3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X72e330ffc9f5bb259048c4e45818d396.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X730f6f24c6b840cb17bdafcbc13526df.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X73b1661208828e6b0603b392a1ba8091.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X73b56fc6d58785c91d6dcd86fdd75260.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X74359ac5eec8a72a6b49534c213fcdd6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X746656c92dbb44b1ff5adde8e60d56c0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X75021a1a6d887fdd5c1f8e13d32bc98d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X75bc0abb53c27de0fa16ff2714eb5cf8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X75f009e648841ea412ed4e375cb6d8d3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X76a790a773a80c52d41918762ca3f0fb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X77098c5135cb649c5a91dbfe54b2657a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X77a2be0d0dd60a4600e66e3a5225cf7c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X7813ac89cdd54f0829da23c1edc63713.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X7849b65e8fb46e046eb8fadfe9896236.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X787395b744944fc3ae9972edb5c8125c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X78797018a54415ef8b9eb01042f82bfa.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X78ebeff0c9072e1edced8e98cb4450aa.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X7a8ad0d7e92be29209d1d6e8d842f815.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X7addfaa4cede8db45bf9e24a16aa698b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X7b55d9f72985c7fae3e78374600a90bd.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X7bc2c1542c7bf2973c8e595140dec53e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X7c16c7befd227706ab4baa0694b8ae4e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X7c5ee49d7359bc2f868ef7203f9b893c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X7d98f50e4d80117975d7d8dab8a72b9d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X7dd1155abbe1a1a3bd5c49e35c25ebb1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X7de29bb87e2eda3c379bd281af57c4ab.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X7e2d04257ba3e82968f3dccea5b92414.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X7f941e5decdc2f4a9d71f14862736bbf.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X8360701f1fd1216d392f02b81281da85.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X8649ee7d67875a1505fe071703fc6664.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X888265e62287ca0e8ea23ed130e40baf.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X8924aa29ae5dbb66577b3e9d5bbb180e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X89f37226e341ec0434470de2e43a2d6d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X8b1045f83b2685e36eaca852662e61e2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X8cc3cb3c378467cf878859ce8f2caaf8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X8d88601e3aaae8f751c5f861506f10e0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X8e5b7d051557bc070efdbdb3a958b132.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X8efe1c138847da1cb39a6d36871d947c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X8f6af080db11604d6925147a14466b15.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X920a21bcf339afcb348df591ba9f97fe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X926b31137dd996332095872bfdd39141.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X92d3572c32ef0549c6c14a0d1b29e66c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X951a8d366af66c69fa91947fb2029452.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X959d4caac84a4646cf854d01753d9758.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X96172290d9cc357b2f58083c6e3ebbb6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X96a4128c1c72de16d828e93064afb4b3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X98830e61b8faddcaf3db253cf275a8f9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X991d9f123d090c8e4f786ef6e5145c83.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X9af6e09c06b899000c6722ebdf6f87be.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X9b1a3be3a6c6cfd21c65a12f0e24b4f3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X9b75134eae621cc52880b9e2a361ed36.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X9cbd8f0291a853b06f832ce2e4b56c05.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X9d52084bbe06f092718e6a72d2852948.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X9df572a2a776ee7b4e5b0f4642b147aa.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X9e5725f8a7bbc46b6bbdf627f7122856.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/X9e645837b0ae782cf8adaf4c407924e1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xa01102a6d03e25a262d8b37f54bc951f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xa165a8113266867d968165bf94d2fde6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xa2eee63b389ddb443c73631399876741.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xa5daf7b41f5089f169a6818b89ddf65f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xa67e57509eaa5a88d98f4b05b8d65d56.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xa6e0ea1f6eafc15595b3f987f22f30a8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xa7fb4f439bf126318a68707968d51c2a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xa8795c8d9394d644eb5c5345daf75e31.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xab30e87b41fb394fabae8ef5f6c3ec14.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xab31d2bf9ca2f5f5bf96a4a6ebeef321.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xacf1663433a4778cc4b1cb8ba4391a8a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xaf0967a92e90fdee3bc6a8abb4f68fda.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xb114fe231c53c40658a07ab2191eb9bb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xb242a132d02769911a6593423ec6faab.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xb2fcad117062fbd4e1df1b87a0d0912a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xb441211393cb68f794cd0b2962133e68.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xb544e6b48a6d346af2eb600300e5ce95.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xb5491fcf0579a5ca167e0c43d8c975e2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xb5d5b77bc59ca8bb2c6e7db5957b1083.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xb6e5257e94de58995ef4a84c60fbd4f7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xb70ffc92b572756ebeba7b22deacd2aa.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xb73718a08803427d23c2bb0ceca78fcc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xb79aabef86c9eaa1b227352e53dc8c17.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xba08f7a70d6891377c818b4499b9a3db.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xba681a054bf36d1501faa2a6f57afceb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xbc19c8d1fa269eb190dd6410a9f6a7de.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xbc6b6ea2cf0e827206dba079faf9999b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xbcf5c45662c375f22269d1e30f9cd505.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xbd24ada84c0e0aafd4fdec7602832387.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xbe78ecb2501c0fc6617a98cf421c7d3e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xbf3efcb3f4a3524d8184d9ea62acd3d9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xbf7cea99fbe06f5be4d75e11447a3e78.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xc0e2d0acc454afc387e08bc58d748dd8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xc3354325c90f904337ed770ae4eb523e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xc5d56606f2a315a83a6c1d107efd0af9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xc68e521335305a40996fdb0799f4c631.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xc7047d0d5ae7326eb0e7047c7205fb6f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xc7169e5b615b646f8358138de2b4cdb7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xc7ae37e0ef160709fdf0b7366534553f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xc9806a98d36324c17d395aa45ac62fec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xca4e97a0265931982461671b7a5fef6e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xcc2f807efe01d95a659e8fb7ee5fce7a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xcc553fc0da20d0f95fb9cb9b86d189db.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xcd66a35a4869b0fddb0268bd90556f67.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xcfdaace7f0e4f991335b40977148af8e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xcfdfee27cd0a3c6a426ad89d8cb01fe5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd088980552628e0718f45264e0e1cac7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd1fbbcea7ff1d7ce14631676bead2193.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd2a5a2ac5bb91b0bdb6f653b0abd60eb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd324947d75b646ad0cf758d7652ede75.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd3c74603f06e5e95c6bde175f666b166.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd41922f8569887c049bd7f3c6f647d96.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd43a35cefc2669cce6d9355f867423cc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd4777ddb4a5a7910fd35268b35535a48.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd5832b4a3833fdcf4c257d9619f044cd.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd66974d7b4bc0ed2bff687376da1062e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd67ca0b09206ea2518c6efb18b895310.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd744b7f0cf4e6763967608e7a34bcfa1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd83d4c29ec065abbf24c7e2459216b2c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd8e29bda70e48217182f0c5da9431c77.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd8e533b1ef482772503f9137de16b1e4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd9729e1b95afb12110b98767a5602b6c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xd9ea8b386ec1e7bb00be4002e649b52f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xdae502175f7368d359a798bce8f009d1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xdbec7ec7f357459cccf64fd92cb90aef.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xdf5ab9ae89146450b66ce09526cfc776.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xdfb5d91a2fdf6471abeabd0759330234.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xe12bd2e35144b74b2c32a4a6faf112bf.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xe18fc752279952eee988fe11a588d598.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xe194e974486bbc7213c5b2979b5783d5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xe4813a5aface3b358685f82d01fa1620.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xe66e75fea2cfe5bda917a27f00c074f2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xe745ca4e8a4d14728a98f0c6ab36adb8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xe7840ab21ab88731a25d77ac86deadc5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xe7960d0988bd586be83fc1f6e0cd6828.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xe7eb2cd87a7955951b6255fec3ed5a90.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xe857690d1915af2beb3f5cb3794f00fa.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xe8e2176dc9ee3589a8adbc8580019152.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xe90788f51278a9f93f2d5b8b091052bf.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xe931ae58a8c1daeac2a2c7595cf03e2d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xe9a462bba8b0ff69234a294622ba7bc0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xea12d533d8d4065c1433f5d78914a210.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xec0138c3e77725e95d911cfe2c69421c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xec3754c02da8ffdead355704a76a4d34.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xed448ccc0eda7d39f6839610bf6b6782.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xed4c5818cc39bfad36d8aed051e4d699.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xeed39c137e79af31e7569882b93eb495.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xefa6e4410318e6ffa5d740bf5083922d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xf0ef363e7f895fe6f706f044241cdd45.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xf17b085ffd699216086602361a4b59ce.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xf21ba6d0f09f4a417cd1a99488825e1e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xf43d4b1529252d73967fa67983c1cbf3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xf4439e6292b6897c30001b60027d35df.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xf68a52e7442eb6bfa5efae78dc63e76e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xf6a295831f32ecf1e0001e60122fe6fc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xf6c1f7631af48f3d13a8a16c3da9d298.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xf72a4607fa0dcf7a6646d155c6343a6d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xf75ca804df2a0bdb177fff7def38c88a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xf7a9ee3ba85e7e909fe65084c1467127.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xf8011fd9b6449d526c444345ddb5fd9d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xf8147660612441396437c5a0d1c44373.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xf961d4c48ff32b70f80b68fa2b885162.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xfaa34d792cc8ad0f019334e6983256db.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xfb39169f9dd910d92a56f253a932e621.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xfb3f770eb1bf95afe8a07397eda8300b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xfbc622e111871d3284174e7aef95a9b2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xfc795464ecdfa7ea2159648787036d56.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xfdf05c2f3c45f9e5c12f1e88bf5cd56b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xfeb967489468ba617c2302f929b19e32.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/debugbar/Xfffc7a389c4b313c26c4c5e941b97208.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,17 +324,26 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.72317594">
+    <splitter split-orientation="horizontal" split-proportion="0.4941427">
       <split-first>
         <leaf>
-          <file leaf-file-name="MembersController.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="MembersController.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Member/MembersController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="231">
-                  <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+                <state relative-caret-position="420">
+                  <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
                   <folding>
                     <element signature="e#47#83#0#PHP" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="sidebar.blade.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="329">
+                  <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
                 </state>
               </provider>
             </entry>
@@ -47,8 +355,8 @@
           <file leaf-file-name="MemberService.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/Services/Member/MemberService.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+                <state relative-caret-position="360">
+                  <caret line="24" selection-start-line="23" selection-end-line="24" />
                 </state>
               </provider>
             </entry>
@@ -138,7 +446,6 @@
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/footer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/admin-app.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/../theme/crypto-currency-admin-main-file/HTML/crypto-sass/cryptoadmin-light/pages/members_list.html" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/member/create.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
@@ -164,6 +471,7 @@
         <option value="$PROJECT_DIR$/app/Repositories/Member/MemberRepository.php" />
         <option value="$PROJECT_DIR$/app/Services/Member/MemberService.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Member/MembersController.php" />
+        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php" />
       </list>
     </option>
   </component>
@@ -317,9 +625,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="828" />
+    <option name="x" value="1440" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -528,7 +836,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/andyjung/www/web/app/Services/Member/MemberService.php&#10;config/app.ph&#9;FILE&#9;file:///Users/andyjung/www/web/config/app.php&#10;MemberCo&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Member/MembersController.php&#10;the&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;web&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;side&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php&#10;Admin&#9;null&#9;null&#10;them&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;theme&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;AdminContro&#9;null&#9;null&#10;we&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;swi&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/tools/guard-switcher.blade.php&#10;head&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php&#10;web.php&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;theme.p&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;user-&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php&#10;user-pro&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php&#10;he&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;Controll&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;User&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/User.php&#10;header&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;app.ph&#9;FILE&#9;file:///Users/andyjung/www/web/config/app.php&#10;cont&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;show&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/user/show.blade.php&#10;CONTR&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;def&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/js/default.blade.php&#10;user&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php&#10;regis&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/register.blade.php&#10;si&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/sidebar.blade.php&#10;log&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;regist&#9;FILE&#9;file:///Users/andyjung/www/web/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php&#10;ResetPasswordController&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Auth/ResetPasswordController.php&#10;.e&#9;FILE&#9;file:///Users/andyjung/www/web/.env&#10;email&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/passwords/email.blade.php&#10;login&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/login.blade.php&#10;VerificationController&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Auth/VerificationController.php&#10;EnsureEmailIsVerified&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Middleware/EnsureEmailIsVerified.php&#10;hea&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;js&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/js.blade.php&#10;Ensure&#9;null&#9;null&#10;SendEmailVerificationNotification&#9;null&#9;null&#10;regi&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/register.blade.php&#10;th&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php" />
+    <property name="SearchEverywhereHistoryKey" value="side&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php&#10;config/app.ph&#9;FILE&#9;file:///Users/andyjung/www/web/config/app.php&#10;MemberCo&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Member/MembersController.php&#10;the&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;web&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;Admin&#9;null&#9;null&#10;them&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;theme&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;AdminContro&#9;null&#9;null&#10;we&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;swi&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/tools/guard-switcher.blade.php&#10;head&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php&#10;web.php&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;theme.p&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;user-&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php&#10;user-pro&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php&#10;he&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;Controll&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;User&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/User.php&#10;header&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;app.ph&#9;FILE&#9;file:///Users/andyjung/www/web/config/app.php&#10;cont&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;show&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/user/show.blade.php&#10;CONTR&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;def&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/js/default.blade.php&#10;user&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php&#10;regis&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/register.blade.php&#10;si&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/sidebar.blade.php&#10;log&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;regist&#9;FILE&#9;file:///Users/andyjung/www/web/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php&#10;ResetPasswordController&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Auth/ResetPasswordController.php&#10;.e&#9;FILE&#9;file:///Users/andyjung/www/web/.env&#10;email&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/passwords/email.blade.php&#10;login&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/login.blade.php&#10;VerificationController&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Auth/VerificationController.php&#10;EnsureEmailIsVerified&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Middleware/EnsureEmailIsVerified.php&#10;hea&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;js&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/js.blade.php&#10;Ensure&#9;null&#9;null&#10;SendEmailVerificationNotification&#9;null&#9;null&#10;regi&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/register.blade.php&#10;th&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -585,11 +893,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83572000" />
+    <option name="totallyTimeSpent" value="83872000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
@@ -598,7 +905,7 @@
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="TypeScript" order="0" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2453505" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24494143" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32827103" />
@@ -865,13 +1172,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/admin/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1019,13 +1319,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/Member/MemberService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Repositories/Member/MemberRepositoryInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1040,13 +1333,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/Member/MemberService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" selection-start-line="23" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Member/MembersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+        <state relative-caret-position="420">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
           <folding>
             <element signature="e#47#83#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
