@@ -19,31 +19,29 @@
         @yield('content-header')
     @endsection
 
-
-    @section('app-content')
-        <body class="hold-transition light-skin dark-sidebar sidebar-mini theme-blue sidebar-collapse">
-            <div id="app">
+    <body class="hold-transition dark-skin dark-sidebar sidebar-mini theme-blue">
+        <div id="app">
+            @section('app-content')
                 @guest('admin')
                     @include(config('theme.admin.header'))
                 @else
                     @include(config('theme.admin.header-login'))
+                    @include(config('theme.admin.sidebar'))
                 @endguest
                 {{--內容--}}
                 <div class="wrapper">
-                    <div class="content-wrapper" style="margin-left: 0px;">
+                    <div class="content-wrapper">
                         @yield('content')
                     </div>
                 </div>
-            </div>
-        </body>
-    @endsection
+            @endsection
+            @section('app-content-footer')
+                @yield('content-footer')
+                @include(config('theme.admin.footer'))
+            @endsection
+        </div>
+    </body>
 
-
-    @section('app-content-footer')
-        @yield('content-footer')
-        @include(config('theme.admin.footer'))
-
-    @endsection
 
 
 {{--JS--}}

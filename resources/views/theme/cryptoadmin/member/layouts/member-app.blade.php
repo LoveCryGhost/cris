@@ -19,10 +19,9 @@
         @yield('content-header')
     @endsection
 
-
-    @section('app-content')
-        <body class="hold-transition light-skin dark-sidebar sidebar-mini theme-grey sidebar-collapse">
-            <div id="app">
+    <body class="hold-transition light-skin dark-sidebar sidebar-mini theme-grey sidebar-collapse">
+        <div id="app">
+            @section('app-content')
                 @guest('member')
                     @include(config('theme.member.header'))
                 @else
@@ -34,17 +33,13 @@
                         @yield('content')
                     </div>
                 </div>
-            </div>
-        </body>
-    @endsection
-
-
-    @section('app-content-footer')
-        @yield('content-footer')
-        @include(config('theme.member.footer'))
-
-    @endsection
-
+            @endsection
+            @section('app-content-footer')
+                @yield('content-footer')
+                @include(config('theme.member.footer'))
+            @endsection
+        </div>
+    </body>
 
 {{--JS--}}
 @section('js')
