@@ -60,7 +60,7 @@
                 @include(config('theme.admin.header-admin-profiles'))
 
                 {{--Guard-Switcher--}}
-                @include(config('theme.admin.tools.guard-switcher'))
+                {{--@include(config('theme.admin.tools.guard-switcher'))--}}
             </ul>
         </div>
     </nav>
