@@ -42,7 +42,6 @@
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-right">
                 右
             </button>
-            @include('theme.cryptoadmin.admin.layouts.modal.modals')
         </div>
 
         <div class="navbar-custom-menu r-side">

@@ -19,7 +19,7 @@
         @yield('content-header')
     @endsection
 
-    <body class="hold-transition dark-skin dark-sidebar sidebar-mini theme-blue">
+    <body class="hold-transition fixed light-skin dark-sidebar sidebar-mini theme-blue">
         <div id="app">
             @section('app-content')
                 @guest('admin')

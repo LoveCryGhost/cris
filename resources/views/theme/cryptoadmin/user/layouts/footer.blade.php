@@ -11,3 +11,5 @@
     </div>
     &copy; 2019 <a href="https://www.multipurposethemes.com/">Multi-Purpose Themes</a>. All Rights Reserved.
 </footer>
+@include('theme.cryptoadmin.user.layouts.modal.modals')
+
