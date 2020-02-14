@@ -73,8 +73,8 @@ Route::middleware('auth')->prefix('')->namespace('User')->name('')->group(functi
 //Admin
 Route::prefix('')->namespace('Admin')->name('')->group(function(){
     Route::prefix('admin')->name('admin.')->group(function(){
+        Route::put('member_update_password/{member}', 'AdminMembersController@update_password')->name('member.update_password');
         Route::resource('member', 'AdminMembersController');
-        Route::put('member/{member}', 'AdminMembersController@update_password')->name('member.update_password');
     });
     Route::resource('admin', 'AdminsController');
 });
