@@ -25,7 +25,18 @@
         <ul class="sidebar-menu" data-widget="tree">
 
             <li class="header nav-small-cap">PERSONAL</li>
-
+            <li class="treeview">
+                <a href="#">
+                    <i class="ti-user"></i>
+                    <span>會員</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="members_list.html"><i class="ti-more"></i>會員清單</a></li>
+                </ul>
+            </li>
             <li class="treeview">
                 <a href="#">
                     <i class="ti-dashboard"></i>
@@ -82,20 +93,7 @@
                     <span>Currency Exchange</span>
                 </a>
             </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="ti-user"></i>
-                    <span>Members</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="members.html"><i class="ti-more"></i>Members Grid</a></li>
-                    <li><a href="members_list.html"><i class="ti-more"></i>Members List</a></li>
-                    <li><a href="member_profile.html"><i class="ti-more"></i>Member Profile</a></li>
-                </ul>
-            </li>
+
             <li class="treeview">
                 <a href="#">
                     <i class="ti-panel"></i>

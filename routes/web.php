@@ -72,6 +72,9 @@ Route::middleware('auth')->prefix('')->namespace('User')->name('')->group(functi
 
 //Admin
 Route::prefix('')->namespace('Admin')->name('')->group(function(){
+    Route::prefix('admin')->name('')->group(function(){
+        Route::resource('member', 'AdminMembersController');
+    });
     Route::resource('admin', 'AdminsController');
 });
 
