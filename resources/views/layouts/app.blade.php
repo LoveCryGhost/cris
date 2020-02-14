@@ -13,12 +13,11 @@
     <title>@yield('title')</title>
     @yield('css')
 
-</head>
+    @yield('app-content-header')
+    @yield('app-content')
+    @yield('app-content-footer')
 
-@yield('app-content-header')
-@yield('app-content')
-@yield('app-content-footer')
-
+    @include('theme.cryptoadmin.admin.tools.switcher')
 <!-- JS 脚本 -->
 @yield('js')
 {{--<script src="{{ mix('js/app.js') }}"></script>--}}
