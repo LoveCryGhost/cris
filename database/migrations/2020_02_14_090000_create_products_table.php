@@ -68,10 +68,10 @@ class CreateProductsTable extends Migration
         });
 
 
-        Schema::create('thumbnails', function (Blueprint $table) {
+        Schema::create('products_thumbnails', function (Blueprint $table) {
             $table->bigIncrements('pt_id');
             $table->bigInteger('p_id')->unsigned();
-            $table->tinyInteger('sort_order')->nullable();
+            $table->tinyInteger('sort_order')->default(0)->nullable();
             $table->string('path')->nullable();
             $table->foreign('p_id')->references('p_id')->on('products')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();
@@ -81,8 +81,8 @@ class CreateProductsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('product_categories');
-        Schema::dropIfExists('thumbnails');
+        Schema::dropIfExists('products_categories');
+        Schema::dropIfExists('products_thumbnails');
         Schema::dropIfExists('products');
         Schema::dropIfExists('types_attributes');
         Schema::dropIfExists('attributes');

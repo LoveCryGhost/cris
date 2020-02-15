@@ -34,6 +34,6 @@ class Product extends Model
     }
 
     public function thumbnails(){
-        return $this->hasMany(ProductThumbnail::class, 'p_id');
+        return $this->hasMany(ProductThumbnail::class, 'p_id', 'pt_id');
     }
 }

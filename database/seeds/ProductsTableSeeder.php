@@ -3,10 +3,9 @@
 use App\Handlers\BarcodeHandler;
 use App\Models\Attribute;
 use App\Models\Product;
+use App\Models\ProductThumbnail;
 use App\Models\Type;
-use Carbon\Carbon;
 use Illuminate\Database\Seeder;
-use App\Models\User;
 
 class ProductsTableSeeder extends Seeder
 {
@@ -99,11 +98,18 @@ class ProductsTableSeeder extends Seeder
                 unset($product['c_ids']);
                 unset($product['pt_ids']);
 
-                $product= Product::create($product);
+                $product=  Product::create($product);
                 $product->categories()->attach($c_ids);
-//                foreach ($pt_ids as $key => $thumbnail_path){
-//                    $product->thumbnails()->save([ 'path'=> $thumbnail_path]);
-//                }
+
+                $productThumbnails =[];
+                foreach ($pt_ids as $key => $thumbnail_path){
+                    $productThumbnail = new ProductThumbnail();
+                    $productThumbnail->path = $thumbnail_path;
+                    $productThumbnail->p_id = $product->p_id;
+                    $productThumbnail->save();
+//                    $productThumbnails[] = $productThumbnail;
+//                    $product->thumbnails()->saveMany($productThumbnails);
+                }
             }
     }
 }
