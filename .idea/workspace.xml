@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7cd3d220-28f1-4b8f-a28a-7b7694a50263" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_02_14_000000_add_foreign_key_member_to_user.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminMembersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminMembersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/Member/MemberRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Member/MemberRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Member/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Member/MemberService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/user/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/user/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,17 +20,33 @@
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/user/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="70" column="124" selection-start-line="70" selection-start-column="124" selection-end-line="70" selection-end-column="124" />
+            <state relative-caret-position="975">
+              <caret line="65" column="115" selection-start-line="65" selection-start-column="115" selection-end-line="65" selection-end-column="115" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Models/User.php">
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14">
-              <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+            <state relative-caret-position="433">
+              <caret line="76" column="46" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
+              <folding>
+                <element signature="e#391#427#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/user/edit.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="453">
+              <caret line="131" column="100" selection-start-line="131" selection-start-column="100" selection-end-line="131" selection-end-column="100" />
+              <folding>
+                <element signature="e#1584#1606#0#HTML" expanded="true" />
+                <element signature="e#1787#1811#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,10 +88,10 @@
       <find>d</find>
       <find>LoginSuccessfulEvent</find>
       <find>$user</find>
-      <find>member</find>
       <find>Member</find>
       <find>mem</find>
       <find>User</find>
+      <find>member</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -92,9 +104,9 @@
       <replace>member</replace>
       <replace>$admin</replace>
       <replace>$member</replace>
-      <replace>user</replace>
       <replace>User</replace>
       <replace>Member</replace>
+      <replace>user</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -106,7 +118,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/js/default.blade.php" />
         <option value="$PROJECT_DIR$/routes/route_test.php" />
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
         <option value="$PROJECT_DIR$/database/factories/MemberFactory.php" />
@@ -138,7 +149,6 @@
         <option value="$PROJECT_DIR$/app/Listeners/MemberLoginSuccessfulListener.php" />
         <option value="$PROJECT_DIR$/app/Models/Member.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/member/index.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/Admin/AdminUserRequest.php" />
         <option value="$PROJECT_DIR$/app/Services/User/UserCoreService.php" />
@@ -157,6 +167,8 @@
         <option value="$PROJECT_DIR$/app/Services/Member/MemberService.php" />
         <option value="$PROJECT_DIR$/app/Repositories/Member/MemberRepository.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/user/index.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/user/edit.blade.php" />
       </list>
     </option>
   </component>
@@ -386,25 +398,57 @@
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
               <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
               <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="factories" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
               <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="migrations" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="theme" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
               <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="seeds" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="theme" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="cryptoadmin" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="theme" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="cryptoadmin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="theme" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="cryptoadmin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="member" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="theme" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="cryptoadmin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="user" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -413,7 +457,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/User.php&#10;User&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/User.php&#10;index&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/user/index.blade.php&#10;sidebar&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php&#10;web&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;edit&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/member/edit.blade.php&#10;Mem&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/Member.php&#10;admin&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Admin/AdminMembersController.php&#10;ba&#9;FILE&#9;file:///Users/andyjung/www/web/config/barcode.php&#10;Admin&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Admin/AdminMembersController.php&#10;Member.php&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/Member.php&#10;defaul&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/layouts/css/default.blade.php&#10;ex&#9;FILE&#9;file:///Users/andyjung/Desktop/bootstrap-switch-master/docs/examples.html&#10;test&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/layouts/test.blade.php&#10;popper&#9;FILE&#9;file:///Users/andyjung/www/web/public/theme/cryptoadmin/vendor_components/popper/docs/popper-documentation.html&#10;side&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php&#10;config/app.ph&#9;FILE&#9;file:///Users/andyjung/www/web/config/app.php&#10;MemberCo&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Member/MembersController.php&#10;the&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;them&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;theme&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;AdminContro&#9;null&#9;null&#10;we&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;swi&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/tools/guard-switcher.blade.php&#10;head&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php&#10;web.php&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;theme.p&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;user-&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php&#10;user-pro&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php&#10;he&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;Controll&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;header&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;app.ph&#9;FILE&#9;file:///Users/andyjung/www/web/config/app.php&#10;cont&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;show&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/user/show.blade.php&#10;CONTR&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;def&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/js/default.blade.php&#10;user&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php&#10;regis&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/register.blade.php&#10;si&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/sidebar.blade.php&#10;log&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;regist&#9;FILE&#9;file:///Users/andyjung/www/web/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php&#10;ResetPasswordController&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Auth/ResetPasswordController.php&#10;.e&#9;FILE&#9;file:///Users/andyjung/www/web/.env&#10;email&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/passwords/email.blade.php&#10;login&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/login.blade.php&#10;VerificationController&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Auth/VerificationController.php&#10;EnsureEmailIsVerified&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Middleware/EnsureEmailIsVerified.php&#10;hea&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;js&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/js.blade.php" />
+    <property name="SearchEverywhereHistoryKey" value="web&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;User&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/User.php&#10;index&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/user/index.blade.php&#10;sidebar&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php&#10;edit&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/member/edit.blade.php&#10;Mem&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/Member.php&#10;admin&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Admin/AdminMembersController.php&#10;ba&#9;FILE&#9;file:///Users/andyjung/www/web/config/barcode.php&#10;Admin&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Admin/AdminMembersController.php&#10;Member.php&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/Member.php&#10;defaul&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/layouts/css/default.blade.php&#10;ex&#9;FILE&#9;file:///Users/andyjung/Desktop/bootstrap-switch-master/docs/examples.html&#10;test&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/layouts/test.blade.php&#10;popper&#9;FILE&#9;file:///Users/andyjung/www/web/public/theme/cryptoadmin/vendor_components/popper/docs/popper-documentation.html&#10;side&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php&#10;config/app.ph&#9;FILE&#9;file:///Users/andyjung/www/web/config/app.php&#10;MemberCo&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Member/MembersController.php&#10;the&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;them&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;theme&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;AdminContro&#9;null&#9;null&#10;we&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;swi&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/tools/guard-switcher.blade.php&#10;head&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php&#10;web.php&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;theme.p&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;user-&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php&#10;user-pro&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php&#10;he&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;Controll&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;header&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;app.ph&#9;FILE&#9;file:///Users/andyjung/www/web/config/app.php&#10;cont&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;show&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/user/show.blade.php&#10;CONTR&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;def&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/js/default.blade.php&#10;user&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php&#10;regis&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/register.blade.php&#10;si&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/sidebar.blade.php&#10;log&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;regist&#9;FILE&#9;file:///Users/andyjung/www/web/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php&#10;ResetPasswordController&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Auth/ResetPasswordController.php&#10;.e&#9;FILE&#9;file:///Users/andyjung/www/web/.env&#10;email&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/passwords/email.blade.php&#10;login&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/login.blade.php&#10;VerificationController&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Auth/VerificationController.php&#10;EnsureEmailIsVerified&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Middleware/EnsureEmailIsVerified.php&#10;hea&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;js&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/js.blade.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -468,12 +512,12 @@
       <workItem from="1581566288103" duration="26403000" />
       <workItem from="1581699020185" duration="259000" />
       <workItem from="1581727403947" duration="4374000" />
-      <workItem from="1581736591638" duration="20700000" />
+      <workItem from="1581736591638" duration="21011000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115668000" />
+    <option name="totallyTimeSpent" value="115979000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -767,19 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="80" column="77" selection-start-line="80" selection-start-column="55" selection-end-line="80" selection-end-column="77" />
-          <folding>
-            <element signature="e#391#427#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/user/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
@@ -901,13 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/user/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="70" column="124" selection-start-line="70" selection-start-column="124" selection-end-line="70" selection-end-column="124" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Member.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -918,10 +942,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/user/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="65" column="115" selection-start-line="65" selection-start-column="115" selection-end-line="65" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="76" column="46" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
+          <folding>
+            <element signature="e#391#427#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+        <state relative-caret-position="464">
+          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/user/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="131" column="100" selection-start-line="131" selection-start-column="100" selection-end-line="131" selection-end-column="100" />
+          <folding>
+            <element signature="e#1584#1606#0#HTML" expanded="true" />
+            <element signature="e#1787#1811#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

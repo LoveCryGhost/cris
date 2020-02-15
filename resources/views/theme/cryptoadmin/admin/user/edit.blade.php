@@ -18,7 +18,7 @@
 
             <!-- Main content -->
             <section class="content">
-                <form method="post" action="{{route('admin.member.update', ['member'=>$member->id])}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('admin.user.update', ['user'=>$user->id])}}" enctype="multipart/form-data">
 
                     @csrf
                     @method('put')
@@ -35,14 +35,14 @@
                                     <div class="img-preview-frame text-center" >
                                         <input type="file" name="avatar" id="avatar"  onchange="showPreview(this,['avatar_img'])" style="display: none;"/>
                                         <label for="avatar">
-                                            <img id="avatar_img" class="rounded img-fluid mx-auto d-block max-w-150" style="cursor: pointer;" src="{{$member->avatar? asset($member->avatar):asset('theme/cryptoadmin/images/2.jpg')}}" width="200px">
+                                            <img id="avatar_img" class="rounded img-fluid mx-auto d-block max-w-150" style="cursor: pointer;" src="{{$user->avatar? asset($user->avatar):asset('theme/cryptoadmin/images/2.jpg')}}" width="200px">
                                         </label>
                                     </div>
 
-                                    <h2 class="profile-username text-center mb-0">{{$member->name}}</h2>
+                                    <h2 class="profile-username text-center mb-0">{{$user->name}}</h2>
 
-                                    <h4 class="text-center mt-0"><i class="fa fa-envelope-o mr-10"></i>{{$member->email}}</h4>
-                                    <h5 class="text-center mt-0">加入時間 : {{$member->created_at->diffForHumans()}}</h5>
+                                    <h4 class="text-center mt-0"><i class="fa fa-envelope-o mr-10"></i>{{$user->email}}</h4>
+                                    <h5 class="text-center mt-0">加入時間 : {{$user->created_at->diffForHumans()}}</h5>
                                     <div class="row social-states">
                                         <div class="col-6 text-right"><a href="#" class="link text-white"><i class="ion ion-ios-people-outline"></i> 254</a></div>
                                         <div class="col-6 text-left"><a href="#" class="link text-white"><i class="ion ion-images"></i> 54</a></div>
@@ -66,7 +66,7 @@
 
                                             <label class="col-sm-2 col-form-label">啟用</label>
                                             <div class="col-sm-10">
-                                                <input type="checkbox" class="bt-switch" name="is_active"  value="1" {{$member->is_active==1? "checked": ""}}
+                                                <input type="checkbox" class="bt-switch" name="is_active"  value="1" {{$user->is_active==1? "checked": ""}}
                                                        data-label-width="100%"
                                                        data-label-text="啟用" data-size="min"
                                                        data-on-text="On"    data-on-color="primary"
@@ -77,14 +77,14 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">使用者名稱</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" name="name" placeholder="使用者名稱" value="{{$member->name}}">
+                                                <input class="form-control" type="text" name="name" placeholder="使用者名稱" value="{{$user->name}}">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">郵箱地址</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="email" value="{{$member->email}}" disabled>
+                                                <input class="form-control" type="email" value="{{$user->email}}" disabled>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -97,14 +97,14 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">生日</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" name="birthday" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask value="{{$member->birthday}}">
+                                                <input class="form-control" type="text" name="birthday" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask value="{{$user->birthday}}">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">自我介紹</label>
                                             <div class="col-sm-10">
-                                                <textarea class="form-control" type="text" name="introduction" placeholder="自我介紹">{{$member->introduction}}</textarea>
+                                                <textarea class="form-control" type="text" name="introduction" placeholder="自我介紹">{{$user->introduction}}</textarea>
                                             </div>
                                         </div>
 
@@ -129,7 +129,7 @@
                     </div>
                 </form>
                 {{--更改密碼--}}
-                <form method="post" action="{{route('admin.member.update_password', ['member'=>$member->id])}}" >
+                <form method="post" action="{{route('admin.user.update_password', ['user'=>$user->id])}}" >
                     @csrf
                     @method('put')
                     <div class="row">
