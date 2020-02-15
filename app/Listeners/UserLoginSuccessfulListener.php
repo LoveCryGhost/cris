@@ -2,13 +2,14 @@
 
 namespace App\Listeners;
 
-use App\Events\LoginSuccessfulEvent;
+use App\Events\UserLoginSuccessfulEvent;
+use App\Models\UserLog;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\DB;
 use Zhuzhichao\IpLocationZh\Ip;
 
-class LoginSuccessfulListener
+class UserLoginSuccessfulListener
 {
     /**
      * Create the event listener.
@@ -23,21 +24,21 @@ class LoginSuccessfulListener
     /**
      * Handle the event.
      *
-     * @param  LoginSuccessfulEvent  $event
+     * @param  UserLoginSuccessfulEvent  $event
      * @return void
      */
-    public function handle(LoginSuccessfulEvent $event)
+    public function handle(UserLoginSuccessfulEvent $event)
     {
         //獲取事件中儲存的資訊
         $user = $event->getUser();
         $agent = $event->getAgent();
         $ip = $event->getIp();
-        $timestamp = $event->getTimestamp();
+        $timestamp =  date( "Y-m-d H:i:s", $event->getTimestamp());
 
         //登入資訊
         $login_info = [
             'ip' => $ip,
-            'login_time' => $timestamp,
+            'login_at' => $timestamp,
             'user_id' => $user->id
         ];
 
@@ -69,6 +70,6 @@ class LoginSuccessfulListener
             $login_info['device_type'] = 'desktop';
         }
         //插入到資料庫
-        DB::table('user_login_logs')->insert($login_info);
-}
+        UserLog::insert($login_info);
+    }
 }

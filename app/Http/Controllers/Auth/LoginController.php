@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Events\LoginSuccessfulEvent;
+use App\Events\UserLoginSuccessfulEvent;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Jenssegers\Agent\Agent;
 
 class LoginController extends Controller
 {
@@ -60,7 +61,13 @@ class LoginController extends Controller
         if(Auth::guard('web')->attempt($credentials, $remember)){
 
             //觸發事件
-            event(new LoginSuccessfulEvent($this->guard()->user(), new Agent(), \Request::getClientIp(), time()));
+            $ip = Request::createFromGlobals()->getClientIp();
+            if($ip=="::1"){
+                $ip= '127.0.0.1';
+            }else{
+                $ip= Request::createFromGlobals()->getClientIp();
+            }
+            event(new UserLoginSuccessfulEvent($this->guard()->user(), new Agent(), $ip, time()));
 
             //if successful , the redirect to their intended location
             return redirect('/');

@@ -16,10 +16,10 @@ class AddColumnsToUserTable extends Migration
 
         });
 
-        Schema::create('user_login_logs', function (Blueprint $table) {
+        Schema::create('user_logs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('ip');
-            $table->timestamp('login_time');
+            $table->timestamp('login_at');
             $table->bigInteger('user_id')->unsigned();
 
             $table->string('address')->nullable(); // zhuzhichao/ip-location-zh 包含的方法獲取ip地理位置
@@ -29,6 +29,8 @@ class AddColumnsToUserTable extends Migration
             // jenssegers/agent 的方法來提取agent資訊
             $table->string('device')->nullable(); //裝置名稱
             $table->string('device_type')->nullable(); //裝置型別
+            $table->string('language')->nullable(); //裝置型別
+
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();
@@ -45,6 +47,6 @@ class AddColumnsToUserTable extends Migration
             $table->dropColumn('introduction');
         });
 
-        Schema::dropIfExists('user_login_logs');
+        Schema::dropIfExists('user_logs');
     }
 }

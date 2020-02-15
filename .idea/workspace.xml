@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7cd3d220-28f1-4b8f-a28a-7b7694a50263" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Models/UserLog.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/web.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Events/LoginEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Events/LoginSuccessfulEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Events/LoginSuccessfulEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Events/UserLoginSuccessfulEvent.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listeners/LoginListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/LoginSuccessfulListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listeners/LoginSuccessfulListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/UserLoginSuccessfulListener.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_09_000000_add_columns_to_user_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_09_000000_add_columns_to_user_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
@@ -23,77 +25,94 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.8204578">
+    <splitter split-orientation="horizontal" split-proportion="0.87473154">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/member/index.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="432">
-                  <caret line="53" column="75" selection-start-line="53" selection-start-column="75" selection-end-line="53" selection-end-column="75" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LoginController.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="569">
-                  <caret line="61" column="37" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
-                  <folding>
-                    <element signature="e#45#81#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LoginSuccessfulEvent.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Events/LoginSuccessfulEvent.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-                  <folding>
-                    <element signature="e#29#65#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LoginSuccessfulListener.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Listeners/LoginSuccessfulListener.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="5" column="43" lean-forward="true" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/member/edit.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="186">
-                  <caret line="68" selection-start-line="68" selection-end-line="68" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
+        <splitter split-orientation="horizontal" split-proportion="0.54380953">
+          <split-first>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file leaf-file-name="LoginController.php" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="569">
+                      <caret line="69" selection-start-line="69" selection-end-line="69" />
+                      <folding>
+                        <element signature="e#45#81#0#PHP" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="UserLoginSuccessfulListener.php" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/app/Listeners/UserLoginSuccessfulListener.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="165">
+                      <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+                      <folding>
+                        <element signature="e#33#69#0#PHP" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="UserLog.php" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/app/Models/UserLog.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="525">
+                      <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/member/edit.blade.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="186">
+                      <caret line="68" selection-start-line="68" selection-end-line="68" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf>
+              <file leaf-file-name="UserLoginSuccessfulEvent.php" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/app/Events/UserLoginSuccessfulEvent.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="273">
+                      <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+                      <folding>
+                        <element signature="e#29#65#0#PHP" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="EventServiceProvider.php" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/app/Providers/EventServiceProvider.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="450">
+                      <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="2020_02_09_000000_add_columns_to_user_table.php" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/database/migrations/2020_02_09_000000_add_columns_to_user_table.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="260">
+                      <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="AdminLoginController.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AdminLoginController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="735">
-                  <caret line="49" column="27" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="27" />
-                  <folding>
-                    <element signature="e#45#73#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="AuthenticatesUsers.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="AuthenticatesUsers.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="384">
@@ -169,9 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Services/Service.php" />
-        <option value="$PROJECT_DIR$/app/Services/Member/MemberCoreService.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/Repository.php" />
         <option value="$PROJECT_DIR$/app/Repositories/Member/MemberCoreRepository.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Providers/RepositoryServiceProvider.php" />
@@ -216,9 +232,12 @@
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/member/index.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_02_13_000000_create_members_table.php" />
         <option value="$PROJECT_DIR$/app/Events/LoginEvent.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_02_09_000000_add_columns_to_user_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
         <option value="$PROJECT_DIR$/app/Listeners/LoginListener.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_02_09_000000_add_columns_to_user_table.php" />
+        <option value="$PROJECT_DIR$/app/Models/UserLog.php" />
+        <option value="$PROJECT_DIR$/app/Listeners/LoginSuccessfulListener.php" />
+        <option value="$PROJECT_DIR$/app/Listeners/UserLoginSuccessfulListener.php" />
         <option value="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
       </list>
     </option>
@@ -371,6 +390,9 @@
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/zhuzhichao/ip-location-zh" />
+      <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
+      <path value="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib" />
+      <path value="$PROJECT_DIR$/vendor/jenssegers/agent" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
@@ -408,27 +430,6 @@
               <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Handlers" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Auth" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
@@ -677,7 +678,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="edit&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/member/edit.blade.php&#10;Mem&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/Member.php&#10;admin&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Admin/AdminMembersController.php&#10;ba&#9;FILE&#9;file:///Users/andyjung/www/web/config/barcode.php&#10;Admin&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Admin/AdminMembersController.php&#10;web&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;Member.php&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/Member.php&#10;defaul&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/layouts/css/default.blade.php&#10;ex&#9;FILE&#9;file:///Users/andyjung/Desktop/bootstrap-switch-master/docs/examples.html&#10;test&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/layouts/test.blade.php&#10;popper&#9;FILE&#9;file:///Users/andyjung/www/web/public/theme/cryptoadmin/vendor_components/popper/docs/popper-documentation.html&#10;side&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php&#10;config/app.ph&#9;FILE&#9;file:///Users/andyjung/www/web/config/app.php&#10;MemberCo&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Member/MembersController.php&#10;the&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;them&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;theme&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;AdminContro&#9;null&#9;null&#10;we&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;swi&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/tools/guard-switcher.blade.php&#10;head&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php&#10;web.php&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;theme.p&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;user-&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php&#10;user-pro&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php&#10;he&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;Controll&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;User&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/User.php&#10;header&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;app.ph&#9;FILE&#9;file:///Users/andyjung/www/web/config/app.php&#10;cont&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;show&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/user/show.blade.php&#10;CONTR&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;def&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/js/default.blade.php&#10;user&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php&#10;regis&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/register.blade.php&#10;si&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/sidebar.blade.php&#10;log&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;regist&#9;FILE&#9;file:///Users/andyjung/www/web/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php&#10;ResetPasswordController&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Auth/ResetPasswordController.php&#10;.e&#9;FILE&#9;file:///Users/andyjung/www/web/.env&#10;email&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/passwords/email.blade.php&#10;login&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/login.blade.php&#10;VerificationController&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Auth/VerificationController.php&#10;EnsureEmailIsVerified&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Middleware/EnsureEmailIsVerified.php&#10;hea&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;js&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/js.blade.php&#10;Ensure&#9;null&#9;null&#10;SendEmailVerificationNotification&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/andyjung/www/web/database/migrations/2020_02_09_000000_add_columns_to_user_table.php&#10;edit&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/member/edit.blade.php&#10;Mem&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/Member.php&#10;admin&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Admin/AdminMembersController.php&#10;ba&#9;FILE&#9;file:///Users/andyjung/www/web/config/barcode.php&#10;Admin&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Admin/AdminMembersController.php&#10;web&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;Member.php&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/Member.php&#10;defaul&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/layouts/css/default.blade.php&#10;ex&#9;FILE&#9;file:///Users/andyjung/Desktop/bootstrap-switch-master/docs/examples.html&#10;test&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/layouts/test.blade.php&#10;popper&#9;FILE&#9;file:///Users/andyjung/www/web/public/theme/cryptoadmin/vendor_components/popper/docs/popper-documentation.html&#10;side&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/layouts/sidebar.blade.php&#10;config/app.ph&#9;FILE&#9;file:///Users/andyjung/www/web/config/app.php&#10;MemberCo&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Member/MembersController.php&#10;the&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;them&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;theme&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;AdminContro&#9;null&#9;null&#10;we&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;swi&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/admin/tools/guard-switcher.blade.php&#10;head&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php&#10;web.php&#9;FILE&#9;file:///Users/andyjung/www/web/routes/web.php&#10;theme.p&#9;FILE&#9;file:///Users/andyjung/www/web/config/theme.php&#10;user-&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php&#10;user-pro&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-user-profiles.blade.php&#10;he&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;Controll&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;User&#9;FILE&#9;file:///Users/andyjung/www/web/app/Models/User.php&#10;header&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;app.ph&#9;FILE&#9;file:///Users/andyjung/www/web/config/app.php&#10;cont&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;show&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/user/show.blade.php&#10;CONTR&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/User/UsersController.php&#10;def&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/js/default.blade.php&#10;user&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php&#10;regis&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/register.blade.php&#10;si&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/sidebar.blade.php&#10;log&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;regist&#9;FILE&#9;file:///Users/andyjung/www/web/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php&#10;ResetPasswordController&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Auth/ResetPasswordController.php&#10;.e&#9;FILE&#9;file:///Users/andyjung/www/web/.env&#10;email&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/passwords/email.blade.php&#10;login&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/auth/login.blade.php&#10;VerificationController&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Controllers/Auth/VerificationController.php&#10;EnsureEmailIsVerified&#9;FILE&#9;file:///Users/andyjung/www/web/app/Http/Middleware/EnsureEmailIsVerified.php&#10;hea&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/header-login.blade.php&#10;js&#9;FILE&#9;file:///Users/andyjung/www/web/resources/views/theme/cryptoadmin/user/layouts/js.blade.php&#10;Ensure&#9;null&#9;null&#10;SendEmailVerificationNotification&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -687,11 +688,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Models" />
       <recent name="$PROJECT_DIR$/app/Handlers" />
       <recent name="$PROJECT_DIR$/app/Observers" />
       <recent name="$PROJECT_DIR$/config" />
       <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/public/theme/cryptoadmin/vendor_components/popper/dist" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/test" />
@@ -732,12 +733,12 @@
       <workItem from="1581566288103" duration="26403000" />
       <workItem from="1581699020185" duration="259000" />
       <workItem from="1581727403947" duration="4374000" />
-      <workItem from="1581736591638" duration="12417000" />
+      <workItem from="1581736591638" duration="15491000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107385000" />
+    <option name="totallyTimeSpent" value="110459000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -750,7 +751,7 @@
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="TypeScript" order="0" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.3004292" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3004292" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -801,13 +802,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Validation/Validator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="250" column="13" lean-forward="true" selection-start-line="250" selection-start-column="13" selection-end-line="250" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="771">
@@ -1121,13 +1115,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="46" column="9" selection-start-line="37" selection-start-column="8" selection-end-line="46" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AdminLoginController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
@@ -1138,20 +1125,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/member/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="53" column="75" selection-start-line="53" selection-start-column="75" selection-end-line="53" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="46" column="9" selection-start-line="37" selection-start-column="8" selection-end-line="46" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="569">
-          <caret line="61" column="37" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
           <folding>
             <element signature="e#45#81#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Events/LoginSuccessfulEvent.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/UserLog.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+        <state relative-caret-position="525">
+          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/UserLoginSuccessfulListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+          <folding>
+            <element signature="e#33#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_02_09_000000_add_columns_to_user_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Events/UserLoginSuccessfulEvent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
           <folding>
             <element signature="e#29#65#0#PHP" expanded="true" />
           </folding>
@@ -1160,29 +1185,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/EventServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/LoginSuccessfulListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="43" lean-forward="true" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_02_09_000000_add_columns_to_user_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/member/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="53" column="75" selection-start-line="53" selection-start-column="75" selection-end-line="53" selection-end-column="75" />
+        <state relative-caret-position="450">
+          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
         </state>
       </provider>
     </entry>
