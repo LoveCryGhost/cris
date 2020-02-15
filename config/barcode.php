@@ -6,6 +6,7 @@ return [
         'member'=> 'MC',
         'user'=> 'UC',
 
+        'categories' => 'C',
         'type' => 'T',
         'attribute' => 'A',
         'product' => 'P',

@@ -16,7 +16,8 @@ class CreateProductsTable extends Migration
             $table->string('t_description')->nullable();
             $table->bigInteger('member_id')->unsigned()->nullable();
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
 
         Schema::create('attributes', function (Blueprint $table) {
@@ -27,7 +28,8 @@ class CreateProductsTable extends Migration
             $table->string('a_description')->nullable();
             $table->bigInteger('member_id')->unsigned()->nullable();
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
 
         Schema::create('types_attributes', function (Blueprint $table) {
@@ -36,7 +38,8 @@ class CreateProductsTable extends Migration
             $table->BigInteger('t_id')->unsigned();
             $table->BigInteger('a_id')->unsigned();
             $table->bigInteger('member_id')->unsigned()->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
             $table->foreign('t_id')->references('t_id')->on('types')->onDelete('cascade');
             $table->foreign('a_id')->references('a_id')->on('attributes')->onDelete('cascade');
@@ -51,7 +54,8 @@ class CreateProductsTable extends Migration
             $table->bigInteger('c_id')->unsigned()->nullable();
             $table->bigInteger('member_id')->unsigned()->nullable();
             $table->boolean('is_new')->default(0);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
             $table->foreign('t_id')->references('t_id')->on('types')->onDelete('cascade');
             $table->foreign('c_id')->references('c_id')->on('categories')->onDelete('cascade');
@@ -60,7 +64,8 @@ class CreateProductsTable extends Migration
         Schema::create('product_categories', function (Blueprint $table) {
             $table->bigIncrements('pc_id');
             $table->BigInteger('c_id')->unsigned();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->foreign('c_id')->references('c_id')->on('categories')->onDelete('cascade');
         });
 
@@ -71,7 +76,8 @@ class CreateProductsTable extends Migration
             $table->tinyInteger('sort_order')->nullable();
             $table->string('path')->nullable();
             $table->foreign('p_id')->references('p_id')->on('products')->onDelete('cascade');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 
