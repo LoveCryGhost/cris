@@ -15,7 +15,8 @@ class CreateAdminsTable extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->boolean('is_active')->default(1);
+            $table->string('id_code')->nullable();
+            $table->boolean('is_active')->default(0);
             $table->string('name');
             $table->string('email')->unique();
             $table->string('avatar')->nullable();
@@ -27,6 +28,7 @@ class CreateAdminsTable extends Migration
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
+
     }
 
     /**

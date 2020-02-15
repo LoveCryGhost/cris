@@ -1,22 +1,32 @@
 <!-- jQuery 3 -->
 <script src="{{asset('theme/cryptoadmin/vendor_components/jquery-3.3.1/jquery-3.3.1.js')}}"></script>
 
-
+{{--前--}}
 {{--Toast--}}
+
+<!-- popper -->
+<script src="{{asset('theme/cryptoadmin/vendor_components/popper/dist/popper.min.js')}}"></script>
 @include(config('theme.user.js.toast'))
+<script src="{{asset('js/bootstrap-switch.js')}}"></script>
 
-
+{{--後--}}
 <!-- fullscreen -->
 <script src="{{asset('theme/cryptoadmin/vendor_components/screenfull/screenfull.js')}}"></script>
 
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('theme/cryptoadmin/vendor_components/jquery-ui/jquery-ui.js')}}"></script>
 
-<!-- popper -->
-{{--<script src="{{asset('theme/cryptoadmin/vendor_components/popper/dist/popper.min.js')}}"></script>--}}
-
 <!-- Bootstrap 4.0-->
 <script src="{{asset('theme/cryptoadmin/vendor_components/bootstrap/dist/js/bootstrap.js')}}"></script>
+
+
+
+
+
+
+
+
+
 
 <!-- Slimscroll -->
 <script src="{{asset('theme/cryptoadmin/vendor_components/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
@@ -101,9 +111,6 @@
 <!-- FastClick -->
 <script src="{{asset('theme/cryptoadmin/vendor_components/fastclick/lib/fastclick.js')}}"></script>
 
-<!-- bootstrap time pi
-
-{{--<script src="{{asset('js/bootstrap-switch.js')}}"></script>--}}
 
 {{--<script src="{{asset('theme/cryptoadmin/js/pages/amcharts/charts.js')}}" type="text/javascript"></script>--}}
 

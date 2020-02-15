@@ -2,13 +2,14 @@
 
 namespace App\Services\Member;
 
-use App\Repositories\Member\MemberRepositoryInterface;
+use App\Repositories\Member\MemberRepository;
+use Illuminate\Support\Facades\Hash;
 
 class MemberService extends MemberCoreService
 {
     protected $memberRepo;
 
-    public function __construct(MemberRepositoryInterface $memberRepository)
+    public function __construct(MemberRepository $memberRepository)
     {
         $this->memberRepo = $memberRepository;
     }
@@ -24,6 +25,12 @@ class MemberService extends MemberCoreService
                 $data['avatar']=$result['path'];
             }
         }
+        return $data;
+    }
+
+    //儲存Member照片
+    public function save_change_password($data, $member, $request){
+        $data['password'] = Hash::make($request->new_password);
         return $data;
     }
 }

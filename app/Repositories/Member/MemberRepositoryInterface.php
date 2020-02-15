@@ -3,7 +3,6 @@
 namespace App\Repositories\Member;
 
 
-use App\Models\Member;
 
 interface MemberRepositoryInterface{
 
