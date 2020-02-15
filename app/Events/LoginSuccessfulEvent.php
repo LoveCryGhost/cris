@@ -8,7 +8,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use App\Models\User;
 use Jenssegers\Agent\Agent;
-class LoginEvent
+class LoginSuccessfulEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
