@@ -1,0 +1,88 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateProductsTable extends Migration
+{
+    public function up()
+    {
+        Schema::create('types', function (Blueprint $table) {
+            $table->bigIncrements('t_id');
+            $table->string('id_code')->unique()->nullable();
+            $table->boolean('is_active')->default(1);
+            $table->string('t_name')->unique();
+            $table->string('t_description')->nullable();
+            $table->bigInteger('member_id')->unsigned()->nullable();
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
+            $table->timestamps();
+        });
+
+        Schema::create('attributes', function (Blueprint $table) {
+            $table->bigIncrements('a_id');
+            $table->string('id_code')->unique()->nullable();
+            $table->boolean('is_active')->default(1);
+            $table->string('a_name')->unique();
+            $table->string('a_description')->nullable();
+            $table->bigInteger('member_id')->unsigned()->nullable();
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
+            $table->timestamps();
+        });
+
+        Schema::create('types_attributes', function (Blueprint $table) {
+            $table->bigIncrements('ta_id');
+            $table->tinyInteger('sort_order')->default(0);
+            $table->BigInteger('t_id')->unsigned();
+            $table->BigInteger('a_id')->unsigned();
+            $table->bigInteger('member_id')->unsigned()->nullable();
+            $table->timestamps();
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
+            $table->foreign('t_id')->references('t_id')->on('types')->onDelete('cascade');
+            $table->foreign('a_id')->references('a_id')->on('attributes')->onDelete('cascade');
+        });
+
+        Schema::create('products', function (Blueprint $table) {
+            $table->bigIncrements('p_id');
+            $table->string('id_code')->unique()->nullable();
+            $table->boolean('is_active')->default(0); //是否販售
+            $table->bigInteger('t_id')->unsigned()->nullable();
+            $table->string('name')->unique();
+            $table->bigInteger('c_id')->unsigned()->nullable();
+            $table->bigInteger('member_id')->unsigned()->nullable();
+            $table->boolean('is_new')->default(0);
+            $table->timestamps();
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
+            $table->foreign('t_id')->references('t_id')->on('types')->onDelete('cascade');
+            $table->foreign('c_id')->references('c_id')->on('categories')->onDelete('cascade');
+        });
+
+        Schema::create('product_categories', function (Blueprint $table) {
+            $table->bigIncrements('pc_id');
+            $table->BigInteger('c_id')->unsigned();
+            $table->timestamps();
+            $table->foreign('c_id')->references('c_id')->on('categories')->onDelete('cascade');
+        });
+
+
+        Schema::create('thumbnails', function (Blueprint $table) {
+            $table->increments('id');
+            $table->bigInteger('p_id')->unsigned()->nullable();
+            $table->tinyInteger('sort_order')->nullable();
+            $table->string('path')->nullable();
+            $table->foreign('p_id')->references('p_id')->on('products')->onDelete('cascade');
+            $table->timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('product_categories');
+        Schema::dropIfExists('thumbnails');
+        Schema::dropIfExists('products');
+        Schema::dropIfExists('types_attributes');
+        Schema::dropIfExists('attributes');
+        Schema::dropIfExists('types');
+
+    }
+}
