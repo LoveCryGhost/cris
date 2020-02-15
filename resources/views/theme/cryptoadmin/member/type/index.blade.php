@@ -1,13 +1,13 @@
 @extends(config('theme.member.member-app'))
 
-@section('title','商品 - 類別屬性')
+@section('title','產品 - 類型')
 
 @section('content')
     <div class="container-full">
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <h3>
-                商品 - 類別屬性
+                產品 - 類型
             </h3>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>

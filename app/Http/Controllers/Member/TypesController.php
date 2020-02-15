@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Member;
 
 use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\Member\MemberRequest;
+use App\Http\Requests\Member\TypeRequest;
 use App\Models\Member;
 use App\Models\Type;
 use App\Rules\CurrentPasswordRule;
@@ -28,36 +29,29 @@ class TypesController extends MemberCoreController
         return view(config('theme.member.view').'type.index', compact('types'));
     }
 
-//    public function edit(Member $member)
-//    {
-//        $this->authorize('update', $member);
-//        return view(config('theme.member.view').'member.edit', compact('member'));
-//    }
-//
-//
-//
-//    public function update(MemberRequest $request, Member $member, ImageUploadHandler $uploader)
-//    {
-//        $this->authorize('update', $member);
-//
-//        //取得參數
-//        $data = $request->all();
-//
-//        $data = $this->memberService->save_avatar($data, $member, $request, $uploader);
-//
-//        $member->update($data);
-//
-//        return redirect()->route('member.edit',['member'=>$member->id])
-//            ->with('toast', [
-//                "heading" => "個人訊息 - 更新成功",
-//                "text" =>  '',
-//                "position" => "top-right",
-//                "loaderBg" => "#ff6849",
-//                "icon" => "success",
-//                "hideAfter" => 3000,
-//                "stack" => 6
-//            ]);
-//    }
+    public function edit(Type $type)
+    {
+        return view(config('theme.member.view').'type.edit', compact('type'));
+    }
+
+    public function update(TypeRequest $request, Type $type)
+    {
+
+        //取得參數
+        $data = $request->all();
+        $type->update($data);
+
+        return redirect()->route('member.type.index')
+            ->with('toast', [
+                "heading" => "更新成功",
+                "text" =>  '',
+                "position" => "top-right",
+                "loaderBg" => "#ff6849",
+                "icon" => "success",
+                "hideAfter" => 3000,
+                "stack" => 6
+            ]);
+    }
 //
 //    //更新密碼
 //    public function update_password(Request $request, Member $member)
