@@ -68,7 +68,7 @@
                                             </td>
                                             <td>
                                                 <nav class="nav mt-2">
-                                                    <a class="nav-link" href="#">{{$user->admin? $user->admin->name: "自動註冊"}}</a>
+                                                    <a class="nav-link" href="#">{{$user->member? $user->member->name: "自動註冊"}}</a>
                                                 </nav>
                                             </td>
                                             <td>

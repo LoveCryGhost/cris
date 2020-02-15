@@ -6,7 +6,7 @@ use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\Admin\AdminMemberRequest;
 
 use App\Models\Member;
-use App\Services\Member\UserService;
+use App\Services\Member\MemberService;
 use Illuminate\Http\Request;
 
 /**
@@ -16,7 +16,7 @@ class AdminMembersController extends AdminCoreController
 {
 
     protected $memberService;
-    public function __construct(UserService $memberService)
+    public function __construct(MemberService $memberService)
     {
         $this->middleware('auth:admin');
         $this->memberService = $memberService;
