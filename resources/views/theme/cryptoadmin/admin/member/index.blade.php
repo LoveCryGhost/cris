@@ -51,7 +51,7 @@
                                             <td>
                                                 <input type="checkbox" class="bt-switch" name="is_active"  value="1" {{$member->is_active===1? "checked": ""}}
                                                        data-label-width="100%"
-                                                       data-label-text="啟用" data-size="min"
+                                                       data-label-text="啟用"
                                                        data-on-text="On"    data-on-color="primary"
                                                        data-off-text="Off"  data-off-color="danger"/>
                                             </td>
@@ -96,7 +96,7 @@
     <script type="text/javascript">
         $(function(){
             $bt_switch = $('.bt-switch');
-            $bt_switch.bootstrapSwitch('toggleState', true);
+            $bt_switch.bootstrapSwitch('toggleState');
         })
     </script>
 

@@ -2,23 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7cd3d220-28f1-4b8f-a28a-7b7694a50263" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Handlers/BarcodeHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Observers/MemberObserver.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Observers/Observer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/barcode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminMembersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminMembersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Member.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Member.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/MemberFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/MemberFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_12_000000_create_admins_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_12_000000_create_admins_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_13_000000_create_members_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_13_000000_create_members_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/AdminsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/AdminsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/MembersTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/MembersTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/member/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/member/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/member/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/member/index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,8 +19,8 @@
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/member/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-192">
-              <caret line="51" column="167" selection-start-line="51" selection-start-column="167" selection-end-line="51" selection-end-column="167" />
+            <state relative-caret-position="417">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
             </state>
           </provider>
         </entry>
@@ -645,12 +628,12 @@
       <workItem from="1581566288103" duration="26403000" />
       <workItem from="1581699020185" duration="259000" />
       <workItem from="1581727403947" duration="4374000" />
-      <workItem from="1581736591638" duration="9331000" />
+      <workItem from="1581736591638" duration="9561000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104299000" />
+    <option name="totallyTimeSpent" value="104529000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1085,8 +1068,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/member/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-192">
-          <caret line="51" column="167" selection-start-line="51" selection-start-column="167" selection-end-line="51" selection-end-column="167" />
+        <state relative-caret-position="417">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
