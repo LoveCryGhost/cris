@@ -40,6 +40,9 @@ class AddColumnsToUserTable extends Migration
 
     public function down()
     {
+
+        Schema::dropIfExists('user_logs');
+
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('is_active');
             $table->dropColumn('avatar');
@@ -47,6 +50,6 @@ class AddColumnsToUserTable extends Migration
             $table->dropColumn('introduction');
         });
 
-        Schema::dropIfExists('user_logs');
+
     }
 }

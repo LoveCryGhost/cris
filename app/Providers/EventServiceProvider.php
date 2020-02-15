@@ -30,9 +30,13 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\ResetPassword::class,
         ],
 
-        //登入監聽
+        //User登入監聽
         'App\Events\UserLoginSuccessfulEvent' => [
             'App\Listeners\UserLoginSuccessfulListener',
+        ],
+        //User登入監聽
+        'App\Events\MemberLoginSuccessfulEvent' => [
+            'App\Listeners\MemberLoginSuccessfulListener',
         ],
     ];
 

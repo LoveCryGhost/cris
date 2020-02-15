@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\MemberLoginSuccessfulEvent;
+use App\Http\Controllers\Member\MemberCoreController;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Jenssegers\Agent\Agent;
 
-class MemberLoginController extends Controller
+class MemberLoginController extends MemberCoreController
 {
+
+    use AuthenticatesUsers;
 
     public function __construct()
     {
@@ -37,6 +42,15 @@ class MemberLoginController extends Controller
         ];
         $remember = $request->remember;
         if(Auth::guard('member')->attempt($credentials, $remember)){
+            //觸發事件
+            $ip = Request::createFromGlobals()->getClientIp();
+            if($ip=="::1"){
+                $ip= '127.0.0.1';
+            }else{
+                $ip= Request::createFromGlobals()->getClientIp();
+            }
+            event(new MemberLoginSuccessfulEvent($this->guard('member')->user(), new Agent(), $ip, time()));
+
             //if successful , the redirect to their intended location
             return redirect()->intended(route('member.index'));
         }

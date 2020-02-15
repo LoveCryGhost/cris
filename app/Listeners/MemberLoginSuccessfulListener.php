@@ -2,13 +2,14 @@
 
 namespace App\Listeners;
 
+use App\Events\MemberLoginSuccessfulEvent;
 use App\Events\UserLoginSuccessfulEvent;
-use App\Models\UserLog;
+use App\Models\MemberLog;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Zhuzhichao\IpLocationZh\Ip;
 
-class UserLoginSuccessfulListener
+class MemberLoginSuccessfulListener
 {
     /**
      * Create the event listener.
@@ -26,10 +27,10 @@ class UserLoginSuccessfulListener
      * @param  UserLoginSuccessfulEvent  $event
      * @return void
      */
-    public function handle(UserLoginSuccessfulEvent $event)
+    public function handle(MemberLoginSuccessfulEvent $event)
     {
         //獲取事件中儲存的資訊
-        $user = $event->getUser();
+        $member = $event->getMember();
         $agent = $event->getAgent();
         $ip = $event->getIp();
         $timestamp =  date( "Y-m-d H:i:s", $event->getTimestamp());
@@ -38,7 +39,7 @@ class UserLoginSuccessfulListener
         $login_info = [
             'ip' => $ip,
             'login_at' => $timestamp,
-            'user_id' => $user->id
+            'member_id' => $member->id
         ];
 
         // zhuzhichao/ip-location-zh 包含的方法獲取ip地理位置
@@ -69,6 +70,6 @@ class UserLoginSuccessfulListener
             $login_info['device_type'] = 'desktop';
         }
         //插入到資料庫
-        UserLog::insert($login_info);
+        MemberLog::insert($login_info);
     }
 }
