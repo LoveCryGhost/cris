@@ -47,23 +47,23 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('p_id');
             $table->string('id_code')->unique()->nullable();
             $table->boolean('is_active')->default(0); //是否販售
+            $table->timestamp('publish_at')->nullable();
             $table->bigInteger('t_id')->unsigned()->nullable();
-            $table->string('name')->unique();
-            $table->bigInteger('c_id')->unsigned()->nullable();
-            $table->bigInteger('member_id')->unsigned()->nullable();
-            $table->boolean('is_new')->default(0);
+            $table->string('name');
+            $table->bigInteger('member_id')->unsigned();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
             $table->foreign('t_id')->references('t_id')->on('types')->onDelete('cascade');
-            $table->foreign('c_id')->references('c_id')->on('categories')->onDelete('cascade');
         });
 
-        Schema::create('product_categories', function (Blueprint $table) {
+        Schema::create('products_categories', function (Blueprint $table) {
             $table->bigIncrements('pc_id');
+            $table->BigInteger('p_id')->unsigned();
             $table->BigInteger('c_id')->unsigned();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+            $table->foreign('p_id')->references('p_id')->on('products')->onDelete('cascade');
             $table->foreign('c_id')->references('c_id')->on('categories')->onDelete('cascade');
         });
 
