@@ -7,7 +7,7 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <h3>
-                Blank page
+                Blank pagexx
             </h3>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>

@@ -8,7 +8,6 @@ use App\Models\Member;
 use App\Rules\CurrentPasswordRule;
 use App\Services\User\UserService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 
 class MembersController extends MemberCoreController
@@ -31,8 +30,6 @@ class MembersController extends MemberCoreController
         $this->authorize('update', $member);
         return view(config('theme.member.view').'member.edit', compact('member'));
     }
-
-
 
     public function update(MemberRequest $request, Member $member, ImageUploadHandler $uploader)
     {
