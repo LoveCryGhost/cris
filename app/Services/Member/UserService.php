@@ -2,15 +2,15 @@
 
 namespace App\Services\Member;
 
-use App\Repositories\Member\MemberRepositoryInterface;
+use App\Repositories\Member\UserRepositoryInterface;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Validator;
 
-class MemberService extends MemberCoreService
+class UserService extends UserCoreService
 {
     protected $memberRepo;
 
-    public function __construct(MemberRepositoryInterface $memberRepository)
+    public function __construct(UserRepositoryInterface $memberRepository)
     {
         $this->memberRepo = $memberRepository;
     }

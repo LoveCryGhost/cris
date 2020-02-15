@@ -6,7 +6,7 @@ use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\Member\MemberRequest;
 use App\Models\Member;
 use App\Rules\CurrentPasswordRule;
-use App\Services\Member\MemberService;
+use App\Services\Member\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,7 +15,7 @@ class MembersController extends MemberCoreController
 {
 
     protected $memberService;
-    public function __construct(MemberService $memberService)
+    public function __construct(UserService $memberService)
     {
         $this->middleware('auth:member');
         $this->memberService = $memberService;

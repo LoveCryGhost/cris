@@ -54,4 +54,14 @@ class User extends Authenticatable implements MustVerifyEmailContract
         }
         return $value;
     }
+
+    public function member()
+    {
+        return $this->belongsTo( Member::class, 'member_id','id');
+    }
+
+    public function UserLogs()
+    {
+        return $this->hasMany( UserLog::class, 'user_id','id');
+    }
 }

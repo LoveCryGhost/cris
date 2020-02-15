@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Repositories\Member;
+namespace App\Repositories\User;
 
 
 
-interface MemberRepositoryInterface{
+interface UserRepositoryInterface{
 
     public function all($row_qty);
 

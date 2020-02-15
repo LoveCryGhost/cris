@@ -5,7 +5,7 @@ namespace App\Repositories\Member;
 
 use App\Models\Member;
 
-class MemberRepository implements MemberRepositoryInterface
+class MemberRepository implements UserRepositoryInterface
 {
 
 

@@ -3,43 +3,43 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Handlers\ImageUploadHandler;
-use App\Http\Requests\Admin\AdminMemberRequest;
+use App\Http\Requests\Admin\AdminUserRequest;
 
-use App\Models\Member;
-use App\Services\Member\UserService;
+use App\Models\User;
+use App\Services\User\UserService;
 use Illuminate\Http\Request;
 
 /**
 
  */
-class AdminMembersController extends AdminCoreController
+class AdminUsersController extends AdminCoreController
 {
 
-    protected $memberService;
-    public function __construct(UserService $memberService)
+    protected $userService;
+    public function __construct(UserService $userService)
     {
         $this->middleware('auth:admin');
-        $this->memberService = $memberService;
+        $this->userService = $userService;
     }
 
     //Dashboard
     public function index(){
-        $members = Member::withCount(['memberLogs'])->paginate(5);
-        return view(config('theme.admin.view').'member.index', compact('members'));
+        $users = User::withCount(['userLogs'])->paginate(5);
+        return view(config('theme.admin.view').'user.index', compact('users'));
     }
 
-    public function edit(Member $member){
-        return view(config('theme.admin.view').'member.edit', compact('member'));
+    public function edit(User $user){
+        return view(config('theme.admin.view').'user.edit', compact('user'));
     }
 
-    public function update(AdminMemberRequest $request , ImageUploadHandler $uploader, Member $member)
+    public function update(AdminUserRequest $request , ImageUploadHandler $uploader, User $user)
     {
         $data = $request->all();
 
-        $data = $this->memberService->save_avatar($data, $member,$request, $uploader);
+        $data = $this->userService->save_avatar($data, $user,$request, $uploader);
 
-        $member->update($data);
-        return redirect()->route('admin.member.index')
+        $user->update($data);
+        return redirect()->route('admin.user.index')
             ->with('toast', [
                 "heading" => "個人訊息 - 更新成功",
                 "text" =>  '',
@@ -52,7 +52,7 @@ class AdminMembersController extends AdminCoreController
     }
 
     //更新密碼
-    public function update_password(Request $request, Member $member)
+    public function update_password(Request $request, User $user)
     {
         //驗證
         $this->validate($request, [
@@ -64,12 +64,12 @@ class AdminMembersController extends AdminCoreController
         ]);
 
         $data = $request->all();
-        $data = $this->memberService->save_change_password($data, $member,$request);
+        $data = $this->userService->save_change_password($data, $user,$request);
 
-        $member->update($data);
-        return redirect()->route('admin.member.edit', ['member'=> $member->id])
+        $user->update($data);
+        return redirect()->route('admin.user.edit', ['user'=> $user->id])
             ->with('toast', [
-                "heading" => "Member 密碼 - 更新成功",
+                "heading" => "User 密碼 - 更新成功",
                 "text" =>  '',
                 "position" => "top-right",
                 "loaderBg" => "#ff6849",
@@ -81,7 +81,7 @@ class AdminMembersController extends AdminCoreController
 
 
     public function create(){
-        return view(config('theme.admin.view').'member.create', compact(''));
+        return view(config('theme.admin.view').'user.create', compact(''));
     }
 
 //    //顯示使用者資料
