@@ -13,10 +13,11 @@ class Member extends Authenticatable implements MustVerifyEmailContract
 {
     use Notifiable, MustVerifyEmailTrait;
 
+    protected $with = ['admin'];
 
     protected $fillable = [
-        'name', 'email', 'password',
-        'birthday', 'is_active', 'avatar', 'introduction'
+        'id_code', 'is_active', 'name', 'email', 'password',
+        'birthday',  'avatar', 'introduction'
     ];
 
 
@@ -46,5 +47,10 @@ class Member extends Authenticatable implements MustVerifyEmailContract
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new MemberResetPasswordNotification($token));
+    }
+
+    public function admin()
+    {
+        return $this->belongsTo( Admin::class, 'admin_id','id');
     }
 }

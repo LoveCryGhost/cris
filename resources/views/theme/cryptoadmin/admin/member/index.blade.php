@@ -49,11 +49,23 @@
                                                 </p>
                                             </td>
                                             <td>
+                                                <input type="checkbox" class="bt-switch" name="is_active"  value="1" {{$member->is_active===1? "checked": ""}}
+                                                       data-label-width="100%"
+                                                       data-label-text="啟用" data-size="min"
+                                                       data-on-text="On"    data-on-color="primary"
+                                                       data-off-text="Off"  data-off-color="danger"/>
+                                            </td>
+                                            <td>
                                                 <nav class="nav mt-2">
                                                     <a class="nav-link" href="#"><i class="fa fa-facebook"></i></a>
                                                     <a class="nav-link" href="#"><i class="fa fa-twitter"></i></a>
                                                     <a class="nav-link" href="#"><i class="fa fa-github"></i></a>
                                                     <a class="nav-link" href="#"><i class="fa fa-linkedin"></i></a>
+                                                </nav>
+                                            </td>
+                                            <td>
+                                                <nav class="nav mt-2">
+                                                    <a class="nav-link" href="#">{{$member->admin? $member->admin->name: "自動註冊"}}</a>
                                                 </nav>
                                             </td>
                                             <td>
@@ -78,6 +90,18 @@
 
     </div>
 @stop
+
+@section('js')
+    @parent
+    <script type="text/javascript">
+        $(function(){
+            $bt_switch = $('.bt-switch');
+            $bt_switch.bootstrapSwitch('toggleState', true);
+        })
+    </script>
+
+@endsection
+
 
 
 

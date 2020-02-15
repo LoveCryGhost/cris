@@ -21,6 +21,7 @@ $factory->define(Member::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
+        'id_code' => '',
         'is_active' => 1,
         'avatar' => "",
         'email_verified_at' => now(),

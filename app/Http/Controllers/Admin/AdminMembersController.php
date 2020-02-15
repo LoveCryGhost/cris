@@ -32,11 +32,11 @@ class AdminMembersController extends AdminCoreController
         return view(config('theme.admin.view').'member.edit', compact('member'));
     }
 
-    public function update(AdminMemberRequest $request , ImageUploadHandler $uploader, Member $member){
+    public function update(AdminMemberRequest $request , ImageUploadHandler $uploader, Member $member)
+    {
         $data = $request->all();
 
         $data = $this->memberService->save_avatar($data, $member,$request, $uploader);
-
 
         $member->update($data);
         return redirect()->route('admin.member.index')

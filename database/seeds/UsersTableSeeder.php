@@ -1,5 +1,7 @@
 <?php
 
+use App\Handlers\BarcodeHandler;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
@@ -24,6 +26,7 @@ class UsersTableSeeder extends Seeder
             {
                 // 从头像数组中随机取出一个并赋值
                 $user->avatar = $faker->randomElement($avatars);
+                $user->id_code = (new BarcodeHandler())->barcode_generation(config('barcode.user'), $index+1);
             });
 
         // 让隐藏字段可见，并将数据集合转换为数组
