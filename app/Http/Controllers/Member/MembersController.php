@@ -6,7 +6,7 @@ use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\Member\MemberRequest;
 use App\Models\Member;
 use App\Rules\CurrentPasswordRule;
-use App\Services\Member\UserService;
+use App\Services\User\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
