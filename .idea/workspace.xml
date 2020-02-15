@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7cd3d220-28f1-4b8f-a28a-7b7694a50263" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Attribute.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Member.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Member.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/MemberLog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MemberLog.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Type.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Type.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/UserLog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/UserLog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ProductsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ProductsTableSeeder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,8 +21,8 @@
           <file leaf-file-name="Type.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/Models/Type.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="32" column="30" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="30" />
+                <state relative-caret-position="270">
+                  <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
@@ -40,20 +31,20 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="ProductsTableSeeder.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="ProductsTableSeeder.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/database/seeds/ProductsTableSeeder.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="750">
-                  <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
+                <state relative-caret-position="630">
+                  <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="2020_02_14_090000_create_products_table.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="2020_02_14_090000_create_products_table.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/database/migrations/2020_02_14_090000_create_products_table.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="395">
-                  <caret line="34" column="40" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="40" />
+                <state relative-caret-position="500">
+                  <caret line="41" selection-start-line="41" selection-end-line="41" />
                 </state>
               </provider>
             </entry>
@@ -168,7 +159,6 @@
         <option value="$PROJECT_DIR$/database/seeds/CategoriesTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_02_14_050000_create_categories_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_02_14_000000_add_foreign_key_member_to_user.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_02_14_090000_create_products_table.php" />
         <option value="$PROJECT_DIR$/app/Models/Admin.php" />
         <option value="$PROJECT_DIR$/app/Models/Category.php" />
         <option value="$PROJECT_DIR$/app/Models/Member.php" />
@@ -176,8 +166,9 @@
         <option value="$PROJECT_DIR$/app/Models/User.php" />
         <option value="$PROJECT_DIR$/app/Models/UserLog.php" />
         <option value="$PROJECT_DIR$/app/Models/Attribute.php" />
-        <option value="$PROJECT_DIR$/app/Models/Type.php" />
         <option value="$PROJECT_DIR$/database/seeds/ProductsTableSeeder.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_02_14_090000_create_products_table.php" />
+        <option value="$PROJECT_DIR$/app/Models/Type.php" />
       </list>
     </option>
   </component>
@@ -450,12 +441,12 @@
       <workItem from="1581699020185" duration="259000" />
       <workItem from="1581727403947" duration="4374000" />
       <workItem from="1581736591638" duration="21703000" />
-      <workItem from="1581779617694" duration="7022000" />
+      <workItem from="1581779617694" duration="7450000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123693000" />
+    <option name="totallyTimeSpent" value="124121000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -858,24 +849,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/ProductsTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_02_14_090000_create_products_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="34" column="40" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="40" />
+        <state relative-caret-position="500">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Type.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="32" column="30" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/ProductsTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
+        <state relative-caret-position="270">
+          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
         </state>
       </provider>
     </entry>
