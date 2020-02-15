@@ -15,6 +15,26 @@ class AddColumnsToUserTable extends Migration
             $table->string('introduction')->nullable();
 
         });
+
+        Schema::create('user_login_logs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('ip');
+            $table->timestamp('login_time');
+            $table->bigInteger('user_id')->unsigned();
+
+            $table->string('address')->nullable(); // zhuzhichao/ip-location-zh 包含的方法獲取ip地理位置
+            $table->string('device')->nullable(); //裝置名稱
+            $table->string('device')->nullable();
+            $table->string('browser')->nullable();
+            $table->string('platform')->nullable(); //作業系統
+
+            $table->string('device_type')->nullable(); //裝置型別
+            $table->string('device')->nullable(); //裝置...是否為機器人?
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+        });
     }
 
     public function down()
@@ -25,5 +45,7 @@ class AddColumnsToUserTable extends Migration
             $table->dropColumn('birthday');
             $table->dropColumn('introduction');
         });
+
+        Schema::dropIfExists('user_login_logs');
     }
 }

@@ -30,6 +30,20 @@ class CreateMembersTable extends Migration
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
+
+        Schema::create('member_login_logs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('member_id')->unsigned();
+            $table->boolean('agent')->default(1);
+            $table->string('browser')->nullable();
+            $table->string('ip')->unique();
+            $table->string('device')->nullable();
+            $table->date('platform')->nullable();
+            $table->string('language')->nullable();
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+        });
     }
 
     /**
@@ -39,6 +53,8 @@ class CreateMembersTable extends Migration
      */
     public function down()
     {
+
+        Schema::dropIfExists('member_login_logs');
         Schema::dropIfExists('members');
     }
 }
