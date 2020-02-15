@@ -5,6 +5,10 @@
 
 
 @include(config('theme.user.css.toast'))
+<!-- Bootstrap switch-->
+<link rel="stylesheet" href="{{asset('css/bootstrap-switch.css')}}">
+
+
 <!--amcharts -->
 <link href="https://www.amcharts.com/lib/3/plugins/export/export.css" rel="stylesheet" type="text/css" />
 
@@ -23,8 +27,6 @@
 <!--alerts CSS -->
 <link href="{{asset('theme/cryptoadmin/vendor_components/sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css">
 
-<!-- Bootstrap switch-->
-<link rel="stylesheet" href="{{asset('theme/cryptoadmin/vendor_components/bootstrap-switch/switch.css')}}">
 
 {{--<!-- Data Table-->--}}
 <link rel="stylesheet" type="text/css" href="{{asset('theme/cryptoadmin/vendor_components/datatable/datatables.min.css')}}"/>
@@ -32,4 +34,3 @@
 <!--amcharts -->
 <link href="https://www.amcharts.com/lib/3/plugins/export/export.css" rel="stylesheet" type="text/css" />
 
-{{--<link rel="stylesheet" href="{{asset('css/bootstrap-switch.css')}}">--}}

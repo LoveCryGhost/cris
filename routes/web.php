@@ -91,6 +91,9 @@ Route::get('/', function () {
     return view('theme.cryptoadmin.user.welcome');
 });
 
+include('route_test.php');
+
+
 
 
 
