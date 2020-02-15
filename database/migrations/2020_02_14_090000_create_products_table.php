@@ -69,8 +69,8 @@ class CreateProductsTable extends Migration
 
 
         Schema::create('thumbnails', function (Blueprint $table) {
-            $table->increments('id');
-            $table->bigInteger('p_id')->unsigned()->nullable();
+            $table->bigIncrements('pt_id');
+            $table->bigInteger('p_id')->unsigned();
             $table->tinyInteger('sort_order')->nullable();
             $table->string('path')->nullable();
             $table->foreign('p_id')->references('p_id')->on('products')->onDelete('cascade');

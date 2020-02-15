@@ -9,28 +9,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;;
 
-class Product extends Model
+class ProductThumbnail extends Model
 {
 
-    protected $table = "products";
-    protected $primaryKey='p_id';
+    protected $table = "product_thumbnails";
+    protected $primaryKey='pt_id';
 
     protected $fillable = [
-        'publish_at',
-        't_id',
-        'name',
-        'c_id',
+        'sort_order',
+        'path',
     ];
-
-
-    protected $casts = [
-        'is_active' => 'boolean',
-    ];
-
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class, 'products_categories','p_id','c_id')
-            ->withTimestamps();
-    }
-
 }

@@ -33,4 +33,7 @@ class Product extends Model
             ->withTimestamps();
     }
 
+    public function thumbnails(){
+        return $this->hasMany(ProductThumbnail::class, 'p_id');
+    }
 }
