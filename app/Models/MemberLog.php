@@ -12,11 +12,7 @@ use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;;
 class MemberLog extends Model
 {
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    protected $table = "member_logs";
     protected $fillable = [
         'ip',
         'login_at',

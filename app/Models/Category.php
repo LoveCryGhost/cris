@@ -11,6 +11,9 @@ use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;;
 
 class Category extends Model
 {
+    protected $table = "categories";
+    protected $primaryKey='c_id';
+
     protected $fillable = [
         'c_pid', 'id_code', 'is_active',
         'c_name', 'c_description', 'member_id'

@@ -9,11 +9,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;;
 
-class Type extends Model
+class Attribute extends Model
 {
-
-    protected $table = "types";
-    protected $primaryKey='t_id';
+    protected $table = "attributes";
+    protected $primaryKey='a_id';
 
     protected $fillable = [
         'is_active', 't_name', 't_description',
@@ -23,16 +22,8 @@ class Type extends Model
 
     ];
 
-
     protected $casts = [
         'is_active' => 'boolean',
     ];
 
-
-
-    public function attributes()
-    {
-        return $this->belongsToMany(Attribute::class, 'types_attributes','t_id','a_id')
-            ->withTimestamps();
-    }
 }

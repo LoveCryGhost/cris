@@ -13,6 +13,7 @@ class Member extends Authenticatable implements MustVerifyEmailContract
 {
     use Notifiable, MustVerifyEmailTrait;
 
+    protected $table = "members";
     protected $with = ['admin'];
 
     protected $fillable = [

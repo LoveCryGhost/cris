@@ -37,10 +37,8 @@ class CreateProductsTable extends Migration
             $table->tinyInteger('sort_order')->default(0);
             $table->BigInteger('t_id')->unsigned();
             $table->BigInteger('a_id')->unsigned();
-            $table->bigInteger('member_id')->unsigned()->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
-            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
             $table->foreign('t_id')->references('t_id')->on('types')->onDelete('cascade');
             $table->foreign('a_id')->references('a_id')->on('attributes')->onDelete('cascade');
         });

@@ -13,7 +13,8 @@ class Admin extends Authenticatable implements MustVerifyEmailContract
 {
     use Notifiable, MustVerifyEmailTrait;
 
-
+    protected $table = "admins";
+    protected $primaryKey='id';
 
     protected $fillable = [
         'name', 'email', 'password',
