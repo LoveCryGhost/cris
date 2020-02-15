@@ -53,4 +53,9 @@ class Member extends Authenticatable implements MustVerifyEmailContract
     {
         return $this->belongsTo( Admin::class, 'admin_id','id');
     }
+
+    public function memberLogs()
+    {
+        return $this->hasMany( MemberLog::class, 'member_id','id');
+    }
 }

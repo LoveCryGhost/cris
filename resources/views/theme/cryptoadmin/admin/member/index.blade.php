@@ -45,7 +45,10 @@
                                             <td class="w-300">
                                                 <p class="mb-0">
                                                     <a href="#"><strong>{{$member->name}}</strong></a><br>
-                                                    <small class="">{{$member->email}}</small>
+                                                    <small class="">{{$member->email}}</small><br>
+                                                    <small class="">登入次數 : {{$member->member_logs_count}}, 上次登入 : {{$member->updated_at->diffForHumans()}}</small>
+
+
                                                 </p>
                                             </td>
                                             <td>

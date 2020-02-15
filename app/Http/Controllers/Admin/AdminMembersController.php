@@ -24,7 +24,7 @@ class AdminMembersController extends AdminCoreController
 
     //Dashboard
     public function index(){
-        $members = Member::paginate(5);
+        $members = Member::withCount(['memberLogs'])->paginate(5);
         return view(config('theme.admin.view').'member.index', compact('members'));
     }
 
