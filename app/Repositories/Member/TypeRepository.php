@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Type;
+namespace App\Repositories\Member;
 
 
 use App\Models\Type;

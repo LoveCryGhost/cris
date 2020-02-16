@@ -2,15 +2,9 @@
 
 namespace App\Http\Controllers\Member;
 
-use App\Handlers\ImageUploadHandler;
-use App\Http\Requests\Member\MemberRequest;
 use App\Http\Requests\Member\TypeRequest;
-use App\Models\Member;
 use App\Models\Type;
-use App\Rules\CurrentPasswordRule;
-use App\Services\Type\TypeService;
-use App\Services\User\UserService;
-use Illuminate\Http\Request;
+use App\Services\Member\TypeService;
 
 
 class TypesController extends MemberCoreController

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services\Type;
+namespace App\Services\Member;
 
-use App\Repositories\Type\TypeRepository;
+use App\Repositories\Member\TypeRepository;
 
-class TypeService extends TypeCoreService
+class TypeService extends MemberCoreService
 {
     protected $typeRepo;
 
