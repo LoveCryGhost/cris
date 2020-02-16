@@ -59,13 +59,13 @@ class ProductsTableSeeder extends Seeder
             $products = [
                 [
                     'is_active' => 1, 'publish_at' => null, 'member_id' => 1,
-                    'name' => "Pizza 烤盤", 't_id' => 1,
+                    'p_name' => "Pizza 烤盤", 't_id' => 1,
                     'c_ids' => [2],
                     'pt_ids' => ['/images/default/products/pizza_pan_1.jpg', '/images/default/products/pizza_pan_2.jpg']
 
                 ],[
                     'is_active' => 1, 'publish_at' => null, 'member_id' => 1,
-                    'name' => "吐司烤盤", 't_id' => 1,
+                    'p_name' => "吐司烤盤", 't_id' => 1,
                     'c_ids' => [2],
                     'pt_ids' => ['/images/default/products/toast_pan_1.jpg', '/images/default/products/toast_pan_2.jpg', '/images/default/products/toast_pan_3.jpg']
                 ]
@@ -75,12 +75,12 @@ class ProductsTableSeeder extends Seeder
             $products = array_merge($products,[
                 [
                     'is_active' => 1, 'publish_at' => null, 'member_id' => 1,
-                    'name' => "潑尿酸面膜", 't_id' => 2,
+                    'p_name' => "潑尿酸面膜", 't_id' => 2,
                     'c_ids' => [8],
                     'pt_ids' => ['/images/default/products/mask_1.jpg', '/images/default/products/mask_2.jpg', '/images/default/products/mask_3.jpg']
                 ],[
                     'is_active' => 1, 'publish_at' => null, 'member_id' => 1,
-                    'name' => "保濕SKU面膜", 't_id' => 2,
+                    'p_name' => "保濕SKU面膜", 't_id' => 2,
                     'c_ids' => [10],
                     'pt_ids' => ['/images/default/products/mask_4.jpg']
                 ]]);
@@ -103,7 +103,7 @@ class ProductsTableSeeder extends Seeder
 
                 $productThumbnails =[];
                 foreach ($pt_ids as $key => $thumbnail_path){
-                    $productThumbnail = new ProductThumbnail();
+                    $productThumbnail = ProductThumbnail::get();
                     $productThumbnail->path = $thumbnail_path;
                     $productThumbnail->p_id = $product->p_id;
                     $productThumbnail->save();

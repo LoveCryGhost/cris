@@ -24,7 +24,20 @@
         <!-- sidebar menu-->
         <ul class="sidebar-menu" data-widget="tree">
 
-            <li class="header nav-small-cap">PERSONAL</li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="ti-cup"></i>
+                    <span>Product</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('member.attribute.index')}}"><i class="ti-more"></i>產品屬性</a></li>
+                    <li><a href="{{route('member.type.index')}}"><i class="ti-more"></i>產品類型</a></li>
+                    <li><a href="{{route('member.product.index')}}"><i class="ti-more"></i>產品類型</a></li>
+                </ul>
+            </li>
 
             <li class="treeview">
                 <a href="#">

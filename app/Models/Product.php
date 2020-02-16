@@ -2,12 +2,7 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
-use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;;
 
 class Product extends Model
 {
@@ -15,16 +10,16 @@ class Product extends Model
     protected $table = "products";
     protected $primaryKey='p_id';
 
+    protected $with = ['productThumbnails','member'];
     protected $fillable = [
         'publish_at',
         't_id',
-        'name',
-        'c_id',
+        'p_name',
+        'c_id', 'p_id'
     ];
 
 
     protected $casts = [
-        'is_active' => 'boolean',
     ];
 
     public function categories()
@@ -33,7 +28,11 @@ class Product extends Model
             ->withTimestamps();
     }
 
-    public function thumbnails(){
-        return $this->hasMany(ProductThumbnail::class, 'p_id', 'pt_id');
+    public function productThumbnails(){
+        return $this->hasMany(ProductThumbnail::class, 'p_id');
+    }
+
+    public function member(){
+        return $this->belongsTo(Member::class, 'member_id');
     }
 }
