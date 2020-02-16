@@ -19,17 +19,18 @@
         @yield('content-header')
     @endsection
 
-    <body class="hold-transition light-skin dark-sidebar sidebar-mini theme-grey sidebar-collapse">
+    <body class="hold-transition fixed light-skin dark-sidebar sidebar-mini theme-grey sidebar-collapse">
         <div id="app">
             @section('app-content')
                 @guest('member')
                     @include(config('theme.member.header'))
                 @else
                     @include(config('theme.member.header-login'))
+                    @include(config('theme.member.sidebar'))
                 @endguest
                 {{--內容--}}
                 <div class="wrapper">
-                    <div class="content-wrapper" style="margin-left: 0px;">
+                    <div class="content-wrapper">
                         @yield('content')
                     </div>
                 </div>
