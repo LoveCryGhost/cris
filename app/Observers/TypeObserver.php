@@ -20,12 +20,12 @@ class TypeObserver extends Observer
     public function creating(Type $type)
     {
         //判別是否為admin建立
-        $type->admin_id = Auth::guard('admin')->user()->id;
+        $type->member_id = Auth::guard('member')->user()->id;
     }
 
     public function created(Type $type)
     {
-        $type->id_code = (new BarcodeHandler())->barcode_generation(config('barcode.type'), $type->id);
+        $type->id_code = (new BarcodeHandler())->barcode_generation(config('barcode.type'), $type->t_id);
         $type->save();
     }
 

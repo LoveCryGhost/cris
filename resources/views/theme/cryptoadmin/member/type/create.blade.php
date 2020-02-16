@@ -18,9 +18,8 @@
 
             <!-- Main content -->
             <section class="content">
-                <form method="post" action="{{route('member.type.update', ['type'=>$type->t_id])}}">
+                <form method="post" action="{{route('member.type.store')}}">
                     @csrf
-                    @method('put')
                     <div class="row">
                         <div class="col-xl-12 col-lg-12">
                             @include(config('theme.member.view').'layouts.errors')
@@ -44,7 +43,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">啟用</label>
                                                 <div class="col-sm-10">
-                                                    <input type="checkbox" class="bt-switch" name="is_active"  value="1" {{$type->is_active==1? "checked": ""}}
+                                                    <input type="checkbox" class="bt-switch" name="is_active"  value="1"
                                                     data-label-width="100%"
                                                            data-label-text="啟用" data-size="min"
                                                            data-on-text="On"    data-on-color="primary"
@@ -54,7 +53,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Barcode</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" name="id_code" placeholder="Barcode" value="{{$type->id_code}}" disabled>
+                                                    <input class="form-control" type="text"  placeholder="Auto-Generate" disabled value="Auto-Generate !!">
                                                 </div>
                                             </div>
 
@@ -62,7 +61,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">名稱</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" name="t_name" placeholder="名稱"  value="{{$type->t_name}}">
+                                                    <input class="form-control" type="text" name="t_name" placeholder="名稱"  value="{{old('t_name')}}">
                                                 </div>
                                             </div>
 

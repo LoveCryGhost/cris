@@ -22,6 +22,9 @@
                 <div class="col-12">
                     <div class="box">
                         <div class="box-body">
+                            <div class="col-xl-12 col-lg-12 text-right mb-5">
+                                <a class="btn btn-warning" href="{{route('member.type.create')}}" ><i class="fa fa-plus"></i></a>
+                            </div>
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead>
@@ -60,8 +63,16 @@
                                             </td>
 
                                             <td>
-                                                <a class="btn btn-warning" href="{{route('member.type.edit', ['type'=> $type->t_id])}}"><i class="fa fa-edit"></i></a>
-                                                <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                                <a class="btn btn-warning btn-sm" href="{{route('member.type.edit', ['type'=> $type->t_id])}}"><i class="fa fa-edit mr-5"></i>編輯</a>
+                                                <form action="{{route('member.type.destroy', ['type'=> $type->t_id])}}" method="post"
+                                                      style="display: inline-block;"
+                                                      onsubmit="return confirm('您确定要删除吗？');">
+                                                        @csrf
+                                                        @method('delete')
+                                                    <button type="submit" class="btn btn-secondary btn-sm">
+                                                        <i class="fa fa-trash mr-5"></i>刪除
+                                                    </button>
+                                                </form>
                                             </td>
 
                                         </tr>
