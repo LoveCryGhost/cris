@@ -1,0 +1,1 @@
+<a class="btn btn-warning" href="{{route('member.type.create')}}" ><i class="fa fa-plus"></i></a>
