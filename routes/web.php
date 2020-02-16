@@ -74,6 +74,10 @@ Route::middleware('auth')->prefix('')->namespace('User')->name('')->group(functi
 Route::prefix('')->namespace('Admin')->name('')->group(function(){
     Route::prefix('admin')->name('admin.')->group(function(){
 
+        //Guard-Switcher-User
+        Route::post('tool/guard_switcher_user', 'AdminToolsController@guard_switcher_user')->name('tool.guard_switcher_user');
+
+        //AdminUser
         Route::put('user_update_password/{user}', 'AdminUsersController@update_password')->name('user.update_password');
         Route::resource('user', 'AdminUsersController');
 

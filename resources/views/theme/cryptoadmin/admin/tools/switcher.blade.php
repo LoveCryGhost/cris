@@ -36,31 +36,37 @@
     @endphp
     <div id="guard-switcher-user" class="text-center">
         <div class="align-middle mt-10">
-            User:
-            <select class="form-control">
-                <option>Select...</option>
-                @foreach($users as $user)
-                    <option value="{{$user->id}}" {{$user->id==Auth::guard('web')->user()->id? "selected":""}}>{{$user->name}}</option>
-                @endforeach
-            </select>
+            <form class="frm-guard-switcher-user" method="post" action="{{route('admin.tool.guard_switcher_user')}}">
+                @csrf
+                <input type="text" name="guard" hidden>
+                <input type="text" name="id" hidden>
+                <input type="text" name="url" hidden>
 
-            Member:
-            <select class="form-control">
-                <option>Select...</option>
-                @foreach($members as $member)
-                    <option value="{{$member->id}}" {{$member->id==Auth::guard('member')->user()->id? "selected":""}}>{{$member->name}}</option>
-                @endforeach
-            </select>
-            Admin:
-            <select class="form-control">
-                <option>Select...</option>
-                @foreach($admins as $admin)
-                    <option value="{{$admin->id}}" {{$admin->id==Auth::guard('admin')->user()->id? "selected":""}}>{{$admin->name}}</option>
-                @endforeach
-            </select>
+                User:
+                <select class="form-control" id="slt-user" data-select-id="slt-user" data-guard="web">
+                    <option>Select...</option>
+                    @foreach($users as $user)
+                        <option value="{{$user->id}}" {{$user->id==Auth::guard('web')->user()->id? "selected":""}}>{{$user->name}}</option>
+                    @endforeach
+                </select>
+
+                Member:
+                <select class="form-control" id="slt-member" data-select-id="slt-member" data-guard="member">
+                    <option>Select...</option>
+                    @foreach($members as $member)
+                        <option value="{{$member->id}}" {{$member->id==Auth::guard('member')->user()->id? "selected":""}}>{{$member->name}}</option>
+                    @endforeach
+                </select>
+
+                Admin:
+                <select class="form-control" id="slt-admin" data-select-id="slt-admin" data-guard="admin">
+                    <option>Select...</option>
+                    @foreach($admins as $admin)
+                        <option value="{{$admin->id}}" {{$admin->id==Auth::guard('admin')->user()->id? "selected":""}}>{{$admin->name}}</option>
+                    @endforeach
+                </select>
+            </form>
         </div>
-
-
     </div>
 @endif
 
@@ -106,9 +112,30 @@
     .side-bar .icon-blog {background-position: 0 -198px;}
     .side-bar .icon-mail {background-position: 0 -266px;}
 
-
     .side-bar .icon-chat:hover .chat-tips {display: block;}
     .chat-tips {padding: 20px;border: 1px solid #d1d2d6;position: absolute;right: 78px;top: -55px;background-color: #fff;display: none;}
     .chat-tips i {width: 9px;height: 16px;display: inline-block;position: absolute;right: -9px;top: 80px;background-position:-88px -350px;}
     .chat-tips img {width: 138px;height: 138px;}
 </style>
+
+<script>
+$(function () {
+    _frm = $('.frm-guard-switcher-user');
+    $('.frm-guard-switcher-user select').on('change', function() {
+
+        _select_id = $(this).data('select-id');
+            console.log(_select_id);
+        _id = $(this).children("option:selected"). val();
+            console.log($(this).children("option:selected"). val());
+        _guard = $(this).data('guard');
+        _url = "{{url()->current()}}";
+            console.log(_url);
+
+        $('.frm-guard-switcher-user input[name=guard]').val(_guard);
+        $('.frm-guard-switcher-user input[name=id]').val(_id);
+        $('.frm-guard-switcher-user input[name=url]').val(_url);
+
+        _frm.submit();
+    });
+})
+</script>
