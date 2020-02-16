@@ -32,4 +32,8 @@ class Type extends Model
         return $this->belongsToMany(Attribute::class, 'types_attributes','t_id','a_id')
             ->withTimestamps();
     }
+
+    public function member(){
+        return $this->belongsTo(Member::class,'member_id');
+    }
 }

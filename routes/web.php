@@ -90,6 +90,7 @@ Route::prefix('member')->namespace('Member')->group(function(){
     Route::resource('member', 'MembersController');
     Route::prefix('')->name('member.')->group(function(){
         Route::resource('type', 'TypesController');
+        Route::resource('attribute', 'AttributesController');
     });
 
 });

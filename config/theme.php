@@ -66,7 +66,11 @@ return [
                 ],
                 'edit' => [
                     'crud'=> $member_style.'.layouts.btn-edit-crud',
+                ],
+                'create' => [
+                    'crud'=> $member_style.'.layouts.btn-create-crud',
                 ]
+
             ],
 
             'member-app' => $member_style.'.layouts.member-app',

@@ -37,40 +37,38 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($types as $type)
+                                        @foreach($attributes as $attribute)
                                         <tr>
                                             <td class="w-20 text-center">{{$loop->iteration}}</td>
-                                            <td>{{$type->id_code}}</td>
+                                            <td>{{$attribute->id_code}}</td>
                                             <td class="w-300">
                                                 <p class="mb-0">
-                                                    <a href="#"><strong>{{$type->t_name}}</strong></a><br>
+                                                    <a href="#"><strong>{{$attribute->a_name}}</strong></a><br>
                                                 </p>
                                             </td>
                                             <td>
-                                                <input type="checkbox" class="bt-switch" name="is_active"  value="1" {{$type->is_active===1? "checked": ""}}
+                                                <input type="checkbox" class="bt-switch" name="is_active"  value="1" {{$attribute->is_active===1? "checked": ""}}
                                                        data-label-width="100%"
                                                        data-label-text="啟用"
                                                        data-on-text="On"    data-on-color="primary"
                                                        data-off-text="Off"  data-off-color="danger"/>
                                             </td>
                                             <td>
-                                            <td>
                                                 <p class="mb-0">
-                                                    <small>修改人 : {{$type->member->name}}</small><br>
-                                                    <small>最後更新 : {{$type->updated_at->diffForHumans()}}</small>
+                                                    <small>修改人 : {{$attribute->member->name}}</small><br>
+                                                    <small>最後更新 : {{$attribute->updated_at->diffForHumans()}}</small>
                                                 </p>
-                                            </td>
                                             </td>
 
                                             <td>
-                                                @include(config('theme.member.btn.index.table_tr'),['id' => $type->t_id])
+                                                @include(config('theme.member.btn.index.table_tr'),['id' => $attribute->a_id])
                                             </td>
 
                                         </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <div class=""> {{$types->links("pagination::bootstrap-4")}}</div>
+                                <div class=""> {{$attributes->links("pagination::bootstrap-4")}}</div>
                             </div>
                         </div>
                         <!-- /.box-body -->

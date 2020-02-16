@@ -15,7 +15,7 @@ class Attribute extends Model
     protected $primaryKey='a_id';
 
     protected $fillable = [
-        'is_active', 't_name', 't_description',
+        'is_active', 'a_name', 'a_description',
     ];
 
     protected $hidden = [
@@ -23,7 +23,9 @@ class Attribute extends Model
     ];
 
     protected $casts = [
-        'is_active' => 'boolean',
     ];
 
+    public function member(){
+        return $this->belongsTo(Member::class,'member_id');
+    }
 }

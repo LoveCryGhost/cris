@@ -1,13 +1,13 @@
 @extends(config('theme.member.member-app'))
 
-@section('title','產品類型')
+@section('title','產品屬性')
 
 @section('content')
 <div class="container-full">
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <h3>
-                    產品 - 類型
+                    產品 - 屬性
                 </h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/"><i class="fa fa-dashboard"></i>首頁</a></li>
@@ -18,23 +18,22 @@
 
             <!-- Main content -->
             <section class="content">
-                <form method="post" action="{{route('member.type.store')}}">
+                <form method="post" action="{{route('member.attribute.update', ['attribute'=>$attribute->a_id])}}">
                     @csrf
+                    @method('put')
                     <div class="row">
                         <div class="col-xl-12 col-lg-12">
                             @include(config('theme.member.view').'layouts.errors')
                         </div>
 
                         <div class="col-xl-12 col-lg-12 text-right mb-5">
-                            <button class="btn btn-primary" type="submit" ><i class="fa fa-floppy-o"></i></button>
-                            <a class="btn btn-warning" href="{{route('member.type.create')}}" ><i class="fa fa-plus"></i></a>
-                            <a class="btn btn-danger" href="{{route('member.type.index')}}" ><i class="fa fa-arrow-left"></i></a>
+                            @include(config('theme.member.btn.edit.crud'))
                         </div>
                         {{--相關訊息--}}
                         <div class="col-xl-12 col-lg-12">
                             <div class="box box-solid box-inverse box-dark">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">產品類型</h3>
+                                    <h3 class="box-title">產品屬性</h3>
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
@@ -43,7 +42,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">啟用</label>
                                                 <div class="col-sm-10">
-                                                    <input type="checkbox" class="bt-switch" name="is_active"  value="1"
+                                                    <input type="checkbox" class="bt-switch" name="is_active"  value="1" {{$attribute->is_active==1? "checked": ""}}
                                                     data-label-width="100%"
                                                            data-label-text="啟用" data-size="min"
                                                            data-on-text="On"    data-on-color="primary"
@@ -53,15 +52,15 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Barcode</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text"  placeholder="Auto-Generate" disabled value="Auto-Generate !!">
+                                                    <input class="form-control" type="text" name="id_code" placeholder="Barcode" value="{{$attribute->id_code}}" disabled>
                                                 </div>
                                             </div>
 
 
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">類型名稱</label>
+                                                <label class="col-sm-2 col-form-label">屬性名稱</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" name="t_name" placeholder="類型名稱"  value="{{old('t_name')}}">
+                                                    <input class="form-control" type="text" name="a_name" placeholder="屬性名稱"  value="{{$attribute->a_name}}">
                                                 </div>
                                             </div>
 
