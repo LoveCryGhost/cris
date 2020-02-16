@@ -27,14 +27,63 @@
         </a>
     </div>
 </div>
+
+@if(Auth::guard('admin')->check())
+    @php
+        $users = App\Models\User::get();
+        $members = App\Models\Member::get();
+        $admins = App\Models\Admin::get();
+    @endphp
+    <div id="guard-switcher-user" class="text-center">
+        <div class="align-middle mt-10">
+            User:
+            <select class="form-control">
+                <option>Select...</option>
+                @foreach($users as $user)
+                    <option value="{{$user->id}}" {{$user->id==Auth::guard('web')->user()->id? "selected":""}}>{{$user->name}}</option>
+                @endforeach
+            </select>
+
+            Member:
+            <select class="form-control">
+                <option>Select...</option>
+                @foreach($members as $member)
+                    <option value="{{$member->id}}" {{$member->id==Auth::guard('member')->user()->id? "selected":""}}>{{$member->name}}</option>
+                @endforeach
+            </select>
+            Admin:
+            <select class="form-control">
+                <option>Select...</option>
+                @foreach($admins as $admin)
+                    <option value="{{$admin->id}}" {{$admin->id==Auth::guard('admin')->user()->id? "selected":""}}>{{$admin->name}}</option>
+                @endforeach
+            </select>
+        </div>
+
+
+    </div>
+@endif
+
+
 <style type="text/css">
     #guard-switcher{
         position:fixed;
-        top: 300px;
+        top: 100px;
         bottom: 0px;
         right: 0px;
         width: 60px;
         height: 100px;
+        background: lightgrey;
+        border: lightgrey solid 1px;
+        z-index: 99;
+    }
+
+    #guard-switcher-user{
+        position:fixed;
+        bottom: 150px;
+        right: 0px;
+        width: 100px;
+        height: 200px;
         background: lightgrey;
         border: lightgrey solid 1px;
         z-index: 99;
@@ -44,11 +93,11 @@
 <div class="side-bar">
     <a href="#" class="icon-qq">xxx</a>
     <a href="#" class="icon-chat">微信<div class="chat-tips"><i></i>
-        <img style="width:138px;height:138px;" src="" alt="微信订阅号"></div></a>
+            <img style="width:138px;height:138px;" src="" alt="微信订阅号"></div></a>
     <a target="_blank" href="" class="icon-blog">微博</a>
 </div>
 <style>
-    .side-bar {width: 66px;position: fixed;bottom: 60px;right: 25px;font-size: 0;line-height: 0;z-index: 100;}
+    .side-bar {width: 66px;position: fixed;top: 230px;right: 0px;font-size: 0;line-height: 0;z-index: 100;}
     /*.side-bar a,.chat-tips i {background: url('right_bg.png') no-repeat;}*/
     .side-bar a {width: 66px;height: 66px; display: inline-block;background-color: #ddd; margin-bottom: 2px;}
     .side-bar a:hover {background-color: #669fdd;}

@@ -36,8 +36,14 @@ class UsersTableSeeder extends Seeder
         User::insert($user_array);
 
         $user = User::find(1);
-        $user->name = 'user';
-        $user->email = 'user@app.com';
+        $user->name = 'user-1';
+        $user->email = 'user1@app.com';
+        $user->avatar = '';
+        $user->save();
+
+        $user = User::find(2);
+        $user->name = 'user-2';
+        $user->email = 'user2@app.com';
         $user->avatar = '';
         $user->save();
 

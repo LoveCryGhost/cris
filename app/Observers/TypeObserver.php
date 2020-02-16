@@ -20,7 +20,9 @@ class TypeObserver extends Observer
     public function creating(Type $type)
     {
         //判別是否為admin建立
-        $type->member_id = Auth::guard('member')->user()->id;
+        if(Auth::guard('member')->user()!=null) {
+            $type->member_id = Auth::guard('member')->user()->id;
+        }
     }
 
     public function created(Type $type)

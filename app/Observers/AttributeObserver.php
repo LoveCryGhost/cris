@@ -19,8 +19,10 @@ class AttributeObserver extends Observer
 
     public function creating(Attribute $attribute)
     {
-        //判別是否為admin建立
-        $attribute->member_id = Auth::guard('member')->user()->id;
+        //判別是否為member建立
+        if(Auth::guard('member')->user()!=null) {
+            $attribute->member_id = Auth::guard('member')->user()->id;
+        }
     }
 
     public function created(Attribute $attribute)
