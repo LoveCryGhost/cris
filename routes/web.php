@@ -85,9 +85,13 @@ Route::prefix('')->namespace('Admin')->name('')->group(function(){
 });
 
 //Member
-Route::prefix('')->namespace('Member')->group(function(){
+Route::prefix('member')->namespace('Member')->group(function(){
     Route::put('member_update_password/{member}', 'MembersController@update_password')->name('member.update_password');
     Route::resource('member', 'MembersController');
+    Route::prefix('')->name('member.')->group(function(){
+        Route::resource('type', 'TypesController');
+        Route::resource('attribute', 'AttributesController');
+    });
 
 });
 

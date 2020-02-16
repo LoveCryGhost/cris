@@ -59,6 +59,19 @@ return [
         'member'=> [
 
             'view' => $member_style.'.',
+            'btn' => [
+                'index' => [
+                    'crud'=> $member_style.'.layouts.btn-index-crud',
+                    'table_tr'=> $member_style.'.layouts.btn-index-table_tr',
+                ],
+                'edit' => [
+                    'crud'=> $member_style.'.layouts.btn-edit-crud',
+                ],
+                'create' => [
+                    'crud'=> $member_style.'.layouts.btn-create-crud',
+                ]
+
+            ],
 
             'member-app' => $member_style.'.layouts.member-app',
             'header' => $member_style.'.layouts.header',
@@ -79,5 +92,6 @@ return [
                 'default' =>$member_style.'.layouts.js.default',
                 'toast' => $member_style.'.layouts.js.toast',
             ],
+
         ]
     ];
