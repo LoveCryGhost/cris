@@ -7,10 +7,10 @@
 
 
 {{--CSS--}}
+@include(config('theme.admin.css.default'))
 @section('css')
     @parent
     @yield('css')
-    @include(config('theme.admin.css.default'))
 @endsection
 
 

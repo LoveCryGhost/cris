@@ -7,10 +7,10 @@
 
 
 {{--CSS--}}
+@include(config('theme.user.css.default'))
 @section('css')
     @parent
     @yield('css')
-    @include(config('theme.user.css.default'))
 @endsection
 
 

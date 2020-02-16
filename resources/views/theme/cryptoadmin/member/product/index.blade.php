@@ -47,7 +47,7 @@
                                                 </p>
                                             </td>
                                             <td>
-                                                <img class="" src="{{asset($product->productThumbnails()->first()->path)}}" width="50px">
+                                                <img class="product-thumbnail" src="{{asset($product->productThumbnails()->first()->path)}}">
                                             </td>
                                             <td>
                                                 <input type="checkbox" class="bt-switch" name="is_active"  value="1" {{$product->is_active===1? "checked": ""}}
