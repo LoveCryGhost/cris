@@ -15,14 +15,15 @@ class AttributeObserver extends Observer
         if(request()->input('is_active') == null){
             $attribute->is_active = 0;
         }
-    }
-
-    public function creating(Attribute $attribute)
-    {
         //判別是否為member建立
         if(Auth::guard('member')->user()!=null) {
             $attribute->member_id = Auth::guard('member')->user()->id;
         }
+    }
+
+    public function creating(Attribute $attribute)
+    {
+
     }
 
     public function created(Attribute $attribute)

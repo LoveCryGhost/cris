@@ -3,7 +3,7 @@
 
 
 {{--標題--}}
-@section('title','User Title')
+<title>User - @yield('title')</title>
 
 
 {{--CSS--}}

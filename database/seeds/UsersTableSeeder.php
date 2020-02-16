@@ -27,6 +27,7 @@ class UsersTableSeeder extends Seeder
                 // 从头像数组中随机取出一个并赋值
                 $user->avatar = $faker->randomElement($avatars);
                 $user->id_code = (new BarcodeHandler())->barcode_generation(config('barcode.user'), $index+1);
+                $user->avatar = '/images/default/avatars/avatar'.($index+1).'.jpg';
             });
 
         // 让隐藏字段可见，并将数据集合转换为数组
@@ -38,13 +39,11 @@ class UsersTableSeeder extends Seeder
         $user = User::find(1);
         $user->name = 'user-1';
         $user->email = 'user1@app.com';
-        $user->avatar = '';
         $user->save();
 
         $user = User::find(2);
         $user->name = 'user-2';
         $user->email = 'user2@app.com';
-        $user->avatar = '';
         $user->save();
 
     }

@@ -74,7 +74,7 @@
 <style type="text/css">
     #guard-switcher{
         position:fixed;
-        top: 100px;
+        top: 110px;
         bottom: 0px;
         right: 0px;
         width: 60px;
@@ -86,7 +86,7 @@
 
     #guard-switcher-user{
         position:fixed;
-        bottom: 150px;
+        top: 250px;
         right: 0px;
         width: 100px;
         height: 200px;
@@ -103,7 +103,7 @@
     <a target="_blank" href="" class="icon-blog">微博</a>
 </div>
 <style>
-    .side-bar {width: 66px;position: fixed;top: 230px;right: 0px;font-size: 0;line-height: 0;z-index: 100;}
+    .side-bar {width: 66px;position: fixed;top: 500px;right: 0px;font-size: 0;line-height: 0;z-index: 100;}
     /*.side-bar a,.chat-tips i {background: url('right_bg.png') no-repeat;}*/
     .side-bar a {width: 66px;height: 66px; display: inline-block;background-color: #ddd; margin-bottom: 2px;}
     .side-bar a:hover {background-color: #669fdd;}
