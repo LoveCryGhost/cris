@@ -50,6 +50,8 @@ class CreateProductsTable extends Migration
             $table->timestamp('publish_at')->nullable();
             $table->bigInteger('t_id')->unsigned()->nullable();
             $table->string('p_name');
+            $table->decimal('m_price',15,1)->nullable();
+            $table->decimal('t_price',15,1)->nullable();
             $table->bigInteger('member_id')->unsigned();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

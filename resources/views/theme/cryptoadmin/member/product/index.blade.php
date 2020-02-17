@@ -49,8 +49,17 @@
                                             <td>
                                                 @foreach($product->productThumbnails as $productThumbnail)
                                                     <img class="product-thumbnail" data-img-group="{{$product->p_id}}"  src="{{asset($productThumbnail->path)}}"
-                                                         data-toggle="modal" data-target="#modal-center" onclick="show_product_thumbnails(this,php_inject={{json_encode(['product_thumbnail' => $productThumbnail])}})">
+                                                         data-toggle="modal" data-target="#modal-md" onclick="show_product_thumbnails(this,php_inject={{json_encode(['product_thumbnail' => $productThumbnail])}})">
                                                 @endforeach
+                                            </td>
+                                            <td>
+                                                @if($product->m_price!==NULL and $product->t_price!==NULL)
+                                                    {{$product->m_price}}  ~ {{$product->t_price}}
+                                                @elseif($product->m_price!==NULL)
+                                                    {{$product->m_price}}
+                                                @elseif($product->t_price!==NULL)
+                                                    {{$product->m_price}}
+                                                @endif
                                             </td>
                                             <td>
                                                 <input type="checkbox" class="bt-switch" name="is_active"  value="1" {{$product->is_active===1? "checked": ""}}
@@ -102,9 +111,11 @@
         function show_product_thumbnails(_this, php_inject) {
             product_thumbnail = php_inject.product_thumbnail;
             thumbnails = $('img.product-thumbnail[data-img-group='+product_thumbnail.p_id+']');
+            modal_body =  $('#modal-md .modal-body').html('');
             thumbnails.each(function () {
                 src = $(this).attr('src');
-                console.log(src);
+                img_html = "<img src="+src+">";
+                $('#modal-md .modal-body').append(img_html)
             })
         }
     </script>

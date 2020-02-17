@@ -10,7 +10,7 @@ class Product extends Model
     protected $table = "products";
     protected $primaryKey='p_id';
 
-    protected $with = ['productThumbnails','member'];
+    protected $with = [];
     protected $fillable = [
         'publish_at',
         't_id',
@@ -28,11 +28,17 @@ class Product extends Model
             ->withTimestamps();
     }
 
+    public function member(){
+        return $this->belongsTo(Member::class, 'member_id');
+    }
+
     public function productThumbnails(){
         return $this->hasMany(ProductThumbnail::class, 'p_id');
     }
 
-    public function member(){
-        return $this->belongsTo(Member::class, 'member_id');
+    public function skus(){
+        return $this->hasMany(SKU::class, 'p_id','p_id');
     }
+
+
 }
