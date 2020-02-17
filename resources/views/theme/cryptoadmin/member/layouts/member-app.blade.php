@@ -21,7 +21,7 @@
 
     <body class="hold-transition fixed light-skin dark-sidebar sidebar-mini theme-grey sidebar-collapse">
         <div id="app" class="{{ route_class() }}-page">
-            @section('app-content')
+            {{--@section('app-content')--}}
                 @guest
                     @include(config('theme.member.header'))
                 @else
@@ -34,7 +34,7 @@
                         @yield('content')
                     </div>
                 </div>
-            @endsection
+            {{--@endsection--}}
             @section('app-content-footer')
                 @yield('content-footer')
 

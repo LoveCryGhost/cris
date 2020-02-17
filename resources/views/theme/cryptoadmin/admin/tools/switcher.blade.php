@@ -43,7 +43,7 @@
             <input type="text" name="guard" hidden>
             <input type="text" name="id" hidden>
             <input type="text" name="url" hidden>
-            
+
             User:
             <select class="form-control" id="slt-user" data-select-id="slt-user" data-guard="web">
                 <option selected>Select...</option>
@@ -88,7 +88,7 @@
         top: 110px;
         bottom: 0px;
         right: 0px;
-        width: 60px;
+        width: 70px;
         height: 100px;
         background: lightgrey;
         border: lightgrey solid 1px;
@@ -99,8 +99,9 @@
         position:fixed;
         top: 250px;
         right: 0px;
-        width: 100px;
-        height: 200px;
+        width: 70px;
+        height: auto;
+        padding: 5px;
         background: lightgrey;
         border: lightgrey solid 1px;
         z-index: 99;
