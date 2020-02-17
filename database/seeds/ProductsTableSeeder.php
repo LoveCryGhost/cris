@@ -103,7 +103,7 @@ class ProductsTableSeeder extends Seeder
 
                 $productThumbnails =[];
                 foreach ($pt_ids as $key => $thumbnail_path){
-                    $productThumbnail = ProductThumbnail::get();
+                    $productThumbnail = new  ProductThumbnail();
                     $productThumbnail->path = $thumbnail_path;
                     $productThumbnail->p_id = $product->p_id;
                     $productThumbnail->save();

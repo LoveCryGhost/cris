@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7cd3d220-28f1-4b8f-a28a-7b7694a50263" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listeners/MemberLoginSuccessfulListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/MemberLoginSuccessfulListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/admin-login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/admin-login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/admin-app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/admin-app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/ProductsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ProductsTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/tools/switcher.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/tools/switcher.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/member/layouts/member-app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/member/layouts/member-app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,43 +19,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="admin-app.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/admin-app.blade.php">
+      <file leaf-file-name="ProductsTableSeeder.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/seeds/ProductsTableSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="554">
+              <caret line="103" column="39" selection-start-line="103" selection-start-column="39" selection-end-line="103" selection-end-column="39" />
+              <folding>
+                <element signature="e#7#39#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin-login.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/auth/admin-login.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="34" selection-start-column="34" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
+      <file leaf-file-name="navigator.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/member/layouts/navigator.blade.php">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="user-app.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php">
+      <file leaf-file-name="member-app.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/member/layouts/member-app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+            <state relative-caret-position="510">
+              <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MemberLoginSuccessfulListener.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Listeners/MemberLoginSuccessfulListener.php">
+      <file leaf-file-name="switcher.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/tools/switcher.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+            <state relative-caret-position="612">
+              <caret line="67" column="22" lean-forward="true" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -141,8 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/theme.php" />
-        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/member/attribute/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/member/attribute/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/member/type/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Type.php" />
@@ -165,7 +154,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2020_02_14_090000_create_products_table.php" />
         <option value="$PROJECT_DIR$/app/Models/ProductThumbnail.php" />
         <option value="$PROJECT_DIR$/app/Models/Attribute.php" />
-        <option value="$PROJECT_DIR$/database/seeds/ProductsTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/Models/Product.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/bootstrap/helpers.php" />
@@ -186,12 +174,15 @@
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/member/layouts/modal/modals.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/member/layouts/footer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/footer.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/tools/switcher.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/member/layouts/member-app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/admin-app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/admin-login.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php" />
         <option value="$PROJECT_DIR$/app/Listeners/MemberLoginSuccessfulListener.php" />
+        <option value="$PROJECT_DIR$/app/Events/MemberLoginSuccessfulEvent.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/MemberLoginController.php" />
+        <option value="$PROJECT_DIR$/database/seeds/ProductsTableSeeder.php" />
+        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/member/layouts/member-app.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/tools/switcher.blade.php" />
       </list>
     </option>
   </component>
@@ -380,6 +371,33 @@
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
               <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Auth" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Listeners" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -523,7 +541,7 @@
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="theme" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="cryptoadmin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="member" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
@@ -532,7 +550,7 @@
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="theme" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="cryptoadmin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="member" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="layouts" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -542,19 +560,9 @@
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="theme" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="cryptoadmin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="member" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="layouts" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="modal" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="theme" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="cryptoadmin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -621,18 +629,18 @@
       <workItem from="1581727403947" duration="4374000" />
       <workItem from="1581736591638" duration="21703000" />
       <workItem from="1581779617694" duration="11264000" />
-      <workItem from="1581900517530" duration="1833000" />
+      <workItem from="1581900517530" duration="3009000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156641000" />
+    <option name="totallyTimeSpent" value="157817000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.37195995" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28969958" />
       <window_info anchor="bottom" id="TODO" order="17" />
       <window_info anchor="bottom" id="Docker" order="18" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="20" side_tool="true" />
@@ -692,34 +700,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Observers/TypeObserver.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="49" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminToolsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/member/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="20" lean-forward="true" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/welcome.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/member/member/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -815,16 +795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="22" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/ProductsTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="85" column="20" lean-forward="true" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
-          <folding>
-            <element signature="e#7#39#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -954,13 +924,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/tools/switcher.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/header-login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="449">
@@ -996,32 +959,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/member/layouts/member-app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/auth/member-login.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/admin-app.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/MemberLoginController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="433">
+          <caret line="42" column="39" lean-forward="true" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
+          <folding>
+            <element signature="e#45#87#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/admin-login.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Events/MemberLoginSuccessfulEvent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="34" selection-start-column="34" selection-end-column="34" />
+        <state relative-caret-position="630">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/app/Listeners/MemberLoginSuccessfulListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/user/layouts/user-app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1030,10 +993,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/MemberLoginSuccessfulListener.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/admin-login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+        <state>
+          <caret column="34" selection-start-column="34" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/layouts/admin-app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-451" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AdminLoginController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/ProductsTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="554">
+          <caret line="103" column="39" selection-start-line="103" selection-start-column="39" selection-end-line="103" selection-end-column="39" />
+          <folding>
+            <element signature="e#7#39#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/member/layouts/navigator.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/member/layouts/member-app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/theme/cryptoadmin/admin/tools/switcher.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="67" column="22" lean-forward="true" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
         </state>
       </provider>
     </entry>

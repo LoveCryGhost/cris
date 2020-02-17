@@ -33,6 +33,9 @@
     $admins = App\Models\Admin::get();
     //dd($users,$members,$admins);
 @endphp
+
+@if(Auth::guard('admin')->check())
+
 <div id="guard-switcher-user" class="text-center">
     <div class="align-middle mt-10">
         <form class="frm-guard-switcher-user" method="post" action="{{route('admin.tool.guard_switcher_user')}}">
@@ -40,39 +43,43 @@
             <input type="text" name="guard" hidden>
             <input type="text" name="id" hidden>
             <input type="text" name="url" hidden>
-            @if(Auth::guard('web')->check())
+            
             User:
             <select class="form-control" id="slt-user" data-select-id="slt-user" data-guard="web">
-                <option>Select...</option>
+                <option selected>Select...</option>
                 @foreach($users as $user)
-                    <option value="{{$user->id}}" {{$user->id==Auth::guard()->user()->id? "selected":""}}>{{$user->name}}</option>
+                    @auth('web')
+                    <option value="{{$user->id}}" {{$user->id==Auth::guard('web')->user()->id? "selected":""}}>{{$user->name}}</option>
+                    @else
+                    <option value="{{$user->id}}">{{$user->name}}</option>
+                    @endauth
                 @endforeach
             </select>
-            @endif
 
-            @if(Auth::guard('member')->check())
-                Member:
-                <select class="form-control" id="slt-member" data-select-id="slt-member" data-guard="member">
-                    <option>Select...</option>
-                    @foreach($members as $member)
-                        <option value="{{$member->id}}" {{$member->id==Auth::guard('member')->user()->id? "selected":""}}>{{$member->name}}</option>
-                    @endforeach
-                </select>
-            @endif
+            Member:
+            <select class="form-control" id="slt-member" data-select-id="slt-member" data-guard="member">
+                <option selected>Select...</option>
+                @foreach($members as $member)
+                    @auth('member')
+                    <option value="{{$member->id}}" {{$member->id==Auth::guard('member')->user()->id? "selected":""}}>{{$member->name}}</option>
+                    @else
+                    <option value="{{$member->id}}">{{$member->name}}</option>
+                    @endauth
+                @endforeach
+            </select>
 
-            @if(Auth::guard('admin')->check())
-                Admin:
-                <select class="form-control" id="slt-admin" data-select-id="slt-admin" data-guard="admin">
-                    <option>Select...</option>
-                    @foreach($admins as $admin)
-                        <option value="{{$admin->id}}" {{$admin->id==Auth::guard('admin')->user()->id? "selected":""}}>{{$admin->name}}</option>
-                    @endforeach
-                </select>
-            @endif
+            Admin:
+            <select class="form-control" id="slt-admin" data-select-id="slt-admin" data-guard="admin">
+                <option selected>Select...</option>
+                @foreach($admins as $admin)
+                    <option value="{{$admin->id}}" {{$admin->id==Auth::guard('admin')->user()->id? "selected":""}}>{{$admin->name}}</option>
+                @endforeach
+            </select>
 
         </form>
     </div>
 </div>
+@endif
 
 
 <style type="text/css">
