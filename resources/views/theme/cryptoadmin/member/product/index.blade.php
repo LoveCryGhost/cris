@@ -93,7 +93,7 @@
 @section('js')
     @parent
     <script type="text/javascript">
-        $(document).ajaxStart(function() { Pace.restart(); });
+
         $(function(){
             $bt_switch = $('.bt-switch');
             $bt_switch.bootstrapSwitch('toggleState');

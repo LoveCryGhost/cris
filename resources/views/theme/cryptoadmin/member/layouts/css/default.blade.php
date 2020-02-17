@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="{{asset('css/bootstrap-switch.css')}}">
 
 
+
 <!--amcharts -->
 <link href="https://www.amcharts.com/lib/3/plugins/export/export.css" rel="stylesheet" type="text/css" />
 
@@ -22,7 +23,7 @@
 <link rel="stylesheet" href="{{asset('theme/cryptoadmin/css/skin_color.css')}}">
 
 <!-- Pace style -->
-<link rel="stylesheet" href="{{asset('theme/cryptoadmin/vendor_plugins/pace/pace.min.css')}}">
+<link rel="stylesheet" href="{{asset('theme/cryptoadmin/vendor_plugins/pace/pace.css')}}">
 
 <!--alerts CSS -->
 <link href="{{asset('theme/cryptoadmin/vendor_components/sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css">
