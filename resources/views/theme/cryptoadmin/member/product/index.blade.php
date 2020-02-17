@@ -47,7 +47,10 @@
                                                 </p>
                                             </td>
                                             <td>
-                                                <img class="product-thumbnail" src="{{asset($product->productThumbnails()->first()->path)}}">
+                                                @foreach($product->productThumbnails as $productThumbnail)
+                                                    <img class="product-thumbnail" data-img-group="{{$product->p_id}}"  src="{{asset($productThumbnail->path)}}"
+                                                         data-toggle="modal" data-target="#modal-center" onclick="show_product_thumbnails(this,php_inject={{json_encode(['product_thumbnail' => $productThumbnail])}})">
+                                                @endforeach
                                             </td>
                                             <td>
                                                 <input type="checkbox" class="bt-switch" name="is_active"  value="1" {{$product->is_active===1? "checked": ""}}
@@ -90,10 +93,20 @@
 @section('js')
     @parent
     <script type="text/javascript">
+        $(document).ajaxStart(function() { Pace.restart(); });
         $(function(){
             $bt_switch = $('.bt-switch');
             $bt_switch.bootstrapSwitch('toggleState');
-        })
+        });
+
+        function show_product_thumbnails(_this, php_inject) {
+            product_thumbnail = php_inject.product_thumbnail;
+            thumbnails = $('img.product-thumbnail[data-img-group='+product_thumbnail.p_id+']');
+            thumbnails.each(function () {
+                src = $(this).attr('src');
+                console.log(src);
+            })
+        }
     </script>
 
 @endsection

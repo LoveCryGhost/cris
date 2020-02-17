@@ -26,8 +26,6 @@
 
 
 
-
-
 <!-- Slimscroll -->
 <script src="{{asset('theme/cryptoadmin/vendor_components/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
 
