@@ -27,29 +27,30 @@
         </a>
     </div>
 </div>
+@php
+    $users = App\Models\User::get();
+    $members = App\Models\Member::get();
+    $admins = App\Models\Admin::get();
+    //dd($users,$members,$admins);
+@endphp
+<div id="guard-switcher-user" class="text-center">
+    <div class="align-middle mt-10">
+        <form class="frm-guard-switcher-user" method="post" action="{{route('admin.tool.guard_switcher_user')}}">
+            @csrf
+            <input type="text" name="guard" hidden>
+            <input type="text" name="id" hidden>
+            <input type="text" name="url" hidden>
+            @if(Auth::guard('web')->check())
+            User:
+            <select class="form-control" id="slt-user" data-select-id="slt-user" data-guard="web">
+                <option>Select...</option>
+                @foreach($users as $user)
+                    <option value="{{$user->id}}" {{$user->id==Auth::guard()->user()->id? "selected":""}}>{{$user->name}}</option>
+                @endforeach
+            </select>
+            @endif
 
-@if(Auth::guard('admin')->check())
-    @php
-        $users = App\Models\User::get();
-        $members = App\Models\Member::get();
-        $admins = App\Models\Admin::get();
-    @endphp
-    <div id="guard-switcher-user" class="text-center">
-        <div class="align-middle mt-10">
-            <form class="frm-guard-switcher-user" method="post" action="{{route('admin.tool.guard_switcher_user')}}">
-                @csrf
-                <input type="text" name="guard" hidden>
-                <input type="text" name="id" hidden>
-                <input type="text" name="url" hidden>
-
-                User:
-                <select class="form-control" id="slt-user" data-select-id="slt-user" data-guard="web">
-                    <option>Select...</option>
-                    @foreach($users as $user)
-                        <option value="{{$user->id}}" {{$user->id==Auth::guard('web')->user()->id? "selected":""}}>{{$user->name}}</option>
-                    @endforeach
-                </select>
-
+            @if(Auth::guard('member')->check())
                 Member:
                 <select class="form-control" id="slt-member" data-select-id="slt-member" data-guard="member">
                     <option>Select...</option>
@@ -57,7 +58,9 @@
                         <option value="{{$member->id}}" {{$member->id==Auth::guard('member')->user()->id? "selected":""}}>{{$member->name}}</option>
                     @endforeach
                 </select>
+            @endif
 
+            @if(Auth::guard('admin')->check())
                 Admin:
                 <select class="form-control" id="slt-admin" data-select-id="slt-admin" data-guard="admin">
                     <option>Select...</option>
@@ -65,10 +68,11 @@
                         <option value="{{$admin->id}}" {{$admin->id==Auth::guard('admin')->user()->id? "selected":""}}>{{$admin->name}}</option>
                     @endforeach
                 </select>
-            </form>
-        </div>
+            @endif
+
+        </form>
     </div>
-@endif
+</div>
 
 
 <style type="text/css">

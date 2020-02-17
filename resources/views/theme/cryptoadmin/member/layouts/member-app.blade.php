@@ -21,23 +21,26 @@
 
     <body class="hold-transition fixed light-skin dark-sidebar sidebar-mini theme-grey sidebar-collapse">
         <div id="app" class="{{ route_class() }}-page">
-            {{--@section('app-content')--}}
+            @section('app-content')
                 @guest('member')
                     @include(config('theme.member.header'))
                 @else
                     @include(config('theme.member.header-login'))
                     @include(config('theme.member.sidebar'))
                 @endguest
-                {{--內容--}}
+                內容
                 <div class="wrapper">
                     <div class="content-wrapper">
                         @yield('content')
                     </div>
                 </div>
-            {{--@endsection--}}
+            @endsection
             @section('app-content-footer')
                 @yield('content-footer')
-                @include(config('theme.member.footer'))
+
+                @auth('member')
+                    @include(config('theme.member.footer'))
+                @endauth
             @endsection
         </div>
     </body>

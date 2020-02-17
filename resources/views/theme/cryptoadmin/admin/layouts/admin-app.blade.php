@@ -37,7 +37,10 @@
             @endsection
             @section('app-content-footer')
                 @yield('content-footer')
-                @include(config('theme.admin.footer'))
+
+                @auth('admin')
+                    @include(config('theme.admin.footer'))
+                @endauth
             @endsection
         </div>
     </body>
