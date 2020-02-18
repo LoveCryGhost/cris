@@ -42,6 +42,9 @@
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-right">
                 右
             </button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-center">
+                央
+            </button>
         </div>
 
         <div class="navbar-custom-menu r-side">

@@ -1,4 +1,4 @@
-<footer class="main-footer" style="margin-left: 0px;">
+<footer class="main-footer">
     <div class="pull-right d-none d-sm-inline-block">
         <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
             <li class="nav-item">
@@ -11,4 +11,4 @@
     </div>
     &copy; 2019 <a href="https://www.multipurposethemes.com/">Multi-Purpose Themes</a>. All Rights Reserved.
 </footer>
-@include('theme.cryptoadmin.member.layouts.modal.modals')
+@include('theme.cryptoadmin.admin.layouts.modal.modals')

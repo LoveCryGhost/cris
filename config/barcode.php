@@ -10,5 +10,7 @@ return [
         'type' => 'T',
         'attribute' => 'A',
         'product' => 'P',
+        'sku' => 'sk',
+        'supplier' => 'S',
 
 ];

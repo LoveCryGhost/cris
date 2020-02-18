@@ -3,14 +3,14 @@
 
 
 {{--標題--}}
-@section('title','User Title')
+<title>Admin - @yield('title')</title>
 
 
 {{--CSS--}}
+@include(config('theme.admin.css.default'))
 @section('css')
     @parent
     @yield('css')
-    @include(config('theme.admin.css.default'))
 @endsection
 
 
@@ -19,8 +19,8 @@
         @yield('content-header')
     @endsection
 
-    <body class="hold-transition fixed light-skin dark-sidebar sidebar-mini theme-blue">
-        <div id="app">
+    <body class="hold-transition fixed light-skin dark-sidebar sidebar-mini theme-blue sidebar-collapse">
+        <div id="app"  class="{{ route_class() }}-page">
             @section('app-content')
                 @guest('admin')
                     @include(config('theme.admin.header'))
@@ -28,21 +28,22 @@
                     @include(config('theme.admin.header-login'))
                     @include(config('theme.admin.sidebar'))
                 @endguest
+            @endsection
                 {{--內容--}}
                 <div class="wrapper">
                     <div class="content-wrapper">
                         @yield('content')
                     </div>
                 </div>
-            @endsection
+
             @section('app-content-footer')
                 @yield('content-footer')
-                @include(config('theme.admin.footer'))
+                @auth('admin')
+                    @include(config('theme.admin.footer'))
+                @endauth
             @endsection
         </div>
     </body>
-
-
 
 {{--JS--}}
 @section('js')

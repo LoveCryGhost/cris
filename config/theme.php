@@ -10,6 +10,7 @@ return [
             'view' => $user_style.'.',
 
             'user-app' => $user_style.'.layouts.user-app',
+            'user-app-login' => $user_style.'.layouts.user-app-login',
             'header' => $user_style.'.layouts.header',
             'header-login' => $user_style.'.layouts.header-login',
             'footer' => $user_style.'.layouts.footer',
@@ -36,6 +37,7 @@ return [
 
             'view' => $admin_style.'.',
             'admin-app' => $admin_style.'.layouts.admin-app',
+            'admin-app-login' => $admin_style.'.layouts.admin-app-login',
             'header' => $admin_style.'.layouts.header',
             'header-login' => $admin_style.'.layouts.header-login',
             'footer' => $admin_style.'.layouts.footer',
@@ -74,6 +76,7 @@ return [
             ],
 
             'member-app' => $member_style.'.layouts.member-app',
+            'member-app-login' => $member_style.'.layouts.member-app-login',
             'header' => $member_style.'.layouts.header',
             'header-login' => $member_style.'.layouts.header-login',
             'footer' => $member_style.'.layouts.footer',

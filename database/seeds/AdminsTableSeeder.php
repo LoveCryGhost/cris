@@ -35,8 +35,14 @@ class AdminsTableSeeder extends Seeder
         Admin::insert($admin_array);
 
         $admin = Admin::find(1);
-        $admin->name = 'admin';
-        $admin->email = 'admin@app.com';
+        $admin->name = 'admin-1';
+        $admin->email = 'admin1@app.com';
+        $admin->avatar = '';
+        $admin->save();
+
+        $admin = Admin::find(2);
+        $admin->name = 'admin-2';
+        $admin->email = 'admin2@app.com';
         $admin->avatar = '';
         $admin->save();
 

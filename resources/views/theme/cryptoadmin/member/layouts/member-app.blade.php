@@ -3,43 +3,47 @@
 
 
 {{--標題--}}
-@section('title','User Title')
+<title>Admin - @yield('title')</title>
 
 
 {{--CSS--}}
+@include(config('theme.member.css.default'))
 @section('css')
     @parent
     @yield('css')
-    @include(config('theme.member.css.default'))
 @endsection
 
 
 {{--繼承內容--}}
-    @section('app-content-header')
-        @yield('content-header')
+@section('app-content-header')
+    @yield('content-header')
+@endsection
+
+<body class="hold-transition fixed light-skin dark-sidebar sidebar-mini theme-blue sidebar-collapse">
+<div id="app"  class="{{ route_class() }}-page">
+    @section('app-content')
+        @guest('member')
+            @include(config('theme.member.header'))
+        @else
+            @include(config('theme.member.header-login'))
+            @include(config('theme.member.sidebar'))
+        @endguest
     @endsection
 
-    <body class="hold-transition light-skin dark-sidebar sidebar-mini theme-grey sidebar-collapse">
-        <div id="app">
-            @section('app-content')
-                @guest('member')
-                    @include(config('theme.member.header'))
-                @else
-                    @include(config('theme.member.header-login'))
-                @endguest
-                {{--內容--}}
-                <div class="wrapper">
-                    <div class="content-wrapper" style="margin-left: 0px;">
-                        @yield('content')
-                    </div>
-                </div>
-            @endsection
-            @section('app-content-footer')
-                @yield('content-footer')
-                @include(config('theme.member.footer'))
-            @endsection
+    <div class="wrapper">
+        <div class="content-wrapper">
+            @yield('content')
         </div>
-    </body>
+    </div>
+
+    @section('app-content-footer')
+        @yield('content-footer')
+        @auth('member')
+            @include(config('theme.member.footer'))
+        @endauth
+    @endsection
+</div>
+</body>
 
 {{--JS--}}
 @section('js')

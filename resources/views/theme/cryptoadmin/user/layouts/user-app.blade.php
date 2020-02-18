@@ -3,14 +3,14 @@
 
 
 {{--標題--}}
-@section('title','User Title')
+<title>User - @yield('title')</title>
 
 
 {{--CSS--}}
+@include(config('theme.user.css.default'))
 @section('css')
     @parent
     @yield('css')
-    @include(config('theme.user.css.default'))
 @endsection
 
 
@@ -27,16 +27,19 @@
             @else
                 @include(config('theme.user.header-login'))
             @endguest
+        @endsection
             {{--內容--}}
             <div class="wrapper">
                 <div class="content-wrapper" style="margin-left: 0px;">
                     @yield('content')
                 </div>
             </div>
-        @endsection
         @section('app-content-footer')
             @yield('content-footer')
-            @include(config('theme.user.footer'))
+
+            @auth
+                @include(config('theme.user.footer'))
+            @endauth
         @endsection
     </div>
 </body>

@@ -49,7 +49,9 @@ class CreateProductsTable extends Migration
             $table->boolean('is_active')->default(0); //是否販售
             $table->timestamp('publish_at')->nullable();
             $table->bigInteger('t_id')->unsigned()->nullable();
-            $table->string('name');
+            $table->string('p_name');
+            $table->decimal('m_price',15,1)->nullable();
+            $table->decimal('t_price',15,1)->nullable();
             $table->bigInteger('member_id')->unsigned();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
@@ -68,7 +70,7 @@ class CreateProductsTable extends Migration
         });
 
 
-        Schema::create('products_thumbnails', function (Blueprint $table) {
+        Schema::create('product_thumbnails', function (Blueprint $table) {
             $table->bigIncrements('pt_id');
             $table->bigInteger('p_id')->unsigned();
             $table->tinyInteger('sort_order')->default(0)->nullable();
@@ -82,7 +84,7 @@ class CreateProductsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('products_categories');
-        Schema::dropIfExists('products_thumbnails');
+        Schema::dropIfExists('product_thumbnails');
         Schema::dropIfExists('products');
         Schema::dropIfExists('types_attributes');
         Schema::dropIfExists('attributes');

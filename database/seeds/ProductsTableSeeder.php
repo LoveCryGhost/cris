@@ -4,6 +4,7 @@ use App\Handlers\BarcodeHandler;
 use App\Models\Attribute;
 use App\Models\Product;
 use App\Models\ProductThumbnail;
+use App\Models\SKU;
 use App\Models\Type;
 use Illuminate\Database\Seeder;
 
@@ -59,31 +60,45 @@ class ProductsTableSeeder extends Seeder
             $products = [
                 [
                     'is_active' => 1, 'publish_at' => null, 'member_id' => 1,
-                    'name' => "Pizza 烤盤", 't_id' => 1,
+                    'p_name' => "Pizza 烤盤", 't_id' => 1,
                     'c_ids' => [2],
-                    'pt_ids' => ['/images/default/products/pizza_pan_1.jpg', '/images/default/products/pizza_pan_2.jpg']
-
+                    'pt_ids' => ['/images/default/products/pizza_pan_1.jpg', '/images/default/products/pizza_pan_2.jpg'],
+                    'skus' => [
+                        ['1', 'Pizza 7"烤盤', 100], //1 = member_id
+                        ['1', 'Pizza 8"烤盤',300],
+                        ['1', 'Pizza 9"烤盤',400],
+                        ['1', 'Pizza 10"烤盤',700],
+                        ['1', 'Pizza 11"烤盤',900],
+                        ['1', 'Pizza 12"烤盤',110],
+                        ['1', 'Pizza 13"烤盤',130],
+                        ['1', 'Pizza 14"烤盤',150],
+                    ]
                 ],[
                     'is_active' => 1, 'publish_at' => null, 'member_id' => 1,
-                    'name' => "吐司烤盤", 't_id' => 1,
+                    'p_name' => "吐司烤盤", 't_id' => 1,
                     'c_ids' => [2],
-                    'pt_ids' => ['/images/default/products/toast_pan_1.jpg', '/images/default/products/toast_pan_2.jpg', '/images/default/products/toast_pan_3.jpg']
+                    'pt_ids' => ['/images/default/products/toast_pan_1.jpg', '/images/default/products/toast_pan_2.jpg', '/images/default/products/toast_pan_3.jpg'],
+                    'skus' => []
                 ]
             ];
-
             //面膜
             $products = array_merge($products,[
                 [
                     'is_active' => 1, 'publish_at' => null, 'member_id' => 1,
-                    'name' => "潑尿酸面膜", 't_id' => 2,
+                    'p_name' => "潑尿酸面膜", 't_id' => 2,
                     'c_ids' => [8],
-                    'pt_ids' => ['/images/default/products/mask_1.jpg', '/images/default/products/mask_2.jpg', '/images/default/products/mask_3.jpg']
+                    'pt_ids' => ['/images/default/products/mask_1.jpg', '/images/default/products/mask_2.jpg', '/images/default/products/mask_3.jpg'],
+                    'skus' => []
                 ],[
                     'is_active' => 1, 'publish_at' => null, 'member_id' => 1,
-                    'name' => "保濕SKU面膜", 't_id' => 2,
+                    'p_name' => "保濕SKU面膜", 't_id' => 2,
                     'c_ids' => [10],
-                    'pt_ids' => ['/images/default/products/mask_4.jpg']
+                    'pt_ids' => ['/images/default/products/mask_4.jpg'],
+                    'skus' => []
                 ]]);
+
+
+
             //男裝
 
             //女裝
@@ -95,21 +110,35 @@ class ProductsTableSeeder extends Seeder
                 $product['id_code'] = (new BarcodeHandler())->barcode_generation(config('barcode.product'), $index++);
                 $c_ids = $product['c_ids'];
                 $pt_ids = $product['pt_ids'];
+                $skus = $product['skus'];
                 unset($product['c_ids']);
                 unset($product['pt_ids']);
+                unset($product['skus']);
 
                 $product=  Product::create($product);
                 $product->categories()->attach($c_ids);
 
-                $productThumbnails =[];
+                //Thumbnails
                 foreach ($pt_ids as $key => $thumbnail_path){
-                    $productThumbnail = new ProductThumbnail();
+                    $productThumbnail = new  ProductThumbnail();
                     $productThumbnail->path = $thumbnail_path;
                     $productThumbnail->p_id = $product->p_id;
                     $productThumbnail->save();
-//                    $productThumbnails[] = $productThumbnail;
-//                    $product->thumbnails()->saveMany($productThumbnails);
                 }
+
+                //SKU
+                if(count($skus)>0){
+                    foreach ($skus as $sku){
+                        $SKU = new SKU();
+                        $SKU->p_id = $product->p_id;
+                        $SKU->id_code =  (new BarcodeHandler())->barcode_generation(config('barcode.sku'), $index++);;
+                        $SKU->member_id = $sku[0];
+                        $SKU->sku_name = $sku[1];
+                        $SKU->price = $sku[2];
+                        $SKU->save();
+                    }
+                }
+
             }
     }
 }
