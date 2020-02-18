@@ -1,6 +1,6 @@
 @extends(config('theme.admin.admin-app'))
 
-@section('title','用戶-登入')
+@section('title','登入')
 
 
 {{--清空--}}

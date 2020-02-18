@@ -3,7 +3,7 @@
 
 
 {{--標題--}}
-<title>Member - @yield('title')</title>
+<title>Admin - @yield('title')</title>
 
 
 {{--CSS--}}
@@ -15,34 +15,34 @@
 
 
 {{--繼承內容--}}
-    @section('app-content-header')
-        @yield('content-header')
-    @endsection
+@section('app-content-header')
+    @yield('content-header')
+@endsection
 
-    <body class="hold-transition fixed light-skin dark-sidebar sidebar-mini theme-grey sidebar-collapse">
-        <div id="app" class="{{ route_class() }}-page">
-            @section('app-content')
-                @guest('member')
-                    @include(config('theme.member.header'))
-                @else
-                    @include(config('theme.member.header-login'))
-                    @include(config('theme.member.sidebar'))
-                @endauth
-                <div class="wrapper">
-                    <div class="content-wrapper">
-                        @yield('content')
-                    </div>
-                </div>
-            @endsection
-            @section('app-content-footer')
-                @yield('content-footer')
-
-                @auth('member')
-                    @include(config('theme.member.footer'))
-                @endauth
-            @endsection
+<body class="hold-transition fixed light-skin dark-sidebar sidebar-mini theme-blue sidebar-collapse">
+<div id="app"  class="{{ route_class() }}-page">
+    @section('app-content')
+        @guest('member')
+            @include(config('theme.member.header'))
+        @else
+            @include(config('theme.member.header-login'))
+            @include(config('theme.member.sidebar'))
+        @endguest
+        {{--內容--}}
+        <div class="wrapper">
+            <div class="content-wrapper">
+                @yield('content')
+            </div>
         </div>
-    </body>
+    @endsection
+    @section('app-content-footer')
+        @yield('content-footer')
+        @auth('member')
+            @include(config('theme.member.footer'))
+        @endauth
+    @endsection
+</div>
+</body>
 
 {{--JS--}}
 @section('js')

@@ -1,6 +1,6 @@
 @extends(config('theme.member.member-app'))
 
-@section('title','Member-登入')
+@section('title','登入')
 
 
 {{--清空--}}
