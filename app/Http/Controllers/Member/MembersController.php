@@ -6,6 +6,7 @@ use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\Member\MemberRequest;
 use App\Models\Member;
 use App\Rules\CurrentPasswordRule;
+use App\Services\Member\MemberService;
 use App\Services\User\UserService;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class MembersController extends MemberCoreController
 {
 
     protected $memberService;
-    public function __construct(UserService $memberService)
+    public function __construct(MemberService $memberService)
     {
         $this->middleware('auth:member');
         $this->memberService = $memberService;
@@ -37,30 +38,22 @@ class MembersController extends MemberCoreController
 
         //取得參數
         $data = $request->all();
+        $this->memberService->update($member, $data);
 
-        $data = $this->memberService->save_avatar($data, $member, $request, $uploader);
+        $data = $this->memberService->set_avatar( $member, $data, $uploader);
 
-        $member->update($data);
+        $toast = $this->memberService->update($member, $data);
 
         return redirect()->route('member.edit',['member'=>$member->id])
-            ->with('toast', [
-                "heading" => "個人訊息 - 更新成功",
-                "text" =>  '',
-                "position" => "top-right",
-                "loaderBg" => "#ff6849",
-                "icon" => "success",
-                "hideAfter" => 3000,
-                "stack" => 6
-            ]);
+            ->with('toast', $toast);
     }
 
     //更新密碼
     public function update_password(Request $request, Member $member)
     {
         $this->authorize('update', $member);
-
         //驗證
-        $this->validate($request, [
+        $this->validate(request(), [
             'old_password' => ['required', new CurrentPasswordRule()],
             'new_password' => ['required', 'string', 'min:8', 'confirmed'],
         ],[
@@ -72,19 +65,9 @@ class MembersController extends MemberCoreController
         ]);
 
         $data = $request->all();
-        $data = $this->memberService->save_change_password($data, $member, $request);
-
-        $member->update($data);
+        $toast = $this->memberService->update_password($member, $data);
         return redirect()->route('member.edit', ['member'=> $member->id])
-            ->with('toast', [
-                "heading" => "Member 密碼 - 更新成功",
-                "text" =>  '',
-                "position" => "top-right",
-                "loaderBg" => "#ff6849",
-                "icon" => "success",
-                "hideAfter" => 3000,
-                "stack" => 6
-            ]);
+            ->with('toast', $toast);
     }
 
 
