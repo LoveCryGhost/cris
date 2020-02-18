@@ -17,9 +17,6 @@
         <!-- Menu Body -->
         <li class="user-body">
             <a class="dropdown-item" href="{{route('member.edit', ['member'=> Auth::guard('member')->user()->id])}}"><i class="ion ion-person"></i>會員資料</a>
-            {{--<a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-bag"></i> My Balance</a>--}}
-            {{--<a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-email-unread"></i> Inbox</a>--}}
-            {{--<a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-settings"></i> Account Setting</a>--}}
             <a class="dropdown-item" href="{{ route('member.logout') }}"
                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <i class="fa fa-sign-out text-primary"></i> 登出
