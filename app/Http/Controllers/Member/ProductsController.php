@@ -21,7 +21,7 @@ class ProductsController extends MemberCoreController
 
     public function create()
     {
-        $types = $this->productService->typeRepo->all();
+        $types = $this->productService->typeRepo->builder()->all();
         return view(config('theme.member.view').'product.create', compact('types'));
     }
 

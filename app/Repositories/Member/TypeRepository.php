@@ -5,24 +5,20 @@ namespace App\Repositories\Member;
 
 use App\Models\Type;
 
-class TypeRepository implements TypeRepositoryInterface
+class TypeRepository implements RepositoryInterface
 {
 
-    private $builder;
+    private $type;
 
-    public function __construct()
+    public function __construct(Type $type)
     {
-        $this->builder = new Type();
+        $this->type = new Type();
     }
 
     public function builder()
     {
-        return $this->builder ;
+        return $this->type ;
     }
 
-    public function all()
-    {
-        return $this->builder->get() ;
-    }
 
 }

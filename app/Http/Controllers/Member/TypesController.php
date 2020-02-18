@@ -11,40 +11,11 @@ class TypesController extends MemberCoreController
 {
 
     protected $typeService;
+
     public function __construct(TypeService $typeService)
     {
         $this->middleware('auth:member');
         $this->typeService = $typeService;
-    }
-
-    //Dashboard
-    public function index(){
-        $types = $this->typeService->paginate();
-        return view(config('theme.member.view').'type.index', compact('types'));
-    }
-
-    public function edit(Type $type)
-    {
-        return view(config('theme.member.view').'type.edit', compact('type'));
-    }
-
-    public function update(TypeRequest $request, Type $type)
-    {
-
-        //取得參數
-        $data = $request->all();
-        $type->update($data);
-
-        return redirect()->route('member.type.index')
-            ->with('toast', [
-                "heading" => "更新成功",
-                "text" =>  '',
-                "position" => "top-right",
-                "loaderBg" => "#ff6849",
-                "icon" => "success",
-                "hideAfter" => 3000,
-                "stack" => 6
-            ]);
     }
 
     public function create()
@@ -55,33 +26,35 @@ class TypesController extends MemberCoreController
     public function store(TypeRequest $request)
     {
         $data = $request->all();
-        Type::create($data);
-        return redirect()->route('member.type.index')
-            ->with('toast', [
-                "heading" => "新增成功",
-                "text" =>  '',
-                "position" => "top-right",
-                "loaderBg" => "#ff6849",
-                "icon" => "success",
-                "hideAfter" => 3000,
-                "stack" => 6
-            ]);
+        $toast = $this->typeService->store($data);
+        return redirect()->route('member.type.index')->with('toast',$toast);
+
     }
+
+    public function index()
+    {
+        $types = $this->typeService->index();
+        return view(config('theme.member.view').'type.index', compact('types'));
+    }
+
+    public function edit(Type $type)
+    {
+        return view(config('theme.member.view').'type.edit', compact('type'));
+    }
+
+    public function update(TypeRequest $request, Type $type)
+    {
+        $data = $request->all();
+        $toast = $this->typeService->update($type, $data);
+        return redirect()->route('member.type.index')->with('toast', $toast);
+    }
+
 
     public function destroy(Type $type)
     {
-        $type->delete();
-
-        return redirect()->route('member.type.index')
-            ->with('toast', [
-                "heading" => "刪除成功",
-                "text" =>  '',
-                "position" => "top-right",
-                "loaderBg" => "#ff6849",
-                "icon" => "success",
-                "hideAfter" => 3000,
-                "stack" => 6
-            ]);
+        $toast = $this->typeService->destroy($type);
+        return redirect()->route('member.type.index')->with('toast', $toast);
     }
+
 
 }
