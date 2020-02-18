@@ -12,18 +12,16 @@ class ProductsController extends MemberCoreController
 {
 
     protected $productService;
-    private $typeRepository;
 
-    public function __construct(ProductService $productService, TypeRepository $typeRepository)
+    public function __construct(ProductService $productService)
     {
         $this->middleware('auth:member');
         $this->productService = $productService;
-        $this->typeRepository = $typeRepository;
     }
 
     public function create()
     {
-        $types = $this->typeRepository->all();
+        $types = $this->productService->typeRepo->all();
         return view(config('theme.member.view').'product.create', compact('types'));
     }
 
@@ -43,7 +41,7 @@ class ProductsController extends MemberCoreController
 
     public function edit(Product $product)
     {
-        $types = $this->typeRepository->all();
+        $types = $this->productService->typeRepo->all();
         return view(config('theme.member.view').'product.edit', compact('product','types'));
     }
 

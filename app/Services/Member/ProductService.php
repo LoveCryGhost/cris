@@ -4,76 +4,44 @@ namespace App\Services\Member;
 
 use App\Models\Product;
 use App\Repositories\Member\ProductRepository;
+use App\Repositories\Member\TypeRepository;
 
 class ProductService extends MemberCoreService implements MemberServiceInterface
 {
     protected $productRepo;
-    private $product;
+    public $typeRepo;
 
-    public function __construct(ProductRepository $productRepository)
+    public function __construct(ProductRepository $productRepository,  TypeRepository $typeRepository)
     {
         $this->productRepo = $productRepository;
+        $this->typeRepo = $typeRepository;
     }
 
     public function index()
     {
-        return $builder = $this->productRepo->builder()
+        return $this->productRepo->builder()
             ->with(['Type', 'Productthumbnails'])->paginate(10);
     }
 
 
-    public function create()
-    {
-
-    }
-
-    public function edit($model)
-    {
-
-    }
-
     public function store($data)
     {
         Product::create($data);
-        return $toast = [
-                    "heading" => "新增成功",
-                    "text" =>  '',
-                    "position" => "top-right",
-                    "loaderBg" => "#ff6849",
-                    "icon" => "success",
-                    "hideAfter" => 3000,
-                    "stack" => 6
-                ];
+        return parent::$toast_store;
     }
 
     public function update($model,$data)
     {
         $product = $model;
         $product->update($data);
-        return $toast = [
-                "heading" => "更新成功",
-                "text" =>  '',
-                "position" => "top-right",
-                "loaderBg" => "#ff6849",
-                "icon" => "success",
-                "hideAfter" => 3000,
-                "stack" => 6
-            ];
+        return parent::$toast_update;
     }
 
     public function destroy($model)
     {
         $product = $model;
         $product->delete();
-        return $toas =  [
-            "heading" => "刪除成功",
-            "text" =>  '',
-            "position" => "top-right",
-            "loaderBg" => "#ff6849",
-            "icon" => "success",
-            "hideAfter" => 3000,
-            "stack" => 6
-        ];
+        return parent::$toast_destroy;
     }
 
 
