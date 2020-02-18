@@ -3,10 +3,11 @@
 namespace App\Repositories\Member;
 
 
-
-interface TypeRepositoryInterface{
+Interface RepositoryInterface
+{
 
     public function builder();
-    public function all();
+
+
 
 }

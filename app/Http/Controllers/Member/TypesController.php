@@ -19,7 +19,7 @@ class TypesController extends MemberCoreController
 
     //Dashboard
     public function index(){
-        $types = $this->typeService->all();
+        $types = $this->typeService->paginate();
         return view(config('theme.member.view').'type.index', compact('types'));
     }
 

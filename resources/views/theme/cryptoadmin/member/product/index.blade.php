@@ -41,8 +41,10 @@
                                     @foreach($products as $product)
                                     <tr>
                                         <td class="w-20 text-center">{{$loop->iteration}}</td>
-                                        <td>{{$product->id_code}}</td>
-                                        <td class="w-300">
+                                        <td>
+                                            {{$product->type->t_name}}<br>
+                                            {{$product->id_code}}</td>
+                                        <td class="w-200">
                                             <p class="mb-0">
                                                 <a href="#"><strong>{{$product->p_name}}</strong></a><br>
                                             </p>
@@ -76,7 +78,7 @@
                                             </p>
                                         </td>
                                         <td>
-                                            @include(config('theme.member.btn.index.table_tr'),['id' => $product->t_id])
+                                            @include(config('theme.member.btn.index.table_tr'),['id' => $product->p_id])
                                         </td>
                                     </tr>
                                     @endforeach

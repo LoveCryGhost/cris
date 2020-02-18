@@ -28,7 +28,7 @@ class ProductObserver extends Observer
 
     public function created(Product $product)
     {
-        $product->id_code = (new BarcodeHandler())->barcode_generation(config('barcode.product'), $product->t_id);
+        $product->id_code = (new BarcodeHandler())->barcode_generation(config('barcode.product'), $product->p_id);
         $product->save();
     }
 

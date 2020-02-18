@@ -8,17 +8,21 @@ use App\Models\Type;
 class TypeRepository implements TypeRepositoryInterface
 {
 
+    private $builder;
 
-//  取出Type數量
-    public function all($row_qty)
+    public function __construct()
     {
-        if($row_qty==0){
-            $types = Type::paginate(10);
-        }else{
-            $types = Type::paginate($row_qty);
-        }
-        return $types;
+        $this->builder = new Type();
     }
 
+    public function builder()
+    {
+        return $this->builder ;
+    }
+
+    public function all()
+    {
+        return $this->builder->get() ;
+    }
 
 }

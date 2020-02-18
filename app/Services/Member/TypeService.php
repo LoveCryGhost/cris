@@ -4,7 +4,7 @@ namespace App\Services\Member;
 
 use App\Repositories\Member\TypeRepository;
 
-class TypeService extends MemberCoreService
+class TypeService extends MemberCoreService implements MemberServiceInterface
 {
     protected $typeRepo;
 
@@ -13,8 +13,34 @@ class TypeService extends MemberCoreService
         $this->typeRepo = $typeRepository;
     }
 
-    public function all(){
-        return $this->typeRepo->all(0);
+    public function index()
+    {
+
+    }
+
+    public function create()
+    {
+
+    }
+
+    public function edit()
+    {
+
+    }
+
+    public function store($data)
+    {
+        // TODO: Implement store() method.
+    }
+
+    public function update($data)
+    {
+        // TODO: Implement update() method.
+    }
+
+    public function destroy()
+    {
+
     }
 
 

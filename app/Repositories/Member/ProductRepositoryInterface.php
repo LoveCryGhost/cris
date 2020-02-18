@@ -4,8 +4,6 @@ namespace App\Repositories\Member;
 
 
 
-interface ProductRepositoryInterface{
-
-    public function all($row_qty);
+interface ProductRepositoryInterface extends RepositoryInterface{
 
 }
