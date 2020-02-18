@@ -19,13 +19,8 @@
 <!-- Bootstrap 4.0-->
 <script src="{{asset('theme/cryptoadmin/vendor_components/bootstrap/dist/js/bootstrap.js')}}"></script>
 
-
-
-
-
-
-
-
+<!-- PACE -->
+<script src="{{asset('theme/cryptoadmin/vendor_components/PACE/pace.min.js')}}"></script>
 
 
 <!-- Slimscroll -->

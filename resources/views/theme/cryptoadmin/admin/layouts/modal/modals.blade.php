@@ -4,3 +4,4 @@
 @include('theme.cryptoadmin.admin.layouts.modal.modal-right')
 @include('theme.cryptoadmin.admin.layouts.modal.modal-lg')
 @include('theme.cryptoadmin.admin.layouts.modal.modal-md')
+@include('theme.cryptoadmin.admin.layouts.modal.modal-center')

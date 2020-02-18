@@ -15,12 +15,15 @@ class TypeObserver extends Observer
         if(request()->input('is_active') == null){
             $type->is_active = 0;
         }
+        //判別是否為admin建立
+        if(Auth::guard('member')->user()!=null) {
+            $type->member_id = Auth::guard('member')->user()->id;
+        }
     }
 
     public function creating(Type $type)
     {
-        //判別是否為admin建立
-        $type->member_id = Auth::guard('member')->user()->id;
+
     }
 
     public function created(Type $type)

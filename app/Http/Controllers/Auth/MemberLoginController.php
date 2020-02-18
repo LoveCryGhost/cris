@@ -49,7 +49,7 @@ class MemberLoginController extends MemberCoreController
             }else{
                 $ip= Request::createFromGlobals()->getClientIp();
             }
-            event(new MemberLoginSuccessfulEvent($this->guard('member')->user(), new Agent(), $ip, time()));
+            event(new MemberLoginSuccessfulEvent(Auth::guard('member')->user(), new Agent(), $ip, time()));
 
             //if successful , the redirect to their intended location
             return redirect()->intended(route('member.index'));

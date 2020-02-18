@@ -3,14 +3,14 @@
 
 
 {{--標題--}}
-@section('title','User Title')
+<title>Admin - @yield('title')</title>
 
 
 {{--CSS--}}
+@include(config('theme.admin.css.default'))
 @section('css')
     @parent
     @yield('css')
-    @include(config('theme.admin.css.default'))
 @endsection
 
 
@@ -37,7 +37,10 @@
             @endsection
             @section('app-content-footer')
                 @yield('content-footer')
-                @include(config('theme.admin.footer'))
+
+                @auth('admin')
+                    @include(config('theme.admin.footer'))
+                @endauth
             @endsection
         </div>
     </body>

@@ -1,6 +1,6 @@
 @extends(config('theme.user.user-app'))
 
-@section('title','使用者介面')
+@section('title','')
 
 @section('content')
 <div class="container-full">

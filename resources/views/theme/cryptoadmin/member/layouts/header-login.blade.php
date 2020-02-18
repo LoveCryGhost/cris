@@ -1,5 +1,5 @@
 <header class="main-header">
-    <a href="../index.html" class="logo">
+    <a href="/" class="logo">
         <!-- mini logo -->
         <div class="logo-mini">
             <span class="light-logo"><img src="{{asset('theme/cryptoadmin/images/logo-light.png')}}" alt="logo"></span>
@@ -13,9 +13,9 @@
     </a>
     <nav class="navbar navbar-static-top">
         <div>
-            {{--<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">--}}
-                {{--<i class="ti-align-left"></i>--}}
-            {{--</a>--}}
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <i class="ti-align-left"></i>
+            </a>
             <a href="#" data-provide="fullscreen" class="sidebar-toggle" title="Full Screen">
                 <i class="mdi mdi-crop-free"></i>
             </a>
@@ -41,6 +41,9 @@
             </button>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-right">
                 右
+            </button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-center">
+                央
             </button>
         </div>
 

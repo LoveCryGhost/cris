@@ -1,6 +1,6 @@
 @extends(config('theme.member.member-app'))
 
-@section('title','使用者介面')
+@section('title','代理商後台')
 
 @section('content')
     <div class="container-full">
