@@ -27,13 +27,13 @@
             @else
                 @include(config('theme.user.header-login'))
             @endguest
+        @endsection
             {{--內容--}}
             <div class="wrapper">
                 <div class="content-wrapper" style="margin-left: 0px;">
                     @yield('content')
                 </div>
             </div>
-        @endsection
         @section('app-content-footer')
             @yield('content-footer')
 

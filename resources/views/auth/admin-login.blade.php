@@ -1,4 +1,4 @@
-@extends(config('theme.admin.admin-app'))
+@extends(config('theme.admin.admin-app-login'))
 
 @section('title','登入')
 

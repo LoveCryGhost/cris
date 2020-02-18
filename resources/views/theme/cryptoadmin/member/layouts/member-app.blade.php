@@ -28,13 +28,14 @@
             @include(config('theme.member.header-login'))
             @include(config('theme.member.sidebar'))
         @endguest
-        {{--內容--}}
-        <div class="wrapper">
-            <div class="content-wrapper">
-                @yield('content')
-            </div>
-        </div>
     @endsection
+
+    <div class="wrapper">
+        <div class="content-wrapper">
+            @yield('content')
+        </div>
+    </div>
+
     @section('app-content-footer')
         @yield('content-footer')
         @auth('member')

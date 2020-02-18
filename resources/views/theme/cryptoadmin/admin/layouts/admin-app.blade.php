@@ -28,13 +28,14 @@
                     @include(config('theme.admin.header-login'))
                     @include(config('theme.admin.sidebar'))
                 @endguest
+            @endsection
                 {{--內容--}}
                 <div class="wrapper">
                     <div class="content-wrapper">
                         @yield('content')
                     </div>
                 </div>
-            @endsection
+
             @section('app-content-footer')
                 @yield('content-footer')
                 @auth('admin')
