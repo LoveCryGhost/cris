@@ -5,19 +5,19 @@ namespace App\Repositories\Member;
 
 use App\Models\Type;
 
-class TypeRepository implements TypeRepositoryInterface
+class TypeRepository implements RepositoryInterface
 {
 
+    private $type;
 
-//  取出Type數量
-    public function all($row_qty)
+    public function __construct(Type $type)
     {
-        if($row_qty==0){
-            $types = Type::paginate(10);
-        }else{
-            $types = Type::paginate($row_qty);
-        }
-        return $types;
+        $this->type = new Type();
+    }
+
+    public function builder()
+    {
+        return $this->type ;
     }
 
 

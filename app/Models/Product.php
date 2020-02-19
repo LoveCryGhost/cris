@@ -32,6 +32,10 @@ class Product extends Model
         return $this->belongsTo(Member::class, 'member_id');
     }
 
+    public function type(){
+        return $this->belongsTo(Type::class, 't_id');
+    }
+
     public function productThumbnails(){
         return $this->hasMany(ProductThumbnail::class, 'p_id');
     }

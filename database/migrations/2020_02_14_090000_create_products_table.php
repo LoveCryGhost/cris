@@ -69,7 +69,6 @@ class CreateProductsTable extends Migration
             $table->foreign('c_id')->references('c_id')->on('categories')->onDelete('cascade');
         });
 
-
         Schema::create('product_thumbnails', function (Blueprint $table) {
             $table->bigIncrements('pt_id');
             $table->bigInteger('p_id')->unsigned();
