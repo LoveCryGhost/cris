@@ -30,22 +30,19 @@ class AttributeService extends MemberCoreService
 
     public function store($data)
     {
-        $this->attributeRepo->builder()->create($data);
-        return parent::$toast_store;
+        return $this->attributeRepo->builder()->create($data);
     }
 
     public function update($model,$data)
     {
         $attribute = $model;
-        $attribute->update($data);
-        return parent::$toast_update;
+        return $attribute->update($data);
     }
 
     public function destroy($model)
     {
         $attribute = $model;
-        $attribute->delete();
-        return parent::$toast_destroy;
+        return $attribute->delete();
     }
 
 

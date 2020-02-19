@@ -16,4 +16,9 @@ class MemberRepository implements RepositoryInterface
     {
         return $this->member;
     }
+
+    public function getById($id)
+    {
+        return $this->member->find($id);
+    }
 }

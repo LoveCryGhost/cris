@@ -26,22 +26,19 @@ class ProductService extends MemberCoreService implements MemberServiceInterface
 
     public function store($data)
     {
-        $this->productRepo->builder()->create($data);
-        return parent::$toast_store;
+        return $this->productRepo->builder()->create($data);
     }
 
     public function update($model,$data)
     {
         $product = $model;
-        $product->update($data);
-        return parent::$toast_update;
+        return $product->update($data);
     }
 
     public function destroy($model)
     {
         $product = $model;
         $product->delete();
-        return parent::$toast_destroy;
     }
 
 

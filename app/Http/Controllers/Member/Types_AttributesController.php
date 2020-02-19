@@ -20,7 +20,7 @@ class Types_AttributesController extends MemberCoreController
     public function create()
     {
         $attributes = $this->attributeService->attributeRepo->builder()->all();
-        $view = view(config('theme.member.view').'type.attribute.md-create', compact('attributes'))->render();
+        $view = view(config('theme.member.view').'type.attribute.md-create_edit', compact('attributes'))->render();
         return ['view' => $view];
     }
 
@@ -40,11 +40,7 @@ class Types_AttributesController extends MemberCoreController
         $attributes = $this->attributeService->index();
         return view(config('theme.member.view').'attribute.index', compact('attributes'));
     }
-//
-//    public function edit(Attribute $attribute)
-//    {
-//        return view(config('theme.member.view').'attribute.edit', compact('attribute'));
-//    }
+    
 //
 //    public function update(AttributeRequest $request, Attribute $attribute)
 //    {

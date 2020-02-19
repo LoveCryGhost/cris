@@ -27,7 +27,7 @@ class AttributesController extends MemberCoreController
     {
         $data = $request->all();
         $toast = $this->attributeService->store($data);
-        return redirect()->route('member.attribute.index')->with('toast',$toast);
+        return redirect()->route('member.attribute.index')->with('toast', parent::$toast_store);
 
     }
 
@@ -46,13 +46,13 @@ class AttributesController extends MemberCoreController
     {
         $data = $request->all();
         $toast = $this->attributeService->update($attribute, $data);
-        return redirect()->route('member.attribute.index')->with('toast', $toast);
+        return redirect()->route('member.attribute.index')->with('toast', parent::$toast_update);
     }
 
 
     public function destroy(Attribute $attribute)
     {
         $toast = $this->attributeService->destroy($attribute);
-        return redirect()->route('member.attribute.index')->with('toast', $toast);
+        return redirect()->route('member.attribute.index')->with('toast', parent::$toast_destroy);
     }
 }

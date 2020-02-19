@@ -29,7 +29,7 @@ class ProductsController extends MemberCoreController
     {
         $data = $request->all();
         $toast = $this->productService->store($data);
-        return redirect()->route('member.product.index')->with('toast',$toast);
+        return redirect()->route('member.product.index')->with('toast', parent::$toast_store);
 
     }
 
@@ -49,14 +49,14 @@ class ProductsController extends MemberCoreController
     {
         $data = $request->all();
         $toast = $this->productService->update($product, $data);
-        return redirect()->route('member.product.index')->with('toast', $toast);
+        return redirect()->route('member.product.index')->with('toast',  parent::$toast_update);
     }
 
 
     public function destroy(Product $product)
     {
         $toast = $this->productService->destroy($product);
-        return redirect()->route('member.product.index')->with('toast', $toast);
+        return redirect()->route('member.product.index')->with('toast',  parent::$toast_destroy);
     }
 
 }

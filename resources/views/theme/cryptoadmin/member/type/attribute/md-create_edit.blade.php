@@ -6,18 +6,12 @@
     <div class="box-body">
         <div class="row">
             <div class="col-12 text-right">
-                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modal-md"
+                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modal-md"
                    onclick="event.preventDefault();
-                           md_store(this, php_inject={{json_encode(['attributes' => $attributes])}});">
-                    <i class="fa fa-plus"></i></a>
+                           md_store(this, php_inject={{json_encode([])}});">
+                    <i class="fa fa-save"></i></a>
             </div>
             <div class="col-12">
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Barcode</label>
-                    <div class="col-sm-9">
-                        <input class="form-control" type="text" placeholder="自動生成"  disabled>
-                    </div>
-                </div>
                 {{--Select2--}}
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">產品屬性</label>
@@ -25,7 +19,7 @@
                         <select class="select2_item form-control" name="a_id" id="a_id">
                             <option value="">Select...</option>
                             @foreach($attributes as $attribute)
-                                <option value="{{$attribute->a_id}}" >{{$attribute->a_name}}</option>
+                                <option value="{{$attribute->a_id}}" >{{$attribute->id_code}} - {{$attribute->a_name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -38,11 +32,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 <link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet">
-<script type="text/javascript">
-    $(function() {
 
-    });
-</script>
 
 <script type="text/javascript">
 
@@ -54,8 +44,8 @@
         });
         //檢查是否有重複的Attribute & 並將其設定成Disable
         $('#tbl-type-attribute tbody tr').each(function () {
-            select_a_id_val = $(this).children('td:eq(1)').find('input').val();
-            $(".select2_item[id=a_id] option[value='"+select_a_id_val+"']").attr('disabled', 'disabled');
+            select_a_id_val = $(this).children('td:eq(2)').find('input').val();
+            $(".select2_item[id=a_id] option[value='"+select_a_id_val+"']").attr('disabled', 'disabled').append(' -- (Disabled)');
         });
     });
 
@@ -77,18 +67,21 @@
             processData: false,
             success: function(data) {
 
-
+                cursor_move = '<span class="handle" style="cursor: move;">' +
+                    '                                        <i class="fa fa-ellipsis-v"></i>' +
+                    '                                        <i class="fa fa-ellipsis-v"></i>' +
+                    '                                  </span>';
                 id_code = data.rows.id_code +
                             '<input name="a_ids[]"  value="'+ data.rows.a_id+'">';
                 a_name = data.rows.a_name;
-                html='<tr><td></td><td>'+id_code+'</td><td>'+a_name+'</td><td>ggg</td></tr>';
+                html='<tr><td>'+cursor_move+'</td><td></td><td>'+id_code+'</td><td>'+a_name+'</td><td>ggg</td></tr>';
                 $('#tbl-type-attribute tbody').append(html);
                 $('#modal-md').hide();
 
                 //排序
                 $('#tbl-type-attribute tbody tr').each(function ($index) {
-                    input_a_id = $(this).children('td:eq(1)').find('input').attr('name','a_ids['+($index+1)+']');
-                    $(this).children('td:eq(0)').html($index+1);
+                    input_a_id = $(this).children('td:eq(2)').find('input').attr('name','a_ids[]');
+                    $(this).children('td:eq(1)').html($index+1);
                 })
 
             },

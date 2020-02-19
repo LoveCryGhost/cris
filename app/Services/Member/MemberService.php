@@ -56,8 +56,7 @@ class MemberService extends MemberCoreService implements MemberServiceInterface
     public function update($model, $data)
     {
         $member = $model;
-        $member->update($data);
-        return parent::$toast_update;
+        return $member->update($data);
     }
 
     public function destroy($model)
@@ -69,16 +68,7 @@ class MemberService extends MemberCoreService implements MemberServiceInterface
     public function update_password($member, $data)
     {
         $data['password'] = Hash::make(request()->new_password);
-        $member->update($data);
-        return $toast = [
-            "heading" => "您的密碼已經更新成功",
-            "text" =>  '請於下次登入時使用新密碼!',
-            "position" => "top-right",
-            "loaderBg" => "#ff6849",
-            "icon" => "success",
-            "hideAfter" => 3000,
-            "stack" => 6
-        ];
+        return $member->update($data);
     }
 
 

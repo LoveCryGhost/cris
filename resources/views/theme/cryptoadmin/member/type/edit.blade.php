@@ -77,6 +77,7 @@
                                 </div>
 
                             </div>
+                            @include('theme.cryptoadmin.member.type.attribute.md-index')
                         </div>
                     </div>
                 </form>
@@ -95,7 +96,6 @@
             $bt_switch.bootstrapSwitch('toggleState', true);
         })
     </script>
-
 @endsection
 
 
