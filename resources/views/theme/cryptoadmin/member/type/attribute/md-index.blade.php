@@ -14,18 +14,16 @@
             <div class="col-12">
                 <table class="table table-bordered table-hover" id="tbl-type-attribute">
                     <thead>
-
+                        <tr>
+                            <th>No.</th>
+                            <th>Barcode</th>
+                            <th>Name</th>
+                            <th>操作</th>
+                        </tr>
                     </thead>
 
                     <tbody>
-                        @foreach($attributes as $attribute)
-                            <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$attribute->id_code}}</td>
-                                <td>{{$attribute->a_name}}</td>
-                                <td></td>
-                            </tr>
-                        @endforeach
+                       
                     </tbody>
                 </table>
             </div>
@@ -60,7 +58,6 @@
                 $('#modal-md .modal-body').html(data.view)
             },
             error: function(data) {
-                swal('爬蟲錯誤', '', 'error');
             }
         });
     }
