@@ -7,7 +7,6 @@ use App\Http\Requests\Member\MemberRequest;
 use App\Models\Member;
 use App\Rules\CurrentPasswordRule;
 use App\Services\Member\MemberService;
-use App\Services\User\UserService;
 use Illuminate\Http\Request;
 
 

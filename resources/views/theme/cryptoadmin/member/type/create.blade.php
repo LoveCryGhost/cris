@@ -28,13 +28,11 @@
                         <div class="col-xl-12 col-lg-12 text-right mb-5">
                             @include(config('theme.member.btn.create.crud'))
                         </div>
-                        {{--相關訊息--}}
                         <div class="col-xl-12 col-lg-12">
                             <div class="box box-solid box-inverse box-dark">
                                 <div class="box-header with-border">
                                     <h3 class="box-title">產品類型</h3>
                                 </div>
-                                <!-- /.box-header -->
                                 <div class="box-body">
                                     <div class="row">
                                         <div class="col-12">
@@ -72,29 +70,19 @@
                                         </div>
 
                                     </div>
-
+                                    {{-- Type - Attribute Detail --}}
+                                    @include('theme.cryptoadmin.member.type.attribute.md-index', ['master_id' => 0 ])
                                 </div>
 
                             </div>
                         </div>
                     </div>
                 </form>
-
             </section>
             <!-- /.content -->
 
         </div>
 @stop
 
-@section('js')
-    @parent
-    <script type="text/javascript">
-        $(function(){
-            $bt_switch = $('.bt-switch');
-            $bt_switch.bootstrapSwitch('toggleState', true);
-        })
-    </script>
-
-@endsection
 
 

@@ -2,15 +2,18 @@
 
 namespace App\Services\Member;
 
+use App\Repositories\Member\AttributeRepository;
 use App\Repositories\Member\TypeRepository;
 
 class TypeService extends MemberCoreService implements MemberServiceInterface
 {
     public $typeRepo;
+    public $attributeRepo;
 
-    public function __construct(TypeRepository $typeRepository)
+    public function __construct(TypeRepository $typeRepository, AttributeRepository $attributeRepository)
     {
         $this->typeRepo = $typeRepository;
+        $this->attributeRepo = $attributeRepository;
     }
 
     public function index()
@@ -20,7 +23,7 @@ class TypeService extends MemberCoreService implements MemberServiceInterface
 
     public function create()
     {
-
+        return $this->get();
     }
 
     public function edit()

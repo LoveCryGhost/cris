@@ -20,7 +20,8 @@ class TypesController extends MemberCoreController
 
     public function create()
     {
-        return view(config('theme.member.view').'type.create', compact(''));
+        $attributes = $this->typeService->attributeRepo->builder()->all();
+        return view(config('theme.member.view').'type.create', compact('attributes'));
     }
 
     public function store(TypeRequest $request)

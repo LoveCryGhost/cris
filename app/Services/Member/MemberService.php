@@ -82,4 +82,13 @@ class MemberService extends MemberCoreService implements MemberServiceInterface
     }
 
 
+    public function create()
+    {
+        // TODO: Implement create() method.
+    }
+
+    public function edit()
+    {
+        // TODO: Implement edit() method.
+    }
 }
