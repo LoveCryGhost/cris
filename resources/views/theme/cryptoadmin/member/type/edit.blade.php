@@ -73,11 +73,10 @@
                                         </div>
 
                                     </div>
+                                    @include('theme.cryptoadmin.member.type.attribute.md-index')
 
                                 </div>
-
                             </div>
-                            @include('theme.cryptoadmin.member.type.attribute.md-index')
                         </div>
                     </div>
                 </form>

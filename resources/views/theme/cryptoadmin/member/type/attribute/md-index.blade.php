@@ -8,7 +8,7 @@
             <div class="col-12 text-right">
                 <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modal-md"
                    onclick="event.preventDefault();
-                           md_insert(this, php_inject={{json_encode(['attributes' => ''])}});">
+                           md_insert(this, php_inject={{json_encode([])}});">
                     <i class="fa fa-plus"></i></a>
             </div>
             <div class="col-12">

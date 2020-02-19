@@ -100,6 +100,7 @@ Route::prefix('member')->namespace('Member')->group(function(){
         //Attribute
         Route::resource('attribute', 'AttributesController');
         Route::resource('product', 'ProductsController');
+        Route::resource('product-sku', 'Product_SKUsController');
     });
 
 });

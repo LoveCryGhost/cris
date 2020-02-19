@@ -8,7 +8,7 @@ use App\Repositories\Member\TypeRepository;
 
 class ProductService extends MemberCoreService implements MemberServiceInterface
 {
-    protected $productRepo;
+    public $productRepo;
     public $typeRepo;
 
     public function __construct(ProductRepository $productRepository,  TypeRepository $typeRepository)
@@ -20,7 +20,7 @@ class ProductService extends MemberCoreService implements MemberServiceInterface
     public function index()
     {
         return $this->productRepo->builder()
-            ->with(['Type', 'Productthumbnails'])->paginate(10);
+            ->with(['Type', 'ProductThumbnails','member'])->paginate(10);
     }
 
 
