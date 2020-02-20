@@ -15,10 +15,11 @@ class CreateSuppliersTable extends Migration
             $table->boolean('is_active')->default(0);
             $table->string('sg_name');
             $table->string('name_card')->nullable();
-            $table->string('add_company');
+            $table->string('add_company')->nullable();
+            $table->string('wh_company')->nullable();
             $table->string('tel')->nullable();
             $table->string('phone')->nullable();
-            $table->string('company_id')->nullable();
+            $table->string('company_id')->nullable(); //統編
             $table->string('website')->nullable();
 
             $table->bigInteger('member_id')->unsigned();
@@ -36,7 +37,8 @@ class CreateSuppliersTable extends Migration
             $table->boolean('is_active')->default(0);
             $table->string('s_name');
             $table->string('name_card')->nullable();
-            $table->string('add_company');
+            $table->string('add_company')->nullable();
+            $table->string('wh_company')->nullable();
             $table->string('tel')->nullable();
             $table->string('phone')->nullable();
             $table->string('company_id')->nullable();

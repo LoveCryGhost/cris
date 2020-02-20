@@ -30,5 +30,7 @@ class AppServiceProvider extends ServiceProvider
         \App\Models\Attribute::observe(\App\Observers\AttributeObserver::class);
         \App\Models\Product::observe(\App\Observers\ProductObserver::class);
         \App\Models\SKU::observe(\App\Observers\SKUObserver::class);
+        \App\Models\Supplier::observe(\App\Observers\SupplierObserver::class);
+        \App\Models\SupplierGroup::observe(\App\Observers\SupplierGroupObserver::class);
     }
 }

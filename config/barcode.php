@@ -11,6 +11,9 @@ return [
         'attribute' => 'A',
         'product' => 'P',
         'sku' => 'sk',
+
+        'supplierGroup' => 'SG',
         'supplier' => 'S',
+        'supplierContact' => 'SC',
 
 ];
