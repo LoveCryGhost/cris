@@ -12,16 +12,15 @@ class SKU extends Model
 
     protected $with = [];
     protected $fillable = [
+        'p_id',
         'sku_name',
         'thumbnail',
-        'm_price',
-        't_price',
+        'price',
     ];
 
 
     protected $casts = [
-        'm_price' => 'decimal',
-        't_price' => 'decimal'
+        'price' => 'decimal',
     ];
 
     public function product(){

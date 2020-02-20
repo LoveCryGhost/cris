@@ -4,38 +4,46 @@ namespace App\Http\Controllers\Member;
 
 use App\Repositories\Member\SKURepository;
 use App\Services\Member\AttributeService;
+use App\Services\Member\Product_SKUService;
 use App\Services\Member\ProductService;
 use Illuminate\Http\Request;
+
 
 
 class Product_SKUsController extends MemberCoreController
 {
 
 
-    public $productService;
+    public $product_SKUService;
 
-    public function __construct(ProductService $productService, SKURepository $skuRepository)
+    public function __construct(Product_SKUService $product_SKUService)
     {
         $this->middleware('auth:member');
-        $this->productService= $productService;
-        $this->skuRepo = $skuRepository;
+        $this->product_SKUService= $product_SKUService;
     }
 
     public function create(Request $request)
     {
-        $product= $this->productService->productRepo->getById($request->input('p_id'));
+        $product= $this->product_SKUService->productRepo->getById($request->input('p_id'));
         $view = view(config('theme.member.view').'product.sku.md-create', compact('product'))->render();
         return ['view' => $view];
     }
 
     public function store(Request $request)
     {
-        $attribute = $this->attributeService->attributeRepo->builder()->find($request->input('a_id'));
-        return [
-            'rows' => $attribute,
-            'request' => $request,
-            'options' => []
-        ];
+        $data = $request->all();
+        $this->product_SKUService->store($data);
+        dd('完成一半');
+        //儲存一般資料
+
+        //儲存SKU資料
+
+//        $attribute = $this->attributeService->attributeRepo->builder()->find($request->input('a_id'));
+//        return [
+//            'rows' => $attribute,
+//            'request' => $request,
+//            'options' => []
+//        ];
         //return redirect()->route('member.attribute.index')->with('toast',$toast);
     }
 

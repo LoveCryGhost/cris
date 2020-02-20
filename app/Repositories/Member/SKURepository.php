@@ -25,4 +25,8 @@ class SKURepository implements RepositoryInterface
     {
         return $this->sku->find($id);
     }
+
+    public function create($data){
+        return $this->sku->create($data);
+    }
 }
