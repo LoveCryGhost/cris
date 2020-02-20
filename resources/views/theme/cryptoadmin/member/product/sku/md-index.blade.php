@@ -25,7 +25,7 @@
                     </tr>
                     </thead>
                         @if(isset($product))
-                            @foreach($product->skus as $sku)
+                            @foreach($product->skus(3) as $sku)
                                 <tr class="handle" data-detail-id="{{$sku->ski_id}}">
                                     <td>
                                             <span class="handle" style="cursor: move;">
@@ -36,7 +36,7 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$sku->sku_name}}</td>
                                     <td>
-                                        {{$sku->thumbnail}}
+                                        <img src="{{$sku->thumbnail!==null? asset($sku->thumbnail):asset('images/default/products/product.jpg')}} " class="product-sku-thumbnail">
                                     </td>
                                     <td>
                                         <input type="checkbox" class="bt-switch"  value="1" {{$product->is_active==1? "checked":""}}
@@ -53,6 +53,7 @@
                     <tbody>
                     </tbody>
                 </table>
+                {{$product->skus(3)->links()}}
             </div>
         </div>
 

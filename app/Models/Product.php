@@ -15,7 +15,8 @@ class Product extends Model
         'publish_at',
         't_id',
         'p_name',
-        'c_id', 'p_id'
+        'c_id', 'p_id',
+        'is_active'
     ];
 
 
@@ -40,8 +41,8 @@ class Product extends Model
         return $this->hasMany(ProductThumbnail::class, 'p_id');
     }
 
-    public function skus(){
-        return $this->hasMany(SKU::class, 'p_id','p_id');
+    public function skus($paginate=0){
+          return $this->hasMany(SKU::class, 'p_id','p_id')->paginate($paginate);
     }
 
 

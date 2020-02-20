@@ -1,5 +1,5 @@
 @if (count($errors) > 0)
-    <div class="alert alert-danger">
+    <div class="alert alert-danger ">
         <div class="mt-2"><b>有錯誤發生:</b></div>
         <ul class="mt-2 mb-2">
             @foreach ($errors->all() as $error)

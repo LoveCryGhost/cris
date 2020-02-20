@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Member;
 
+use App\Http\Requests\Member\Product_SKURequest;
 use App\Repositories\Member\SKURepository;
 use App\Services\Member\AttributeService;
 use App\Services\Member\Product_SKUService;
@@ -29,28 +30,21 @@ class Product_SKUsController extends MemberCoreController
         return ['view' => $view];
     }
 
-    public function store(Request $request)
+    public function store(Product_SKURequest $request)
     {
         $data = $request->all();
         $this->product_SKUService->store($data);
-        dd('完成一半');
-        //儲存一般資料
 
-        //儲存SKU資料
-
-//        $attribute = $this->attributeService->attributeRepo->builder()->find($request->input('a_id'));
-//        return [
-//            'rows' => $attribute,
-//            'request' => $request,
-//            'options' => []
-//        ];
-        //return redirect()->route('member.attribute.index')->with('toast',$toast);
+        return response()->json([
+            'error' => false,
+            'request' => $request->input()
+        ], 200);
     }
 
     public function index()
     {
-        $attributes = $this->attributeService->index();
-        return view(config('theme.member.view').'attribute.index', compact('attributes'));
+//        $attributes = $this->attributeService->index();
+//        return view(config('theme.member.view').'attribute.index', compact('attributes'));
     }
 
 

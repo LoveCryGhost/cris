@@ -2,6 +2,7 @@
 
 namespace App\Services\Member;
 
+use App\Handlers\ImageUploadHandler;
 use App\Models\Product;
 use App\Repositories\Member\ProductRepository;
 use App\Repositories\Member\SKURepository;
@@ -26,8 +27,20 @@ class Product_SKUService extends MemberCoreService implements MemberServiceInter
 
     public function store($data)
     {
+        //處理Thumbnail
+        $uploader =new ImageUploadHandler();
+        if(request()->thumbnail!="undefined") {
+            $result = $uploader->save(request()->thumbnail, 'thumbnail', $data['p_id'], 416);
+            if ($result) {
+                $data['thumbnail']=$result['path'];
+            }
+        }else{
+            $data['thumbnail'] = null;
+        }
         //儲存一般資料
         $sku= $this->skuRepo->create($data);
+
+        return $data;
 
         //儲存SKU資料
 //        foreach ($data['skus'] as $sku_datta){
