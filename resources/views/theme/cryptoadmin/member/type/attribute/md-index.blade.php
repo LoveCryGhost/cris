@@ -8,24 +8,43 @@
             <div class="col-12 text-right">
                 <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modal-md"
                    onclick="event.preventDefault();
-                           md_insert(this, php_inject={{json_encode(['attributes' => ''])}});">
+                           md_insert(this, php_inject={{json_encode([])}});">
                     <i class="fa fa-plus"></i></a>
             </div>
             <div class="col-12">
                 <table class="table table-bordered table-hover" id="tbl-type-attribute">
                     <thead>
-
+                        <tr>
+                            <th>No.</th>
+                            <th>排序</th>
+                            <th>Barcode</th>
+                            <th>Name</th>
+                            <th>操作</th>
+                        </tr>
                     </thead>
 
                     <tbody>
-                        @foreach($attributes as $attribute)
-                            <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$attribute->id_code}}</td>
-                                <td>{{$attribute->a_name}}</td>
-                                <td></td>
-                            </tr>
-                        @endforeach
+                        @if(isset($type))
+                            @foreach($type->attributes as $attribute)
+                                <tr class="handle">
+                                    <td>
+                                        <span class="handle" style="cursor: move;">
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                      </span>
+                                    </td>
+                                    <td>
+                                        {{$loop->iteration}}
+                                    </td>
+                                    <td>
+                                        {{$attribute->id_code}}
+                                        <input name="a_ids[]"  value="{{$attribute->a_id}}">
+                                    </td>
+                                    <td>{{$attribute->a_name}}</td>
+                                    <td></td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -34,9 +53,20 @@
     </div>
 </div>
 
-
 @section('js')
+@parent
+@yield('jss')
 <script type="text/javascript">
+    $(function () {
+        //可以排序
+        $('#tbl-type-attribute tbody').sortable({
+            // placeholder         : 'sort-highlight',
+            handle              : '.handle',
+            forcePlaceholderSize: false,
+            zIndex              : 999999,
+            update              : table_order_tr
+        });
+    });
     function md_insert(_this,  attributes){
         //取得所有formData
         var formData = new FormData();
@@ -60,9 +90,15 @@
                 $('#modal-md .modal-body').html(data.view)
             },
             error: function(data) {
-                swal('爬蟲錯誤', '', 'error');
             }
         });
+    }
+    function table_order_tr() {
+        //排序
+        $('#tbl-type-attribute tbody tr').each(function ($index) {
+            input_a_id = $(this).children('td:eq(2)').find('input').attr('name','a_ids[]');
+            $(this).children('td:eq(1)').html($index+1);
+        })
     }
 </script>
 @endsection

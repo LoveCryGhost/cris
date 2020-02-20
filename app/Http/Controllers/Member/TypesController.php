@@ -27,9 +27,10 @@ class TypesController extends MemberCoreController
     public function store(TypeRequest $request)
     {
         $data = $request->all();
-        $toast = $this->typeService->store($data);
-        return redirect()->route('member.type.index')->with('toast',$toast);
-
+        $a_ids = array_values($data['a_ids']);
+        $type = $this->typeService->store($data);
+        $this->typeService->attributeRepo->save($type, $a_ids);
+        return redirect()->route('member.type.index')->with('toast', parent::$toast_store);
     }
 
     public function index()
@@ -40,21 +41,25 @@ class TypesController extends MemberCoreController
 
     public function edit(Type $type)
     {
-        return view(config('theme.member.view').'type.edit', compact('type'));
+        $attributes = $this->typeService->attributeRepo->builder()->all();
+        return view(config('theme.member.view').'type.edit', compact('type', 'attributes'));
     }
 
     public function update(TypeRequest $request, Type $type)
     {
         $data = $request->all();
-        $toast = $this->typeService->update($type, $data);
-        return redirect()->route('member.type.index')->with('toast', $toast);
+        $TF = $this->typeService->update($type, $data);
+
+        $a_ids = array_values($data['a_ids']);
+        $this->typeService->attributeRepo->save($type, $a_ids);
+        return redirect()->route('member.type.index')->with('toast', parent::$toast_update);
     }
 
 
     public function destroy(Type $type)
     {
         $toast = $this->typeService->destroy($type);
-        return redirect()->route('member.type.index')->with('toast', $toast);
+        return redirect()->route('member.type.index')->with('toast', parent::$toast_destroy);
     }
 
 

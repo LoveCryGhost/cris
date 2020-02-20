@@ -21,4 +21,8 @@ class TypeRepository implements RepositoryInterface
     }
 
 
+    public function getById($id)
+    {
+        return $this->type->find($id);
+    }
 }

@@ -44,7 +44,7 @@ class MembersController extends MemberCoreController
         $toast = $this->memberService->update($member, $data);
 
         return redirect()->route('member.edit',['member'=>$member->id])
-            ->with('toast', $toast);
+            ->with('toast', parent::$toast_update);
     }
 
     //更新密碼
@@ -66,7 +66,15 @@ class MembersController extends MemberCoreController
         $data = $request->all();
         $toast = $this->memberService->update_password($member, $data);
         return redirect()->route('member.edit', ['member'=> $member->id])
-            ->with('toast', $toast);
+            ->with('toast', [
+                "heading" => "您的密碼已經更新成功",
+                "text" =>  '請於下次登入時使用新密碼!',
+                "position" => "top-right",
+                "loaderBg" => "#ff6849",
+                "icon" => "success",
+                "hideAfter" => 3000,
+                "stack" => 6
+            ]);
     }
 
 

@@ -18,13 +18,15 @@ class TypeService extends MemberCoreService implements MemberServiceInterface
 
     public function index()
     {
-        return $this->typeRepo->builder()->paginate(10);
+        return $this->typeRepo->builder()->with(['member'])->paginate(10);
     }
 
     public function create()
     {
         return $this->get();
     }
+
+
 
     public function edit()
     {
@@ -33,22 +35,19 @@ class TypeService extends MemberCoreService implements MemberServiceInterface
 
     public function store($data)
     {
-        $this->typeRepo->builder()->create($data);
-        return parent::$toast_store;
+        return $this->typeRepo->builder()->create($data);
     }
 
     public function update($model,$data)
     {
         $type = $model;
-        $type->update($data);
-        return parent::$toast_update;
+        return $type->update($data);
     }
 
     public function destroy($model)
     {
         $type = $model;
-        $type->delete();
-        return parent::$toast_destroy;
+        return $type->delete();
     }
 
 

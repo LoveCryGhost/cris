@@ -18,4 +18,15 @@ class AttributeRepository implements RepositoryInterface
     {
         return $this->attribute ;
     }
+
+    public function getById($id){
+        return $this->attribute->find($id);
+    }
+
+    public function save($type, $attribute_ids){
+        foreach ($attribute_ids as $index => $attribute_id){
+            $types_attributes[$attribute_id] = ['sort_order'=>$index];
+        }
+        $type->attributes()->sync($types_attributes);
+    }
 }

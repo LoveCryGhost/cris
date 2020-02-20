@@ -30,6 +30,8 @@ class Type extends Model
     public function attributes()
     {
         return $this->belongsToMany(Attribute::class, 'types_attributes','t_id','a_id')
+            ->orderBy('sort_order')
+            ->withPivot(['sort_order'])
             ->withTimestamps();
     }
 

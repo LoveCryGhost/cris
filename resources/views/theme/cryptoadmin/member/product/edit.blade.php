@@ -42,7 +42,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">啟用</label>
                                             <div class="col-sm-10">
-                                                <input type="checkbox" class="bt-switch" name="is_active"  value="1" {{$product->is_active==1? "checked":""}}
+                                                <input type="checkbox" class="bt-switch form-control" name="is_active"  value="1" {{$product->is_active==1? "checked":""}}
                                                        data-label-width="100%"
                                                        data-label-text="啟用" data-size="min"
                                                        data-on-text="On"    data-on-color="primary"
@@ -95,10 +95,12 @@
                                     </div>
 
                                 </div>
+                                @include('theme.cryptoadmin.member.product.sku.md-index',['product' => $product])
 
                             </div>
 
                         </div>
+
                     </div>
                 </div>
             </form>

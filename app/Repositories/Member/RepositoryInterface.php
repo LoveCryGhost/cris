@@ -9,7 +9,7 @@ Interface RepositoryInterface
 {
 
     public function builder();
-
+    public function getById($id);
 
 
 }
