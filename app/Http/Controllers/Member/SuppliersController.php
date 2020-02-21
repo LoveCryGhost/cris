@@ -53,12 +53,12 @@ class SuppliersController extends MemberCoreController
         $toast = $this->supplierService->update($supplier, $data);
         return redirect()->route('member.supplier.index')->with('toast',  parent::$toast_update);
     }
-//
-//
-//    public function destroy(Supplier $supplier)
-//    {
-//        $toast = $this->supplierService->destroy($supplier);
-//        return redirect()->route('member.supplier.index')->with('toast',  parent::$toast_destroy);
-//    }
+
+
+    public function destroy(Supplier $supplier)
+    {
+        $toast = $this->supplierService->destroy($supplier);
+        return redirect()->route('member.supplier.index')->with('toast',  parent::$toast_destroy);
+    }
 
 }

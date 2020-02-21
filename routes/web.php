@@ -97,6 +97,7 @@ Route::prefix('member')->namespace('Member')->group(function(){
         //SupplierGroup
         Route::resource('supplier', 'SuppliersController');
         Route::resource('supplierGroup', 'SupplierGroupsController');
+        Route::resource('supplier-contact', 'Supplier_ContactsController');
 
 
         //Type

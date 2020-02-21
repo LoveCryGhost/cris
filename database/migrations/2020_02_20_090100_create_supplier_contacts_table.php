@@ -11,12 +11,15 @@ class CreateSupplierContactsTable extends Migration
     {
         Schema::create('supplier_contacts', function (Blueprint $table) {
             $table->bigIncrements('sc_id');
+
             $table->bigInteger('s_id')->unsigned();
+            $table->tinyInteger('is_active')->default(1);
             $table->string('id_code')->unique()->nullable();
             $table->string('sc_name');
             $table->string('name_card')->nullable();
             $table->string('tel')->nullable();
             $table->string('phone')->nullable();
+            $table->text('introduction')->nullable();
 
             $table->bigInteger('member_id')->unsigned();
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
