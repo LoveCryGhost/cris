@@ -57,7 +57,6 @@ class SuppliersTableSeeder extends Seeder
 
             foreach ($supplier_contacts as $supplier_contact){
                 $supplierContact = new SupplierContact();
-                $supplierContact->is_active = 1;
                 $supplierContact->s_id = $Supplier->s_id;
                 $supplierContact->sc_name = $supplier_contact;
                 $supplierContact->save();

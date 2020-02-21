@@ -13,10 +13,7 @@ class CreateSupplierContactsTable extends Migration
             $table->bigIncrements('sc_id');
 
             $table->bigInteger('s_id')->unsigned();
-            $table->tinyInteger('is_active')->default(1);
-            $table->string('id_code')->unique()->nullable();
             $table->string('sc_name');
-            $table->string('name_card')->nullable();
             $table->string('tel')->nullable();
             $table->string('phone')->nullable();
             $table->text('introduction')->nullable();

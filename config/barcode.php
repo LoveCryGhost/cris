@@ -14,6 +14,6 @@ return [
 
         'supplierGroup' => 'SG',
         'supplier' => 'S',
-        'supplierContact' => 'SC',
+//        'supplierContact' => 'SC',
 
 ];

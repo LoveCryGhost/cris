@@ -13,7 +13,7 @@ class SupplierContact extends Model
     protected $with = [];
 
     protected $fillable = [
-        'is_active', 'sc_name', "name_card",
+        'sc_name', "name_card",
         "tel", "phone", 'introduction'
     ];
 

@@ -33,4 +33,9 @@ class Supplier extends Model
     {
         return $this->belongsTo(Member::class, 'member_id', 'id');
     }
+
+    public function supplierContacts($paginate=0)
+    {
+        return $this->hasMany(SupplierContact::class, 's_id')->paginate($paginate);
+    }
 }

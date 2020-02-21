@@ -12,7 +12,7 @@
                     <i class="fa fa-plus"></i></a>
             </div>
             <div class="col-12">
-                <table class="table table-bordered table-hover" id="tbl-type-attribute">
+                <table class="table table-bordered table-hover" id="tbl-product-sku">
                     <thead>
                     <tr>
                         <th>No.</th>
@@ -66,7 +66,7 @@
     <script type="text/javascript">
         $(function () {
             //可以排序
-            $('#tbl-type-attribute tbody').sortable({
+            $('#tbl-product-sku tbody').sortable({
                 // placeholder         : 'sort-highlight',
                 handle              : '.handle',
                 forcePlaceholderSize: false,
@@ -106,7 +106,7 @@
         }
         function table_order_tr() {
             //排序
-            $('#tbl-type-attribute tbody tr').each(function ($index) {
+            $('#tbl-product-sku tbody tr').each(function ($index) {
                 input_a_id = $(this).children('td:eq(2)').find('input').attr('name','a_ids[]');
                 $(this).children('td:eq(1)').html($index+1);
             })
