@@ -32,6 +32,7 @@
                                     <tr class="d-none">
                                         <th>check</th>
                                         <th>Barcode</th>
+                                        <th>名片</th>
                                         <th>名稱</th>
                                         <th>操作</th>
                                     </tr>
@@ -40,8 +41,10 @@
                                     @foreach($supplierGroups as $supplierGroup)
                                         <tr>
                                             <td class="w-20 text-center">{{$loop->iteration}}</td>
+                                            <td>{{$supplierGroup->id_code}}</td>
                                             <td>
-                                                {{$supplierGroup->id_code}}</td>
+                                                <img  class="name_card rounded img-fluid mx-auto d-block max-w-150" style="cursor: pointer;" src="{{$supplierGroup->name_card? asset($supplierGroup->name_card):asset('images/default/avatars/avatar.jpg')}}" width="200px">
+                                            </td>
                                             <td class="w-200">
                                                 <p class="mb-0">
                                                     <a href="#"><strong>{{$supplierGroup->sg_name}}</strong></a><br>

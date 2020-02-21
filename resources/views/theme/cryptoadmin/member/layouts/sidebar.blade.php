@@ -27,7 +27,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="ti-cup"></i>
-                    <span>Supplier</span>
+                    <span>供應商模組</span>
                     <span class="pull-right-container">
                       <i class="fa fa-angle-right pull-right"></i>
                     </span>
@@ -42,7 +42,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="ti-cup"></i>
-                    <span>Product</span>
+                    <span>產品模組</span>
                     <span class="pull-right-container">
                       <i class="fa fa-angle-right pull-right"></i>
                     </span>

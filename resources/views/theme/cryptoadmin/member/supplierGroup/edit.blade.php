@@ -18,7 +18,7 @@
 
         <!-- Main content -->
         <section class="content">
-            <form method="post" action="{{route('member.supplierGroup.update',['supplierGroup'=> $supplierGroup->sg_id])}}">
+            <form method="post" action="{{route('member.supplierGroup.update',['supplierGroup'=> $supplierGroup->sg_id])}}" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 <div class="row">
@@ -38,7 +38,7 @@
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-8">
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">啟用</label>
                                             <div class="col-sm-10">
@@ -63,10 +63,76 @@
                                             </div>
                                         </div>
 
+                                        {{--地址--}}
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">地址</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" name="add_company" placeholder="地址"  value="{{$supplierGroup->add_company}}">
+                                            </div>
+                                        </div>
+
+                                        {{--倉庫--}}
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">倉庫</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" name="add_company" placeholder="倉庫"  value="{{$supplierGroup->wh_company}}">
+                                            </div>
+                                        </div>
+
+                                        {{--電話--}}
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">電話</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" name="tel" placeholder="電話"  value="{{$supplierGroup->tel}}">
+                                            </div>
+                                        </div>
+
+                                        {{--手機--}}
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">手機</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" name="phone" placeholder="手機"  value="{{$supplierGroup->phone}}">
+                                            </div>
+                                        </div>
+
+                                        {{--統編--}}
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">統編</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" name="add_company" placeholder="統編"  value="{{$supplierGroup->wh_company}}">
+                                            </div>
+                                        </div>
+
+                                        {{--公司網址--}}
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">公司網址</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" name="website" placeholder="公司網址"  value="{{$supplierGroup->website}}">
+                                            </div>
+                                        </div>
+
+                                        {{--公司簡介--}}
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">簡介</label>
+                                            <div class="col-sm-10">
+                                                <textarea class="form-control" type="text" name="introduction" placeholder="簡介" >{{$supplierGroup->introduction}}</textarea>
+                                            </div>
+                                        </div>
+
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label"></label>
                                             <div class="col-sm-10">
                                                 <button type="submit" class="btn btn-warning">提交訊息</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group row">
+                                            <div class=" img-preview-frame text-center" >
+                                                <input type="file" name="name_card" id="name_card"  onchange="showPreview(this,['name_card_img'])" style="display: none;"/>
+                                                <label for="name_card">
+                                                    <img id="name_card_img" class="rounded img-fluid mx-auto d-block max-w-150" style="cursor: pointer;" src="{{$supplierGroup->name_card? asset($supplierGroup->name_card):asset('images/default/avatars/avatar.jpg')}}" width="200px">
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +154,7 @@
 
 @section('js')
     @parent
-
+    <script src="{{asset('js/images.js')}}"></script>
     <script type="text/javascript">
         $(function(){
 

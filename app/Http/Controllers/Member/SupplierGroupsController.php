@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Member;
 
+use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\Member\SupplierGroupRequest;
 use App\Models\SupplierGroup;
 use App\Services\Member\SupplierGroupService;
@@ -47,15 +48,18 @@ class SupplierGroupsController extends MemberCoreController
     public function update(SupplierGroupRequest $request, SupplierGroup $supplierGroup)
     {
         $data = $request->all();
+
+
+
         $toast = $this->supplierGroupService->update($supplierGroup, $data);
         return redirect()->route('member.supplierGroup.index')->with('toast',  parent::$toast_update);
     }
 
 
-//    public function destroy(SupplierGroup $supplierGroup)
-//    {
-//        $toast = $this->supplierGroupService->destroy($supplierGroup);
-//        return redirect()->route('member.supplierGroup.index')->with('toast',  parent::$toast_destroy);
-//    }
+    public function destroy(SupplierGroup $supplierGroup)
+    {
+        $toast = $this->supplierGroupService->destroy($supplierGroup);
+        return redirect()->route('member.supplierGroup.index')->with('toast',  parent::$toast_destroy);
+    }
 
 }
