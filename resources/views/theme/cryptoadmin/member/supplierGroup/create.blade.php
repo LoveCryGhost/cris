@@ -156,7 +156,6 @@
     <script src="{{asset('js/images.js')}}"></script>
     <script type="text/javascript">
         $(function(){
-
             //Switch
             $bt_switch = $('.bt-switch');
             $bt_switch.bootstrapSwitch('toggleState', true);

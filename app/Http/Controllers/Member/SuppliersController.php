@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Member;
 
 use App\Http\Requests\Member\SupplierRequest;
 use App\Models\Supplier;
+use App\Services\Member\SupplierGroupService;
 use App\Services\Member\SupplierService;
 
 
@@ -11,27 +12,29 @@ class SuppliersController extends MemberCoreController
 {
 
     protected $supplierService;
+    private $supplierGroupService;
 
-    public function __construct(SupplierService $supplierService)
+    public function __construct(SupplierService $supplierService, supplierGroupService $supplierGroupService)
     {
         $this->middleware('auth:member');
         $this->supplierService = $supplierService;
+        $this->supplierGroupService = $supplierGroupService;
     }
 
-//    public function create()
-//    {
-//        $types = $this->supplierService->supplierRepo->builder()->all();
-//        return view(config('theme.member.view').'supplier.create', compact('types'));
-//    }
+    public function create()
+    {
+        $supplierGroups= $this->supplierGroupService->supplierGroupRepo->builder()->all();
+        return view(config('theme.member.view').'supplier.create', compact('supplierGroups'));
+    }
 
-//    public function store(SupplierRequest $request)
-//    {
-//        $data = $request->all();
-//        $toast = $this->supplierService->store($data);
-//        return redirect()->route('member.supplier.index')->with('toast', parent::$toast_store);
-//
-//    }
-//
+    public function store(SupplierRequest $request)
+    {
+        $data = $request->all();
+        $toast = $this->supplierService->store($data);
+        return redirect()->route('member.supplier.index')->with('toast', parent::$toast_store);
+
+    }
+
     public function index()
     {
         $suppliers = $this->supplierService->index();
@@ -40,8 +43,8 @@ class SuppliersController extends MemberCoreController
 
     public function edit(Supplier $supplier)
     {
-        $types = $this->supplierService->supplierRepo->builder()->all();
-        return view(config('theme.member.view').'supplier.edit', compact('supplier','types'));
+        $supplierGroups= $this->supplierGroupService->supplierGroupRepo->builder()->all();
+        return view(config('theme.member.view').'supplier.edit', compact('supplier','supplierGroups'));
     }
 
     public function update(SupplierRequest $request, Supplier $supplier)

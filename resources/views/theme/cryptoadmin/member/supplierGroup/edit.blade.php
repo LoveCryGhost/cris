@@ -40,13 +40,14 @@
                                 <div class="row">
                                     <div class="col-8">
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">啟用</label>
+                                            <label class="col-sm-2 col-form-label">啟用xx</label>
                                             <div class="col-sm-10">
-                                                <input type="checkbox" class="bt-switch form-control" name="is_active"  value="1" {{$supplierGroup->is_active==1? "checked":""}}
+                                                <input type="checkbox" class="bt-switch form-control" name="is_active"   {{$supplierGroup->is_active==1? "checked":""}}
                                                        data-label-width="100%"
                                                        data-label-text="啟用" data-size="min"
                                                        data-on-text="On"    data-on-color="primary"
-                                                       data-off-text="Off"  data-off-color="danger"/>
+                                                       data-off-text="Off"  data-off-color="danger"
+                                                />
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -145,25 +146,22 @@
                     </div>
                 </div>
             </form>
-
         </section>
-        <!-- /.content -->
-
     </div>
 @stop
+
 
 @section('js')
     @parent
     <script src="{{asset('js/images.js')}}"></script>
+
     <script type="text/javascript">
         $(function(){
-
             //Switch
             $bt_switch = $('.bt-switch');
             $bt_switch.bootstrapSwitch('toggleState', true);
         })
     </script>
-
 @endsection
 
 

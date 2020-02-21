@@ -41,7 +41,6 @@ class SupplierGroupsController extends MemberCoreController
 
     public function edit(SupplierGroup $supplierGroup)
     {
-
         return view(config('theme.member.view').'supplierGroup.edit', compact('supplierGroup'));
     }
 

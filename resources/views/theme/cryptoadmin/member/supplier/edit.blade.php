@@ -56,10 +56,23 @@
                                             </div>
                                         </div>
 
+                                        {{--供應商群組--}}
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">供應商群組名稱</label>
+                                            <label class="col-sm-2 col-form-label">供應商群組</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" name="s_name" placeholder="供應商群組名稱"  value="{{$supplier->s_name}}">
+                                                <select class="select2_item form-control" name="sg_id" id="sg_id">
+                                                    <option value="">Select...</option>
+                                                    @foreach($supplierGroups as $supplierGroup)
+                                                        <option value="{{$supplierGroup->sg_id}}" {{$supplierGroup->sg_id==$supplier->sg_id? "selected":""}}>{{$supplierGroup->id_code}} - {{$supplierGroup->sg_name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">供應商名稱</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" name="s_name" placeholder="供應商名稱"  value="{{$supplier->s_name}}">
                                             </div>
                                         </div>
 
@@ -154,9 +167,18 @@
 
 @section('js')
     @parent
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+    <link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet">
+
     <script src="{{asset('js/images.js')}}"></script>
     <script type="text/javascript">
         $(function(){
+            select2_item = $('.select2_item');
+            select2_item.select2({
+                theme: "bootstrap4"
+            });
+
             //Switch
             $bt_switch = $('.bt-switch');
             $bt_switch.bootstrapSwitch('toggleState', true);

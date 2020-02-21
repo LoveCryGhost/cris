@@ -14,6 +14,7 @@ class Supplier extends Model
     protected $fillable = [
         'is_active',
         's_name',
+        'sg_id',
         "name_card",
         "add_company",
         "wh_company",
