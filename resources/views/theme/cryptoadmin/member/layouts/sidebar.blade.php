@@ -27,6 +27,21 @@
             <li class="treeview">
                 <a href="#">
                     <i class="ti-cup"></i>
+                    <span>Supplier</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('member.supplierGroup.index')}}"><i class="ti-more"></i>供應商群組</a></li>
+                    <li><a href="{{route('member.supplier.index')}}"><i class="ti-more"></i>供應商</a></li>
+                    <li><a href="#"><i class="ti-more"></i>供應商聯絡人</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="ti-cup"></i>
                     <span>Product</span>
                     <span class="pull-right-container">
                       <i class="fa fa-angle-right pull-right"></i>

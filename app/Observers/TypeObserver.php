@@ -12,7 +12,9 @@ class TypeObserver extends Observer
 
     public function saving(Type $type)
     {
-        if(request()->input('is_active') == null){
+        if($type->is_active == 1 or $type->is_active ==true){
+            $type->is_active = 1;
+        }else{
             $type->is_active = 0;
         }
         //判別是否為admin建立

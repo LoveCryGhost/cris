@@ -12,9 +12,12 @@ class SupplierGroupObserver extends Observer
 
     public function saving(SupplierGroup $supplierGroup)
     {
-        if($supplierGroup->is_active == null){
+        if($supplierGroup->is_active == 1 or $supplierGroup->is_active ==true){
+            $supplierGroup->is_active = 1;
+        }else{
             $supplierGroup->is_active = 0;
         }
+
         //判別是否為member建立
         if(Auth::guard('member')->user()!=null) {
             $supplierGroup->member_id = Auth::guard('member')->user()->id;

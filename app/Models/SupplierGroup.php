@@ -12,19 +12,18 @@ class SupplierGroup extends Model
 
     protected $with = [];
     protected $fillable = [
-        'sg_name',
-        "name_card",
-        "add_company",
-        "wh_company",
-        "tel",
-        "phone",
-        "company_id",
-        "website",
+        'is_active', 'sg_name', "name_card", "add_company", "wh_company",
+        "tel", "phone", "company_id", "website",
     ];
 
 
     protected $casts = [
     ];
+
+    public function member()
+    {
+        return $this->belongsTo(Member::class, 'member_id', 'id');
+    }
 
 
 }
