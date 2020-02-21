@@ -18,21 +18,21 @@ class SupplierGroupsController extends MemberCoreController
         $this->middleware('auth:member');
         $this->supplierGroupService = $supplierGroupService;
     }
-//
-//    public function create()
-//    {
-//        $types = $this->supplierGroupService->typeRepo->builder()->all();
-//        return view(config('theme.member.view').'supplierGroup.create', compact('types'));
-//    }
-//
-//    public function store(SupplierGroupRequest $request)
-//    {
-//        $data = $request->all();
-//        $toast = $this->supplierGroupService->store($data);
-//        return redirect()->route('member.supplierGroup.index')->with('toast', parent::$toast_store);
-//
-//    }
-//
+
+    public function create()
+    {
+        $types = $this->supplierGroupService->supplierGroupRepo->builder()->all();
+        return view(config('theme.member.view').'supplierGroup.create', compact('types'));
+    }
+
+    public function store(SupplierGroupRequest $request)
+    {
+        $data = $request->all();
+        $toast = $this->supplierGroupService->store($data);
+        return redirect()->route('member.supplierGroup.index')->with('toast', parent::$toast_store);
+
+    }
+
     public function index()
     {
         $supplierGroups = $this->supplierGroupService->index();
@@ -48,9 +48,6 @@ class SupplierGroupsController extends MemberCoreController
     public function update(SupplierGroupRequest $request, SupplierGroup $supplierGroup)
     {
         $data = $request->all();
-
-
-
         $toast = $this->supplierGroupService->update($supplierGroup, $data);
         return redirect()->route('member.supplierGroup.index')->with('toast',  parent::$toast_update);
     }

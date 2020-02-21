@@ -2,60 +2,60 @@
 
 namespace App\Http\Controllers\Member;
 
-use App\Http\Requests\Member\SupplierGroupRequest;
-use App\Models\SupplierGroup;
-use App\Services\Member\SupplierGroupService;
+use App\Http\Requests\Member\SupplierRequest;
+use App\Models\Supplier;
+use App\Services\Member\SupplierService;
 
 
 class SuppliersController extends MemberCoreController
 {
 
-//    protected $productService;
+    protected $supplierService;
 
-//    public function __construct(SupplierGroupService $productService)
-//    {
-//        $this->middleware('auth:member');
-//        $this->productService = $productService;
-//    }
-//
+    public function __construct(SupplierService $supplierService)
+    {
+        $this->middleware('auth:member');
+        $this->supplierService = $supplierService;
+    }
+
 //    public function create()
 //    {
-//        $types = $this->productService->typeRepo->builder()->all();
-//        return view(config('theme.member.view').'product.create', compact('types'));
+//        $types = $this->supplierService->supplierRepo->builder()->all();
+//        return view(config('theme.member.view').'supplier.create', compact('types'));
 //    }
-//
-//    public function store(SupplierGroupRequest $request)
+
+//    public function store(SupplierRequest $request)
 //    {
 //        $data = $request->all();
-//        $toast = $this->productService->store($data);
-//        return redirect()->route('member.product.index')->with('toast', parent::$toast_store);
+//        $toast = $this->supplierService->store($data);
+//        return redirect()->route('member.supplier.index')->with('toast', parent::$toast_store);
 //
 //    }
 //
-//    public function index()
-//    {
-//        $products = $this->productService->index();
-//        return view(config('theme.member.view').'product.index', compact('products'));
-//    }
+    public function index()
+    {
+        $suppliers = $this->supplierService->index();
+        return view(config('theme.member.view').'supplier.index', compact('suppliers'));
+    }
+
+    public function edit(Supplier $supplier)
+    {
+        $types = $this->supplierService->supplierRepo->builder()->all();
+        return view(config('theme.member.view').'supplier.edit', compact('supplier','types'));
+    }
+
+    public function update(SupplierRequest $request, Supplier $supplier)
+    {
+        $data = $request->all();
+        $toast = $this->supplierService->update($supplier, $data);
+        return redirect()->route('member.supplier.index')->with('toast',  parent::$toast_update);
+    }
 //
-//    public function edit(SupplierGroup $product)
-//    {
-//        $types = $this->productService->typeRepo->builder()->all();
-//        return view(config('theme.member.view').'product.edit', compact('product','types'));
-//    }
 //
-//    public function update(SupplierGroupRequest $request, SupplierGroup $product)
+//    public function destroy(Supplier $supplier)
 //    {
-//        $data = $request->all();
-//        $toast = $this->productService->update($product, $data);
-//        return redirect()->route('member.product.index')->with('toast',  parent::$toast_update);
-//    }
-//
-//
-//    public function destroy(SupplierGroup $product)
-//    {
-//        $toast = $this->productService->destroy($product);
-//        return redirect()->route('member.product.index')->with('toast',  parent::$toast_destroy);
+//        $toast = $this->supplierService->destroy($supplier);
+//        return redirect()->route('member.supplier.index')->with('toast',  parent::$toast_destroy);
 //    }
 
 }

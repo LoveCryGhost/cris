@@ -44,6 +44,7 @@ class CreateSuppliersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('company_id')->nullable();
             $table->string('website')->nullable();
+            $table->text('introduction')->nullable();
 
             $table->bigInteger('member_id')->unsigned();
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');

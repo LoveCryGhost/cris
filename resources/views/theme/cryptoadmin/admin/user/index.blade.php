@@ -52,7 +52,8 @@
                                                 </p>
                                             </td>
                                             <td>
-                                                <input type="checkbox" class="bt-switch" name="is_active"  value="1" {{$user->is_active===1? "checked": ""}}
+
+                                                <input type="checkbox" class="bt-switch" name="is_active"  value="1" 
                                                        data-label-width="100%"
                                                        data-label-text="啟用"
                                                        data-on-text="On"    data-on-color="primary"

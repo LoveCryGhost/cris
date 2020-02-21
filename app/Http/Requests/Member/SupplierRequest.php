@@ -7,11 +7,11 @@ namespace App\Http\Requests\Member;
 use App\Http\Requests\Request;
 use Illuminate\Validation\Rule;
 
-class SupplierGroupRequest extends Request
+class SupplierRequest extends Request
 {
     public function rules()
     {
-        $supplierGroup=$this->route('supplierGroup');
+        $supplier=$this->route('supplier');
 
         switch($this->method())
         {
@@ -19,7 +19,7 @@ class SupplierGroupRequest extends Request
             case 'POST':
                 {
                     return [
-                        'sg_name' => ['required', 'min:2', Rule::unique('supplier_groups')],
+                        's_name' => ['required', 'min:2', Rule::unique('suppliers')],
 
                     ];
                 }
@@ -27,7 +27,7 @@ class SupplierGroupRequest extends Request
             case 'PATCH':
                 {
                     return [
-                        'sg_name' => ['required', 'min:2', Rule::unique('supplier_groups')->ignore($supplierGroup->sg_id,'sg_id')],
+                        's_name' => ['required', 'min:2', Rule::unique('suppliers')->ignore($supplier->s_id,'s_id')],
                     ];
                 }
             case 'GET':
@@ -43,9 +43,9 @@ class SupplierGroupRequest extends Request
     {
         return [
 
-            'sg_name.min' => '供應商群組名稱不能少於2個字元',
-            'sg_name.required' => '供應商群組名稱不能為空',
-            'sg_name.unique' => '供應商群組名稱不能重複',
+            's_name.min' => '供應商名稱不能少於2個字元',
+            's_name.required' => '供應商名稱不能為空',
+            's_name.unique' => '供應商名稱不能重複',
         ];
     }
 }

@@ -12,6 +12,7 @@ class Supplier extends Model
 
     protected $with = [];
     protected $fillable = [
+        'is_active',
         's_name',
         "name_card",
         "add_company",
@@ -20,11 +21,15 @@ class Supplier extends Model
         "phone",
         "company_id",
         "website",
+        "introduction"
     ];
 
 
     protected $casts = [
     ];
 
-
+    public function member()
+    {
+        return $this->belongsTo(Member::class, 'member_id', 'id');
+    }
 }

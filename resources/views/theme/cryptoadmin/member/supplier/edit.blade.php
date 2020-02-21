@@ -1,13 +1,13 @@
 @extends(config('theme.member.member-app'))
 
-@section('title','供應商 - 群組編輯')
+@section('title','供應商 - 編輯')
 
 @section('content')
     <div class="container-full">
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <h3>
-                供應商 - 群組編輯
+                供應商 - 編輯
             </h3>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/"><i class="fa fa-dashboard"></i>首頁</a></li>
@@ -18,7 +18,7 @@
 
         <!-- Main content -->
         <section class="content">
-            <form method="post" action="{{route('member.supplierGroup.update',['supplierGroup'=> $supplierGroup->sg_id])}}" enctype="multipart/form-data">
+            <form method="post" action="{{route('member.supplier.update',['supplier'=> $supplier->s_id])}}" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 <div class="row">
@@ -42,7 +42,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">啟用</label>
                                             <div class="col-sm-10">
-                                                <input type="checkbox" class="bt-switch form-control" name="is_active"  value="1" {{$supplierGroup->is_active==1? "checked":""}}
+                                                <input type="checkbox" class="bt-switch form-control" name="is_active"  value="1" {{$supplier->is_active==1? "checked":""}}
                                                        data-label-width="100%"
                                                        data-label-text="啟用" data-size="min"
                                                        data-on-text="On"    data-on-color="primary"
@@ -52,14 +52,14 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Barcode</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text"  placeholder="Auto-Generate" disabled value="{{$supplierGroup->id_code}}">
+                                                <input class="form-control" type="text"  placeholder="Auto-Generate" disabled value="{{$supplier->id_code}}">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">供應商群組名稱</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" name="sg_name" placeholder="供應商群組名稱"  value="{{$supplierGroup->sg_name}}">
+                                                <input class="form-control" type="text" name="s_name" placeholder="供應商群組名稱"  value="{{$supplier->s_name}}">
                                             </div>
                                         </div>
 
@@ -67,7 +67,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">地址</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" name="add_company" placeholder="地址"  value="{{$supplierGroup->add_company}}">
+                                                <input class="form-control" type="text" name="add_company" placeholder="地址"  value="{{$supplier->add_company}}">
                                             </div>
                                         </div>
 
@@ -75,7 +75,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">倉庫</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" name="wh_company" placeholder="倉庫"  value="{{$supplierGroup->wh_company}}">
+                                                <input class="form-control" type="text" name="wh_company" placeholder="倉庫"  value="{{$supplier->wh_company}}">
                                             </div>
                                         </div>
 
@@ -83,7 +83,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">電話</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" name="tel" placeholder="電話"  value="{{$supplierGroup->tel}}">
+                                                <input class="form-control" type="text" name="tel" placeholder="電話"  value="{{$supplier->tel}}">
                                             </div>
                                         </div>
 
@@ -91,7 +91,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">手機</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" name="phone" placeholder="手機"  value="{{$supplierGroup->phone}}">
+                                                <input class="form-control" type="text" name="phone" placeholder="手機"  value="{{$supplier->phone}}">
                                             </div>
                                         </div>
 
@@ -99,7 +99,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">統編</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" name="company_id" placeholder="統編"  value="{{$supplierGroup->wh_company}}">
+                                                <input class="form-control" type="text" name="company_id" placeholder="統編"  value="{{$supplier->wh_company}}">
                                             </div>
                                         </div>
 
@@ -107,7 +107,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">公司網址</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" name="website" placeholder="公司網址"  value="{{$supplierGroup->website}}">
+                                                <input class="form-control" type="text" name="website" placeholder="公司網址"  value="{{$supplier->website}}">
                                             </div>
                                         </div>
 
@@ -115,7 +115,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">簡介</label>
                                             <div class="col-sm-10">
-                                                <textarea class="form-control" type="text" name="introduction" placeholder="簡介" >{{$supplierGroup->introduction}}</textarea>
+                                                <textarea class="form-control" type="text" name="introduction" placeholder="簡介" >{{$supplier->introduction}}</textarea>
                                             </div>
                                         </div>
 
@@ -131,7 +131,7 @@
                                             <div class=" img-preview-frame text-center" >
                                                 <input type="file" name="name_card" id="name_card"  onchange="showPreview(this,['name_card_img'])" style="display: none;"/>
                                                 <label for="name_card">
-                                                    <img id="name_card_img" class="rounded img-fluid mx-auto d-block max-w-150" style="cursor: pointer;" src="{{$supplierGroup->name_card? asset($supplierGroup->name_card):asset('images/default/avatars/avatar.jpg')}}" width="200px">
+                                                    <img id="name_card_img" class="rounded img-fluid mx-auto d-block max-w-150" style="cursor: pointer;" src="{{$supplier->name_card? asset($supplier->name_card):asset('images/default/avatars/avatar.jpg')}}" width="200px">
                                                 </label>
                                             </div>
                                         </div>
@@ -157,7 +157,6 @@
     <script src="{{asset('js/images.js')}}"></script>
     <script type="text/javascript">
         $(function(){
-
             //Switch
             $bt_switch = $('.bt-switch');
             $bt_switch.bootstrapSwitch('toggleState', true);
