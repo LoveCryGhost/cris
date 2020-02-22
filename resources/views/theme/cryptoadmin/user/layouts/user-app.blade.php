@@ -20,24 +20,22 @@
     @endsection
 
 <body class="hold-transition light-skin dark-sidebar sidebar-mini theme-yellow sidebar-collapse">
-    <div id="app">
-        @section('app-content')
-            @guest('web')
+    <div id="app" class="{{ route_class() }}-page">
+            @guest()
                 @include(config('theme.user.header'))
             @else
                 @include(config('theme.user.header-login'))
             @endguest
-        @endsection
             {{--內容--}}
             <div class="wrapper">
-                <div class="content-wrapper" style="margin-left: 0px;">
+                <div class="content-wrapper">
                     @yield('content')
                 </div>
             </div>
         @section('app-content-footer')
             @yield('content-footer')
 
-            @auth
+            @auth('web')
                 @include(config('theme.user.footer'))
             @endauth
         @endsection

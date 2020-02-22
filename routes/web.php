@@ -94,6 +94,12 @@ Route::prefix('member')->namespace('Member')->group(function(){
     Route::resource('member', 'MembersController');
     Route::prefix('')->name('member.')->group(function(){
 
+        //SupplierGroup
+        Route::resource('supplier', 'SuppliersController');
+        Route::resource('supplierGroup', 'SupplierGroupsController');
+        Route::resource('supplier-contact', 'Supplier_ContactsController');
+
+
         //Type
         Route::resource('type', 'TypesController');
         Route::resource('type-attribute', 'Types_AttributesController');

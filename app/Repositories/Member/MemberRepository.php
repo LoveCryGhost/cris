@@ -5,7 +5,7 @@ namespace App\Repositories\Member;
 
 use App\Models\Member;
 
-class MemberRepository implements RepositoryInterface
+class MemberRepository extends MemberCoreRepository implements RepositoryInterface
 {
     private $member;
     public function __construct(Member $member)
