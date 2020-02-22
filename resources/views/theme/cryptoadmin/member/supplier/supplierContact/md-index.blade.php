@@ -21,25 +21,27 @@
                         <th>操作</th>
                     </tr>
                     </thead>
-                    @if(isset($supplier))
-                        @foreach($supplier->supplierContacts(10) as $supplierContact)
-                            <tr class="handle" data-detail-id="{{$supplierContact->sc_id}}">
-                                <td>
-                                            <span class="handle" style="cursor: move;">
-                                                <i class="fa fa-ellipsis-v"></i>
-                                                <i class="fa fa-ellipsis-v"></i>
-                                          </span>
-                                </td>
-                                <td>{{$loop->iteration}}</td>
-                                <td>
-                                    {{$supplierContact->sc_name}}
-                                    <input text="type" name="supplier-contact_ids[]" value="{{$supplierContact->sc_id}}">
-                                </td>
-                                <td>CRUD</td>
-                            </tr>
-                        @endforeach
-                    @endif
-
+                    <tbody>
+                        @if(isset($supplier))
+                            @foreach($supplier->supplierContacts(10) as $supplierContact)
+                                <tr class="handle" data-detail-id="{{$supplierContact->sc_id}}">
+                                    <td>
+                                                <span class="handle" style="cursor: move;">
+                                                    <i class="fa fa-ellipsis-v"></i>
+                                                    <i class="fa fa-ellipsis-v"></i>
+                                              </span>
+                                    </td>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>
+                                        {{$supplierContact->sc_name}}
+                                        <input text="type" name="supplier_contacts[ids][]" hidden value="{{$supplierContact->sc_id}}">
+                                        <input text="type" name="supplier_contacts[sc_name][]" hidden value="{{$supplierContact->sc_name}}">
+                                    </td>
+                                    <td>CRUD</td>
+                                </tr>
+                            @endforeach
+                        @endif
+                    </tbody>
                 </table>
                 {{$supplier->supplierContacts(10)->links()}}
             </div>

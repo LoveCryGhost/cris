@@ -5,7 +5,7 @@ namespace App\Repositories\Member;
 
 use App\Models\SKU;
 
-class SKURepository implements RepositoryInterface
+class SKURepository extends MemberCoreRepository implements RepositoryInterface
 {
 
     private $sku;

@@ -13,7 +13,7 @@ class CreateSupplierContactsTable extends Migration
             $table->bigIncrements('sc_id');
 
             $table->bigInteger('s_id')->unsigned();
-            $table->tinyInteger('sort_order')->default(0);
+            $table->tinyInteger('sort_order')->default(99);
             $table->string('sc_name');
             $table->string('tel')->nullable();
             $table->string('phone')->nullable();

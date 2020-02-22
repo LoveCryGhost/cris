@@ -29,7 +29,7 @@ class Supplier_ContactService extends MemberCoreService implements MemberService
     {
 
         //儲存name_card
-        $data = $this->save_name_card($data);
+        //$data = $this->save_name_card($data);
 
         //儲存一般資料
         $supplierContact =$this->supplierContactRepo->builder()->create($data);

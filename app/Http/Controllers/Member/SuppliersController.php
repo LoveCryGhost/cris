@@ -21,7 +21,6 @@ class SuppliersController extends MemberCoreController
         $this->middleware('auth:member');
         $this->supplierService = $supplierService;
         $this->supplierGroupService = $supplierGroupService;
-        $this->supplier_ContactService = $supplier_ContactService;
     }
 
     public function create()
@@ -53,7 +52,8 @@ class SuppliersController extends MemberCoreController
     public function update(SupplierRequest $request, Supplier $supplier)
     {
         $data = $request->all();
-        $supplier = $this->supplierService->update($supplier, $data);
+        $TF = $this->supplierService->update($supplier, $data);
+
         return redirect()->route('member.supplier.index')->with('toast',  parent::$toast_update);
     }
 

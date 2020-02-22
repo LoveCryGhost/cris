@@ -71,7 +71,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">供應商名稱</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" name="s_name" placeholder="供應商名稱"  value="{{old('sg_name')}}">
+                                                <input class="form-control" type="text" name="s_name" placeholder="供應商名稱"  value="{{old('s_name')}}">
                                             </div>
                                         </div>
 

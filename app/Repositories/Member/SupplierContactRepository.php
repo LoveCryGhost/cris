@@ -6,7 +6,7 @@ namespace App\Repositories\Member;
 use App\Models\Supplier;
 use App\Models\SupplierContact;
 
-class SupplierContactRepository implements RepositoryInterface
+class SupplierContactRepository extends MemberCoreRepository implements RepositoryInterface
 {
 
     private $supplierContact;
@@ -27,8 +27,5 @@ class SupplierContactRepository implements RepositoryInterface
         return $this->supplierContact->find($id);
     }
 
-    public function massUpdate($rows)
-    {
-        //return $this->supplierContact->find($id);
-    }
+
 }

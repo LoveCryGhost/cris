@@ -5,6 +5,7 @@ namespace App\Services\Member;
 use App\Handlers\ImageUploadHandler;
 use App\Repositories\Member\SupplierContactRepository;
 use App\Repositories\Member\SupplierRepository;
+use Illuminate\Support\Facades\Auth;
 
 class SupplierService extends MemberCoreService implements MemberServiceInterface
 {
@@ -47,9 +48,20 @@ class SupplierService extends MemberCoreService implements MemberServiceInterfac
         //處理name_card
         $data = $this->save_name_card($data);
 
-        //處理SupplierContact 順序
-        $rows =[];
-        $this->supplierContactRepository->massUpdate($rows);
+        //處理大量 SupplierContact 順序
+        $SupplierContactModel = $this->supplierContactRepository->builder();
+        $rows = [];
+        foreach ($data['supplier_contacts']['ids'] as $sort_order => $supplier_contacts){
+            $rows[] =  [
+                'sc_id' => $data['supplier_contacts']['ids'][$sort_order],
+                's_id' => $supplier->s_id,
+                'sort_order' => $sort_order,
+                'sc_name' => $data['supplier_contacts']['sc_name'][$sort_order],
+                'member_id' => Auth::guard('member')->user()->id,
+            ];
+        }
+        $TF = $this->supplierContactRepository->massUpdate($SupplierContactModel,$rows);
+        unset($data['supplier_contacts']);
         return $supplier->update($data);
     }
 

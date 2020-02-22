@@ -5,7 +5,7 @@ namespace App\Repositories\Member;
 
 use App\Models\Supplier;
 
-class SupplierRepository implements RepositoryInterface
+class SupplierRepository extends MemberCoreRepository implements RepositoryInterface
 {
 
     private $supplier;

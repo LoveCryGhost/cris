@@ -36,6 +36,6 @@ class Supplier extends Model
 
     public function supplierContacts($paginate=0)
     {
-        return $this->hasMany(SupplierContact::class, 's_id')->paginate($paginate);
+        return $this->hasMany(SupplierContact::class, 's_id')->orderBy('sort_order','ASC')->paginate($paginate);
     }
 }

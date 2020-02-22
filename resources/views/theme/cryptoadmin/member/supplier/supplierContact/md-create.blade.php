@@ -79,15 +79,17 @@
                     '                                        <i class="fa fa-ellipsis-v"></i>' +
                     '                                        <i class="fa fa-ellipsis-v"></i>' +
                     '                                  </span>';
+                console.log(data.request);
                 sc_name = data.request.sc_name;
-                sort_order  = '<input text="type" name="supplier-contact_ids[]" value="'+ data.rows.sc_id+'">';
+                sort_order  =   '<input text="type" name="supplier_contacts[ids][]" hidden value="'+data.rows.sc_id+'">'+
+                                '<input text="type" name="supplier_contacts[sc_name][]" hidden value="'+data.rows.sc_name+'">';
                 html='<tr><td>'+cursor_move+'</td><td></td><td>'+sc_name+sort_order+'</td><td>CRUD</td></tr>';
                 $('#tbl-supplier-contact tbody').append(html);
                 $('#modal-md').hide();
 
                 //排序
                 $('#tbl-supplier-contact  tbody tr').each(function ($index) {
-                    input_a_id = $(this).children('td:eq(2)').find('input').attr('name','sc_ids[]');
+                    // input_a_id = $(this).children('td:eq(2)').find('input').attr('name','sc_ids[]');
                     $(this).children('td:eq(1)').html($index+1);
                 })
             },

@@ -5,7 +5,7 @@ namespace App\Repositories\Member;
 
 use App\Models\SupplierGroup;
 
-class SupplierGroupRepository implements RepositoryInterface
+class SupplierGroupRepository extends MemberCoreRepository implements RepositoryInterface
 {
 
     private $supplierGroup;

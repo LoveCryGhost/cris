@@ -20,6 +20,7 @@ class SupplierRequest extends Request
                 {
                     return [
                         's_name' => ['required', 'min:2', Rule::unique('suppliers')],
+                        'sg_id' => ['required'],
 
                     ];
                 }
@@ -28,6 +29,7 @@ class SupplierRequest extends Request
                 {
                     return [
                         's_name' => ['required', 'min:2', Rule::unique('suppliers')->ignore($supplier->s_id,'s_id')],
+                        'sg_id' => ['required'],
                     ];
                 }
             case 'GET':
@@ -46,6 +48,7 @@ class SupplierRequest extends Request
             's_name.min' => '供應商名稱不能少於2個字元',
             's_name.required' => '供應商名稱不能為空',
             's_name.unique' => '供應商名稱不能重複',
+            'sg_id.required' => '供應商群組不能為空',
         ];
     }
 }
