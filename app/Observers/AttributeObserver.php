@@ -12,7 +12,9 @@ class AttributeObserver extends Observer
 
     public function saving(Attribute $attribute)
     {
-        if(request()->input('is_active') == null){
+        if($attribute->is_active == 1 or $attribute->is_active ==true){
+            $attribute->is_active = 1;
+        }else{
             $attribute->is_active = 0;
         }
         //判別是否為member建立

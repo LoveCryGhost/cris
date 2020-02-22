@@ -5,7 +5,7 @@ namespace App\Repositories\Member;
 
 use App\Models\Type;
 
-class TypeRepository implements RepositoryInterface
+class TypeRepository extends MemberCoreRepository implements RepositoryInterface
 {
 
     private $type;

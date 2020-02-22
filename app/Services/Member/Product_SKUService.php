@@ -30,7 +30,7 @@ class Product_SKUService extends MemberCoreService implements MemberServiceInter
         //處理Thumbnail
         $uploader =new ImageUploadHandler();
         if(request()->thumbnail!="undefined") {
-            $result = $uploader->save(request()->thumbnail, 'thumbnail', $data['p_id'], 416);
+            $result = $uploader->save(request()->thumbnail, 'sku_thumbnails', $data['p_id'], 416);
             if ($result) {
                 $data['thumbnail']=$result['path'];
             }

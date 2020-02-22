@@ -12,7 +12,9 @@ class ProductObserver extends Observer
 
     public function saving(Product $product)
     {
-        if(request()->input('is_active') == null){
+        if($product->is_active == 1 or $product->is_active ==true){
+            $product->is_active = 1;
+        }else{
             $product->is_active = 0;
         }
         //判別是否為admin建立

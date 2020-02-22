@@ -64,8 +64,6 @@
 
 <script src="{{asset('js/images.js')}}"></script>
 <!-- Form validator JavaScript -->
-<script src="{{asset('theme/cryptoadmin/js/pages/validation.js')}}"></script>
-<script src="{{asset('theme/cryptoadmin/js/pages/form-validation.js')}}"></script>
 <script type="text/javascript">
 
     $(function(){
@@ -121,7 +119,7 @@
                 // $('#modal-md').hide();
                 //
                 // //排序
-                // $('#tbl-type-attribute tbody tr').each(function ($index) {
+                // $('#tbl-tbl-product-sku tbody tr').each(function ($index) {
                 //     input_a_id = $(this).children('td:eq(2)').find('input').attr('name','a_ids[]');
                 //     $(this).children('td:eq(1)').html($index+1);
                 // })

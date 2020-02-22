@@ -4,7 +4,7 @@ namespace App\Repositories\Member;
 
 use App\Models\Attribute;
 
-class AttributeRepository implements RepositoryInterface
+class AttributeRepository extends MemberCoreRepository implements RepositoryInterface
 {
 
     private $attribute;

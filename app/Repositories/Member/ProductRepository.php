@@ -5,7 +5,7 @@ namespace App\Repositories\Member;
 
 use App\Models\Product;
 
-class ProductRepository implements RepositoryInterface
+class ProductRepository extends MemberCoreRepository implements RepositoryInterface
 {
 
 
