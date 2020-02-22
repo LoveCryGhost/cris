@@ -26,4 +26,9 @@ class SupplierContactRepository implements RepositoryInterface
     {
         return $this->supplierContact->find($id);
     }
+
+    public function massUpdate($rows)
+    {
+        //return $this->supplierContact->find($id);
+    }
 }

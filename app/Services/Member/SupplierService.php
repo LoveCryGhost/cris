@@ -3,16 +3,19 @@
 namespace App\Services\Member;
 
 use App\Handlers\ImageUploadHandler;
+use App\Repositories\Member\SupplierContactRepository;
 use App\Repositories\Member\SupplierRepository;
 
 class SupplierService extends MemberCoreService implements MemberServiceInterface
 {
     public $supplierRepo;
     public $attributeRepo;
+    private $supplierContactRepository;
 
-    public function __construct(SupplierRepository $supplierRepository)
+    public function __construct(SupplierRepository $supplierRepository, SupplierContactRepository $supplierContactRepository)
     {
         $this->supplierRepo = $supplierRepository;
+        $this->supplierContactRepository = $supplierContactRepository;
     }
 
     public function index()
@@ -43,6 +46,10 @@ class SupplierService extends MemberCoreService implements MemberServiceInterfac
         $supplier = $model;
         //處理name_card
         $data = $this->save_name_card($data);
+
+        //處理SupplierContact 順序
+        $rows =[];
+        $this->supplierContactRepository->massUpdate($rows);
         return $supplier->update($data);
     }
 

@@ -22,7 +22,7 @@
                     </tr>
                     </thead>
                     @if(isset($supplier))
-                        @foreach($supplier->supplierContacts(3) as $supplierContact)
+                        @foreach($supplier->supplierContacts(10) as $supplierContact)
                             <tr class="handle" data-detail-id="{{$supplierContact->sc_id}}">
                                 <td>
                                             <span class="handle" style="cursor: move;">
@@ -31,15 +31,17 @@
                                           </span>
                                 </td>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$supplierContact->sc_name}}</td>
-
+                                <td>
+                                    {{$supplierContact->sc_name}}
+                                    <input text="type" name="supplier-contact_ids[]" value="{{$supplierContact->sc_id}}">
+                                </td>
                                 <td>CRUD</td>
                             </tr>
                         @endforeach
                     @endif
 
                 </table>
-                {{$supplier->supplierContacts(3)->links()}}
+                {{$supplier->supplierContacts(10)->links()}}
             </div>
         </div>
 

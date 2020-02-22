@@ -80,7 +80,8 @@
                     '                                        <i class="fa fa-ellipsis-v"></i>' +
                     '                                  </span>';
                 sc_name = data.request.sc_name;
-                html='<tr><td>'+cursor_move+'</td><td></td><td>'+sc_name+'</td><td>ggg</td></tr>';
+                sort_order  = '<input text="type" name="supplier-contact_ids[]" value="'+ data.rows.sc_id+'">';
+                html='<tr><td>'+cursor_move+'</td><td></td><td>'+sc_name+sort_order+'</td><td>CRUD</td></tr>';
                 $('#tbl-supplier-contact tbody').append(html);
                 $('#modal-md').hide();
 
@@ -90,6 +91,7 @@
                     $(this).children('td:eq(1)').html($index+1);
                 })
             },
+
             error: function(data) {
                 //轉換物件
                 var request = $.parseJSON(data.responseText);

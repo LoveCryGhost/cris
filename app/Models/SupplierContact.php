@@ -13,6 +13,7 @@ class SupplierContact extends Model
     protected $with = [];
 
     protected $fillable = [
+        "s_id", 'sort_order',
         'sc_name', "name_card",
         "tel", "phone", 'introduction'
     ];

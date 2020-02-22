@@ -13,7 +13,8 @@ class Supplier_ContactsController extends MemberCoreController
 {
 
 
-    private $Supplier_ContactService;
+    private $supplierService;
+    private $supplier_ContactService;
 
     public function __construct(SupplierService $supplierService, Supplier_ContactService $supplier_ContactService)
     {
@@ -31,8 +32,10 @@ class Supplier_ContactsController extends MemberCoreController
 
     public function store(Supplier_ContactRequest $request)
     {
+        $data = $request->all();
+        $supplierContact =$this->supplier_ContactService->store($data);
         return [
-            'rows' => '',
+            'rows' => $supplierContact,
             'request' => $request->all(),
             'options' => []
         ];

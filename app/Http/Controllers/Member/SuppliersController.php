@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Member;
 
 use App\Http\Requests\Member\SupplierRequest;
 use App\Models\Supplier;
+use App\Observers\SupplierContactObserver;
+use App\Services\Member\Supplier_ContactService;
 use App\Services\Member\SupplierGroupService;
 use App\Services\Member\SupplierService;
 
@@ -19,6 +21,7 @@ class SuppliersController extends MemberCoreController
         $this->middleware('auth:member');
         $this->supplierService = $supplierService;
         $this->supplierGroupService = $supplierGroupService;
+        $this->supplier_ContactService = $supplier_ContactService;
     }
 
     public function create()
@@ -50,7 +53,7 @@ class SuppliersController extends MemberCoreController
     public function update(SupplierRequest $request, Supplier $supplier)
     {
         $data = $request->all();
-        $toast = $this->supplierService->update($supplier, $data);
+        $supplier = $this->supplierService->update($supplier, $data);
         return redirect()->route('member.supplier.index')->with('toast',  parent::$toast_update);
     }
 

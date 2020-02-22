@@ -19,7 +19,7 @@ class Supplier_ContactRequest extends Request
             case 'POST':
                 {
                     return [
-                        'sc_name' => ['required', 'min:2', Rule::unique('supplier_contacts')],
+                        //'sc_name' => ['required', 'min:2', Rule::unique('supplier_contacts')],
 
                     ];
                 }
@@ -27,7 +27,7 @@ class Supplier_ContactRequest extends Request
             case 'PATCH':
                 {
                     return [
-                        'sc_name' => ['required', 'min:2', Rule::unique('supplier_contacts')->ignore($supplierContact->sc_id,'sc_id')],
+                        //'sc_name' => ['required', 'min:2', Rule::unique('supplier_contacts')->ignore($supplierContact->sc_id,'sc_id')],
                     ];
                 }
             case 'GET':
@@ -43,9 +43,9 @@ class Supplier_ContactRequest extends Request
     {
         return [
 
-            'sc_name.min' => '聯絡人名稱不能少於2個字元',
-            'sc_name.required' => '聯絡人名稱不能為空',
-            'sc_name.unique' => '聯絡人名稱不能重複',
+//            'sc_name.min' => '聯絡人名稱不能少於2個字元',
+//            'sc_name.required' => '聯絡人名稱不能為空',
+//            'sc_name.unique' => '聯絡人名稱不能重複',
         ];
     }
 }
