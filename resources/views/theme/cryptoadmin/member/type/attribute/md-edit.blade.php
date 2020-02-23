@@ -50,8 +50,8 @@
         });
     });
 
-    function md_update(_this,  php_inject)
-    {
+    function md_update(_this,  php_inject){
+
 
         original_md_id = php_inject.original_md_id;
         //先判別更改的是否等於原先設定
@@ -59,9 +59,9 @@
             $('#modal-md').hide();
             return false;
         }
-
         m_id = $('#a_id').val();
         var formData = new FormData();
+
         formData.append('a_id', m_id);
         formData.append('_method', 'put');
         $.ajaxSetup({

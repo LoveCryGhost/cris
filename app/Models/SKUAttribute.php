@@ -18,4 +18,9 @@ class SKUAttribute extends Model
     protected $casts = [
 
     ];
+
+    public function attribute()
+    {
+        return $this->hasOne(Attribute::class, 'a_id', 'a_id');
+    }
 }

@@ -107,7 +107,6 @@
         m_id = _php_inject.m_id;
         //取得所有formData
         var formData = new FormData();
-        console.log('{{route('member.type-attribute.index')}}/'+m_id+'/edit?m_id='+m_id);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

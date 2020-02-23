@@ -79,7 +79,6 @@
                     '                                        <i class="fa fa-ellipsis-v"></i>' +
                     '                                        <i class="fa fa-ellipsis-v"></i>' +
                     '                                  </span>';
-                console.log(data.request);
                 sc_name = data.request.sc_name;
                 sort_order  =   '<input text="type" name="supplier_contacts[ids][]" hidden value="'+data.rows.sc_id+'">'+
                                 '<input text="type" name="supplier_contacts[sc_name][]" hidden value="'+data.rows.sc_name+'">';

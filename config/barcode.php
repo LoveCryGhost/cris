@@ -10,7 +10,7 @@ return [
         'type' => 'T',
         'attribute' => 'A',
         'product' => 'P',
-        'sku' => 'sk',
+        'sku' => 'SK',
 
         'supplierGroup' => 'SG',
         'supplier' => 'S',

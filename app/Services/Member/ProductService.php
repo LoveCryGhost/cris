@@ -20,7 +20,7 @@ class ProductService extends MemberCoreService implements MemberServiceInterface
     public function index()
     {
         return $this->productRepo->builder()
-            ->with(['Type', 'ProductThumbnails','member'])->paginate(10);
+            ->with(['Type', 'ProductThumbnails', 'member'])->paginate(10);
     }
 
 

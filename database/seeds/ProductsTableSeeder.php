@@ -5,6 +5,7 @@ use App\Models\Attribute;
 use App\Models\Product;
 use App\Models\ProductThumbnail;
 use App\Models\SKU;
+use App\Models\SKUAttribute;
 use App\Models\Type;
 use Illuminate\Database\Seeder;
 
@@ -62,22 +63,22 @@ class ProductsTableSeeder extends Seeder
                     'is_active' => 1, 'publish_at' => null, 'member_id' => 1,
                     'p_name' => "Pizza 烤盤", 't_id' => 1,
                     'c_ids' => [2],
-                    'pt_ids' => ['/images/default/products/pizza_pan_1.jpg', '/images/default/products/pizza_pan_2.jpg'],
+                    'produuct_thumnail_ids' => ['/images/default/products/pizza_pan_1.jpg', '/images/default/products/pizza_pan_2.jpg'],
                     'skus' => [
-                        ['1', 'Pizza 7"烤盤', 100], //1 = member_id
-                        ['1', 'Pizza 8"烤盤',300],
-                        ['1', 'Pizza 9"烤盤',400],
-                        ['1', 'Pizza 10"烤盤',700],
-                        ['1', 'Pizza 11"烤盤',900],
-                        ['1', 'Pizza 12"烤盤',110],
-                        ['1', 'Pizza 13"烤盤',130],
-                        ['1', 'Pizza 14"烤盤',150],
+                        ['1', 'Pizza 7"烤盤', 100, 'sku_attributes' =>[ 1=>'黑色', 2=>'鐵氟龍', 3=>'7"']], //1 = member_id
+                        ['1', 'Pizza 8"烤盤',300, 'sku_attributes' =>[ 1=>'AA', 2=>'BB', 3=>'CC']],
+                        ['1', 'Pizza 9"烤盤',400, 'sku_attributes' =>[ 1=>'AA', 2=>'BB', 3=>'CC']],
+                        ['1', 'Pizza 10"烤盤',700, 'sku_attributes' =>[ 1=>'AA', 2=>'BB', 3=>'CC']],
+                        ['1', 'Pizza 11"烤盤',900, 'sku_attributes' =>[ 1=>'AA', 2=>'BB', 3=>'CC']],
+                        ['1', 'Pizza 12"烤盤',110, 'sku_attributes' =>[ 1=>'AA', 2=>'BB', 3=>'CC']],
+                        ['1', 'Pizza 13"烤盤',130, 'sku_attributes' =>[ 1=>'AA', 2=>'BB', 3=>'CC']],
+                        ['1', 'Pizza 14"烤盤',150, 'sku_attributes' =>[ 1=>'AA', 2=>'BB', 3=>'CC']],
                     ]
                 ],[
                     'is_active' => 1, 'publish_at' => null, 'member_id' => 1,
                     'p_name' => "吐司烤盤", 't_id' => 1,
                     'c_ids' => [2],
-                    'pt_ids' => ['/images/default/products/toast_pan_1.jpg', '/images/default/products/toast_pan_2.jpg', '/images/default/products/toast_pan_3.jpg'],
+                    'produuct_thumnail_ids' => ['/images/default/products/toast_pan_1.jpg', '/images/default/products/toast_pan_2.jpg', '/images/default/products/toast_pan_3.jpg'],
                     'skus' => []
                 ]
             ];
@@ -87,13 +88,13 @@ class ProductsTableSeeder extends Seeder
                     'is_active' => 1, 'publish_at' => null, 'member_id' => 1,
                     'p_name' => "潑尿酸面膜", 't_id' => 2,
                     'c_ids' => [8],
-                    'pt_ids' => ['/images/default/products/mask_1.jpg', '/images/default/products/mask_2.jpg', '/images/default/products/mask_3.jpg'],
+                    'produuct_thumnail_ids' => ['/images/default/products/mask_1.jpg', '/images/default/products/mask_2.jpg', '/images/default/products/mask_3.jpg'],
                     'skus' => []
                 ],[
                     'is_active' => 1, 'publish_at' => null, 'member_id' => 1,
                     'p_name' => "保濕SKU面膜", 't_id' => 2,
                     'c_ids' => [10],
-                    'pt_ids' => ['/images/default/products/mask_4.jpg'],
+                    'produuct_thumnail_ids' => ['/images/default/products/mask_4.jpg'],
                     'skus' => []
                 ]]);
 
@@ -109,17 +110,17 @@ class ProductsTableSeeder extends Seeder
             foreach ($products as $product){
                 $product['id_code'] = (new BarcodeHandler())->barcode_generation(config('barcode.product'), $index++);
                 $c_ids = $product['c_ids'];
-                $pt_ids = $product['pt_ids'];
+                $produuct_thumnail_ids = $product['produuct_thumnail_ids'];
                 $skus = $product['skus'];
                 unset($product['c_ids']);
-                unset($product['pt_ids']);
+                unset($product['produuct_thumnail_ids']);
                 unset($product['skus']);
 
                 $product=  Product::create($product);
                 $product->categories()->attach($c_ids);
 
                 //Thumbnails
-                foreach ($pt_ids as $key => $thumbnail_path){
+                foreach ($produuct_thumnail_ids as $key => $thumbnail_path){
                     $productThumbnail = new  ProductThumbnail();
                     $productThumbnail->path = $thumbnail_path;
                     $productThumbnail->p_id = $product->p_id;
@@ -136,6 +137,15 @@ class ProductsTableSeeder extends Seeder
                         $SKU->sku_name = $sku[1];
                         $SKU->price = $sku[2];
                         $SKU->save();
+
+                        //SKU-Attribute
+                        foreach ($sku['sku_attributes'] as $attr_id => $attr_value){
+                            $skuAttribute = new SKUAttribute();
+                            $skuAttribute->sku_id = $SKU->sku_id;
+                            $skuAttribute->a_id = $attr_id;
+                            $skuAttribute->a_value = $attr_value;
+                            $skuAttribute->save();
+                        }
                     }
                 }
 

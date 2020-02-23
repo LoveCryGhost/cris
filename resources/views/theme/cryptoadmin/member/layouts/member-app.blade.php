@@ -19,7 +19,7 @@
     @yield('content-header')
 @endsection
 
-<body class="hold-transition fixed light-skin dark-sidebar sidebar-mini theme-blue">
+<body class="hold-transition fixed light-skin dark-sidebar sidebar-mini theme-blue sidebar-collapse">
 <div id="app"  class="{{ route_class() }}-page">
     @section('app-content')
         @guest('member')

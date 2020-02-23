@@ -41,21 +41,29 @@ class Product_SKUsController extends MemberCoreController
         ], 200);
     }
 
-    public function index()
+    public function edit(Request $request)
     {
-//        $attributes = $this->attributeService->index();
-//        return view(config('theme.member.view').'attribute.index', compact('attributes'));
+
+        $sku = $this->product_SKUService->skuRepo->getById($request->input('m_id'));
+        $product = $this->product_SKUService->productRepo->getById($sku->p_id);
+        $view = view(config('theme.member.view').'product.sku.md-edit', compact('sku', 'product'))->render();
+        return ['view' => $view];
     }
 
 
-//
-//    public function update(AttributeRequest $request, Attribute $attribute)
-//    {
-//        $data = $request->all();
-//        $toast = $this->attributeService->update($attribute, $data);
-//        return redirect()->route('member.attribute.index')->with('toast', $toast);
-//    }
-//
+
+    public function update(Request $request)
+    {
+        $data = $request->all();
+        $sku = $this->product_SKUService->skuRepo->getById($data['sku_id']);
+        $TF = $this->product_SKUService->update($sku, $data);
+        return [
+            'rows' => $sku,
+            'request' => $request->all(),
+            'options' => []
+        ];
+    }
+
 //
 //    public function destroy(Attribute $attribute)
 //    {

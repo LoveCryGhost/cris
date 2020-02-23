@@ -41,7 +41,6 @@ class Product_SKUService extends MemberCoreService implements MemberServiceInter
         $sku= $this->skuRepo->create($data);
 
         //處理SkuAttributes
-
         foreach ($data['sku_attributes'] as $attribute_id => $attribute_value){
             $skuAttribute = new SKUAttribute();
             $skuAttribute->a_id = $attribute_id;
@@ -54,7 +53,18 @@ class Product_SKUService extends MemberCoreService implements MemberServiceInter
 
     public function update($model, $data)
     {
-        // TODO: Implement update() method.
+        $sku= $model;
+        $data = $this->save_thumbnail($data);
+
+        $TF = $sku->update($data);
+
+        //處理SkuAttributes
+        foreach ($data['sku_attributes'] as $attribute_id => $attribute_value){
+            $skuAttribute = SKUAttribute::where('sku_id',$sku->sku_id)->where('a_id', $attribute_id)->first();
+            $skuAttribute->a_value = $attribute_value;
+            $skuAttribute->save();
+        }
+
     }
 
     public function destroy($model)
@@ -70,5 +80,20 @@ class Product_SKUService extends MemberCoreService implements MemberServiceInter
     public function edit()
     {
         // TODO: Implement edit() method.
+    }
+
+    public function save_thumbnail($data){
+        //處理Thumbnail
+        $uploader =new ImageUploadHandler();
+        if(request()->thumbnail!="undefined" and request()->thumbnail) {
+            $result = $uploader->save(request()->thumbnail, 'sku_thumbnails', '', 416);
+            if ($result) {
+                $data['thumbnail']=$result['path'];
+            }
+        }else{
+            unset($data['thumbnail']);
+        }
+
+        return $data;
     }
 }
