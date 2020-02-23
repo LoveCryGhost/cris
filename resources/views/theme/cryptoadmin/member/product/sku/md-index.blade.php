@@ -20,6 +20,9 @@
                         <th>名稱</th>
                         <th>圖片</th>
                         <th>啟用</th>
+                        @foreach($product->type->attributes as $attribute)
+                            <th>{{$attribute->a_name}}</th>
+                        @endforeach
                         <th>價錢</th>
                         <th>操作</th>
                     </tr>
@@ -45,6 +48,9 @@
                                                data-on-text="On"    data-on-color="primary"
                                                data-off-text="Off"  data-off-color="danger"/>
                                     </td>
+                                    @foreach($product->type->attributes as $attribute)
+                                    <td></td>
+                                    @endforeach
                                     <td>{{$sku->price}}</td>
                                     <td>CRUD</td>
                                 </tr>

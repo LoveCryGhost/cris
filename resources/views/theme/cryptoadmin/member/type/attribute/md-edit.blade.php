@@ -16,7 +16,11 @@
                         <select class="select2_item form-control" name="a_id" id="a_id">
                             <option value="">Select...</option>
                             @foreach($attributes as $attr)
-                                <option value="{{$attr->a_id}}">{{$attr->id_code}} - {{$attr->a_name}}</option>
+                                @if($attr->a_id == $attribute->a_id)
+                                    <option value="{{$attr->a_id}}" selected disabled="disabled" data-m-id="{{$attr->a_id}}">{{$attr->id_code}} - {{$attr->a_name}} -- (Disabled)</option>
+                                @else
+                                    <option value="{{$attr->a_id}}" data-m-id="{{$attr->a_id}}" >{{$attr->id_code}} - {{$attr->a_name}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
@@ -46,10 +50,18 @@
         });
     });
 
-    function md_update(_this,  php_inject){
+    function md_update(_this,  php_inject)
+    {
+
         original_md_id = php_inject.original_md_id;
-        var formData = new FormData();
+        //先判別更改的是否等於原先設定
+        if($('#a_id').find(':selected').data('m-id')===original_md_id){
+            $('#modal-md').hide();
+            return false;
+        }
+
         m_id = $('#a_id').val();
+        var formData = new FormData();
         formData.append('a_id', m_id);
         formData.append('_method', 'put');
         $.ajaxSetup({
@@ -78,7 +90,11 @@
                 id_code = data.rows.id_code +
                             '<input name="a_ids[]" hidden value="'+ data.rows.a_id+'">';
                 a_name = data.rows.a_name;
-                html='<tr data-md-id="'+data.rows.a_id+'"><td>'+cursor_move+'</td><td></td><td>'+id_code+'</td><td>'+a_name+'</td><td>ggg</td></tr>';
+                crud_btn = '<a  class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-md"'+
+                                'onclick="event.preventDefault();'+
+                                'md_edit(this, php_inject={m_id:'+ m_id +'})">'+
+                                '<i class="fa fa-edit mr-5"></i>編輯</a>';
+                html='<tr data-md-id="'+data.rows.a_id+'"><td>'+cursor_move+'</td><td></td><td>'+id_code+'</td><td>'+a_name+'</td><td>'+crud_btn+'</td></tr>';
                 $('#tbl-type-attribute tbody').append(html);
                 $('#modal-md').hide();
 
