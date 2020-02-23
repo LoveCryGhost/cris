@@ -103,6 +103,7 @@ Route::prefix('member')->namespace('Member')->group(function(){
         //Type
         Route::resource('type', 'TypesController');
         Route::resource('type-attribute', 'Types_AttributesController');
+
         //Attribute
         Route::resource('attribute', 'AttributesController');
         Route::resource('product', 'ProductsController');

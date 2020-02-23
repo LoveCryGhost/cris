@@ -26,7 +26,7 @@
                     <tbody>
                         @if(isset($type))
                             @foreach($type->attributes as $attribute)
-                                <tr class="handle">
+                                <tr class="handle" data-md-id="{{$attribute->a_id}}">
                                     <td>
                                         <span class="handle" style="cursor: move;">
                                             <i class="fa fa-ellipsis-v"></i>
@@ -38,10 +38,12 @@
                                     </td>
                                     <td>
                                         {{$attribute->id_code}}
-                                        <input name="a_ids[]"  value="{{$attribute->a_id}}">
+                                        <input name="a_ids[]" hidden value="{{$attribute->a_id}}">
                                     </td>
                                     <td>{{$attribute->a_name}}</td>
-                                    <td></td>
+                                    <td>
+                                        @include('theme.cryptoadmin.member.layouts.btn-md-index-table_tr', ['route_name'=> 'member.type-attribute', 'm_id' => $attribute->a_id])
+                                    </td>
                                 </tr>
                             @endforeach
                         @endif
@@ -99,6 +101,33 @@
             input_a_id = $(this).children('td:eq(2)').find('input').attr('name','a_ids[]');
             $(this).children('td:eq(1)').html($index+1);
         })
+    }
+
+    function md_edit(_this,  _php_inject){
+        m_id = _php_inject.m_id;
+        //取得所有formData
+        var formData = new FormData();
+        console.log('{{route('member.type-attribute.index')}}/'+m_id+'/edit?m_id='+m_id);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: 'get',
+            url: '{{route('member.type-attribute.index')}}/'+m_id+'/edit?m_id='+m_id,
+            data: formData,
+            async: true,
+            crossDomain: true,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                $('#modal-md .modal-title').html('編輯 - 產品屬性');
+                $('#modal-md .modal-body').html(data.view);
+            },
+            error: function(data) {
+            }
+        });
     }
 </script>
 @endsection
