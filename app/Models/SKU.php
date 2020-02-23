@@ -27,4 +27,9 @@ class SKU extends Model
     public function member(){
         return $this->belongsTo(Member::class, 'member_id');
     }
+
+    public function attributes()
+    {
+        return $this->hasMany(SKUAttribute::class, 'sku_id');
+    }
 }

@@ -28,7 +28,7 @@
                     </tr>
                     </thead>
                         @if(isset($product))
-                            @foreach($product->skus(3) as $sku)
+                            @foreach($product->skus(10) as $sku)
                                 <tr class="handle" data-detail-id="{{$sku->ski_id}}">
                                     <td>
                                             <span class="handle" style="cursor: move;">
@@ -48,8 +48,8 @@
                                                data-on-text="On"    data-on-color="primary"
                                                data-off-text="Off"  data-off-color="danger"/>
                                     </td>
-                                    @foreach($product->type->attributes as $attribute)
-                                    <td></td>
+                                    @foreach($sku->attributes as $attribute)
+                                    <td>{{$attribute->a_value}}</td>
                                     @endforeach
                                     <td>{{$sku->price}}</td>
                                     <td>CRUD</td>
@@ -59,7 +59,7 @@
                     <tbody>
                     </tbody>
                 </table>
-                {{$product->skus(3)->links()}}
+                {{$product->skus(10)->links()}}
             </div>
         </div>
 

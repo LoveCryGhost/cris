@@ -3,10 +3,9 @@
 namespace App\Services\Member;
 
 use App\Handlers\ImageUploadHandler;
-use App\Models\Product;
+use App\Models\SKUAttribute;
 use App\Repositories\Member\ProductRepository;
 use App\Repositories\Member\SKURepository;
-use App\Repositories\Member\TypeRepository;
 
 class Product_SKUService extends MemberCoreService implements MemberServiceInterface
 {
@@ -37,17 +36,20 @@ class Product_SKUService extends MemberCoreService implements MemberServiceInter
         }else{
             $data['thumbnail'] = null;
         }
+
         //儲存一般資料
         $sku= $this->skuRepo->create($data);
 
+        //處理SkuAttributes
+
+        foreach ($data['sku_attributes'] as $attribute_id => $attribute_value){
+            $skuAttribute = new SKUAttribute();
+            $skuAttribute->a_id = $attribute_id;
+            $skuAttribute->a_value = $attribute_value;
+            $skuAttribute->sku_id =$sku->sku_id;
+            $skuAttribute->save();
+        }
         return $data;
-
-        //儲存SKU資料
-//        foreach ($data['skus'] as $sku_datta){
-//            $p[]=[];
-//        }
-//        $sku->product->syn($p);
-
     }
 
     public function update($model, $data)

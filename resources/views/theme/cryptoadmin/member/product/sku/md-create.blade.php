@@ -42,7 +42,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">{{$attribute->a_name}}</label>
                         <div class="col-sm-10">
-                            <input class="form-control attributes" type="text" name="skus[{{$attribute->a_id}}]" placeholder=""  value="{{old('skus['.$attribute->a_id.']')}}">
+                            <input class="form-control attributes" type="text" name="sku_attributes[{{$attribute->a_id}}]" placeholder=""  value="{{old('skus['.$attribute->a_id.']')}}">
                         </div>
                     </div>
                 @endforeach
