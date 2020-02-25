@@ -26,16 +26,7 @@ class Product_SKUService extends MemberCoreService implements MemberServiceInter
 
     public function store($data)
     {
-        //處理Thumbnail
-        $uploader =new ImageUploadHandler();
-        if(request()->thumbnail!="undefined") {
-            $result = $uploader->save(request()->thumbnail, 'sku_thumbnails', $data['p_id'], 416);
-            if ($result) {
-                $data['thumbnail']=$result['path'];
-            }
-        }else{
-            $data['thumbnail'] = null;
-        }
+        $data = $this->save_thumbnail($data);
 
         //儲存一般資料
         $sku= $this->skuRepo->create($data);
@@ -48,7 +39,7 @@ class Product_SKUService extends MemberCoreService implements MemberServiceInter
             $skuAttribute->sku_id =$sku->sku_id;
             $skuAttribute->save();
         }
-        return $data;
+        return $sku;
     }
 
     public function update($model, $data)

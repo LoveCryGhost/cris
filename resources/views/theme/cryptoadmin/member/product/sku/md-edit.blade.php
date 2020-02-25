@@ -12,11 +12,13 @@
                 @include(config('theme.member.view').'layouts.errors')
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Barcode</label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-10">
                         <input class="form-control" type="text" placeholder="自動生成"  value="{{$sku->id_code}}" disabled>
                     </div>
+                </div>
+                <div class="form-group row">
                     <label class="col-sm-2 col-form-label">啟用</label>
-                    <div class="col-sm-2">
+                    <div class="col-sm-10">
                         <input type="checkbox" class="bt-switch" name="is_active" id="is_active" value="1" {{$sku->is_active==1? "checked":""}}
                         data-label-width="100%"
                                data-label-text="啟用" data-size="min"
@@ -72,6 +74,8 @@
         select2_item.select2({
             theme: "bootstrap4"
         });
+        $bt_switch = $('.bt-switch');
+        $bt_switch.bootstrapSwitch('toggleState');
     });
 
     function md_update(_this,  php_inject){
@@ -108,8 +112,6 @@
             contentType: false,
             processData: false,
             success: function(data) {
-                console.log(data,original_md_id);
-                $('#tbl-product-sku tbody tr[data-md-id='+original_md_id+']').remove();
 
                 //新增增加的
                 cursor_move = '<span class="handle" style="cursor: move;">' +
@@ -118,13 +120,36 @@
                     '                                  </span>';
                 id_code = data.rows.id_code +
                     '<input name="a_ids[]" hidden value="'+ data.rows.a_id+'">';
-                a_name = data.rows.a_name;
+                url = '{{asset('/')}}';
+                sku_thumbnial = '<img src="'+url+data.rows.thumbnail+'" class="product-sku-thumbnail">';
+                sku_name = data.rows.sku_name;
+                price = data.rows.price;
+                // console.log(data.rows.sku_attributes, data.rows.sku_attributes[0].a_value);
+
+                switch_btn_checked="";
+                if(data.rows.is_active==1) {
+                    switch_btn_checked = "checked";
+                }
+
+                switch_btn = '<input type="checkbox" class="bt-switch" name="is_active"  value="1" '+switch_btn_checked +
+                    '                                                   data-label-width="100%"' +
+                    '                                                   data-label-text="啟用"' +
+                    '                                                   data-on-text="On"    data-on-color="primary"\n' +
+                    '                                                   data-off-text="Off"  data-off-color="danger"/>';
+
+                attr ="";
+                $.each(data.rows.sku_attributes, function( index, item ) {
+                    attr= attr + '<td>'+ item.a_value+'</td>';
+                });
                 crud_btn = '<a  class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-md"'+
                     'onclick="event.preventDefault();'+
                     'md_edit(this, php_inject={m_id:'+ m_id +'})">'+
                     '<i class="fa fa-edit mr-5"></i>編輯</a>';
-                html='<tr data-md-id="'+data.rows.a_id+'"><td>'+cursor_move+'</td><td></td><td>'+id_code+'</td><td>'+a_name+'</td><td>'+crud_btn+'</td></tr>';
-                $('#tbl-product-sku tbody').append(html);
+                html='<tr data-md-id="'+data.rows.sku_id+'"><td>'+cursor_move+'</td><td></td><td>'+sku_name+'</td><td>'+sku_thumbnial+'</td><td>'+switch_btn+'</td>'+attr+'<td>'+price+'</td><td>'+crud_btn+'</td></tr>';
+                tr = $('#tbl-product-sku tbody tr[data-md-id='+original_md_id+']');
+                tr.after(html);
+                tr.remove();
+
                 //關閉modal
                 $('#modal-md').children().find('.close').click();
 
@@ -134,6 +159,8 @@
                     $(this).children('td:eq(1)').html($index+1);
                 })
 
+                $bt_switch = $('.bt-switch');
+                $bt_switch.bootstrapSwitch('toggleState');
             },
             error: function(data) {
             }

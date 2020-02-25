@@ -33,10 +33,11 @@ class Product_SKUsController extends MemberCoreController
     public function store(Product_SKURequest $request)
     {
         $data = $request->all();
-        $this->product_SKUService->store($data);
+        $sku =$this->product_SKUService->store($data);
 
+        $sku = $this->product_SKUService->skuRepo->getById($sku->sku_id);
         return response()->json([
-            'error' => false,
+            'rows' => $sku,
             'request' => $request->input()
         ], 200);
     }
@@ -46,6 +47,7 @@ class Product_SKUsController extends MemberCoreController
 
         $sku = $this->product_SKUService->skuRepo->getById($request->input('m_id'));
         $product = $this->product_SKUService->productRepo->getById($sku->p_id);
+
         $view = view(config('theme.member.view').'product.sku.md-edit', compact('sku', 'product'))->render();
         return ['view' => $view];
     }
@@ -57,6 +59,7 @@ class Product_SKUsController extends MemberCoreController
         $data = $request->all();
         $sku = $this->product_SKUService->skuRepo->getById($data['sku_id']);
         $TF = $this->product_SKUService->update($sku, $data);
+        $sku = $this->product_SKUService->skuRepo->getById($data['sku_id']);
         return [
             'rows' => $sku,
             'request' => $request->all(),

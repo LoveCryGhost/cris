@@ -10,7 +10,7 @@ class SKU extends Model
     protected $table = "skus";
     protected $primaryKey='sku_id';
 
-    protected $with = [];
+    protected $with = ['skuAttributes'];
     protected $fillable = [
         'p_id', 'sku_name', 'thumbnail', 'price', 'is_active'
     ];

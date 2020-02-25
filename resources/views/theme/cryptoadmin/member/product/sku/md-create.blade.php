@@ -12,13 +12,16 @@
                 @include(config('theme.member.view').'layouts.errors')
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Barcode</label>
-                    <div class="col-sm-4">
+                    <div class="col-sm-10">
                         <input class="form-control" type="text" placeholder="自動生成"  value="自動生成" disabled>
                     </div>
 
 
+
+                </div>
+                <div class="form-group row">
                     <label class="col-sm-2 col-form-label">啟用</label>
-                    <div class="col-sm-4">
+                    <div class="col-sm-10">
                         <input type="checkbox" class="bt-switch" name="is_active" id="is_active" value="1" {{old('is_active')==1? "checked":""}}
                         data-label-width="100%"
                                data-label-text="啟用" data-size="min"
@@ -107,23 +110,60 @@
                 _modal.children().find('.close').click();
                 //清除modal
                 _modal.children().find('.modal-body').html('');
-                // cursor_move = '<span class="handle" style="cursor: move;">' +
-                //     '                                        <i class="fa fa-ellipsis-v"></i>' +
-                //     '                                        <i class="fa fa-ellipsis-v"></i>' +
-                //     '                                  </span>';
-                // id_code = data.rows.id_code +
-                //     '<input name="a_ids[]"  value="'+ data.rows.a_id+'">';
-                // a_name = data.rows.a_name;
-                // html='<tr><td>'+cursor_move+'</td><td></td><td>'+id_code+'</td><td>'+a_name+'</td><td>ggg</td></tr>';
-                // $('#tbl-type-attribute tbody').append(html);
-                // $('#modal-md').hide();
-                //
-                // //排序
-                // $('#tbl-tbl-product-sku tbody tr').each(function ($index) {
-                //     input_a_id = $(this).children('td:eq(2)').find('input').attr('name','a_ids[]');
-                //     $(this).children('td:eq(1)').html($index+1);
-                // })
 
+
+                //新增增加的
+                cursor_move = '<span class="handle" style="cursor: move;">' +
+                    '                                        <i class="fa fa-ellipsis-v"></i>' +
+                    '                                        <i class="fa fa-ellipsis-v"></i>' +
+                    '                                  </span>';
+                id_code = data.rows.id_code +
+                    '<input name="a_ids[]" hidden value="'+ data.rows.a_id+'">';
+                url = '{{asset('/')}}';
+                if(data.rows.thumbnail!=null){
+                    sku_thumbnial = '<img src="'+url+data.rows.thumbnail+'" class="product-sku-thumbnail">';
+                }else{
+                    sku_thumbnial = '<img src="'+url+'images/default/products/product.jpg'+'" class="product-sku-thumbnail">';
+                }
+
+
+                sku_name = data.rows.sku_name;
+                price = data.rows.price;
+                // console.log(data.rows.sku_attributes, data.rows.sku_attributes[0].a_value);
+
+                switch_btn_checked="";
+                if(data.rows.is_active==1) {
+                    switch_btn_checked = "checked";
+                }
+
+                switch_btn = '<input type="checkbox" class="bt-switch" name="is_active"  value="1" '+switch_btn_checked +
+                    '                                                   data-label-width="100%"' +
+                    '                                                   data-label-text="啟用"' +
+                    '                                                   data-on-text="On"    data-on-color="primary"\n' +
+                    '                                                   data-off-text="Off"  data-off-color="danger"/>';
+
+                attr ="";
+                $.each(data.rows.sku_attributes, function( index, item ) {
+                    attr= attr + '<td>'+ item.a_value+'</td>';
+                });
+                crud_btn = '<a  class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-md"'+
+                    'onclick="event.preventDefault();'+
+                    'md_edit(this, php_inject={m_id:'+ data.rows.sku_id +'})">'+
+                    '<i class="fa fa-edit mr-5"></i>編輯</a>';
+                html='<tr data-md-id="'+data.rows.sku_id+'"><td>'+cursor_move+'</td><td></td><td>'+sku_name+'</td><td>'+sku_thumbnial+'</td><td>'+switch_btn+'</td>'+attr+'<td>'+price+'</td><td>'+crud_btn+'</td></tr>';
+                $('#tbl-product-sku tbody').append(html);
+
+                //關閉modal
+                $('#modal-md').children().find('.close').click();
+
+                //排序
+                $('#tbl-product-sku tbody tr').each(function ($index) {
+                    // input_a_id = $(this).children('td:eq(2)').find('input').attr('name','a_ids[]');
+                    $(this).children('td:eq(1)').html($index+1);
+                })
+
+                $bt_switch = $('.bt-switch');
+                $bt_switch.bootstrapSwitch('toggleState');
             },
             error: function(data) {
                 //轉換物件
