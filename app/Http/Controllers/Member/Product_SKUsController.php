@@ -3,10 +3,7 @@
 namespace App\Http\Controllers\Member;
 
 use App\Http\Requests\Member\Product_SKURequest;
-use App\Repositories\Member\SKURepository;
-use App\Services\Member\AttributeService;
 use App\Services\Member\Product_SKUService;
-use App\Services\Member\ProductService;
 use Illuminate\Http\Request;
 
 

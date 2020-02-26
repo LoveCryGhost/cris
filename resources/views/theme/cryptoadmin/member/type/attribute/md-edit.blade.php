@@ -43,6 +43,7 @@
         select2_item.select2({
             theme: "bootstrap4"
         });
+
         //檢查是否有重複的Attribute & 並將其設定成Disable
         $('#tbl-type-attribute tbody tr').each(function () {
             select_a_id_val = $(this).children('td:eq(2)').find('input').val();

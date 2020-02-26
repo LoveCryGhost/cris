@@ -54,6 +54,10 @@
                                     <td>{{$sku->price}}</td>
                                     <td>
                                         @include('theme.cryptoadmin.member.layouts.btn-md-index-table_tr', ['route_name'=> 'member.product-sku', 'm_id' => $sku->sku_id])
+                                        <a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-left"
+                                                onclick="event.preventDefault();
+                                                md_product_sku_supplier_index(this, php_inject={{json_encode([ 'sku_id' => $sku->sku_id])}});">
+                                        <i class="fa fa-plus mr-5">供應商</i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -139,6 +143,33 @@
                 success: function(data) {
                     $('#modal-md .modal-title').html('編輯 - 產品SKU');
                     $('#modal-md .modal-body').html(data.view);
+                },
+                error: function(data) {
+                }
+            });
+        }
+
+        function md_product_sku_supplier_index(_this,  _php_inject) {
+            sku_id = p_id = _php_inject.sku_id;
+
+            //Product_SKUSupplier index
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: 'get',
+                url: '{{route('member.product-sku-supplier.index')}}?sku_id='+sku_id,
+                data: '',
+                async: true,
+                crossDomain: true,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    $('#modal-left .modal-title').html('供應商 - 列表');
+                    $('#modal-left .modal-body').html(data.view);
                 },
                 error: function(data) {
                 }

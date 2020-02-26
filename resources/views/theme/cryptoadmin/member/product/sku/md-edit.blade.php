@@ -145,6 +145,11 @@
                     'onclick="event.preventDefault();'+
                     'md_edit(this, php_inject={m_id:'+ m_id +'})">'+
                     '<i class="fa fa-edit mr-5"></i>編輯</a>';
+
+                crud_btn = crud_btn + '<a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-left"' +
+                '                                                onclick="event.preventDefault();' +
+                '                                                md_product_sku_supplier_index(this, php_inject={sku_id:'+m_id+');">' +
+                '                                        <i class="fa fa-plus mr-5">供應商</i></a>';
                 html='<tr data-md-id="'+data.rows.sku_id+'"><td>'+cursor_move+'</td><td></td><td>'+sku_name+'</td><td>'+sku_thumbnial+'</td><td>'+switch_btn+'</td>'+attr+'<td>'+price+'</td><td>'+crud_btn+'</td></tr>';
                 tr = $('#tbl-product-sku tbody tr[data-md-id='+original_md_id+']');
                 tr.after(html);

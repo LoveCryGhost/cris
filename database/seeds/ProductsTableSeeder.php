@@ -146,6 +146,13 @@ class ProductsTableSeeder extends Seeder
                             $skuAttribute->a_value = $attr_value;
                             $skuAttribute->save();
                         }
+
+                        //SKU Supplier
+                        $sku_supplier =[
+                            1 => ['price'=>123, 'url' => "http://www.google.com"],
+                            2 => ['price'=>321, 'url' => "http://www.baidu.cn"]
+                        ];
+                        $SKU->skuSuppliers()->sync($sku_supplier);
                     }
                 }
 

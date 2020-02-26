@@ -108,6 +108,7 @@ Route::prefix('member')->namespace('Member')->group(function(){
         Route::resource('attribute', 'AttributesController');
         Route::resource('product', 'ProductsController');
         Route::resource('product-sku', 'Product_SKUsController');
+        Route::resource('product-sku-supplier', 'Product_SKU_SuppliersController');
     });
 
 });

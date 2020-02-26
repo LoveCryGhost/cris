@@ -7,7 +7,7 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <h3>
-                新增 - 產品
+                編輯 - 產品
             </h3>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/"><i class="fa fa-dashboard"></i>首頁</a></li>
@@ -33,7 +33,7 @@
                     <div class="col-xl-12 col-lg-12">
                         <div class="box box-solid box-inverse box-dark">
                             <div class="box-header with-border">
-                                <h3 class="box-title">新增產品</h3>
+                                <h3 class="box-title">編輯產品</h3>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
@@ -96,7 +96,6 @@
 
                                 </div>
                                 @include('theme.cryptoadmin.member.product.sku.md-index',['product' => $product])
-
                             </div>
 
                         </div>
