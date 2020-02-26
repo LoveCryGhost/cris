@@ -144,9 +144,13 @@
 
                 console.log(sku_supplier,sku_supplier.pivot);
                 price = sku_supplier.pivot.price;
-                url = sku_supplier.pivot.url;
+                url = '<a class="btn btn-sm btn-primary" href="'+sku_supplier.pivot.url+'"><i class="fa fa-link"></i></a>';
 
-                html ='<tr><td>'+cursor_move+'</td><td></td><td>'+img_supplier+'</td><td>'+s_name+'</td><td>'+switch_btn+'</td><td>'+price+'</td><td>'+url+'</td><td></td></tr>';
+                crud = '<a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-lg"' +
+                    '                                          onclick="event.preventDefault(); md_product_sku_supplier_edit(this, php_inject={ss_id:'+ss_id+', sku_id: '+sku_id+', s_id:'+s_id+'});">' +
+                    '                                           <i class="fa fa-edit mr-5">編輯</i>' +
+                    '                                       </a>';
+                html ='<tr data-ss-id="'+ss_id+'"><td>'+cursor_move+'</td><td></td><td>'+img_supplier+'</td><td>'+s_name+'</td><td>'+switch_btn+'</td><td>'+price+'</td><td>'+url+'</td><td>'+crud+'</td></tr>';
                 tr = $('#tbl-product-sku-supplier tbody tr[data-ss-id='+ss_id+']');
                 tr.after(html);
                 tr.remove();
