@@ -97,7 +97,7 @@
                         '<a class="btn btn-danger btn-sm" '+
                         'onclick="event.preventDefault();md_supplier_contact_delete(this, php_inject=models);">'+
                         '<i class="fa fa-trash mr-5"></i>刪除</a>';
-                html='<tr class="handle" data-md-id="'+data.models.supplierContact.sc_id+'"><td>'+cursor_move+'</td><td></td><td>'+sc_name+sort_order+'</td><td>'+data.models.supplierContact.tel+'</td><td>'+data.models.supplierContact.phone+'</td><td>'+crud+'</td></tr>';
+                html='<tr class="handle" data-md-id="'+data.models.supplierContact.sc_id+'"><td>'+cursor_move+'</td><td></td><td>'+sc_name+sort_order+'</td><td>'+null_to_empty(data.models.supplierContact.tel)+'</td><td>'+null_to_empty(data.models.supplierContact.phone)+'</td><td>'+crud+'</td></tr>';
 
                 //輸出
                 tr = $('#tbl-supplier-contact tbody tr[data-md-id='+data.models.supplierContact.sc_id+']');

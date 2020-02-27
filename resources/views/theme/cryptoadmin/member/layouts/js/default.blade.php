@@ -35,13 +35,13 @@
 
 
 <!-- EChartJS JavaScript -->
-<script src="{{asset('theme/cryptoadmin/vendor_components/echarts-master/dist/echarts-en.min.js')}}"></script>
-<script src="{{asset('theme/cryptoadmin/vendor_components/echarts-liquidfill-master/dist/echarts-liquidfill.min.js')}}"></script>
+{{--<script src="{{asset('theme/cryptoadmin/vendor_components/echarts-master/dist/echarts-en.min.js')}}"></script>--}}
+{{--<script src="{{asset('theme/cryptoadmin/vendor_components/echarts-liquidfill-master/dist/echarts-liquidfill.min.js')}}"></script>--}}
 
 
 <!-- This is data table -->
 {{--<script src="{{asset('theme/cryptoadmin/vendor_components/datatable/datatables.min.js')}}"></script>--}}
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+{{--<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>--}}
 
 <!-- Crypto Admin App -->
 <script src="{{asset('theme/cryptoadmin/js/template.js')}}"></script>
@@ -69,7 +69,7 @@
 <script src="http://www.amcharts.com/lib/3/serial.js" type="text/javascript"></script>
 {{--<script src="http://www.amcharts.com/lib/3/radar.js" type="text/javascript"></script>--}}
 {{--<script src="http://www.amcharts.com/lib/3/pie.js" type="text/javascript"></script>--}}
-<script src="http://www.amcharts.com/lib/3/plugins/animate/animate.min.js" type="text/javascript"></script>
+{{--<script src="http://www.amcharts.com/lib/3/plugins/animate/animate.min.js" type="text/javascript"></script>--}}
 <script src="http://www.amcharts.com/lib/3/plugins/export/export.min.js" type="text/javascript"></script>
 <script src="http://www.amcharts.com/lib/3/themes/light.js" type="text/javascript"></script>
 
@@ -119,6 +119,12 @@
 
 <script>
 
+    function null_to_empty(str) {
+        if(str==null){
+            return "";
+        }
+        return str;
+    }
     function active_ajax_header(){
         return {
             headers: {
