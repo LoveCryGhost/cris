@@ -150,7 +150,7 @@
     //表格
     //tr_movable_htlm
     function tr_movable_html() {
-       return   tr_movable_html =   '<span class="handle" style="cursor: move;">' +
+       return   tr_movable_html =   '<span class="handle  ui-sortable-handle" style="cursor: move;">' +
                                     '<i class="fa fa-ellipsis-v"></i>' +
                                     '<i class="fa fa-ellipsis-v"></i>' +
                                     '</span>';
@@ -171,9 +171,10 @@
         })
     }
     function active_table_tr_reorder_nth(table_id, eq_order_index=1) {
+        alert();
         //排序
         $('#'+table_id+' tbody tr').each(function ($index) {
-            $(this).children('td:eq(eq_index)').html($index+1);
+            $(this).children('td:eq(eq_order_index)').html($index+1);
         })
     }
 

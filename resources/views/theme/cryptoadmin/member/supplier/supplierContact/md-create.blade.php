@@ -71,12 +71,14 @@
                 sc_name = data.request.sc_name;
                 sort_order  =   '<input text="type" name="supplier_contacts[ids][]" hidden value="'+data.models.supplierContact.sc_id+'">'+
                                 '<input text="type" name="supplier_contacts[sc_name][]" hidden value="'+data.models.supplierContact.sc_name+'">';
-                html='<tr><td>'+cursor_move+'</td><td></td><td>'+sc_name+sort_order+'</td><td>CRUD</td></tr>';
+                html='<tr class="handle" data-detail-id="'+data.models.supplierContact.sc_id+'"><td>'+cursor_move+'</td><td></td><td>'+sc_name+sort_order+'</td><td>CRUD</td></tr>';
                 $('#tbl-supplier-contact tbody').append(html);
 
                 //排序
-                // active_table_sortable(table_id="tbl-supplier-contact", eq_order_index=1, options={})
-                active_table_tr_reorder_nth(table_id="tbl-supplier-contact", eq_order_index=1, options={});
+                active_table_tr_reorder_nth(table_id="tbl-supplier-contact", eq_order_index=1);
+                // $('#tbl-supplier-contact tr').each(function ($index) {
+                //     $(this).children('td:eq(1)').html($index+1);
+                // })
             },
 
             error: function(data) {
