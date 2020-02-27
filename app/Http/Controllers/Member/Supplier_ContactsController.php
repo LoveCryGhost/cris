@@ -44,6 +44,7 @@ class Supplier_ContactsController extends MemberCoreController
         return [
             'errors' => '',
             'models'=> [
+                    'supplier' => $supplierContact->supplier,
                     'supplierContact' => $supplierContact
                 ],
             'request' => $request->all(),
@@ -76,6 +77,7 @@ class Supplier_ContactsController extends MemberCoreController
         return [
             'errors' => '',
             'models'=> [
+                'supplier' => $supplierContact->supplier,
                 'supplierContact' => $supplierContact
             ],
             'request' => $request->all(),

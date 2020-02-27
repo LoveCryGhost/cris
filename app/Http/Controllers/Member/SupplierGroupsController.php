@@ -6,6 +6,7 @@ use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\Member\SupplierGroupRequest;
 use App\Models\SupplierGroup;
 use App\Services\Member\SupplierGroupService;
+use Illuminate\Http\Request;
 
 
 class SupplierGroupsController extends MemberCoreController
@@ -52,9 +53,10 @@ class SupplierGroupsController extends MemberCoreController
     }
 
 
-    public function destroy(SupplierGroup $supplierGroup)
+    public function destroy(Request $request, SupplierGroup $supplierGroup)
     {
-        $toast = $this->supplierGroupService->destroy($supplierGroup);
+        $data = $request;
+        $toast = $this->supplierGroupService->destroy($supplierGroup, $data);
         return redirect()->route('member.supplierGroup.index')->with('toast',  parent::$toast_destroy);
     }
 

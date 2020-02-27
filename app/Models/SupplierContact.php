@@ -25,5 +25,9 @@ class SupplierContact extends Model
         return $this->belongsTo(Member::class, 'member_id', 'id');
     }
 
+    public function supplier(){
+        return $this->belongsTo(Supplier::class, 's_id');
+    }
+
 
 }

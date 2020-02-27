@@ -138,10 +138,8 @@
                 }
             });
         });
-
-
-
     }
+
 
 </script>
 @endsection
