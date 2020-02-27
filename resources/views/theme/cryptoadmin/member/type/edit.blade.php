@@ -29,6 +29,7 @@
                         <div class="col-xl-12 col-lg-12 text-right mb-5">
                             @include(config('theme.member.btn.edit.crud'))
                         </div>
+
                         {{--相關訊息--}}
                         <div class="col-xl-12 col-lg-12">
                             <div class="box box-solid box-inverse box-dark">

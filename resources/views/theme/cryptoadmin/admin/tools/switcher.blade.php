@@ -86,7 +86,7 @@
 <style type="text/css">
     #guard-switcher{
         position:fixed;
-        top: 110px;
+        top: 410px;
         bottom: 0px;
         right: 0px;
         width: 70px;
@@ -98,7 +98,7 @@
 
     #guard-switcher-user{
         position:fixed;
-        top: 250px;
+        top: 550px;
         right: 0px;
         width: 70px;
         height: auto;
