@@ -58,7 +58,7 @@ class SupplierGroupService extends MemberCoreService implements MemberServiceInt
         }
         return $data;
     }
-    public function destroy($model)
+    public function destroy($model, $data)
     {
         $supplierGroup = $model;
         return $supplierGroup->delete();

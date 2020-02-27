@@ -5,7 +5,7 @@
             <div class="col-12 text-right">
                 <a href="#" class="btn btn-primary"
                    onclick="event.preventDefault();
-                           md_supplier_contact_store(this, php_inject={{json_encode([ 'models' => ['supplier' => $supplier]])}});">
+                           md_supplier_contact_update(this, php_inject={{json_encode([ 'models' => ['supplier' => $supplier, 'supplierContact' => $supplierContact]])}});">
                     <i class="fa fa-save"></i></a>
             </div>
             <div class="col-12">
@@ -14,7 +14,7 @@
 
                     <label class="col-sm-2 col-form-label">啟用</label>
                     <div class="col-sm-4">
-                        <input type="checkbox" class="bt-switch" name="is_active" id="is_active" value="1" {{old('is_active')==1? "checked":""}}
+                        <input type="checkbox" class="bt-switch" name="is_active" id="is_active" value="1" {{$supplierContact->is_active==1? "checked":""}}
                         data-label-width="100%"
                                data-label-text="啟用" data-size="min"
                                data-on-text="On"    data-on-color="primary"
@@ -24,27 +24,25 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">聯絡人</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" name="sc_name" id="sc_name"  placeholder="聯絡人"  value="{{old('sc_name')}}">
+                        <input class="form-control" type="text" name="sc_name" id="sc_name"  placeholder="聯絡人"  value="{{$supplierContact->sc_name}}">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">電話</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" name="tel" id="tel"  placeholder="電話"  value="{{old('tel')}}">
+                        <input class="form-control" type="text" name="tel" id="tel"  placeholder="電話"  value="{{$supplierContact->tel}}">
                     </div>
                 </div>
-
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">手機</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" name="phone" id="phone"  placeholder="手機"  value="{{old('phone')}}">
+                        <input class="form-control" type="text" name="phone" id="phone"  placeholder="手機"  value="{{$supplierContact->phone}}">
                     </div>
                 </div>
-
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">備註</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" type="text" name="introduction" id="introduction"  placeholder="備註">{{old('introduction')}}</textarea>
+                        <textarea class="form-control" type="text" name="introduction" id="introduction"  placeholder="備註"  >{{$supplierContact->introduction}}</textarea>
                     </div>
                 </div>
             </div>
@@ -61,17 +59,19 @@
     });
 
 
-    function md_supplier_contact_store(_this,  php_inject){
+    function md_supplier_contact_update(_this,  php_inject){
         var formData = new FormData();
         formData.append('s_id', php_inject.models.supplier.s_id);
         formData.append('sc_name', $('#sc_name').val());
         formData.append('tel', $('#tel').val());
         formData.append('phone', $('#phone').val());
         formData.append('introduction', $('#introduction').val());
+        formData.append('_method', 'put');
+
         $.ajaxSetup(active_ajax_header());
         $.ajax({
             type: 'post',
-            url: '{{route('member.supplier-contact.store')}}',
+            url: '{{route('member.supplier-contact.index')}}/' + php_inject.models.supplierContact.sc_id,
             data: formData,
             async: true,
             cache: false,
@@ -86,10 +86,17 @@
                 sc_name = data.request.sc_name;
                 sort_order  =   '<input text="type" name="supplier_contacts[ids][]" hidden value="'+data.models.supplierContact.sc_id+'">'+
                                 '<input text="type" name="supplier_contacts[sc_name][]" hidden value="'+data.models.supplierContact.sc_name+'">';
-                html='<tr class="handle" data-detail-id="'+data.models.supplierContact.sc_id+'"><td>'+cursor_move+'</td><td></td><td>'+sc_name+sort_order+'</td><td>CRUD</td></tr>';
+                crud =  ' <a class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#modal-lg"' +
+                        '                                           onclick="event.preventDefault();' +
+                        '                                                   md_supplier_contact_edit(this, php_inject={{json_encode(['models'=>['supplier' => $supplier, 'supplierContact' => $supplierContact]])}});">' +
+                        '                                            <i class="fa fa-edit mr-5"></i>編輯</a>';
+                html='<tr class="handle" data-md-id="'+data.models.supplierContact.sc_id+'"><td>'+cursor_move+'</td><td></td><td>'+sc_name+sort_order+'</td><td>'+data.models.supplierContact.tel+'</td><td>'+data.models.supplierContact.phone+'</td><td>'+crud+'</td></tr>';
 
                 //輸出
-                $('#tbl-supplier-contact tbody').append(html);
+                tr = $('#tbl-supplier-contact tbody tr[data-md-id='+data.models.supplierContact.sc_id+']');
+                tr.after(html);
+                //移除
+                tr.remove();
 
                 //Table重新排序
                 active_table_tr_reorder_nth(table_id="tbl-supplier-contact", eq_order_index=1);

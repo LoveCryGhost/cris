@@ -59,7 +59,7 @@ class MemberService extends MemberCoreService implements MemberServiceInterface
         return $member->update($data);
     }
 
-    public function destroy($model)
+    public function destroy($model, $data)
     {
         // TODO: Implement destroy() method.
     }

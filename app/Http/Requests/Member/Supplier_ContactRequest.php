@@ -11,8 +11,7 @@ class Supplier_ContactRequest extends Request
 {
     public function rules()
     {
-        $supplierContact=$this->route('supplier-contact');
-
+        $supplierContact=$this->supplier_contact;
         switch($this->method())
         {
             // CREATE

@@ -4,7 +4,7 @@ namespace App\Services\Member;
 
 use App\Repositories\Member\AttributeRepository;
 
-class AttributeService extends MemberCoreService
+class AttributeService extends MemberCoreService implements MemberServiceInterface
 {
     public $attributeRepo;
 
@@ -39,7 +39,7 @@ class AttributeService extends MemberCoreService
         return $attribute->update($data);
     }
 
-    public function destroy($model)
+    public function destroy($model, $data)
     {
         $attribute = $model;
         return $attribute->delete();

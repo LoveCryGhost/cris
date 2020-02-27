@@ -59,7 +59,7 @@
 
 
 <!-- Sweet-Alert  -->
-{{--<script src="{{asset('theme/cryptoadmin/vendor_components/sweetalert/sweetalert.min.js')}}"></script>--}}
+<script src="{{asset('theme/cryptoadmin/vendor_components/sweetalert/sweetalert.min.js')}}"></script>
 <script src="{{asset('theme/cryptoadmin/vendor_components/sweetalert/jquery.sweet-alert.custom.js')}}"></script>
 
 <script src="{{asset('theme/cryptoadmin/js/pages/statistic.js')}}"></script>
@@ -126,6 +126,8 @@
             }
         };
     }
+    
+    
     function active_switch(switch_class, options=[]) {
         $bt_switch = $('.'+switch_class);
         $bt_switch.bootstrapSwitch('toggleState', true);
@@ -144,6 +146,7 @@
         }
 
     }
+
 
 
 
@@ -171,10 +174,9 @@
         })
     }
     function active_table_tr_reorder_nth(table_id, eq_order_index=1) {
-        alert();
         //排序
         $('#'+table_id+' tbody tr').each(function ($index) {
-            $(this).children('td:eq(eq_order_index)').html($index+1);
+            $(this).children('td:eq('+eq_order_index+')').html($index+1);
         })
     }
 
@@ -197,12 +199,38 @@
                 update              : active_table_tr_reorder_in_2nd_td
             });
         }
-
-
-
     }
 
 
+    function clean_close_modal(modal_id) {
+        _modal = $('#'+modal_id);
+        _modal.children().find('.close').click();
+        _modal.children().find('.modal-body').html('');
+    }
+
+    function master_detail_errors(_this, data) {
+        //轉換物件
+        var request = $.parseJSON(data.responseText);
+        error_bag = $(_this).parents().closest('div.box-body').children().find('#modal_errors_div');
+        error_bag.html('');
+        $.each(request.errors, function(key, value) {
+            error_bag.append('<li>' + value + '</li>');
+        });
+        error_bag.show();
+    }
+
+    function swal_delete_info(){
+        return {
+            title: "您確定要刪除?",
+            text: "刪除後，您將無法復原此資料!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "確認刪除!",
+            cancelButtonText: "取消",
+            closeOnConfirm: false
+        }
+    }
 
 </script>
 

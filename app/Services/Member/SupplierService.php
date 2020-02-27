@@ -78,7 +78,7 @@ class SupplierService extends MemberCoreService implements MemberServiceInterfac
         }
         return $data;
     }
-    public function destroy($model)
+    public function destroy($model, $data)
     {
         $supplier = $model;
         return $supplier->delete();

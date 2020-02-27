@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Member;
 
 use App\Http\Requests\Member\Supplier_ContactRequest;
+use App\Models\SupplierContact;
 use App\Services\Member\Supplier_ContactService;
 use App\Services\Member\SupplierService;
 use Illuminate\Http\Request;
@@ -51,25 +52,50 @@ class Supplier_ContactsController extends MemberCoreController
         ];
     }
 
-//    public function index()
-//    {
-//        $attributes = $this->attributeService->index();
-//        return view(config('theme.member.view').'attribute.index', compact('attributes'));
-//    }
+    public function edit(Request $request, SupplierContact $supplierContact){
 
+        $data = $request->all();
+        $supplier= $this->supplier_ContactService->supplierRepo->getById($request->input('s_id'));
+        $view = view(config('theme.member.view').'supplier.supplierContact.md-edit', compact('supplier', 'supplierContact'))->render();
 
-//
-//    public function update(AttributeRequest $request, Attribute $attribute)
-//    {
-//        $data = $request->all();
-//        $toast = $this->attributeService->update($attribute, $data);
-//        return redirect()->route('member.attribute.index')->with('toast', $toast);
-//    }
-//
-//
-//    public function destroy(Attribute $attribute)
-//    {
-//        $toast = $this->attributeService->destroy($attribute);
-//        return redirect()->route('member.attribute.index')->with('toast', $toast);
-//    }
+        return [
+            'errors' => '',
+            'models'=> [
+                'supplierContact' => $supplierContact
+            ],
+            'request' => $request->all(),
+            'view' => $view,
+            'options'=>[]
+        ];
+    }
+
+    public function update(Supplier_ContactRequest $request, SupplierContact $supplierContact)
+    {
+        $data = $request->all();
+        $TF = $this->supplier_ContactService->update($supplierContact, $data);
+        return [
+            'errors' => '',
+            'models'=> [
+                'supplierContact' => $supplierContact
+            ],
+            'request' => $request->all(),
+            'view' => '',
+            'options'=>[]
+        ];
+    }
+
+    public function destroy(Request $request, SupplierContact $supplierContact)
+    {
+        $data = $request->all();
+        $TF = $this->supplier_ContactService->destroy($supplierContact, $data);
+        return [
+            'errors' => '',
+            'models'=> [
+                'supplierContact' => $supplierContact
+            ],
+            'request' => $request->all(),
+            'view' => '',
+            'options'=>[]
+        ];
+    }
 }

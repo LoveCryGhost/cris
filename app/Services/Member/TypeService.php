@@ -44,7 +44,7 @@ class TypeService extends MemberCoreService implements MemberServiceInterface
         return $type->update($data);
     }
 
-    public function destroy($model)
+    public function destroy($model, $data)
     {
         $type = $model;
         return $type->delete();

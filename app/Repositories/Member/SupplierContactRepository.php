@@ -27,5 +27,13 @@ class SupplierContactRepository extends MemberCoreRepository implements Reposito
         return $this->supplierContact->find($id);
     }
 
+    public function update($supplierContact, $data){
+        return $supplierContact->update($data);
+    }
+
+    public function destroy($supplierContact, $data){
+        return $supplierContact->delete();
+    }
+
 
 }

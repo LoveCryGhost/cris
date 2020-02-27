@@ -57,7 +57,7 @@ class Product_SKU_SupplierService extends MemberCoreService implements MemberSer
         ]);
     }
 
-    public function destroy($model)
+    public function destroy($model, $data)
     {
         // TODO: Implement destroy() method.
     }

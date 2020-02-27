@@ -35,7 +35,7 @@ class ProductService extends MemberCoreService implements MemberServiceInterface
         return $product->update($data);
     }
 
-    public function destroy($model)
+    public function destroy($model, $data)
     {
         $product = $model;
         $product->delete();
