@@ -152,16 +152,12 @@
 
 
 @section('js')
-    @parent
-    <script src="{{asset('js/images.js')}}"></script>
-
-    <script type="text/javascript">
-        $(function(){
-            //Switch
-            $bt_switch = $('.bt-switch');
-            $bt_switch.bootstrapSwitch('toggleState', true);
-        })
-    </script>
+@parent
+<script type="text/javascript">
+    $(function(){
+        active_switch(switch_class='bt-switch', options=[]);
+    })
+</script>
 @endsection
 
 

@@ -167,25 +167,15 @@
 
 
 @section('js')
-    @parent
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
-    <link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet">
-
-    <script src="{{asset('js/images.js')}}"></script>
-    <script type="text/javascript">
-        $(function(){
-            select2_item = $('.select2_item');
-            select2_item.select2({
-                theme: "bootstrap4"
-            });
-
-            //Switch
-            $bt_switch = $('.bt-switch');
-            $bt_switch.bootstrapSwitch('toggleState', true);
-        })
-    </script>
-
+@parent
+<script type="text/javascript">
+    $(function(){
+        //Select2
+        active_select2(select2_class='select2_item', options={});
+        //Switch
+        active_switch(switch_class='bt-switch', options=[]);
+    })
+</script>
 @endsection
 
 

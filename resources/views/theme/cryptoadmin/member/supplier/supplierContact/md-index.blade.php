@@ -8,7 +8,7 @@
             <div class="col-12 text-right">
                 <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modal-lg"
                    onclick="event.preventDefault();
-                           md_insert(this, php_inject={{json_encode(['master_id'=>$supplier->s_id])}});">
+                           md_supplier_contact_create(this, php_inject={{json_encode(['models'=>['supplier' => $supplier] ])}});">
                     <i class="fa fa-plus"></i></a>
             </div>
             <div class="col-12">
@@ -51,54 +51,33 @@
 </div>
 
 @section('js')
-    @parent
-    @yield('jss')
-    <script type="text/javascript">
-        $(function () {
-            //可以排序
-            $('#tbl-supplier-contact tbody').sortable({
-                // placeholder         : 'sort-highlight',
-                handle              : '.handle',
-                forcePlaceholderSize: false,
-                zIndex              : 999999,
-                update              : table_order_tr
-            });
-            //Switch
-            $bt_switch = $('.bt-switch');
-            $bt_switch.bootstrapSwitch('toggleState', true);
+@parent
+<script type="text/javascript">
+    $(function () {
+        //排序表格
+        active_table_sortable(table_id="tbl-supplier-contact", eq_order_index=1, options={});
+        //Switch
+        active_switch(switch_class='bt-switch', options=[]);
+    });
+
+    function md_supplier_contact_create(_this,  php_inject){
+        $.ajaxSetup(active_ajax_header());
+        $.ajax({
+            type: 'get',
+            url: '{{route('member.supplier-contact.create')}}?s_id=' + php_inject.models.supplier.s_id,
+            data: '',
+            async: true,
+            crossDomain: true,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                $('#modal-lg .modal-title').html('供應商 - 聯絡人');
+                $('#modal-lg .modal-body').html(data.view)
+            },
+            error: function(data) {
+            }
         });
+    }
 
-        function md_insert(_this,  php_inject){
-            //取得所有formData
-            // var formData = new FormData();
-            //formData.append('_method','DELETE');
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                type: 'get',
-                url: '{{route('member.supplier-contact.create')}}?s_id=' + php_inject.master_id,
-                data: '',
-                async: true,
-                crossDomain: true,
-                contentType: false,
-                processData: false,
-                success: function(data) {
-                    $('#modal-lg .modal-title').html('供應商 - 聯絡人');
-                    $('#modal-lg .modal-body').html(data.view)
-                },
-                error: function(data) {
-                }
-            });
-        }
-        function table_order_tr() {
-            //排序
-            $('#tbl-supplier-contact tbody tr').each(function ($index) {
-                $(this).children('td:eq(1)').html($index+1);
-            })
-        }
-    </script>
+</script>
 @endsection

@@ -27,7 +27,13 @@ class Supplier_ContactsController extends MemberCoreController
     {
         $supplier= $this->supplierService->supplierRepo->getById($request->input('s_id'));
         $view = view(config('theme.member.view').'supplier.supplierContact.md-create', compact('supplier'))->render();
-        return ['view' => $view];
+        return [
+            'errors' => '',
+            'models'=> [],
+            'request' => $request->all(),
+            'view' => $view,
+            'options'=>[]
+        ];
     }
 
     public function store(Supplier_ContactRequest $request)
@@ -35,9 +41,13 @@ class Supplier_ContactsController extends MemberCoreController
         $data = $request->all();
         $supplierContact =$this->supplier_ContactService->store($data);
         return [
-            'rows' => $supplierContact,
+            'errors' => '',
+            'models'=> [
+                    'supplierContact' => $supplierContact
+                ],
             'request' => $request->all(),
-            'options' => []
+            'view' => '',
+            'options'=>[]
         ];
     }
 

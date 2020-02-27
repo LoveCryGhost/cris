@@ -5,7 +5,7 @@
             <div class="col-12 text-right">
                 <a href="#" class="btn btn-primary"
                    onclick="event.preventDefault();
-                           md_store(this, php_inject={{json_encode(['supplier' => $supplier])}});">
+                           md_supplier_contact_store(this, php_inject={{json_encode([ 'models' => ['supplier' => $supplier]])}});">
                     <i class="fa fa-save"></i></a>
             </div>
             <div class="col-12">
@@ -38,28 +38,19 @@
     </div>
 </div>
 
-<script src="{{asset('js/images.js')}}"></script>
-<!-- Form validator JavaScript -->
 <script type="text/javascript">
 
-    $(function(){
-
+    $(function () {
         //Switch
-        $bt_switch = $('.bt-switch');
-        $bt_switch.bootstrapSwitch('toggleState', true);
+        active_switch(switch_class='bt-switch', options=[]);
     });
 
-    function md_store(_this,  php_inject){
+
+    function md_supplier_contact_store(_this,  php_inject){
         var formData = new FormData();
-        formData.append('s_id', php_inject.supplier.s_id);
+        formData.append('s_id', php_inject.models.supplier.s_id);
         formData.append('sc_name', $('#sc_name').val());
-
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+        $.ajaxSetup(active_ajax_header());
         $.ajax({
             type: 'post',
             url: '{{route('member.supplier-contact.store')}}',
@@ -72,25 +63,20 @@
                 //關閉modal
                 _modal = $('#modal-lg');
                 _modal.children().find('.close').click();
-                //清除modal
                 _modal.children().find('.modal-body').html('');
 
-                cursor_move = '<span class="handle" style="cursor: move;">' +
-                    '                                        <i class="fa fa-ellipsis-v"></i>' +
-                    '                                        <i class="fa fa-ellipsis-v"></i>' +
-                    '                                  </span>';
+
+                //新增列
+                cursor_move = tr_movable_html();
                 sc_name = data.request.sc_name;
-                sort_order  =   '<input text="type" name="supplier_contacts[ids][]" hidden value="'+data.rows.sc_id+'">'+
-                                '<input text="type" name="supplier_contacts[sc_name][]" hidden value="'+data.rows.sc_name+'">';
+                sort_order  =   '<input text="type" name="supplier_contacts[ids][]" hidden value="'+data.models.supplierContact.sc_id+'">'+
+                                '<input text="type" name="supplier_contacts[sc_name][]" hidden value="'+data.models.supplierContact.sc_name+'">';
                 html='<tr><td>'+cursor_move+'</td><td></td><td>'+sc_name+sort_order+'</td><td>CRUD</td></tr>';
                 $('#tbl-supplier-contact tbody').append(html);
-                $('#modal-md').hide();
 
                 //排序
-                $('#tbl-supplier-contact  tbody tr').each(function ($index) {
-                    // input_a_id = $(this).children('td:eq(2)').find('input').attr('name','sc_ids[]');
-                    $(this).children('td:eq(1)').html($index+1);
-                })
+                // active_table_sortable(table_id="tbl-supplier-contact", eq_order_index=1, options={})
+                active_table_tr_reorder_nth(table_id="tbl-supplier-contact", eq_order_index=1, options={});
             },
 
             error: function(data) {

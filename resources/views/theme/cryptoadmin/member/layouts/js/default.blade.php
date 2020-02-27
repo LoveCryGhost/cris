@@ -105,12 +105,103 @@
 
 <!-- FastClick -->
 <script src="{{asset('theme/cryptoadmin/vendor_components/fastclick/lib/fastclick.js')}}"></script>
-
+<script src="{{asset('js/images.js')}}"></script>
 
 {{--<script src="{{asset('theme/cryptoadmin/js/pages/amcharts/charts.js')}}" type="text/javascript"></script>--}}
 
 {{--<!-- Crypto Admin App -->--}}
 {{--<script src="{{asset('theme/cryptoadmin/js/template.js')}}"></script>--}}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+<link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet">
 
 
+
+<script>
+
+    function active_ajax_header(){
+        return {
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        };
+    }
+    function active_switch(switch_class, options=[]) {
+        $bt_switch = $('.'+switch_class);
+        $bt_switch.bootstrapSwitch('toggleState', true);
+    }
+
+    function active_select2(select2_class, options={}){
+        //active
+        select2_item = $('.'+select2_class);
+        //theme
+        if(options.theme !=null){
+            select2_item.select2({
+                theme: options.theme
+            });
+        }else{
+            select2_item.select2();
+        }
+
+    }
+
+
+
+    //表格
+    //tr_movable_htlm
+    function tr_movable_html() {
+       return   tr_movable_html =   '<span class="handle" style="cursor: move;">' +
+                                    '<i class="fa fa-ellipsis-v"></i>' +
+                                    '<i class="fa fa-ellipsis-v"></i>' +
+                                    '</span>';
+    }
+
+    function active_table_tr_reorder_in_1st_td() {
+        //排序
+        $('#'+table_id+' tbody tr').each(function ($index) {
+            $(this).children('td:eq(1)').html($index+1);
+        })
+    }
+
+
+    function active_table_tr_reorder_in_2nd_td() {
+        //排序
+        $('#'+table_id+' tbody tr').each(function ($index) {
+            $(this).children('td:eq(2)').html($index+1);
+        })
+    }
+    function active_table_tr_reorder_nth(table_id, eq_order_index=1) {
+        //排序
+        $('#'+table_id+' tbody tr').each(function ($index) {
+            $(this).children('td:eq(eq_index)').html($index+1);
+        })
+    }
+
+    //排序表格
+    function active_table_sortable(table_id, eq_order_index=1, options={}) {
+        if(eq_order_index === 1){
+            $('#'+table_id+' tbody').sortable({
+                placeholder         : 'sort-highlight',
+                handle              : '.handle',
+                forcePlaceholderSize: false,
+                zIndex              : 999999,
+                update              : active_table_tr_reorder_in_1st_td
+            });
+        }else if(eq_order_index === 2){
+            $('#'+table_id+' tbody').sortable({
+                placeholder         : 'sort-highlight',
+                handle              : '.handle',
+                forcePlaceholderSize: false,
+                zIndex              : 999999,
+                update              : active_table_tr_reorder_in_2nd_td
+            });
+        }
+
+
+
+    }
+
+
+
+</script>
 

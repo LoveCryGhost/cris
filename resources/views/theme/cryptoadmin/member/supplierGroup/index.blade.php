@@ -81,18 +81,13 @@
 @stop
 
 @section('js')
-    @parent
-    <script type="text/javascript">
-
-        $(function(){
-            $bt_switch = $('.bt-switch');
-            $bt_switch.bootstrapSwitch('toggleState');
-        });
-
-    </script>
-
+@parent
+<script type="text/javascript">
+    $(function(){
+        active_switch(switch_class='bt-switch', options=[]);
+    })
+</script>
 @endsection
-
 
 
 
