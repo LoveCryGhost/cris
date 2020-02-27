@@ -8,7 +8,7 @@
             <div class="col-12 text-right">
                 <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modal-lg"
                    onclick="event.preventDefault();
-                           md_supplier_contact_create(this, php_inject={{json_encode(['models'=>['supplier' => $supplier] ])}});">
+                           md_supplier_contact_create(this, php_inject={{json_encode(['models'=>['supplier' => $supplier]])}});">
                     <i class="fa fa-plus"></i></a>
             </div>
             <div class="col-12">
@@ -31,7 +31,7 @@
                                         <span class="handle" style="cursor: move;">
                                             <i class="fa fa-ellipsis-v"></i>
                                             <i class="fa fa-ellipsis-v"></i>
-                                       </span>
+                                        </span>
                                     </td>
                                     <td>{{$loop->iteration}}</td>
                                     <td>
@@ -139,7 +139,5 @@
             });
         });
     }
-
-
 </script>
 @endsection

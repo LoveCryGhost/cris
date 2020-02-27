@@ -8,7 +8,7 @@
             <div class="col-12 text-right">
                 <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modal-md"
                    onclick="event.preventDefault();
-                           md_insert(this, php_inject={{json_encode([])}});">
+                           md_type_attribute_create(this, php_inject={{json_encode(['models'=>['type' => $type]])}});">
                     <i class="fa fa-plus"></i></a>
             </div>
             <div class="col-12">
@@ -18,7 +18,7 @@
                             <th>No.</th>
                             <th>排序</th>
                             <th>Barcode</th>
-                            <th>Name</th>
+                            <th>屬性</th>
                             <th>操作</th>
                         </tr>
                     </thead>
@@ -31,7 +31,7 @@
                                         <span class="handle" style="cursor: move;">
                                             <i class="fa fa-ellipsis-v"></i>
                                             <i class="fa fa-ellipsis-v"></i>
-                                      </span>
+                                        </span>
                                     </td>
                                     <td>
                                         {{$loop->iteration}}
@@ -60,47 +60,34 @@
 @yield('jss')
 <script type="text/javascript">
     $(function () {
-        //可以排序
-        $('#tbl-type-attribute tbody').sortable({
-            // placeholder         : 'sort-highlight',
-            handle              : '.handle',
-            forcePlaceholderSize: false,
-            zIndex              : 999999,
-            update              : table_order_tr
-        });
+        //排序表格
+        active_table_sortable(table_id="tbl-type-attribute", eq_order_index=1, options={});
+        //Switch
+        active_switch(switch_class='bt-switch', options=[]);
     });
-    function md_insert(_this,  attributes){
-        //取得所有formData
-        var formData = new FormData();
-        //formData.append('_method','DELETE');
 
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+    function md_type_attribute_create(_this,  php_inject){
+        $.ajaxSetup(active_ajax_header());
         $.ajax({
             type: 'get',
-            url: '{{route('member.type-attribute.create')}}',
-            data: formData,
+            url: '{{route('member.type-attribute.create')}}?t_id=' + php_inject.models.type.t_id,
+            data: '',
             async: true,
             crossDomain: true,
             contentType: false,
             processData: false,
             success: function(data) {
                 $('#modal-md .modal-title').html('產品屬性');
-                $('#modal-md .modal-body').html(data.view)
+                $('#modal-md .modal-body').html(data.view);
+
+                //插入排序value
+                $('#tbl-type-attribute tbody tr').each(function ($index) {
+                    input_a_id = $(this).children('td:eq(2)').find('input').attr('name','a_ids[]');
+                })
             },
             error: function(data) {
             }
         });
-    }
-    function table_order_tr() {
-        //排序
-        $('#tbl-type-attribute tbody tr').each(function ($index) {
-            input_a_id = $(this).children('td:eq(2)').find('input').attr('name','a_ids[]');
-            $(this).children('td:eq(1)').html($index+1);
-        })
     }
 
     function md_edit(_this,  _php_inject){
