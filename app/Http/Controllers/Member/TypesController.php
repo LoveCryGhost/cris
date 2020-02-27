@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Member;
 use App\Http\Requests\Member\TypeRequest;
 use App\Models\Type;
 use App\Services\Member\TypeService;
+use Illuminate\Http\Request;
 
 
 class TypesController extends MemberCoreController
@@ -56,9 +57,10 @@ class TypesController extends MemberCoreController
     }
 
 
-    public function destroy(Type $type)
+    public function destroy(Request $request, Type $type)
     {
-        $toast = $this->typeService->destroy($type);
+        $data = $request->all();
+        $toast = $this->typeService->destroy($type, $data);
         return redirect()->route('member.type.index')->with('toast', parent::$toast_destroy);
     }
 

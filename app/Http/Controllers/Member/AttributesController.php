@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Member;
 use App\Http\Requests\Member\AttributeRequest;
 use App\Models\Attribute;
 use App\Services\Member\AttributeService;
+use Illuminate\Http\Request;
 
 
 class AttributesController extends MemberCoreController
@@ -50,9 +51,10 @@ class AttributesController extends MemberCoreController
     }
 
 
-    public function destroy(Attribute $attribute)
+    public function destroy(Request $request, Attribute $attribute)
     {
-        $toast = $this->attributeService->destroy($attribute);
+        $data = $request->all();
+        $toast = $this->attributeService->destroy($attribute, $data);
         return redirect()->route('member.attribute.index')->with('toast', parent::$toast_destroy);
     }
 }
