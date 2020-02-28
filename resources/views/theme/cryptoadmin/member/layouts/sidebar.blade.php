@@ -50,7 +50,7 @@
                 <ul class="treeview-menu">
                     <li><a href="{{route('member.attribute.index')}}"><i class="ti-more"></i>產品屬性</a></li>
                     <li><a href="{{route('member.type.index')}}"><i class="ti-more"></i>產品類型</a></li>
-                    <li><a href="{{route('member.product.index')}}"><i class="ti-more"></i>產品類型</a></li>
+                    <li><a href="{{route('member.product.index')}}"><i class="ti-more"></i>產品</a></li>
                 </ul>
             </li>
         </ul>
