@@ -8,7 +8,7 @@
             <div class="col-12 text-right">
                 <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modal-md"
                    onclick="event.preventDefault();
-                           md_type_attribute_create(this, php_inject={{json_encode(['models'=>['type' => $type]])}});">
+                           md_type_attribute_create(this, php_inject={{json_encode(['models'=>[]])}});">
                     <i class="fa fa-plus"></i></a>
             </div>
             <div class="col-12">
@@ -42,7 +42,16 @@
                                     </td>
                                     <td>{{$attribute->a_name}}</td>
                                     <td>
-                                        @include('theme.cryptoadmin.member.layouts.btn-md-index-table_tr', ['route_name'=> 'member.type-attribute', 'm_id' => $attribute->a_id])
+                                        <a class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#modal-md"
+                                           onclick="event.preventDefault();
+                                                   md_type_attribute_edit(this, php_inject={{json_encode(['models'=>['type' => $type, 'attribute' => $attribute]])}});">
+                                            <i class="fa fa-edit mr-5"></i>編輯
+                                        </a>
+                                        <a class="btn btn-danger btn-sm"
+                                           onclick="event.preventDefault();
+                                                   md_type_attribute_delete(this, php_inject={{json_encode(['models'=>['type' => $type, 'attribute' => $attribute]])}});">
+                                            <i class="fa fa-trash mr-5"></i>刪除
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -70,14 +79,14 @@
         $.ajaxSetup(active_ajax_header());
         $.ajax({
             type: 'get',
-            url: '{{route('member.type-attribute.create')}}?t_id=' + php_inject.models.type.t_id,
+            url: '{{route('member.type-attribute.create')}}',
             data: '',
             async: true,
             crossDomain: true,
             contentType: false,
             processData: false,
             success: function(data) {
-                $('#modal-md .modal-title').html('產品屬性');
+                $('#modal-md .modal-title').html('產品 - 屬性');
                 $('#modal-md .modal-body').html(data.view);
 
                 //插入排序value
@@ -90,19 +99,12 @@
         });
     }
 
-    function md_edit(_this,  _php_inject){
-        m_id = _php_inject.m_id;
-        //取得所有formData
-        var formData = new FormData();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+    function md_type_attribute_edit(_this,  php_inject){
+        $.ajaxSetup(active_ajax_header());
         $.ajax({
             type: 'get',
-            url: '{{route('member.type-attribute.index')}}/'+m_id+'/edit?m_id='+m_id,
-            data: formData,
+            url: '{{route('member.type-attribute.index')}}/'+php_inject.models.attribute.a_id+'/edit',
+            data: '',
             async: true,
             crossDomain: true,
             contentType: false,
@@ -113,6 +115,31 @@
             },
             error: function(data) {
             }
+        });
+    }
+
+    function md_type_attribute_delete(_this,  php_inject) {
+        swal(swal_delete_info(), function(){
+            swal("已經刪除!", "刪除成功", "success");
+
+            var formData = new FormData();
+            tr_delete = tr = $('#tbl-type-attribute tbody tr[data-md-id='+php_inject.models.attribute.a_id+']');
+            formData.append('_method', 'delete');
+            $.ajaxSetup(active_ajax_header());
+            $.ajax({
+                type: 'post',
+                url: '{{route('member.type-attribute.index')}}/'+php_inject.models.attribute.a_id+'?t_id='+php_inject.models.type.t_id,
+                data: formData,
+                async: true,
+                crossDomain: true,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    tr_delete.remove();
+                },
+                error: function(data) {
+                }
+            });
         });
     }
 </script>

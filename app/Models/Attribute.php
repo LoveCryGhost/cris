@@ -23,4 +23,8 @@ class Attribute extends Model
     public function member(){
         return $this->belongsTo(Member::class,'member_id');
     }
+
+    public function type(){
+        return $this->belongsTo(Type::class, 't_id');
+    }
 }

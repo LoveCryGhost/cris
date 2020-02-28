@@ -82,10 +82,10 @@
                 clean_close_modal(modal_id="modal-lg");
 
                 //新增列
-                cursor_move =   '<span class="handle  ui-sortable-handle" style="cursor: move;">' +
-                                '<i class="fa fa-ellipsis-v"></i>' +
-                                '<i class="fa fa-ellipsis-v"></i>' +
-                                '</span>';
+                cursor_move = '<span class="handle" style="cursor: move;">' +
+                    '      <i class="fa fa-ellipsis-v"></i>' +
+                    '      <i class="fa fa-ellipsis-v"></i>' +
+                    '</span>';
                 sc_name = data.request.sc_name;
                 sort_order  =   '<input text="type" name="supplier_contacts[ids][]" hidden value="'+data.models.supplierContact.sc_id+'">'+
                                 '<input text="type" name="supplier_contacts[sc_name][]" hidden value="'+data.models.supplierContact.sc_name+'">';

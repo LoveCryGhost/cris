@@ -159,10 +159,10 @@
     //表格
     //tr_movable_htlm
     function tr_movable_html() {
-       return   tr_movable_html =   '<span class="handle  ui-sortable-handle" style="cursor: move;">' +
-                                    '<i class="fa fa-ellipsis-v"></i>' +
-                                    '<i class="fa fa-ellipsis-v"></i>' +
-                                    '</span>';
+       return   tr_movable_html =  '<span class="handle" style="cursor: move;">' +
+                                   '      <i class="fa fa-ellipsis-v"></i>' +
+                                   '      <i class="fa fa-ellipsis-v"></i>' +
+                                   '</span>';
     }
 
     function active_table_tr_reorder_in_1st_td() {
