@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Handlers\BarcodeHandler;
+use App\Jobs\SkuPriceJob;
 use App\Models\SKU;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,6 +41,10 @@ class SKUObserver extends Observer
 
     public function saved(SKU $sku)
     {
+//        for($i=1;$i<=10; $i++){
+//            dispatch(new SkuPriceJob($sku));
+//        }
+
         //更新Product
         $skus = SKU::where('p_id', $sku->p_id)->get();
         $min = $skus->min('price');

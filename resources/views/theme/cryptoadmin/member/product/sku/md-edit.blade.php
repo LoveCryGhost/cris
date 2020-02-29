@@ -121,7 +121,12 @@
                 id_code = data.rows.id_code +
                     '<input name="a_ids[]" hidden value="'+ data.rows.a_id+'">';
                 url = '{{asset('/')}}';
-                sku_thumbnial = '<img src="'+url+data.rows.thumbnail+'" class="product-sku-thumbnail">';
+                if(data.rows.thumbnail!=null){
+                    sku_thumbnial = '<img src="'+url+data.rows.thumbnail+'" class="product-sku-thumbnail">';
+                }else{
+                    sku_thumbnial = '<img src="'+url+'images/default/products/product.jpg'+'" class="product-sku-thumbnail">';
+                }
+
                 sku_name = data.rows.sku_name;
                 price = data.rows.price;
                 // console.log(data.rows.sku_attributes, data.rows.sku_attributes[0].a_value);
