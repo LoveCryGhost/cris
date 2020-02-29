@@ -15,6 +15,7 @@
         "laravel/framework": "^6.2",
         "laravel/tinker": "^2.0",
         "mews/captcha": "^3.0",
+        "predis/predis": "^1.1",
         "zhuzhichao/ip-location-zh": "^2.4"
     },
     "require-dev": {
