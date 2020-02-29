@@ -5,7 +5,7 @@
             <div class="col-12 text-right">
                 <a href="#" class="btn btn-primary"
                    onclick="event.preventDefault();
-                           md_product_sku_supplier_update(this, php_inject={{json_encode(['ss_id' => $data['ss_id'] , 's_id' => $supplier->s_id])}});">
+                           md_product_sku_supplier_update(this, php_inject={{json_encode(['models'=>['sku' => $sku, 'skuSupplier' => $skuSupplier]])}});">
                     <i class="fa fa-save"></i></a>
             </div>
             <div class="col-2">
@@ -48,7 +48,8 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">進貨價</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" name="price" id="price" placeholder="url">
+                        <input class="form-control" type="text" name="price" id="price" placeholder="price"
+                               value="{{$sku->skuSuppliers()->wherePivot('s_id',$skuSupplier->s_id)->first()->pivot->price}}">
                     </div>
                 </div>
             </div>
@@ -56,7 +57,8 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">URL</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" name="url" id="url" placeholder="url">
+                        <input class="form-control" type="text" name="url" id="url" placeholder="url"
+                               value="{{$sku->skuSuppliers()->wherePivot('s_id',$skuSupplier->s_id)->first()->pivot->url}}">
                     </div>
                 </div>
             </div>
@@ -64,20 +66,15 @@
     </div>
 </div>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
-
 <script type="text/javascript">
 
     $(function () {
         //Select2
-        select2_item = $('.select2_item');
-        select2_item.select2({
-            theme: "bootstrap4"
-        });
-
-        $bt_switch = $('.bt-switch');
-        //$bt_switch.bootstrapSwitch('toggleState');
+        active_select2(select2_class="select2_item", options={});
+        //排序表格
+        active_table_sortable(table_id="tbl-product-sku-supplier", eq_order_index=1, options={});
+        //Switch
+        active_switch(switch_class='bt-switch', options=[]);
 
         //檢查是否有重複的Attribute & 並將其設定成Disable
         $('#tbl-product-sku-supplier tbody tr').each(function () {

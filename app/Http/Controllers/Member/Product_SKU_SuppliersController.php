@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Member;
 
+use App\Models\Supplier;
 use App\Services\Member\Product_SKU_SupplierService;
 use Illuminate\Http\Request;
 
@@ -24,12 +25,15 @@ class Product_SKU_SuppliersController extends MemberCoreController
         $data = $request->all();
         $sku = $this->product_SKU_SupplierService->skuRepo->getById($data['sku_id']);
         $suppliers = $this->product_SKU_SupplierService->supplierRepo->builder()->get();
-        $view = view(config('theme.member.view').'product.sku.supplier.md-index',compact('data', 'sku', 'suppliers'))->render();
+        $view = view(config('theme.member.view').'product.productSku.productSkuSupplier.md-index',compact('data', 'sku', 'suppliers'))->render();
         return [
-            'rows' => $sku,
-            'view' => $view,
+            'errors' => '',
+            'models'=> [
+                'sku' => $sku,
+            ],
             'request' => $request->all(),
-            'options' => []
+            'view' => $view,
+            'options'=>[]
         ];
     }
 
@@ -53,18 +57,26 @@ class Product_SKU_SuppliersController extends MemberCoreController
 //    }
 
 
-    public function edit(Request $request)
+    public function edit(Request $request, Supplier $product_sku_supplier)
     {
         $data = $request->all();
         $sku = $this->product_SKU_SupplierService->skuRepo->getById($data['sku_id']);
-        $supplier = $this->product_SKU_SupplierService->supplierRepo->getById($data['s_id']);
+        $skuSupplier = $product_sku_supplier;
         $suppliers = $this->product_SKU_SupplierService->supplierRepo->builder()->get();
-        $view = view(config('theme.member.view').'product.sku.supplier.md-edit',compact('data','sku', 'supplier', 'suppliers'))->render();
+
+        $view = view(config('theme.member.view').'product.productSku.productSkuSupplier.md-edit',compact('sku', 'skuSupplier', 'suppliers'))->render();
+
+
         return [
-            'rows' => $sku,
-            'view' => $view,
+            'errors' => '',
+            'models'=> [
+                'sku' => $sku,
+                'skuSupplier' => $skuSupplier,
+                'suppliers' => $suppliers
+            ],
             'request' => $request->all(),
-            'options' => []
+            'view' => $view,
+            'options'=>[]
         ];
     }
 

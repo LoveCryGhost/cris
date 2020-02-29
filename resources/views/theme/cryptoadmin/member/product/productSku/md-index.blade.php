@@ -61,7 +61,7 @@
                                             <i class="fa fa-edit mr-5"></i>編輯</a>
                                         <a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-left"
                                                 onclick="event.preventDefault();
-                                                md_product_sku_supplier_index(this, php_inject={{json_encode([ 'sku_id' => $sku->sku_id])}});">
+                                                md_product_sku_supplier_index(this, php_inject={{json_encode([ 'models' => ['sku'=> $sku]])}});">
                                         <i class="fa fa-plus mr-5"></i>供應商</a>
                                     </td>
                                 </tr>
@@ -126,19 +126,11 @@
             });
         }
 
-        function md_product_sku_supplier_index(_this,  _php_inject) {
-            sku_id = p_id = _php_inject.sku_id;
-
-            //Product_SKUSupplier index
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+        function md_product_sku_supplier_index(_this,  php_inject) {
+            $.ajaxSetup(active_ajax_header());
             $.ajax({
                 type: 'get',
-                url: '{{route('member.product-sku-supplier.index')}}?sku_id='+sku_id,
+                url: '{{route('member.product-sku-supplier.index')}}?sku_id='+php_inject.models.sku.sku_id,
                 data: '',
                 async: true,
                 crossDomain: true,
