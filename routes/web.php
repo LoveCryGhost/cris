@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 //MultiAuth 用户身份验证相关的路由
 Auth::routes(['verify' => true]);
+Route::get('/admin/horizon', function () {
+    return redirect()->route('horizon.index');
+});
 Route::prefix('')->group(function() {
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\LoginController@login');
@@ -119,6 +122,8 @@ Route::get('/', function () {
 });
 
 include('route_test.php');
+
+
 
 
 
