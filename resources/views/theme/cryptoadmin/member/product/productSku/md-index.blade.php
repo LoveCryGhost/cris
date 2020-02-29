@@ -62,7 +62,7 @@
                                         <a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-left"
                                                 onclick="event.preventDefault();
                                                 md_product_sku_supplier_index(this, php_inject={{json_encode([ 'sku_id' => $sku->sku_id])}});">
-                                        <i class="fa fa-plus mr-5">供應商</i></a>
+                                        <i class="fa fa-plus mr-5"></i>供應商</a>
                                     </td>
                                 </tr>
                             @endforeach
