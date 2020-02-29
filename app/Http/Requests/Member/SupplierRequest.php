@@ -11,7 +11,7 @@ class SupplierRequest extends Request
 {
     public function rules()
     {
-        $supplier=$this->route('supplier');
+        $supplier=$this->supplier;
 
         switch($this->method())
         {

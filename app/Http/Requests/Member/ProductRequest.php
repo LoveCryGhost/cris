@@ -9,7 +9,7 @@ class ProductRequest extends Request
 {
     public function rules()
     {
-        $product=$this->route('product');
+        $product=$this->product;
         switch($this->method())
         {
             // CREATE

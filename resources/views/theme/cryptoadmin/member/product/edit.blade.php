@@ -95,7 +95,7 @@
                                     </div>
 
                                 </div>
-                                @include('theme.cryptoadmin.member.product.sku.md-index',['product' => $product])
+                                @include('theme.cryptoadmin.member.product.productSku.md-index',['product' => $product])
                             </div>
 
                         </div>
