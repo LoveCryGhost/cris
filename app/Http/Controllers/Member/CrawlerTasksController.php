@@ -3,11 +3,8 @@
 namespace App\Http\Controllers\Member;
 
 use App\Http\Requests\Member\CrawlerTaskRequest;
-use App\Http\Requests\Member\TypeRequest;
-use App\Models\Type;
 use App\Services\Member\CrawlerTaskService;
-use App\Services\Member\TypeService;
-use Illuminate\Http\Request;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 
 class CrawlerTasksController extends MemberCoreController
@@ -30,22 +27,13 @@ class CrawlerTasksController extends MemberCoreController
     {
         $data = $request->all();
         $crawlerTask = $this->crawlerTaskService->store($data);
-        dd($crawlerTask);
-        return redirect()->route('member.rawlertask.index')->with('toast', parent::$toast_store);
+        return redirect()->route('member.crawlertask.index')->with('toast', parent::$toast_store);
     }
 
     public function index()
     {
-
-        //國內或是國外商品
-        $url = $Shopee['fe_category'];
-        $ClientResponse = $this->ClientHeader($url);
-        $json = json_decode($ClientResponse->getBody(), true);
-        return $Rows = $json['data']['category_list'];
-
-
-//        $types = $this->typeService->index();
-//        return view(config('theme.member.view').'type.index', compact('types'));
+        $crawlerTasks = $this->crawlerTaskService->index();
+        return view(config('theme.member.view').'crawlerTask.index', compact('crawlerTasks'));
     }
 //
 //    public function edit(Type $type)

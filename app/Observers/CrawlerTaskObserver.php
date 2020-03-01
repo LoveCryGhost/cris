@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Handlers\BarcodeHandler;
+use App\Jobs\CrawlerShopeeItemJob;
 use App\Models\CrawlerTask;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,8 +31,22 @@ class CrawlerTaskObserver extends Observer
 
     public function created(CrawlerTask $crawlerTask)
     {
+        // $url = 'https://shopee.com.my/api/v2/search_items/?by=sales&limit=50&match_id=16&newest=50&order=desc&page_type=search&version=2';
         $crawlerTask->id_code = (new BarcodeHandler())->barcode_generation(config('barcode.crawlertask'), $crawlerTask->ct_id);
         $crawlerTask->save();
+
+        //爬蟲
+        $items = $crawlerTask->pages*50;
+        $qty = 100;
+        $index = ceil($items/$qty);
+        for ($i=0; $i<=$index-1; $i++){
+            $urls[] = 'https://'.$crawlerTask->domain.'/api/v2/search_items/?by='.$crawlerTask->sort_by.
+                        '&limit='.$qty.'&match_id='.$crawlerTask->cat.'&newest='.($i*10).'&order=desc&page_type=search&version=2';
+        }
+
+        foreach ($urls as $url){
+            dispatch(new CrawlerShopeeItemJob($url));
+        }
     }
 
     public function updating(CrawlerTask $crawlerTask)
