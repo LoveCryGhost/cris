@@ -14,6 +14,9 @@ return [
 
         'supplierGroup' => 'SG',
         'supplier' => 'S',
-//        'supplierContact' => 'SC',
+
+
+        //爬蟲
+        'crawlertask' => 'CT'
 
 ];

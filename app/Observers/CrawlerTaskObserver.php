@@ -3,47 +3,47 @@
 namespace App\Observers;
 
 use App\Handlers\BarcodeHandler;
-use App\Models\Type;
+use App\Models\CrawlerTask;
 use Illuminate\Support\Facades\Auth;
 
 
-class TypeObserver extends Observer
+class CrawlerTaskObserver extends Observer
 {
 
-    public function saving(Type $type)
+    public function saving(CrawlerTask $crawlerTask)
     {
-        if($type->is_active == 1 or $type->is_active ==true){
-            $type->is_active = 1;
+        if($crawlerTask->is_active == 1 or $crawlerTask->is_active ==true){
+            $crawlerTask->is_active = 1;
         }else{
-            $type->is_active = 0;
+            $crawlerTask->is_active = 0;
         }
         //判別是否為admin建立
         if(Auth::guard('member')->user()!=null) {
-            $type->member_id = Auth::guard('member')->user()->id;
+            $crawlerTask->member_id = Auth::guard('member')->user()->id;
         }
     }
 
-    public function creating(Type $type)
+    public function creating(CrawlerTask $crawlerTask)
     {
 
     }
 
-    public function created(Type $type)
+    public function created(CrawlerTask $crawlerTask)
     {
-        $type->id_code = (new BarcodeHandler())->barcode_generation(config('barcode.type'), $type->t_id);
-        $type->save();
+        $crawlerTask->id_code = (new BarcodeHandler())->barcode_generation(config('barcode.crawlertask'), $crawlerTask->ct_id);
+        $crawlerTask->save();
     }
 
-    public function updating(Type $type)
+    public function updating(CrawlerTask $crawlerTask)
     {
     }
 
-    public function saved(Type $type)
+    public function saved(CrawlerTask $crawlerTask)
     {
 
     }
 
-    public function deleted( Type $type)
+    public function deleted( CrawlerTask $crawlerTask)
     {
 
     }

@@ -3,26 +3,26 @@
 namespace App\Repositories\Member;
 
 
-use App\Models\Type;
+use App\Models\CrawlerTask;
 
-class TypeRepository extends MemberCoreRepository implements RepositoryInterface
+class CrawlerTaskRepository extends MemberCoreRepository implements RepositoryInterface
 {
 
-    private $type;
+    public $crawlerTask;
 
-    public function __construct(Type $type)
+    public function __construct(CrawlerTask $crawlerTask)
     {
-        $this->type = new Type();
+        $this->crawlerTask = new CrawlerTask();
     }
 
     public function builder()
     {
-        return $this->type ;
+        return $this->crawlerTask ;
     }
 
 
     public function getById($id)
     {
-        return $this->type->find($id);
+        return $this->crawlerTask->find($id);
     }
 }

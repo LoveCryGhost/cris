@@ -1,13 +1,12 @@
 @extends(config('theme.member.member-app'))
 
-@section('title','新增 - 產品')
+@section('title','新增 - Shopee任務')
 
 @section('content')
 <div class="container-full">
-    <!-- Content Header (Page header) -->
     <div class="content-header">
         <h3>
-            新增 - 產品
+            新增 - Shopee任務
         </h3>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/"><i class="fa fa-dashboard"></i>首頁</a></li>
@@ -18,7 +17,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <form method="post" action="{{route('member.product.store')}}">
+        <form method="post" action="{{route('member.crawlertask.store')}}">
             @csrf
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
@@ -32,7 +31,7 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="box box-solid box-inverse box-dark">
                         <div class="box-header with-border">
-                            <h3 class="box-title">新增產品</h3>
+                            <h3 class="box-title">新增 - Shopee任務</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -55,33 +54,24 @@
                                         </div>
                                     </div>
 
-
-                                    {{--產品類型--}}
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">產品類型</label>
+                                        <label class="col-sm-2 col-form-label">任務名稱</label>
                                         <div class="col-sm-10">
-                                            <select class="select2_item form-control" name="t_id" required data-validation-required-message="必填欄位">
-                                                {{--預設值--}}
-                                                <option value="">Select...</option>
-                                                @foreach($types as $type)
-                                                    <option value="{{$type->t_id}}">{{$type->t_name}}</option>
-                                                @endforeach
-                                            </select>
+                                            <input class="form-control" type="text" name="ct_name" placeholder="任務名稱"  value="{{old('ct_name')}}">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">發布時間</label>
+                                        <label class="col-sm-2 col-form-label">網址</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="publish_at" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask value="{{old('publish_at')}}">
+                                            <input class="form-control" type="text" name="url" placeholder="產品名稱"  value="{{old('url')}}">
                                         </div>
                                     </div>
 
-
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">產品名稱</label>
+                                        <label class="col-sm-2 col-form-label">搜尋頁數</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="p_name" placeholder="產品名稱"  value="{{old('p_name')}}">
+                                            <input class="form-control" type="text" name="pages" placeholder="搜尋頁數"  value="{{old('pages')}}">
                                         </div>
                                     </div>
 
@@ -110,14 +100,6 @@
 
 @section('js')
     @parent
-    <script type="text/javascript">
-        $(function(){
-            //Select2
-            active_select2(select2_class='select2_item', options={});
-            //Switch
-            active_switch(switch_class='bt-switch', options=[]);
-        })
-    </script>
 @endsection
 
 

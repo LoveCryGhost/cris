@@ -9,14 +9,15 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;;
 
-class Type extends Model
+class CrawlerTask extends Model
 {
 
-    protected $table = "types";
-    protected $primaryKey='t_id';
+    protected $table = "crawler_tasks";
+    protected $primaryKey='ct_id';
 
     protected $fillable = [
-        'is_active', 't_name', 't_description',
+        'is_active', 'sort_order',
+        'ct_name', 'url', 'website','pages', 'sortBy', 'local'
     ];
 
     protected $hidden = [
@@ -25,15 +26,6 @@ class Type extends Model
 
     protected $casts = [
     ];
-
-
-    public function attributes()
-    {
-        return $this->belongsToMany(Attribute::class, 'types_attributes','t_id','a_id')
-            ->orderBy('sort_order')
-            ->withPivot(['sort_order'])
-            ->withTimestamps();
-    }
 
     public function member(){
         return $this->belongsTo(Member::class,'member_id');
