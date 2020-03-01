@@ -5,7 +5,7 @@
             <div class="col-12 text-right">
                 <a href="#" class="btn btn-primary"
                    onclick="event.preventDefault();
-                           md_update(this, php_inject={{json_encode([ 'original_md_id' => $sku->sku_id, 'sku' => $sku])}});">
+                           md_product_sku_update(this, php_inject={{json_encode([ 'models' => ['sku' => $sku]])}});">
                     <i class="fa fa-save"></i></a>
             </div>
             <div class="col-10">
@@ -62,28 +62,16 @@
     </div>
 </div>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
-
-<script src="{{asset('js/images.js')}}"></script>
 <script type="text/javascript">
-
     $(function () {
-        //Select2
-        select2_item = $('.select2_item');
-        select2_item.select2({
-            theme: "bootstrap4"
-        });
-        $bt_switch = $('.bt-switch');
-        $bt_switch.bootstrapSwitch('toggleState');
+        //Switch
+        active_switch(switch_class='bt-switch', options=[]);
     });
 
-    function md_update(_this,  php_inject){
-        original_md_id = php_inject.original_md_id;
-        m_id = php_inject.sku.sku_id;
+    function md_product_sku_update(_this,  php_inject){
         var formData = new FormData();
         formData.append('_method', 'put');
-        formData.append('sku_id', php_inject.sku.sku_id);
+        formData.append('sku_id', php_inject.models.sku.sku_id);
         formData.append('thumbnail', $('#sku_thumbnail')[0].files[0]);
         formData.append('is_active', $('#is_active').prop('checked'));
         formData.append('sku_name', $('#sku_name').val());
@@ -97,15 +85,10 @@
         });
         formData.append('price', $('#price').val());
 
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+        $.ajaxSetup(active_ajax_header());
         $.ajax({
             type: 'post',
-            url: '{{route('member.product-sku.index')}}/'+ m_id,
+            url: '{{route('member.product-sku.index')}}/'+ php_inject.models.sku.sku_id,
             data: formData,
             async: true,
             cache: false,
@@ -113,26 +96,28 @@
             processData: false,
             success: function(data) {
 
+                //關閉modal
+                clean_close_modal(modal_id="modal-lg");
+
                 //新增增加的
                 cursor_move = '<span class="handle" style="cursor: move;">' +
                     '                                        <i class="fa fa-ellipsis-v"></i>' +
                     '                                        <i class="fa fa-ellipsis-v"></i>' +
                     '                                  </span>';
-                id_code = data.rows.id_code +
-                    '<input name="a_ids[]" hidden value="'+ data.rows.a_id+'">';
+                id_code = data.models.sku.id_code ;
+
                 url = '{{asset('/')}}';
-                if(data.rows.thumbnail!=null){
-                    sku_thumbnial = '<img src="'+url+data.rows.thumbnail+'" class="product-sku-thumbnail">';
+                if(data.models.sku.thumbnail!=null){
+                    sku_thumbnial = '<img src="'+url+data.models.sku.thumbnail+'" class="product-sku-thumbnail">';
                 }else{
                     sku_thumbnial = '<img src="'+url+'images/default/products/product.jpg'+'" class="product-sku-thumbnail">';
                 }
 
-                sku_name = data.rows.sku_name;
-                price = data.rows.price;
-                // console.log(data.rows.sku_attributes, data.rows.sku_attributes[0].a_value);
+                sku_name = data.models.sku.sku_name;
+                price = data.models.sku.price;
 
                 switch_btn_checked="";
-                if(data.rows.is_active==1) {
+                if(data.models.sku.is_active==1) {
                     switch_btn_checked = "checked";
                 }
 
@@ -143,36 +128,38 @@
                     '                                                   data-off-text="Off"  data-off-color="danger"/>';
 
                 attr ="";
-                $.each(data.rows.sku_attributes, function( index, item ) {
-                    attr= attr + '<td>'+ item.a_value+'</td>';
+                $.each(data.models.sku.sku_attributes, function( index, item ) {
+                    attr= attr + '<td>'+ null_to_empty(item.a_value) +'</td>';
                 });
-                crud_btn = '<a  class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-md"'+
+
+                models = {"models":{"sku": data.models.sku}};
+                models_product = {"models":{"product": data.models.product}};
+
+                crud_btn = '<a  class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-lg"'+
                     'onclick="event.preventDefault();'+
-                    'md_edit(this, php_inject={m_id:'+ m_id +'})">'+
-                    '<i class="fa fa-edit mr-5"></i>編輯</a>';
+                    'md_product_sku_edit(this, php_inject=models)">'+
+                    '<i class="fa fa-edit mr-5"></i>編輯</a> ';
 
                 crud_btn = crud_btn + '<a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-left"' +
                 '                                                onclick="event.preventDefault();' +
-                '                                                md_product_sku_supplier_index(this, php_inject={sku_id:'+m_id+');">' +
+                '                                                md_product_sku_supplier_index(this, php_inject=models_product);">' +
                 '                                        <i class="fa fa-plus mr-5">供應商</i></a>';
-                html='<tr data-md-id="'+data.rows.sku_id+'"><td>'+cursor_move+'</td><td></td><td>'+sku_name+'</td><td>'+sku_thumbnial+'</td><td>'+switch_btn+'</td>'+attr+'<td>'+price+'</td><td>'+crud_btn+'</td></tr>';
-                tr = $('#tbl-product-sku tbody tr[data-md-id='+original_md_id+']');
+                html='<tr data-md-id="'+data.models.sku.sku_id+'"><td>'+cursor_move+'</td><td></td><td>'+sku_name+'</td><td>'+sku_thumbnial+'</td><td>'+switch_btn+'</td>'+attr+'<td>'+price+'</td><td>'+crud_btn+'</td></tr>';
+
+
+                //輸出
+                tr = $('#tbl-product-sku tbody tr[data-md-id='+data.models.sku.sku_id+']');
                 tr.after(html);
+                //移除
                 tr.remove();
 
-                //關閉modal
-                $('#modal-md').children().find('.close').click();
-
-                //排序
-                $('#tbl-product-sku tbody tr').each(function ($index) {
-                    // input_a_id = $(this).children('td:eq(2)').find('input').attr('name','a_ids[]');
-                    $(this).children('td:eq(1)').html($index+1);
-                })
-
-                $bt_switch = $('.bt-switch');
-                $bt_switch.bootstrapSwitch('toggleState');
+                //Table重新排序
+                active_table_tr_reorder_nth(table_id="tbl-product-sku", eq_order_index=1);
+                //Switch
+                active_switch(switch_class='bt-switch', options=[]);
             },
             error: function(data) {
+                master_detail_errors(_this, data);
             }
         });
     }

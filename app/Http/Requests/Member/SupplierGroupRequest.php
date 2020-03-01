@@ -11,7 +11,7 @@ class SupplierGroupRequest extends Request
 {
     public function rules()
     {
-        $supplierGroup=$this->route('supplierGroup');
+        $supplierGroup=$this->supplierGroup;
 
         switch($this->method())
         {

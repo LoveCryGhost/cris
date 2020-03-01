@@ -38,4 +38,11 @@ class Supplier extends Model
     {
         return $this->hasMany(SupplierContact::class, 's_id')->orderBy('sort_order','ASC')->paginate($paginate);
     }
+
+    public function skus()
+    {
+        return $this->belongsToMany(SKU::class, 'skus_suppliers','s_id','sku_id')
+            ->withPivot(['ss_id', 'is_active', 'sort_order', 'price', 'url', 's_id'])
+            ->withTimestamps();
+    }
 }

@@ -11,7 +11,7 @@ class AttributeRequest extends Request
 {
     public function rules()
     {
-        $attribute=$this->route('attribute');
+        $attribute=$this->attribute;
 
         switch($this->method())
         {

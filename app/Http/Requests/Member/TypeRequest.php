@@ -11,7 +11,7 @@ class TypeRequest extends Request
 {
     public function rules()
     {
-        $type=$this->route('type');
+        $type=$this->type;
 
         switch($this->method())
         {

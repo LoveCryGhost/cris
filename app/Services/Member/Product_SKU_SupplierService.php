@@ -3,6 +3,7 @@
 namespace App\Services\Member;
 
 use App\Handlers\ImageUploadHandler;
+use App\Http\Requests\Request;
 use App\Models\SKUAttribute;
 use App\Repositories\Member\ProductRepository;
 use App\Repositories\Member\SKURepository;
@@ -23,38 +24,35 @@ class Product_SKU_SupplierService extends MemberCoreService implements MemberSer
 
     public function index()
     {
-        // TODO: Implement index() method.
+
     }
 
     public function store($data)
     {
-//        $data = $this->save_thumbnail($data);
-//
-//        //儲存一般資料
-//        $sku= $this->skuRepo->create($data);
-//
-//        //處理SkuAttributes
-//        foreach ($data['sku_attributes'] as $attribute_id => $attribute_value){
-//            $skuAttribute = new SKUAttribute();
-//            $skuAttribute->a_id = $attribute_id;
-//            $skuAttribute->a_value = $attribute_value;
-//            $skuAttribute->sku_id =$sku->sku_id;
-//            $skuAttribute->save();
-//        }
-//        return $sku;
+        $sku = $this->skuRepo->getById($data['sku_id']);
+        return  $sku->skuSuppliers()->attach([
+            "" => [
+                'sku_id' => $data['sku_id'],
+                's_id' => $data['s_id'],
+                'price' => $data['price'],
+                'url' => $data['url']
+            ]
+        ]);
     }
 
     public function update($model, $data)
     {
-        $sku= $model;
-        return $TF = $sku->skuSuppliers()->syncWithoutDetaching([
-            $data['ss_id'] => [
-                                    'sku_id' => $data['sku_id'],
-                                    's_id' => $data['s_id'],
-                                    'price' => $data['price'],
-                                    'url' => $data['url']
-                                ]
-        ]);
+        $skuSupplier= $model;
+        $sku = $this->skuRepo->getById($data['sku_id']);
+        //$skuSupplierPivot = $sku->skuSuppliers()->wherePivot('s_id',$skuSupplier->s_id)->first();
+        return  $sku->skuSuppliers()->updateExistingPivot(
+            $skuSupplier->s_id , [
+                    'sku_id' => $data['sku_id'],
+                    's_id' => $data['s_id'],
+                    'price' => $data['price'],
+                    'url' => $data['url']
+                ]);
+
     }
 
     public function destroy($model, $data)
@@ -64,7 +62,7 @@ class Product_SKU_SupplierService extends MemberCoreService implements MemberSer
 
     public function create()
     {
-        // TODO: Implement create() method.
+
     }
 
     public function edit()

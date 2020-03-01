@@ -97,11 +97,12 @@
 @section('js')
     @parent
     <script type="text/javascript">
-
         $(function(){
-            $bt_switch = $('.bt-switch');
-            $bt_switch.bootstrapSwitch('toggleState');
-        });
+            //Switch
+            active_switch(switch_class='bt-switch', options=[]);
+
+
+        })
 
         function show_product_thumbnails(_this, php_inject) {
             product_thumbnail = php_inject.product_thumbnail;
@@ -114,9 +115,7 @@
             })
         }
     </script>
-
 @endsection
-
 
 
 

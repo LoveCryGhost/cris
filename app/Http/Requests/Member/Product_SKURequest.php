@@ -9,21 +9,23 @@ class Product_SKURequest extends Request
 {
     public function rules()
     {
-        $product=$this->route('product');
+        $sku=$this->product_sku;
         switch($this->method())
         {
             // CREATE
             case 'POST':
                 {
                     return [
-                        'price' => ['integer'],
+                        'price' => ['required','numeric'],
+                        'sku_name' => ['required'],
                     ];
                 }
             case 'PUT':
             case 'PATCH':
                 {
                     return [
-                        'price' => ['integer'],
+                        'price' => ['required','numeric'],
+                        'sku_name' => ['required'],
                     ];
                 }
             case 'GET':
@@ -39,7 +41,9 @@ class Product_SKURequest extends Request
     {
         return [
 
-            'price.integer' => '售價必須為數字',
+            'price.required' => '售價不能為空',
+            'price.numeric' => '售價必須為數字',
+            'sku_name.required' => 'SKU 名稱不能為空'
         ];
     }
 }

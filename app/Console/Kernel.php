@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-
+        \App\Console\Commands\TestCron::class
     ];
 
     /**
@@ -26,22 +26,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function () {
-            $name= 'a'.random_int(1000, 9999999);
-            $email = $name.'@app.com';
-            User::create([
-                'name' => $name,
-                'email' => $email,
-                'email_verified_at' => now(),
-                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-                'remember_token' => Str::random(10),
-                'avatar' => '',
-                'birthday' => null,
-                'introduction' => 'aaa',
-            ]);
-        })->everyMinute();
-
-
+        //  设置每秒执行一次
+        $schedule->command('command:test_cron')->everyMinute();
     }
 
     /**
@@ -51,7 +37,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+//        $this->load(__DIR__.'/Commands');
 
         require base_path('routes/console.php');
     }

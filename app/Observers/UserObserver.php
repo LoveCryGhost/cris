@@ -22,7 +22,7 @@ class UserObserver extends Observer
     public function creating(User $user)
     {
         //判別是否為member建立
-        if(Auth::guard('member')->check){
+        if(Auth::guard('member')->user()){
             $user->member_id = Auth::guard('member')->user()->id;
         }
     }

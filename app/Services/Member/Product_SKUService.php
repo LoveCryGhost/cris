@@ -26,6 +26,7 @@ class Product_SKUService extends MemberCoreService implements MemberServiceInter
 
     public function store($data)
     {
+        //儲存圖片
         $data = $this->save_thumbnail($data);
 
         //儲存一般資料

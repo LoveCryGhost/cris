@@ -8,7 +8,7 @@
             <div class="col-12 text-right">
                 <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modal-lg"
                    onclick="event.preventDefault();
-                           md_insert(this, php_inject={{json_encode(['master_id'=>$product->p_id])}});">
+                           md_product_sku_create(this, php_inject={{json_encode(['models'=>[ 'product' => $product]])}});">
                     <i class="fa fa-plus"></i></a>
             </div>
             <div class="col-12">
@@ -27,6 +27,7 @@
                         <th>操作</th>
                     </tr>
                     </thead>
+                    <tbody>
                         @if(isset($product))
                             @foreach($product->skus(10) as $sku)
                                 <tr class="handle" data-md-id="{{$sku->sku_id}}">
@@ -37,7 +38,9 @@
                                           </span>
                                     </td>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$sku->sku_name}}</td>
+                                    <td>{{$sku->sku_name}}<br>
+                                        {{$sku->id_code}}
+                                    </td>
                                     <td>
                                         <img src="{{$sku->thumbnail!==null? asset($sku->thumbnail):asset('images/default/products/product.jpg')}} " class="product-sku-thumbnail">
                                     </td>
@@ -53,15 +56,20 @@
                                     @endforeach
                                     <td>{{$sku->price}}</td>
                                     <td>
-                                        @include('theme.cryptoadmin.member.layouts.btn-md-index-table_tr', ['route_name'=> 'member.product-sku', 'm_id' => $sku->sku_id])
+{{--                                        @include('theme.cryptoadmin.member.layouts.btn-md-index-table_tr', ['route_name'=> 'member.product-sku', 'm_id' => $sku->sku_id])--}}
+                                        <a  class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-lg"
+                                            onclick="event.preventDefault();
+                                                    md_product_sku_edit(this, php_inject={{json_encode(['models'  => ['sku' => $sku] ])}});">
+                                            <i class="fa fa-edit mr-5"></i>編輯</a>
                                         <a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-left"
                                                 onclick="event.preventDefault();
-                                                md_product_sku_supplier_index(this, php_inject={{json_encode([ 'sku_id' => $sku->sku_id])}});">
-                                        <i class="fa fa-plus mr-5">供應商</i></a>
+                                                md_product_sku_supplier_index(this, php_inject={{json_encode([ 'models' => ['sku'=> $sku]])}});">
+                                        <i class="fa fa-plus mr-5"></i>供應商</a>
                                     </td>
                                 </tr>
                             @endforeach
                         @endif
+                    </tbody>
                 </table>
                 {{$product->skus(10)->links()}}
             </div>
@@ -76,92 +84,55 @@
 
     <script type="text/javascript">
         $(function () {
-            //可以排序
-            $('#tbl-product-sku tbody').sortable({
-                // placeholder         : 'sort-highlight',
-                handle              : '.handle',
-                forcePlaceholderSize: false,
-                zIndex              : 999999,
-                update              : table_order_tr
-            });
+            //排序表格
+            active_table_sortable(table_id="tbl-product-sku", eq_order_index=1, options={});
             //Switch
-            $bt_switch = $('.bt-switch');
-            $bt_switch.bootstrapSwitch('toggleState', true);
+            active_switch(switch_class='bt-switch', options=[]);
         });
 
-        function md_insert(_this,  php_inject){
-            //取得所有formData
-            // var formData = new FormData();
-            //formData.append('_method','DELETE');
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+        function md_product_sku_create(_this,  php_inject){
+            $.ajaxSetup(active_ajax_header());
             $.ajax({
                 type: 'get',
-                url: '{{route('member.product-sku.create')}}?p_id=' + php_inject.master_id,
+                url: '{{route('member.product-sku.create')}}?p_id=' + php_inject.models.product.p_id,
                 data: '',
                 async: true,
                 crossDomain: true,
                 contentType: false,
                 processData: false,
                 success: function(data) {
-                    $('#modal-lg .modal-title').html('產品SKU');
+                    $('#modal-lg .modal-title').html('產品 - SKU');
                     $('#modal-lg .modal-body').html(data.view)
                 },
                 error: function(data) {
                 }
             });
         }
-        function table_order_tr() {
-            //排序
-            $('#tbl-product-sku tbody tr').each(function ($index) {
-                input_a_id = $(this).children('td:eq(2)').find('input').attr('name','a_ids[]');
-                $(this).children('td:eq(1)').html($index+1);
-            })
-        }
 
-        function md_edit(_this,  _php_inject){
-            m_id = _php_inject.m_id;
-            //取得所有formData
-            var formData = new FormData();
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+        function md_product_sku_edit(_this,  php_inject){
+            $.ajaxSetup(active_ajax_header());
             $.ajax({
                 type: 'get',
-                url: '{{route('member.product-sku.index')}}/'+m_id+'/edit?m_id='+m_id,
-                data: formData,
+                url: '{{route('member.product-sku.index')}}/'+php_inject.models.sku.sku_id+'/edit',
+                data: '',
                 async: true,
                 crossDomain: true,
                 contentType: false,
                 processData: false,
                 success: function(data) {
-                    $('#modal-md .modal-title').html('編輯 - 產品SKU');
-                    $('#modal-md .modal-body').html(data.view);
+                    $('#modal-lg .modal-title').html('編輯 - 產品SKU');
+                    $('#modal-lg .modal-body').html(data.view);
                 },
                 error: function(data) {
                 }
             });
         }
 
-        function md_product_sku_supplier_index(_this,  _php_inject) {
-            sku_id = p_id = _php_inject.sku_id;
-
-            //Product_SKUSupplier index
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+        function md_product_sku_supplier_index(_this,  php_inject) {
+            $.ajaxSetup(active_ajax_header());
             $.ajax({
                 type: 'get',
-                url: '{{route('member.product-sku-supplier.index')}}?sku_id='+sku_id,
+                url: '{{route('member.product-sku-supplier.index')}}?sku_id='+php_inject.models.sku.sku_id,
                 data: '',
                 async: true,
                 crossDomain: true,
