@@ -38,7 +38,9 @@
                                           </span>
                                     </td>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$sku->sku_name}}</td>
+                                    <td>{{$sku->sku_name}}<br>
+                                        {{$sku->id_code}}
+                                    </td>
                                     <td>
                                         <img src="{{$sku->thumbnail!==null? asset($sku->thumbnail):asset('images/default/products/product.jpg')}} " class="product-sku-thumbnail">
                                     </td>
