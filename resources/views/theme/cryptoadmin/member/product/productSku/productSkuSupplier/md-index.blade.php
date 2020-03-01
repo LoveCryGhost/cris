@@ -8,16 +8,31 @@
             <div class="col-md-12 text-right">
                 <a class="btn btn-warning" data-toggle="modal" data-target="#modal-lg"
                         onclick="event.preventDefault();
-                        md_product_sku_supplier_create(this, php_inject={{json_encode([])}});">
+                        md_product_sku_supplier_create(this, php_inject={{json_encode(['models' => ['sku' => $sku]])}});">
                 <i class="fa fa-plus"></i></a>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <img src="{{$sku->thumbnail? asset($sku->thumbnail) : '/images/default/products/product.jpg'}}" style="width: 100px;">
             </div>
-            <div class="col-md-8">
-
+            <div class="col-md-10">
+                <table class="table table-bordered">
+                    <tbody>
+                    <tr class="m-0"><td>Barcode</td><td>{{$sku->id_code}}</td></tr>
+                    <tr class="m-0"><td>啟用</td>
+                        <td>
+                            <input type="checkbox" class="bt-switch" name="is_active" id="is_active" value="1" {{$sku->is_active==1? "checked":""}}
+                            data-label-width="100%"
+                                   data-label-text="啟用" data-size="min"
+                                   data-on-text="On"    data-on-color="primary"
+                                   data-off-text="Off"  data-off-color="danger"/>
+                        </td>
+                    </tr>
+                    <tr class="m-0"><td>售價</td><td>{{$sku->price}}</td></tr>
+                    <tr class="m-0"><td>SKU名稱</td><td>{{$sku->sku_name}}</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -93,10 +108,6 @@
 
 
     function md_product_sku_supplier_edit(_this,  php_inject) {
-        ss_id = php_inject.ss_id;
-        sku_id = php_inject.sku_id;
-        s_id = php_inject.s_id;
-
         $.ajaxSetup(active_ajax_header());
         $.ajax({
             type: 'get',
@@ -116,31 +127,22 @@
         });
     }
 
-    function md_product_sku_supplier_create(_this,  _php_inject) {
-        {{--p_id = _php_inject.master_id;--}}
-        {{--sku_id = p_id = _php_inject.sku_id;--}}
-
-        {{--//Product_SKUSupplier index--}}
-
-        {{--$.ajaxSetup({--}}
-            {{--headers: {--}}
-                {{--'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-            {{--}--}}
-        {{--});--}}
-        {{--$.ajax({--}}
-            {{--type: 'get',--}}
-            {{--url: '{{route('member.product-sku-supplier.index')}}?sku_id='+sku_id,--}}
-            {{--data: '',--}}
-            {{--async: true,--}}
-            {{--crossDomain: true,--}}
-            {{--contentType: false,--}}
-            {{--processData: false,--}}
-            {{--success: function(data) {--}}
-                {{--$('#modal-left .modal-title').html('供應商 - 列表');--}}
-                {{--$('#modal-left .modal-body').html(data.view);--}}
-            {{--},--}}
-            {{--error: function(data) {--}}
-            {{--}--}}
-        {{--});--}}
+    function md_product_sku_supplier_create(_this,  php_inject) {
+        $.ajaxSetup(active_ajax_header());
+        $.ajax({
+            type: 'get',
+            url: '{{route('member.product-sku-supplier.index')}}/create?sku_id=' + php_inject.models.sku.sku_id,
+            data: '',
+            async: true,
+            crossDomain: true,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                $('#modal-lg .modal-title').html('SKU供應商 - 新增');
+                $('#modal-lg .modal-body').html(data.view);
+            },
+            error: function(data) {
+            }
+        });
     }
 </script>

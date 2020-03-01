@@ -5,7 +5,7 @@
             <div class="col-12 text-right">
                 <a href="#" class="btn btn-primary"
                    onclick="event.preventDefault();
-                           md_product_sku_supplier_update(this, php_inject={{json_encode(['models'=>['sku' => $sku, 'skuSupplier' => $skuSupplier]])}});">
+                           md_product_sku_supplier_store(this, php_inject={{json_encode(['models'=>['sku' => $sku]])}});">
                     <i class="fa fa-save"></i></a>
             </div>
             <div class="col-2">
@@ -21,36 +21,32 @@
                 @include(config('theme.member.view').'layouts.errors')
                 <table class="table table-bordered">
                     <tbody>
-                        <tr class="m-0"><td>Barcode</td><td>{{$sku->id_code}}</td></tr>
-                        <tr class="m-0"><td>啟用</td>
-                            <td>
-                                <input type="checkbox" class="bt-switch" name="is_active" id="is_active" value="1" {{$sku->is_active==1? "checked":""}}
-                                data-label-width="100%"
-                                       data-label-text="啟用" data-size="min"
-                                       data-on-text="On"    data-on-color="primary"
-                                       data-off-text="Off"  data-off-color="danger"/>
-                            </td>
-                        </tr>
-                        <tr class="m-0"><td>售價</td><td>{{$sku->price}}</td></tr>
-                        <tr class="m-0"><td>SKU名稱</td><td>{{$sku->sku_name}}</td></tr>
+                    <tr class="m-0"><td>Barcode</td><td>{{$sku->id_code}}</td></tr>
+                    <tr class="m-0"><td>啟用</td>
+                        <td>
+                            <input type="checkbox" class="bt-switch" name="is_active" id="is_active" value="1" {{$sku->is_active==1? "checked":""}}
+                            data-label-width="100%"
+                                   data-label-text="啟用" data-size="min"
+                                   data-on-text="On"    data-on-color="primary"
+                                   data-off-text="Off"  data-off-color="danger"/>
+                        </td>
+                    </tr>
+                    <tr class="m-0"><td>售價</td><td>{{$sku->price}}</td></tr>
+                    <tr class="m-0"><td>SKU名稱</td><td>{{$sku->sku_name}}</td></tr>
                     </tbody>
                 </table>
             </div>
             <div class="col-md-12">
                 <div class="form-group row">
-                <label class="col-sm-2 col-form-label">供應商</label>
-                <div class="col-sm-10">
-                    <select class="select2_item form-control" name="sku_supplier" id="sku_supplier" style="z-index: 9999;">
-                        <option value="">Select...</option>
-                        @foreach($suppliers as $supplier)
-                            @if($supplier->s_id == $skuSupplier->s_id)
-                                <option value="{{$supplier->s_id}}" data-md-id="{{$supplier->s_id}}" selected>{{$supplier->id_code}} - {{$supplier->s_name}} -- 預設值</option>
-                            @else
+                    <label class="col-sm-2 col-form-label">供應商</label>
+                    <div class="col-sm-10">
+                        <select class="select2_item form-control" name="sku_supplier" id="sku_supplier" style="z-index: 9999;">
+                            <option value="">Select...</option>
+                            @foreach($suppliers as $supplier)
                                 <option value="{{$supplier->s_id}}" data-md-id="{{$supplier->s_id}}">{{$supplier->id_code}} - {{$supplier->s_name}}</option>
-                            @endif
-                        @endforeach
-                    </select>
-                </div>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="col-md-12">
@@ -58,7 +54,7 @@
                     <label class="col-sm-2 col-form-label">進貨價</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="price" id="price" placeholder="price"
-                               value="{{$sku->skuSuppliers()->wherePivot('s_id',$skuSupplier->s_id)->first()->pivot->price}}">
+                               value="{{old('price')}}">
                     </div>
                 </div>
             </div>
@@ -67,7 +63,7 @@
                     <label class="col-sm-2 col-form-label">URL</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="url" id="url" placeholder="url"
-                               value="{{$sku->skuSuppliers()->wherePivot('s_id',$skuSupplier->s_id)->first()->pivot->url}}">
+                               value="{{old('url')}}">
                     </div>
                 </div>
             </div>
@@ -92,8 +88,7 @@
         });
     });
 
-    function md_product_sku_supplier_update(_this,  php_inject) {
-
+    function md_product_sku_supplier_store(_this,  php_inject) {
         s_id = $('#sku_supplier').find(':selected').data('md-id');
         //先判別更改的是否等於原先設定 或是 空值
         if(s_id === "" || s_id === undefined){
@@ -103,7 +98,6 @@
         }
 
         var formData = new FormData();
-        formData.append('_method', 'put');
         formData.append('s_id', s_id);
         formData.append('sku_id', php_inject.models.sku.sku_id);
         formData.append('url', $('#url').val());
@@ -112,7 +106,7 @@
         $.ajaxSetup(active_ajax_header());
         $.ajax({
             type: 'post',
-            url: '{{route('member.product-sku-supplier.index')}}/'+s_id,
+            url: '{{route('member.product-sku-supplier.index')}}?sku_id='+php_inject.models.sku.sku_id,
             data: formData,
             async: true,
             crossDomain: true,
@@ -140,8 +134,7 @@
                 } else {
                     img_supplier = '<img src="' + url_path + '/images/default/products/product.jpg" style="width:70px;">';
                 }
-                s_name = sku_supplier.s_name +
-                    '<input type="text" hidden name="sku_suppliers[s_id]" value="'+sku_supplier.s_id + '">';
+                s_name = sku_supplier.s_name;
 
                 switch_btn_checked = "";
                 if (sku_supplier.is_active === 1) {
@@ -162,9 +155,7 @@
                     '                                           <i class="fa fa-edit mr-5">編輯</i>' +
                     '                                       </a>';
                 html = '<tr data-ss-id="' + sku_supplier.pivot.ss_id + '"><td>' + cursor_move + '</td><td></td><td>' + img_supplier + '</td><td>' + s_name + '</td><td>' + switch_btn + '</td><td>' + price + '</td><td>' + url + '</td><td>' + crud + '</td></tr>';
-                tr = $('#tbl-product-sku-supplier tbody tr[data-ss-id=' + sku_supplier.pivot.ss_id + ']');
-                tr.after(html);
-                tr.remove();
+                tr = $('#tbl-product-sku-supplier tbody').append(html);
 
                 //排序
                 $('#tbl-product-sku-supplier tbody tr').each(function ($index) {

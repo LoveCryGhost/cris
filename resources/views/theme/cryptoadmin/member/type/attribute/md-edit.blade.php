@@ -105,6 +105,7 @@
 
             },
             error: function(data) {
+                master_detail_errors(_this, data);
             }
         });
     }
