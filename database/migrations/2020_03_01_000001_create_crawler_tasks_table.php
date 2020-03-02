@@ -34,7 +34,7 @@ class CreateCrawlerTasksTable extends Migration
             $table->bigIncrements('ci_id');
             $table->string('itemid')->index();
             $table->string('shopid')->nullable();
-            $table->string('ci_name')->nullable();
+            $table->string('name')->nullable();
             $table->string('images')->nullable();
             $table->integer('sold')->default(0);
             $table->integer('historical_sold')->default(0);
@@ -46,11 +46,13 @@ class CreateCrawlerTasksTable extends Migration
 
         Schema::create('crawler_shops', function (Blueprint $table) {
             $table->bigIncrements('cs_id');
-            $table->string('shopid')->unique()->nullable();
+            $table->string('shopid')->index();
             $table->string('cs_name');
             $table->string('local')->nullable();
             $table->bigInteger('ci_id')->unsigned();
             $table->foreign('ci_id')->references('ci_id')->on('crawler_items')->onDelete('cascade');
+            $table->bigInteger('member_id')->unsigned();
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
             $table->timestamps();
         });
     }

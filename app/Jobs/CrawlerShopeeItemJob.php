@@ -3,11 +3,14 @@
 namespace App\Jobs;
 
 use App\Handlers\ShopeeHandler;
+use App\Models\CrawlerItem;
+use App\Repositories\Member\MemberCoreRepository;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Auth;
 
 class CrawlerShopeeItemJob implements ShouldQueue
 {
@@ -29,16 +32,20 @@ class CrawlerShopeeItemJob implements ShouldQueue
         $ClientResponse = $this->shopeeHandler->ClientHeader_Shopee($url);
         $json = json_decode($ClientResponse->getBody(), true);
 
+        $member_id = Auth::guard('member')->check()?  Auth::guard('member')->user()->id: '1';
         foreach ($json['items'] as $item){
-            $item_info[] = [
+            $rows[] = [
                 'itemid' => $item['itemid'],
                 'shopid' => $item['shopid'],
                 'name' => $item['name'],
                 'images' => $item['images'][0],
-                'sold' => $item['sold'],
-                'historical_sold' => $item['historical_sold']
+                'sold' => $item['sold']!==null? $item['sold']: 0,
+                'historical_sold' => $item['historical_sold'],
+                'member_id' => $member_id
             ];
         };
-        //dd($json['items'][17],$item_info);
+
+        $crawlerTask = new CrawlerItem();
+        $TF = (new MemberCoreRepository())->massUpdate($crawlerTask, $rows);
     }
 }

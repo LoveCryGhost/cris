@@ -9,14 +9,17 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;;
 
-class Type extends Model
+class CrawlerItem extends Model
 {
 
-    protected $table = "types";
-    protected $primaryKey='t_id';
+    protected $table = "crawler_items";
+    protected $primaryKey='ci_id';
 
     protected $fillable = [
-        'is_active', 't_name', 't_description',
+        'itemid', 'shopid',
+        'name',
+        'images', 'sold', 'historical_sold', 'local'
+
     ];
 
     protected $hidden = [
@@ -27,13 +30,6 @@ class Type extends Model
     ];
 
 
-    public function attributes()
-    {
-        return $this->belongsToMany(Attribute::class, 'types_attributes','t_id','a_id')
-            ->orderBy('sort_order')
-            ->withPivot(['sort_order'])
-            ->withTimestamps();
-    }
 
     public function member(){
         return $this->belongsTo(Member::class,'member_id');
