@@ -32,7 +32,7 @@ class CreateCrawlerTasksTable extends Migration
 
         Schema::create('crawler_items', function (Blueprint $table) {
             $table->bigIncrements('ci_id');
-            $table->string('itemid')->index();
+            $table->string('itemid')->unique()->index();
             $table->string('shopid')->nullable();
             $table->string('name')->nullable();
             $table->string('images')->nullable();
@@ -46,11 +46,12 @@ class CreateCrawlerTasksTable extends Migration
 
         Schema::create('crawler_shops', function (Blueprint $table) {
             $table->bigIncrements('cs_id');
-            $table->string('shopid')->index();
-            $table->string('cs_name');
+            $table->string('shopid')->unique()->index();
+            $table->string('username')->nullable();
+            $table->string('shop_location')->nullable();
             $table->string('local')->nullable();
-            $table->bigInteger('ci_id')->unsigned();
-            $table->foreign('ci_id')->references('ci_id')->on('crawler_items')->onDelete('cascade');
+//            $table->bigInteger('ci_id')->unsigned();
+//            $table->foreign('ci_id')->references('ci_id')->on('crawler_items')->onDelete('cascade');
             $table->bigInteger('member_id')->unsigned();
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
             $table->timestamps();

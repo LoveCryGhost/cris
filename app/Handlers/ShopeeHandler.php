@@ -31,6 +31,18 @@ class ShopeeHandler
 
         //local
         switch ($shopee_url = $params['domain']){
+            case "shopee.tw":
+                $params['local'] = 'tw';
+                break;
+
+            case "shopee.co.id":
+                $params['local'] = 'id';
+                break;
+
+            case "shopee.co.th":
+                $params['local'] = 'th';
+                break;
+
             case "shopee.com.my":
                 $params['local'] = 'my';
                 break;

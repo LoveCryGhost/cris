@@ -3,7 +3,7 @@
 namespace App\Observers;
 
 use App\Handlers\BarcodeHandler;
-use App\Jobs\CrawlerShopeeItemJob;
+use App\Jobs\CrawlerTaskJob;
 use App\Models\CrawlerTask;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,16 +36,17 @@ class CrawlerTaskObserver extends Observer
         $crawlerTask->save();
 
         //爬蟲
-        $items = $crawlerTask->pages*50;
-        $qty = 100;
-        $index = ceil($items/$qty);
+        $item_qty = $crawlerTask->pages*50;
+        $insert_item_qty = config('crawler.insert_item_qty');
+
+        $index = ceil($item_qty/$insert_item_qty);
         for ($i=0; $i<=$index-1; $i++){
             $urls[] = 'https://'.$crawlerTask->domain.'/api/v2/search_items/?by='.$crawlerTask->sort_by.
-                        '&limit='.$qty.'&match_id='.$crawlerTask->cat.'&newest='.($i*10).'&order=desc&page_type=search&version=2';
+                        '&limit='.$insert_item_qty.'&match_id='.$crawlerTask->cat.'&newest='.($i*$insert_item_qty).'&order=desc&page_type=search&version=2';
         }
 
         foreach ($urls as $url){
-            dispatch(new CrawlerShopeeItemJob($url));
+            dispatch(new CrawlerTaskJob($crawlerTask, $url));
         }
     }
 

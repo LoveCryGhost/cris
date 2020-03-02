@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers\Member;
 
-use App\Handlers\ShopeeHandler;
 use App\Http\Requests\Member\CrawlerTaskRequest;
-use App\Models\CrawlerItem;
-use App\Repositories\Member\MemberCoreRepository;
 use App\Services\Member\CrawlerTaskService;
-use Illuminate\Support\Facades\Auth;
 
 class CrawlerTasksController extends MemberCoreController
 {
