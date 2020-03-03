@@ -117,6 +117,7 @@ Route::prefix('member')->namespace('Member')->group(function(){
 
         //Crawler
         Route::resource('crawlertask', 'CrawlerTasksController');
+        Route::resource('crawleritem', 'CrawlerItemsController');
     });
 
 });

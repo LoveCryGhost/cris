@@ -30,4 +30,8 @@ class CrawlerTask extends Model
     public function member(){
         return $this->belongsTo(Member::class,'member_id');
     }
+
+    public function crawlerItems(){
+        return $this->belongsToMany(crawlerItem::class, 'crawler_tasks_items','ct_id','ci_id');
+    }
 }

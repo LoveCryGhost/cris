@@ -28,7 +28,7 @@ class CrawlerShopJob implements ShouldQueue
     {
         $member_id = Auth::guard('member')->check()?  Auth::guard('member')->user()->id: '1';
 
-        $crawler_shops = CrawlerShop::whereNull('created_at')->take(config('crawler.update_shop_qty'))->get();
+        $crawler_shops = CrawlerShop::whereNull('updated_at')->take(config('crawler.update_shop_qty'))->get();
         foreach ($crawler_shops as $crawler_shop){
             $url = 'https://shopee.tw/api/v2/shop/get?shopid='.$crawler_shop->shopid;
             $ClientResponse = $this->shopeeHandler->ClientHeader_Shopee($url);
@@ -40,7 +40,6 @@ class CrawlerShopJob implements ShouldQueue
                 'shop_location' => $json['data']['shop_location'],
                 'local' => $crawler_shop->local,
                 'member_id' => $member_id,
-                'created_at' => now(),
                 'updated_at'=>now()
             ];
         }

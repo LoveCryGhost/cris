@@ -5,13 +5,13 @@ namespace App\Console\Commands;
 use App\Jobs\CrawlerItemJob;
 use Illuminate\Console\Command;
 
-class CrawlerNewItemCron extends Command
+class CrawlerFirstTimeUpdateItemCron extends Command
 {
 
-    protected $signature = 'command:crawler_item';
+    protected $signature = 'command:crawler_first_time_update_item';
 
 
-    protected $description = 'Command crawler_item';
+    protected $description = 'Command crawler_first_time_update_item';
 
 
     public function __construct()

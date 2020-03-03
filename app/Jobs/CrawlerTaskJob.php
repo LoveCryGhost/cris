@@ -60,6 +60,12 @@ class CrawlerTaskJob implements ShouldQueue
         $crawlerItem = new CrawlerItem();
         $TF = (new MemberCoreRepository())->massUpdate($crawlerItem, $row_items);
 
+        //CrawlerTasks sync Items
+        $crawlerItem_ids = CrawlerItem::whereNull('created_at')->pluck('ci_id');
+        $this->crawlerTask->crawlerItems()->syncwithoutdetaching($crawlerItem_ids);
+        $crawlerItem->timestamps = false;
+        $crawlerItem->whereIn('ci_id',$crawlerItem_ids)->update(['created_at' => now()]);
+
         //批量儲存Shop
         $crawlerShop = new CrawlerShop();
         $TF = (new MemberCoreRepository())->massUpdate($crawlerShop, $row_shops);

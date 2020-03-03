@@ -56,6 +56,14 @@ class CreateCrawlerTasksTable extends Migration
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
             $table->timestamps();
         });
+
+        Schema::create('crawler_tasks_items', function (Blueprint $table) {
+            $table->bigIncrements('ct_i_d');
+            $table->bigInteger('ct_id')->unsigned();
+            $table->foreign('ct_id')->references('ct_id')->on('crawler_tasks')->onDelete('cascade');
+            $table->bigInteger('ci_id')->unsigned();
+            $table->foreign('ci_id')->references('ci_id')->on('crawler_items')->onDelete('cascade');
+        });
     }
 
     /**
@@ -65,6 +73,7 @@ class CreateCrawlerTasksTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('crawler_tasks_items');
         Schema::dropIfExists('crawler_tasks');
         Schema::dropIfExists('crawler_shops');
         Schema::dropIfExists('crawler_items');
