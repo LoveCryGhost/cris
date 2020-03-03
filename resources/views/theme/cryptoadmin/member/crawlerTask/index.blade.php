@@ -89,12 +89,12 @@
 @stop
 
 @section('js')
-@parent
-<script type="text/javascript">
-    $(function(){
-        active_switch(switch_class='bt-switch', options=[]);
-    })
-</script>
+    @parent
+    <script type="text/javascript">
+        $(function(){
+            active_switch(switch_class='bt-switch', options=[]);
+        })
+    </script>
 @endsection
 
 

@@ -64,26 +64,8 @@ class CrawlerTaskJob implements ShouldQueue
         $crawlerShop = new CrawlerShop();
         $TF = (new MemberCoreRepository())->massUpdate($crawlerShop, $row_shops);
 
-//        // CrawlerItem任務排程
-//        foreach ($row_items as $item)
-//        {
-//            $stop=1;
-//            for($i=1; $i<=$stop;$i++){
-//                $url = 'https://shopee.tw/api/v2/item/get?itemid='.$item['itemid'].'&shopid='.$item['shopid'];
-//                dispatch(new CrawlerItemJob($url, $item));
-//            }
-//            $stop++;
-//        }
-//
+        dispatch(new CrawlerItemJob());
+        dispatch(new CrawlerShopJob());
 
-//        //CrawlerShop 任務排程
-//        foreach ($row_shops as $shop){
-//            $stop=1;
-//            for($i=1; $i<=$stop;$i++) {
-//                $url = 'https://shopee.tw/api/v2/shop/get?shopid=' . $shop['shopid'];
-//                dispatch(new CrawlerShopJob($url, $shop));
-//            }
-//            $stop++;
-//        }
     }
 }

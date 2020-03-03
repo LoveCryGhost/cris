@@ -4,7 +4,6 @@ namespace App\Jobs;
 
 use App\Handlers\ShopeeHandler;
 use App\Models\CrawlerItem;
-use App\Models\CrawlerShop;
 use App\Repositories\Member\MemberCoreRepository;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -18,11 +17,9 @@ class CrawlerItemJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     private $shopeeHandler;
-    private $crawler_items;
 
-    public function __construct( $crawler_items)
+    public function __construct()
     {
-        $this->crawler_items = $crawler_items;
         $this->shopeeHandler = new ShopeeHandler();
     }
 
@@ -31,11 +28,12 @@ class CrawlerItemJob implements ShouldQueue
     {
         $member_id = Auth::guard('member')->check()?  Auth::guard('member')->user()->id: '1';
 
-        foreach ($this->crawler_items as $crawler_item){
+        $crawler_items = CrawlerItem::whereNull('created_at')->take(config('crawler.update_item_qty'))->get();
+
+        foreach ($crawler_items as $crawler_item){
             $url = 'https://shopee.tw/api/v2/item/get?itemid='.$crawler_item->itemid.'&shopid='.$crawler_item->shopid;
             $ClientResponse = $this->shopeeHandler->ClientHeader_Shopee($url);
             $json = json_decode($ClientResponse->getBody(), true);
-
 
             //CrawlerItem
             $row_item[]=[
@@ -47,12 +45,15 @@ class CrawlerItemJob implements ShouldQueue
                 'local' => $crawler_item->local,
                 'member_id' => $member_id,
                 'created_at' => now(),
-                'updated_at'=>now()
+                'updated_at'=> now()
             ];
         }
 
-        //Update CrawlerItem
-        $crawlerItem = new CrawlerItem();
-        $TF = (new MemberCoreRepository())->massUpdate($crawlerItem, $row_item);
+        if(count($crawler_items)>0){
+            //Update CrawlerItem
+            $crawlerItem = new CrawlerItem();
+            $TF = (new MemberCoreRepository())->massUpdate($crawlerItem, $row_item);
+            dispatch(new CrawlerItemJob());
+        }
     }
 }

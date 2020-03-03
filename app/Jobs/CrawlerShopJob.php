@@ -17,11 +17,9 @@ class CrawlerShopJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     private $shopeeHandler;
-    private $crawler_shops;
 
-    public function __construct($crawler_shops)
+    public function __construct()
     {
-        $this->crawler_shops = $crawler_shops;
         $this->shopeeHandler = new ShopeeHandler();
     }
 
@@ -30,7 +28,8 @@ class CrawlerShopJob implements ShouldQueue
     {
         $member_id = Auth::guard('member')->check()?  Auth::guard('member')->user()->id: '1';
 
-        foreach ($this->crawler_shops as $crawler_shop){
+        $crawler_shops = CrawlerShop::whereNull('created_at')->take(config('crawler.update_shop_qty'))->get();
+        foreach ($crawler_shops as $crawler_shop){
             $url = 'https://shopee.tw/api/v2/shop/get?shopid='.$crawler_shop->shopid;
             $ClientResponse = $this->shopeeHandler->ClientHeader_Shopee($url);
             $json = json_decode($ClientResponse->getBody(), true);
@@ -46,8 +45,11 @@ class CrawlerShopJob implements ShouldQueue
             ];
         }
 
-        //Update CrawlerShop
-        $crawlerShop = new CrawlerShop();
-        $TF = (new MemberCoreRepository())->massUpdate($crawlerShop, $row_shop);
+        if(count($crawler_shops)>0) {
+            //Update CrawlerShop
+            $crawlerShop = new CrawlerShop();
+            $TF = (new MemberCoreRepository())->massUpdate($crawlerShop, $row_shop);
+            dispatch(new CrawlerShopJob());
+        }
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Member;
 
 use App\Http\Requests\Member\CrawlerTaskRequest;
+use App\Models\CrawlerTask;
 use App\Services\Member\CrawlerTaskService;
 
 class CrawlerTasksController extends MemberCoreController
@@ -33,13 +34,12 @@ class CrawlerTasksController extends MemberCoreController
         $crawlerTasks = $this->crawlerTaskService->index();
         return view(config('theme.member.view').'crawlerTask.index', compact('crawlerTasks'));
     }
-//
-//    public function edit(Type $type)
-//    {
-//        $attributes = $this->typeService->attributeRepo->builder()->all();
-//        return view(config('theme.member.view').'type.edit', compact('type', 'attributes'));
-//    }
-//
+
+    public function edit(CrawlerTask $crawlertask)
+    {
+        return view(config('theme.member.view').'crawlerTask.edit', compact('crawlertask'));
+    }
+
 //    public function update(TypeRequest $request, Type $type)
 //    {
 //        $data = $request->all();
