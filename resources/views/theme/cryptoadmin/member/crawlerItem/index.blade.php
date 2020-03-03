@@ -35,10 +35,8 @@
             // 限制自动加载, 仅限前两页, 后面就要用户点击才加载
             autoTriggerUntil: 100,
             // 设置加载下一页缓冲时的图片
-            loadingHtml: '<img class="center-block" src="/images/loading.gif" alt="Loading..." />',
-
+            loadingHtml: '<img class="center-block text-center" src="{{asset('images/default/icons/loading.gif')}}" alt="Loading..." />',
             padding: 0,
-
             nextSelector: 'a.jscroll-next:last',
             contentSelector: 'div.infinite-scroll',
             // callback: function() {
