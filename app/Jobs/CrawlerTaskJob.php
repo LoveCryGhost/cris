@@ -40,8 +40,8 @@ class CrawlerTaskJob implements ShouldQueue
             $row_items[] = [
                 'itemid' => $item['itemid'],
                 'shopid' => $item['shopid'],
-                'name' => $item['name'],
-                'images' => $item['images'][0],
+                //'name' => $item['name'], 不完整
+                'images' => $item['image'],
                 'sold' => $item['sold']!==null? $item['sold']: 0,
                 'historical_sold' => $item['historical_sold'],
                 'local' => $this->crawlerTask->local,

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Member;
 
+use App\Handlers\ShopeeHandler;
 use App\Http\Requests\Member\CrawlerTaskRequest;
 use App\Models\CrawlerItem;
 use App\Models\CrawlerTask;
 use App\Services\Member\CrawlerTaskService;
+use Illuminate\Support\Facades\Auth;
 
 class CrawlerTasksController extends MemberCoreController
 {
@@ -17,13 +19,6 @@ class CrawlerTasksController extends MemberCoreController
         $this->middleware('auth:member');
         $this->crawlerTaskService = $crawlerTaskService;
 
-//        $this->crawlerTask = CrawlerTask::find(1);
-//        $crawlerItem_ids = CrawlerItem::whereNull('created_at')->pluck('ci_id');
-//
-//        $this->crawlerTask->crawlerItems()->sync($crawlerItem_ids);
-//        $crawlerItem = new CrawlerItem();
-//        $crawlerItem->timestamps = false;
-//        $crawlerItem->whereIn('ci_id',$crawlerItem_ids)->update(['created_at' => now()]);
     }
 
     public function create()

@@ -32,3 +32,19 @@
   cursor: pointer;
 }
 
+.member-crawleritem-index-page .item-div {
+  border-radius: 3px;
+  border: lightgrey 1px solid;
+  box-shadow: 2px 2px lightcyan;
+  margin: 3px;
+  padding: 3px;
+}
+
+.member-crawleritem-index-page .item-image {
+  border-radius: 3px;
+  border: lightgrey 1px solid;
+  padding: 3px;
+  box-shadow: 2px 2px lightcyan;
+  margin: 3px;
+}
+
