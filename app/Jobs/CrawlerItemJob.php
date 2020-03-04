@@ -4,7 +4,10 @@ namespace App\Jobs;
 
 use App\Handlers\ShopeeHandler;
 use App\Models\CrawlerItem;
+use App\Models\CrawlerItemSKU;
+use App\Models\CrawlerItemSKUDetail;
 use App\Repositories\Member\MemberCoreRepository;
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -30,30 +33,104 @@ class CrawlerItemJob implements ShouldQueue
 
         $crawler_items = CrawlerItem::whereNull('updated_at')->take(config('crawler.update_item_qty'))->get();
 
-        foreach ($crawler_items as $crawler_item){
-            $url = 'https://shopee.tw/api/v2/item/get?itemid='.$crawler_item->itemid.'&shopid='.$crawler_item->shopid;
-            $ClientResponse = $this->shopeeHandler->ClientHeader_Shopee($url);
-            $json = json_decode($ClientResponse->getBody(), true);
-
-            //CrawlerItem
-            $row_item[]=[
-                'itemid' => $crawler_item->itemid,
-                'shopid' => $crawler_item->shopid,
-                'name' => $json['item']['name'],
-                'images' => $json['item']['images'][0],
-                'sold' => $json['item']['sold'],
-                'historical_sold' => $json['item']['historical_sold'],
-                'local' => $crawler_item->local,
-                'member_id' => $member_id,
-                'updated_at'=> now()
-            ];
-        }
-
         if(count($crawler_items)>0){
-            //Update CrawlerItem
-            $crawlerItem = new CrawlerItem();
-            $TF = (new MemberCoreRepository())->massUpdate($crawlerItem, $row_item);
+            foreach ($crawler_items as $crawler_item){
+                $url = 'https://shopee.tw/api/v2/item/get?itemid='.$crawler_item->itemid.'&shopid='.$crawler_item->shopid;
+                $ClientResponse = $this->shopeeHandler->ClientHeader_Shopee($url);
+                $json = json_decode($ClientResponse->getBody(), true);
+
+                //CrawlerItem
+                $row_item[]=[
+                    'itemid' => $crawler_item->itemid,
+                    'shopid' => $crawler_item->shopid,
+                    'name' => $json['item']['name'],
+                    'images' => $json['item']['images'][0],
+                    'sold' => $json['item']['sold'],
+                    'historical_sold' => $json['item']['historical_sold'],
+                    'local' => $crawler_item->local,
+                    'member_id' => $member_id,
+                    'updated_at'=> now()
+                ];
+
+                //Update CrawlerItem
+                $crawlerItem = new CrawlerItem();
+                $TF = (new MemberCoreRepository())->massUpdate($crawlerItem, $row_item);
+
+                //CrawlerItemSKU
+                if(count($json['item']['models'])>0){
+                    $this->row_model_details($json, $crawler_item);
+                }else{
+                    $this->row_item_detail($json, $crawler_item);
+                }
+            }
+
+            //重新指派任務
             dispatch(new CrawlerItemJob());
         }
     }
+
+    public function row_model_details($json, $crawler_item){
+        foreach ($json['item']['models'] as $model){
+            $row_item_modes[] = [
+                'ci_id' => $crawler_item->ci_id,
+                'shopid' => $json['item']['shopid'],
+                'itemid' => $model['itemid'],
+                'modelid' => $model['modelid'],
+                'name' => $model['name'],
+                'price' => $model['price'],
+                'local' => 'tw',
+            ];
+            $row_item_mode_details[] = [
+                'shopid' => $json['item']['shopid'],
+                'itemid' => $model['itemid'],
+                'modelid' => $model['modelid'],
+                'price' => $model['price'],
+                'price_before_discount' => $model['price_before_discount'],
+                'sold' => $model['sold'],
+                'stock' => $model['stock'],
+                'created_at' => Carbon::now()
+            ];
+        }
+
+        //UpdateOrCreate CrawlerItemSKU
+        $crawlerItemSKU = new CrawlerItemSKU();
+        $TF = (new MemberCoreRepository())->massUpdate($crawlerItemSKU, $row_item_modes);
+
+        //UpdateOrCreate CrawlerItemSKUDetail
+        $crawlerItemSKUDetail = new CrawlerItemSKUDetail();
+        $TF = (new MemberCoreRepository())->massUpdate($crawlerItemSKUDetail, $row_item_mode_details);
+    }
+
+    public function row_item_detail($json, $crawler_item){
+
+
+        $row_item_modes[] = [
+            'ci_id' => $crawler_item->ci_id,
+            'shopid' => $json['item']['shopid'],
+            'itemid' => $json['item']['itemid'],
+            'modelid' => $json['item']['itemid'],
+            'name' => $json['item']['name'],
+            'price' => $json['item']['price'],
+            'local' => 'tw',
+        ];
+        $row_item_mode_details[] = [
+            'shopid' => $json['item']['shopid'],
+            'itemid' => $json['item']['itemid'],
+            'modelid' => $json['item']['itemid'],
+            'price' => $json['item']['price'],
+            'price_before_discount' => $json['item']['price_before_discount'],
+            'sold' => $json['item']['sold'],
+            'stock' => $json['item']['stock'],
+            'created_at' => Carbon::now()
+        ];
+
+        //UpdateOrCreate CrawlerItemSKU
+        $crawlerItemSKU = new CrawlerItemSKU();
+        $TF = (new MemberCoreRepository())->massUpdate($crawlerItemSKU, $row_item_modes);
+
+        //UpdateOrCreate CrawlerItemSKUDetail
+        $crawlerItemSKUDetail = new CrawlerItemSKUDetail();
+        $TF = (new MemberCoreRepository())->massUpdate($crawlerItemSKUDetail, $row_item_mode_details);
+    }
+
 }

@@ -9,7 +9,7 @@ use App\Services\Member\CrawlerTaskService;
 
 class CrawlerItemsController extends MemberCoreController
 {
-    public function __construct(CrawlerTaskService $crawlerTaskService)
+    public function __construct()
     {
         $this->middleware('auth:member');
     }

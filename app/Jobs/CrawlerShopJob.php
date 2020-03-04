@@ -29,22 +29,24 @@ class CrawlerShopJob implements ShouldQueue
         $member_id = Auth::guard('member')->check()?  Auth::guard('member')->user()->id: '1';
 
         $crawler_shops = CrawlerShop::whereNull('updated_at')->take(config('crawler.update_shop_qty'))->get();
-        foreach ($crawler_shops as $crawler_shop){
-            $url = 'https://shopee.tw/api/v2/shop/get?shopid='.$crawler_shop->shopid;
-            $ClientResponse = $this->shopeeHandler->ClientHeader_Shopee($url);
-            $json = json_decode($ClientResponse->getBody(), true);
-
-            $row_shop[]=[
-                'shopid' => $crawler_shop->shopid,
-                'username' => $json['data']['account']['username'],
-                'shop_location' => $json['data']['shop_location'],
-                'local' => $crawler_shop->local,
-                'member_id' => $member_id,
-                'updated_at'=>now()
-            ];
-        }
 
         if(count($crawler_shops)>0) {
+
+            foreach ($crawler_shops as $crawler_shop){
+                $url = 'https://shopee.tw/api/v2/shop/get?shopid='.$crawler_shop->shopid;
+                $ClientResponse = $this->shopeeHandler->ClientHeader_Shopee($url);
+                $json = json_decode($ClientResponse->getBody(), true);
+
+                $row_shop[]=[
+                    'shopid' => $crawler_shop->shopid,
+                    'username' => $json['data']['account']['username'],
+                    'shop_location' => $json['data']['shop_location'],
+                    'local' => $crawler_shop->local,
+                    'member_id' => $member_id,
+                    'updated_at'=>now()
+                ];
+            }
+
             //Update CrawlerShop
             $crawlerShop = new CrawlerShop();
             $TF = (new MemberCoreRepository())->massUpdate($crawlerShop, $row_shop);

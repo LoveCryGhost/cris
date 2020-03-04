@@ -42,7 +42,6 @@
                             </table>
                         </div>
 
-
                         {{--CrawlerItem 爬蟲項目--}}
                         <div class="infinite-scroll">
                             @foreach($crawlerItems as $crawlerItem)
@@ -59,7 +58,7 @@
                                             <a class="btn btn-sm btn-info" target="_blank"
                                                href="https://shopee.tw/{{$crawlerItem->name}}-i.{{$crawlerItem->shopid}}.{{$crawlerItem->itemid}}" ><i class="fa fa-external-link"></i></a>
                                             <a class="btn btn-sm btn-info" target="_blank"
-                                               href="https://shopee.tw/{{$crawlerItem->name}}-i.{{$crawlerItem->shopid}}.{{$crawlerItem->itemid}}" ><i class="fa fa-shopping-bag"></i></a>
+                                               href="https://shopee.tw/shop/{{$crawlerItem->shopid}}" ><i class="fa fa-shopping-bag"></i></a>
                                         </div>
                                         <div class="col-md-4">
                                             SKU-明細<br>
