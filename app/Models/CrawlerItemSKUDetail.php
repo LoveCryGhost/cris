@@ -13,7 +13,9 @@ class CrawlerItemSKUDetail extends Model
 {
 
     protected $table = "citem_sku_details";
-    protected $primaryKey=['shopid', 'itemid', 'modelid'];
+    public $incrementing = false;
+    public $primaryKey=null;
+    //protected $primaryKey=['shopid', 'itemid', 'modelid'];
 
     protected $fillable = [
         'itemid', 'shopid', 'modelid',
@@ -26,5 +28,6 @@ class CrawlerItemSKUDetail extends Model
 
     protected $casts = [
     ];
+
 
 }

@@ -7,13 +7,17 @@
 
         <div class="row">
             <div class="col-md-6">
-                <table class="table table-hover table-bordered table-primary">
+                <table class="table-hover table-bordered table-primary font-size-10">
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>名稱</th>
                             <th>售價</th>
-                            <th>銷售量</th>
+                            <th>週銷量</th>
+                            <th>月銷量</th>
+                            <th>歷史銷量</th>
+                            <th>歷史銷量(%)</th>
+
                             <th>庫存</th>
                         </tr>
                     </thead>
@@ -23,11 +27,26 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$crawlerItemSKU->name}}</td>
                             <td>{{$crawlerItemSKU->price}}</td>
-                            <td>{{$crawlerItemSKU->sold}}</td>
-                            <td>{{$crawlerItemSKU->stock}}</td>
+                            <td>{{$crawlerItemSKU->CrawlerItemSKUDetails->sum('sold')}}</td>
+                            <td>{{$crawlerItemSKU->CrawlerItemSKUDetails_7records->sum('sold')}}</td>
+                            <td>{{number_format($crawlerItemSKU->sold, 0, "", ",")}}</td>
+                            <td>{{number_format(($crawlerItemSKU->sold/$crawlerItem->crawlerItemSKUs->sum('sold'))*100, 2, ".", ",")}}%</td>
+                            <td>{{number_format($crawlerItemSKU->stock, 0, ".", ",")}}</td>
                         </tr>
                         @endforeach
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th>{{number_format($crawlerItem->crawlerItemSKUs->sum('sold'), 0, "", ",")}}</th>
+                            <th>100%</th>
+                            <th>{{number_format($crawlerItem->crawlerItemSKUs->sum('stock'), 0, "", ",")}}</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
             <div class="col-md-6">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Member;
 
 use App\Http\Requests\Member\CrawlerTaskRequest;
+use App\Models\CrawlerItemSKU;
 use App\Models\CrawlerTask;
 use App\Services\Member\CrawlerTaskService;
 
@@ -15,6 +16,7 @@ class CrawlerTasksController extends MemberCoreController
     {
         $this->middleware('auth:member');
         $this->crawlerTaskService = $crawlerTaskService;
+        //dd(crawlerItemSKU::find(1)->CrawlerItemSKUDetails->sum('sold'));
 
     }
 

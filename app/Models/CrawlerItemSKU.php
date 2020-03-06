@@ -14,7 +14,7 @@ class CrawlerItemSKU extends Model
 
     protected $table = "citem_skus";
     protected $primaryKey='ci_id';
-    //protected $primaryKey=['shopid', 'itemid', 'modelid'];
+//    protected $primaryKey=['shopid', 'itemid', 'modelid'];
 
     protected $fillable = [
         'ci_id', 'itemid', 'shopid', 'modelid',
@@ -27,5 +27,26 @@ class CrawlerItemSKU extends Model
 
     protected $casts = [
     ];
+
+    public function getPriceAttribute($value)
+    {
+        return $value/10000;
+    }
+    public function CrawlerItemSKUDetails()
+    {
+        return $this->hasMany(CrawlerItemSKUDetail::class, 'modelid', 'modelid')
+                ->where('shopid', $this->shopid)
+                ->where('itemid', $this->itemid)
+                ->take(1);
+    }
+
+    public function CrawlerItemSKUDetails_7records()
+    {
+        return $this->hasMany(CrawlerItemSKUDetail::class, 'modelid', 'modelid')
+            ->where('shopid', $this->shopid)
+            ->where('itemid', $this->itemid)
+            ->take(7);
+    }
+
 
 }
