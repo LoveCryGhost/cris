@@ -53,6 +53,19 @@
                     <li><a href="{{route('member.product.index')}}"><i class="ti-more"></i>產品</a></li>
                 </ul>
             </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="ti-cup"></i>
+                    <span>Shopee爬蟲模組</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('member.crawlertask.index')}}"><i class="ti-more"></i>Shoppee任務</a></li>
+                </ul>
+            </li>
         </ul>
     </section>
 </aside>

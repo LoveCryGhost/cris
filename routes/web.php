@@ -109,9 +109,16 @@ Route::prefix('member')->namespace('Member')->group(function(){
 
         //Attribute
         Route::resource('attribute', 'AttributesController');
+
+        //Product
         Route::resource('product', 'ProductsController');
         Route::resource('product-sku', 'Product_SKUsController');
         Route::resource('product-sku-supplier', 'Product_SKU_SuppliersController');
+
+        //Crawler
+        Route::resource('crawlertask', 'CrawlerTasksController');
+        Route::resource('crawleritem', 'CrawlerItemsController');
+        Route::resource('crawleritemsku', 'CrawlerItemSKUsController');
     });
 
 });
