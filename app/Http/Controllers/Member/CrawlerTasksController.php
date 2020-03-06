@@ -43,17 +43,14 @@ class CrawlerTasksController extends MemberCoreController
         return view(config('theme.member.view').'crawlerTask.edit', compact('crawlertask'));
     }
 
-//    public function update(TypeRequest $request, Type $type)
-//    {
-//        $data = $request->all();
-//        $TF = $this->typeService->update($type, $data);
-//
-//        $a_ids = array_values($data['a_ids']);
-//        $this->typeService->attributeRepo->save($type, $a_ids);
-//        return redirect()->route('member.type.index')->with('toast', parent::$toast_update);
-//    }
-//
-//
+    public function update(CrawlerTaskRequest $request, CrawlerTask $crawlertask)
+    {
+        $data = $request->all();
+        $TF = $this->crawlerTaskService->update($crawlertask,$data);
+
+        return redirect()->route('member.crawlertask.index')->with('toast', parent::$toast_update);
+    }
+
 //    public function destroy(Request $request, Type $type)
 //    {
 //        $data = $request->all();

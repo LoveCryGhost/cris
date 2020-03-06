@@ -18,21 +18,6 @@ class CrawlerTaskService extends MemberCoreService implements MemberServiceInter
         $this->crawlertaskRepo = $crawlerTaskRepository;
         $this->shopeeHandler = $shopeeHandler;
 
-//        $url = "https://shopee.tw/api/v2/search_items/?by=sales&fe_categoryids=2164&limit=50&newest=50&order=desc&page_type=search&version=2";
-//        $ClientResponse = $this->shopeeHandler->ClientHeader_Shopee($url);
-//        $json = json_decode($ClientResponse->getBody(), true);
-//
-//        foreach ($json['items'] as $item){
-//            $item_info[] = [
-//                'itemid' => $item['itemid'],
-//                'shopid' => $item['shopid'],
-//                'name' => $item['name'],
-//                'images' => $item['images'][0],
-//                'sold' => $item['sold'],
-//                'historical_sold' => $item['historical_sold']
-//            ];
-//        };
-        //dd($json['items'][17],$item_info);
     }
 
     public function index()
@@ -68,8 +53,8 @@ class CrawlerTaskService extends MemberCoreService implements MemberServiceInter
 
     public function update($model,$data)
     {
-//        $type = $model;
-//        return $type->update($data);
+        $crawlerTask = $model;
+        return $crawlerTask->update($data);
     }
 
     public function destroy($model, $data)

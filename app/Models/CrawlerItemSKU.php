@@ -38,7 +38,8 @@ class CrawlerItemSKU extends Model
     {
         $query = $this->hasMany(CrawlerItemSKUDetail::class, 'modelid', 'modelid')
             ->where('shopid', $this->shopid)
-            ->where('itemid', $this->itemid);
+            ->where('itemid', $this->itemid)
+            ->orderBy('created_at', 'ASC');
 
         if($records!=0){
             $query = $query->take($records);

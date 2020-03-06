@@ -19,6 +19,7 @@
     <section class="content">
         <form method="post" action="{{route('member.crawlertask.update',['crawlertask' => $crawlertask->ct_id])}}">
             @csrf
+            @method('put')
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
                     @include(config('theme.member.view').'layouts.errors')
@@ -41,72 +42,72 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">最後更新時間</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="updated_at" placeholder="最後更新時間"  value="{{$crawlertask->updated_at->diffForHumans()}}">
+                                            <input class="form-control" type="text" placeholder="最後更新時間" disabled value="{{$crawlertask->updated_at->diffForHumans()}}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">啟用</label>
                                         <div class="col-sm-10">
-                                            <input type="checkbox" class="bt-switch" name="is_active"  value="1"
-                                            data-label-width="100%"
-                                                   data-label-text="啟用" data-size="min"
-                                                   data-on-text="On"    data-on-color="primary"
-                                                   data-off-text="Off"  data-off-color="danger"/>
+                                            <input type="checkbox" class="bt-switch" name="is_active"  value="1" {{$crawlertask->is_active==1? "checked" : ""}}
+                                                data-label-width="100%"
+                                                data-label-text="啟用" data-size="min"
+                                                data-on-text="On"    data-on-color="primary"
+                                                data-off-text="Off"  data-off-color="danger"/>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Barcode</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text"  placeholder="Auto-Generate" disabled value="{{$crawlertask->id_code}}">
+                                            <input class="form-control" type="text"  placeholder="Auto-Generate" disabled value="{{$crawlertask->id_code}}" >
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">任務名稱</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="ct_name" placeholder="任務名稱"  value="{{$crawlertask->ct_name}}">
+                                            <input class="form-control" type="text" name="ct_name" placeholder="任務名稱"   value="{{$crawlertask->ct_name}}">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">網址</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="url" placeholder="產品名稱"  value="{{$crawlertask->url}}">
+                                            <input class="form-control" type="text" name="url" placeholder="網址" disabled value="{{$crawlertask->url}}">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">搜尋頁數</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="pages" placeholder="搜尋頁數"  value="{{$crawlertask->pages}}">
+                                            <input class="form-control" type="text" name="pages" placeholder="搜尋頁數" disabled value="{{$crawlertask->pages}}">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Domain</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="domain" placeholder="Domain"  value="{{$crawlertask->domain}}">
+                                            <input class="form-control" type="text" name="domain" placeholder="Domain" disabled  value="{{$crawlertask->domain}}">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">類別</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="cat" placeholder="類別"  value="{{$crawlertask->cat}}">
+                                            <input class="form-control" type="text" name="cat" placeholder="類別" disabled  value="{{$crawlertask->cat}}">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">國家</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="local" placeholder="國家"  value="{{$crawlertask->local}}">
+                                            <input class="form-control" type="text" name="local" placeholder="國家" disabled  value="{{$crawlertask->local}}">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">創建者</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="member_id" placeholder="創建者"  value="{{$crawlertask->member->name}}">
+                                            <input class="form-control" type="text" placeholder="創建者" disabled  value="{{$crawlertask->member->name}}">
                                         </div>
                                     </div>
 

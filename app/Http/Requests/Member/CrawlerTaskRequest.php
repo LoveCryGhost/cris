@@ -20,6 +20,7 @@ class CrawlerTaskRequest extends Request
                 {
                     return [
                         'url' => ['required'],
+                        'ct_name' => ['required'],
 
                     ];
                 }
@@ -27,7 +28,7 @@ class CrawlerTaskRequest extends Request
             case 'PATCH':
                 {
                     return [
-                        'url' => ['required'],
+                        'ct_name' => ['required'],
                     ];
                 }
             case 'GET':
@@ -42,8 +43,8 @@ class CrawlerTaskRequest extends Request
     public function messages()
     {
         return [
-
-            'url.required' => '任務名稱不能為空',
+            'url.required' => '網址不能為空',
+            'ct_name.required' => '任務不能為空',
         ];
     }
 }

@@ -11,16 +11,16 @@ use Illuminate\Support\Facades\Auth;
 class CrawlerTaskObserver extends Observer
 {
 
-    public function saving(CrawlerTask $crawlerTask)
+    public function saving(CrawlerTask $crawlertask)
     {
-        if($crawlerTask->is_active == 1 or $crawlerTask->is_active ==true){
-            $crawlerTask->is_active = 1;
+        if(request()->is_active == 1 or request()->is_active == true){
+            $crawlertask->is_active = 1;
         }else{
-            $crawlerTask->is_active = 0;
+            $crawlertask->is_active = 0;
         }
         //判別是否為admin建立
         if(Auth::guard('member')->user()!=null) {
-            $crawlerTask->member_id = Auth::guard('member')->user()->id;
+            $crawlertask->member_id = Auth::guard('member')->user()->id;
         }
     }
 
@@ -29,37 +29,37 @@ class CrawlerTaskObserver extends Observer
 
     }
 
-    public function created(CrawlerTask $crawlerTask)
+    public function created(CrawlerTask $crawlertask)
     {
         // $url = 'https://shopee.com.my/api/v2/search_items/?by=sales&limit=50&match_id=16&newest=50&order=desc&page_type=search&version=2';
-        $crawlerTask->id_code = (new BarcodeHandler())->barcode_generation(config('barcode.crawlertask'), $crawlerTask->ct_id);
-        $crawlerTask->save();
+        $crawlertask->id_code = (new BarcodeHandler())->barcode_generation(config('barcode.crawlertask'), $crawlerTask->ct_id);
+        $crawlertask->save();
 
         //爬蟲
-        $item_qty = $crawlerTask->pages*50;
+        $item_qty = $crawlertask->pages*50;
         $insert_item_qty = config('crawler.insert_item_qty');
 
         $index = ceil($item_qty/$insert_item_qty);
         for ($i=0; $i<=$index-1; $i++){
-            $urls[] = 'https://'.$crawlerTask->domain.'/api/v2/search_items/?by='.$crawlerTask->sort_by.
-                        '&limit='.$insert_item_qty.'&match_id='.$crawlerTask->cat.'&newest='.($i*$insert_item_qty).'&order=desc&page_type=search&version=2';
+            $urls[] = 'https://'.$crawlertask->domain.'/api/v2/search_items/?by='.$crawlertask->sort_by.
+                        '&limit='.$insert_item_qty.'&match_id='.$crawlertask->cat.'&newest='.($i*$insert_item_qty).'&order=desc&page_type=search&version=2';
         }
 
         foreach ($urls as $url){
-            dispatch(new CrawlerTaskJob($crawlerTask, $url));
+            dispatch(new CrawlerTaskJob($crawlertask, $url));
         }
     }
 
-    public function updating(CrawlerTask $crawlerTask)
+    public function updating(CrawlerTask $crawlertask)
     {
     }
 
-    public function saved(CrawlerTask $crawlerTask)
+    public function saved(CrawlerTask $crawlertask)
     {
 
     }
 
-    public function deleted( CrawlerTask $crawlerTask)
+    public function deleted( CrawlerTask $crawlertask)
     {
 
     }
