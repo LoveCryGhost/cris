@@ -32,21 +32,30 @@ class CrawlerItemSKU extends Model
     {
         return $value/10000;
     }
-    public function CrawlerItemSKUDetails()
-    {
-        return $this->hasMany(CrawlerItemSKUDetail::class, 'modelid', 'modelid')
-                ->where('shopid', $this->shopid)
-                ->where('itemid', $this->itemid)
-                ->take(1);
-    }
 
-    public function CrawlerItemSKUDetails_7records()
+
+    public function crawlerItemSKUDetails($records=0)
     {
-        return $this->hasMany(CrawlerItemSKUDetail::class, 'modelid', 'modelid')
+        $query = $this->hasMany(CrawlerItemSKUDetail::class, 'modelid', 'modelid')
             ->where('shopid', $this->shopid)
-            ->where('itemid', $this->itemid)
-            ->take(7);
+            ->where('itemid', $this->itemid);
+
+        if($records!=0){
+            $query = $query->take($records);
+        }
+
+        return $query;
     }
 
+
+
+    public function NdaysSales($ndays = 30)
+    {
+        $CrawlerItemSKUs = $this->crawlerItemSKUDetails($ndays)->get();
+        $first_day_sale =  $CrawlerItemSKUs->first()->sold;
+        $last_day_sale =  $CrawlerItemSKUs->last()->sold;
+        return $last_day_sale - $first_day_sale;
+
+    }
 
 }

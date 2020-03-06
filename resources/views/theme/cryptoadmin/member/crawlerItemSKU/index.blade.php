@@ -27,8 +27,8 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$crawlerItemSKU->name}}</td>
                             <td>{{$crawlerItemSKU->price}}</td>
-                            <td>{{$crawlerItemSKU->CrawlerItemSKUDetails->sum('sold')}}</td>
-                            <td>{{$crawlerItemSKU->CrawlerItemSKUDetails_7records->sum('sold')}}</td>
+                            <td>{{$crawlerItemSKU->ndaysSales(7)}}</td>
+                            <td>{{$crawlerItemSKU->ndaysSales(30)}}</td>
                             <td>{{number_format($crawlerItemSKU->sold, 0, "", ",")}}</td>
                             <td>{{number_format(($crawlerItemSKU->sold/$crawlerItem->crawlerItemSKUs->sum('sold'))*100, 2, ".", ",")}}%</td>
                             <td>{{number_format($crawlerItemSKU->stock, 0, ".", ",")}}</td>
