@@ -21,6 +21,8 @@ class CreateCrawlerItemSkusTable extends Migration
             $table->primary(['shopid', 'itemid', 'modelid']);
             $table->string('name');
             $table->string('local')->nullable();
+            $table->integer('sold')->default(0);
+            $table->integer('stock')->default(0);
             $table->unsignedBigInteger('price')->default(0);
 
             $table->foreign('ci_id')->references('ci_id')->on('crawler_items')->onDelete('cascade');

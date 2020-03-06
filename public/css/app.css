@@ -40,6 +40,10 @@
   padding: 3px;
 }
 
+.member-crawleritem-index-page .item-div:hover {
+  background: lightcyan;
+}
+
 .member-crawleritem-index-page .item-image {
   border-radius: 3px;
   border: lightgrey 1px solid;

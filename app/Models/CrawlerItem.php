@@ -13,14 +13,14 @@ class CrawlerItem extends Model
 {
 
     protected $table = "crawler_items";
-    protected $primaryKey='ci_id';
+    protected $primaryKey = 'ci_id';
 
     protected $fillable = [
         'itemid', 'shopid',
         'name',
         'images', 'sold', 'historical_sold', 'local'
-
     ];
+
 
     protected $hidden = [
 
@@ -29,9 +29,11 @@ class CrawlerItem extends Model
     protected $casts = [
     ];
 
-
-
     public function member(){
         return $this->belongsTo(Member::class,'member_id');
+    }
+
+    public function crawlerItemSKUs(){
+        return $this->hasMany(CrawlerItemSKU::class, 'ci_id');
     }
 }

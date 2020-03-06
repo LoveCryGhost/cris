@@ -31,7 +31,6 @@ class CrawlerShopJob implements ShouldQueue
         $crawler_shops = CrawlerShop::whereNull('updated_at')->take(config('crawler.update_shop_qty'))->get();
 
         if(count($crawler_shops)>0) {
-
             foreach ($crawler_shops as $crawler_shop){
                 $url = 'https://shopee.tw/api/v2/shop/get?shopid='.$crawler_shop->shopid;
                 $ClientResponse = $this->shopeeHandler->ClientHeader_Shopee($url);

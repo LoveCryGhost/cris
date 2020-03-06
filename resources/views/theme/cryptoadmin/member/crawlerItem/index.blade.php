@@ -53,18 +53,20 @@
                                         <div class="col-md-1">
                                             <img src="https://cf.shopee.tw/file/{{$crawlerItem->images}}_tn" class="item-image"><br>
                                         </div>
-                                        <div class="col-md-4">
-                                            <a href="">{{ $crawlerItem->name }}</a><br>
+                                        <div class="col-md-7">
+                                            <a>{{ $crawlerItem->name }}</a><br>
                                             <a class="btn btn-sm btn-info" target="_blank"
                                                href="https://shopee.tw/{{$crawlerItem->name}}-i.{{$crawlerItem->shopid}}.{{$crawlerItem->itemid}}" ><i class="fa fa-external-link"></i></a>
                                             <a class="btn btn-sm btn-info" target="_blank"
                                                href="https://shopee.tw/shop/{{$crawlerItem->shopid}}" ><i class="fa fa-shopping-bag"></i></a>
                                         </div>
-                                        <div class="col-md-4">
-                                            SKU-明細<br>
+                                        <div class="col-md-3">
+                                            <a class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal-left"
+                                               onclick="show_crawler_item_skus(this, php_inject={{json_encode(['models' => ['crawlerItem' => $crawlerItem]])}})">SKU-明細</a><br>
                                             銷量 : {{$crawlerItem->sold}}<br>
-                                            歷史銷量: {{$crawlerItem->historical_sold}}<br>
-                                            建立者 : {{Auth::guard('member')->user()->name}}<br>
+                                            歷史銷量 : {{$crawlerItem->historical_sold}}<br>
+                                            最後更新時間 : {{$crawlerItem->updated_at->diffForHumans()}}<br>
+
                                         </div>
                                     </div>
 
@@ -94,7 +96,6 @@
 
 @section('js')
     @parent
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jscroll/2.4.1/jquery.jscroll.min.js"></script>
 
 <script type="text/javascript">
@@ -104,16 +105,35 @@ $(function() {
         // 当滚动到底部时,自动加载下一页
         autoTrigger: true,
         // 限制自动加载, 仅限前两页, 后面就要用户点击才加载
-        autoTriggerUntil: 2-1,
+        autoTriggerUntil: 4-1,
         // 设置加载下一页缓冲时的图片
         loadingHtml: '<div class="text-center"><img class="center-block" src="{{asset('images/default/icons/loading.gif')}}" alt="Loading..." /><div>',
         padding: 0,
         nextSelector: 'a.jscroll-next:last',
         contentSelector: 'div.infinite-scroll',
-        // callback: function() {
-        //     $('ul.pagination').remove();
-        // }
+
     });
 });
+
+function show_crawler_item_skus(_this, php_inject) {
+    $.ajaxSetup(active_ajax_header());
+    $.ajax({
+        type: 'get',
+        url: '{{route('member.crawleritemsku.index')}}?ci_id='+php_inject.models.crawlerItem.ci_id,
+        data: '',
+        async: true,
+        crossDomain: true,
+        contentType: false,
+        processData: false,
+        success: function(data) {
+            $('#modal-left .modal-title').html('SKUs - 列表');
+            $('#modal-left .modal-body').html(data.view)
+        },
+        error: function(data) {
+        }
+    });
+
+}
+
 </script>
 @endsection
