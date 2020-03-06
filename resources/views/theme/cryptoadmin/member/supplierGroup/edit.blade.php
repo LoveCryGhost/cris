@@ -42,7 +42,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">啟用xx</label>
                                             <div class="col-sm-10">
-                                                <input type="checkbox" class="bt-switch form-control" name="is_active"   {{$supplierGroup->is_active==1? "checked":""}}
+                                                <input type="checkbox" class="bt-switch form-control" name="is_active" value="1"  {{$supplierGroup->is_active==1? "checked":""}}
                                                        data-label-width="100%"
                                                        data-label-text="啟用" data-size="min"
                                                        data-on-text="On"    data-on-color="primary"

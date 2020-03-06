@@ -12,7 +12,7 @@ class SupplierGroupObserver extends Observer
 
     public function saving(SupplierGroup $supplierGroup)
     {
-        if($supplierGroup->is_active == 1 or $supplierGroup->is_active ==true){
+        if(request()->is_active == 1 or request()->is_active ==true){
             $supplierGroup->is_active = 1;
         }else{
             $supplierGroup->is_active = 0;
