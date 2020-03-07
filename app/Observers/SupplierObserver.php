@@ -12,7 +12,7 @@ class SupplierObserver extends Observer
 
     public function saving(Supplier $supplier)
     {
-        if($supplier->is_active == 1 or $supplier->is_active ==true){
+        if(request()->is_active == 1 or request()->is_active ==true){
             $supplier->is_active = 1;
         }else{
             $supplier->is_active = 0;

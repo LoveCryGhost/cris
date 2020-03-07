@@ -16,6 +16,7 @@ class CrawlerItem extends Model
     protected $primaryKey = 'ci_id';
 
     protected $fillable = [
+        'is_active',
         'itemid', 'shopid',
         'name',
         'images', 'sold', 'historical_sold', 'local'

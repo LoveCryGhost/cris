@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Member;
 
-use App\Http\Requests\Member\CrawlerTaskRequest;
 use App\Models\CrawlerItem;
 use App\Models\CrawlerTask;
-use App\Services\Member\CrawlerTaskService;
+use Illuminate\Http\Request;
 
 class CrawlerItemsController extends MemberCoreController
 {
@@ -17,14 +16,25 @@ class CrawlerItemsController extends MemberCoreController
     public function index()
     {
         $crawlerTask = CrawlerTask::find(request()->crawlerTask);
-        $crawlerItems = CrawlerItem::paginate(5);
+        $crawlerItems = CrawlerItem::where('is_active', request()->is_active)->paginate(5);
         return view(config('theme.member.view').'crawlerItem.index',
             [
                 'crawlerTask' => $crawlerTask,
                 'crawlerItems' => $crawlerItems,
                 'filters' => [
                     'crawlerTask'  => $crawlerTask->ct_id,
+                    'is_active' => request()->is_active
                 ]
             ]);
+    }
+
+    public function toggle(Request $request){
+        $crawlerItem = CrawlerItem::find($request->ci_id);
+        if($crawlerItem->is_active==1){
+            $crawlerItem->is_active=0;
+        }else{
+            $crawlerItem->is_active=1;
+        }
+        $crawlerItem->save();
     }
 }

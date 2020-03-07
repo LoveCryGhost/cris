@@ -17,6 +17,7 @@ class CreateCrawlerItemsTable extends Migration
 
         Schema::create('crawler_items', function (Blueprint $table) {
             $table->bigIncrements('ci_id');
+            $table->boolean('is_active')->default(1);
             $table->string('itemid')->unique()->index();
             $table->string('shopid')->nullable();
             $table->string('name')->nullable();
