@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Member;
 
 use App\Http\Requests\Member\CrawlerTaskRequest;
+use App\Models\CrawlerItem;
 use App\Models\CrawlerItemSKU;
 use App\Models\CrawlerTask;
 use App\Services\Member\CrawlerTaskService;
+use Carbon\Carbon;
 
 class CrawlerTasksController extends MemberCoreController
 {
@@ -16,7 +18,10 @@ class CrawlerTasksController extends MemberCoreController
     {
         $this->middleware('auth:member');
         $this->crawlerTaskService = $crawlerTaskService;
-        //dd(crawlerItemSKU::find(1)->CrawlerItemSKUDetails->sum('sold'));
+//        $crawler_items = CrawlerItem::where(function ($query) {
+//            $query->whereDate('updated_at','<>',Carbon::today())->orWhereNull('updated_at');
+//        })->take(config('crawler.update_item_qty'))->get();
+//        dd($crawler_items);
 
     }
 

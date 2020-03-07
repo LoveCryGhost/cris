@@ -24,7 +24,7 @@ class CrawlerTaskObserver extends Observer
         }
     }
 
-    public function creating(CrawlerTask $crawlerTask)
+    public function creating(CrawlerTask $crawlertask)
     {
 
     }
@@ -32,7 +32,7 @@ class CrawlerTaskObserver extends Observer
     public function created(CrawlerTask $crawlertask)
     {
         // $url = 'https://shopee.com.my/api/v2/search_items/?by=sales&limit=50&match_id=16&newest=50&order=desc&page_type=search&version=2';
-        $crawlertask->id_code = (new BarcodeHandler())->barcode_generation(config('barcode.crawlertask'), $crawlerTask->ct_id);
+        $crawlertask->id_code = (new BarcodeHandler())->barcode_generation(config('barcode.crawlertask'), $crawlertask->ct_id);
         $crawlertask->save();
 
         //爬蟲
