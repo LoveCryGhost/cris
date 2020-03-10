@@ -22,7 +22,7 @@ class MembersController extends MemberCoreController
 
     //Dashboard
     public function index(){
-        return view(config('theme.member.view').'member.index', compact(''));
+        return view(config('theme.member.view').'member.index');
     }
 
     public function edit(Member $member)

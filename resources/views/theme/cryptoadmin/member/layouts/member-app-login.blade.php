@@ -3,7 +3,7 @@
 
 
 {{--標題--}}
-<title>Admin - @yield('title')</title>
+<title>Member - @yield('title')</title>
 
 
 {{--CSS--}}
