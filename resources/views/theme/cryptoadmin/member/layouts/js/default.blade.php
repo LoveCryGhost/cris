@@ -132,8 +132,8 @@
             }
         };
     }
-    
-    
+
+
     function active_switch(switch_class, options=[]) {
         $bt_switch = $('.'+switch_class);
         $bt_switch.bootstrapSwitch('toggleState', true);

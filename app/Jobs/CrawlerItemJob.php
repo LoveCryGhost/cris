@@ -31,7 +31,10 @@ class CrawlerItemJob implements ShouldQueue
     {
         $member_id = Auth::guard('member')->check()?  Auth::guard('member')->user()->id: '1';
 
-        $crawler_items = CrawlerItem::whereDate('updated_at','<>',Carbon::today())->take(config('crawler.update_item_qty'))->get();
+        $crawler_items = CrawlerItem::where(function ($query) {
+                            $query->whereDate('updated_at','<>',Carbon::today())->orWhereNull('updated_at');
+                        })->take(config('crawler.update_item_qty'))->get();
+
         if(count($crawler_items)>0){
             foreach ($crawler_items as $crawler_item){
                 $url = 'https://shopee.tw/api/v2/item/get?itemid='.$crawler_item->itemid.'&shopid='.$crawler_item->shopid;

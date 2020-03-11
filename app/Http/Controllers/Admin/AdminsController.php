@@ -16,7 +16,7 @@ class AdminsController extends AdminCoreController
 
     //Dashboard
     public function index(){
-        return view(config('theme.admin.view').'admin.index', compact(''));
+        return view(config('theme.admin.view').'admin.index');
     }
 
     //顯示使用者資料

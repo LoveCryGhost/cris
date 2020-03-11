@@ -83,7 +83,7 @@
                                                onclick="show_crawler_item_skus(this, php_inject={{json_encode(['models' => ['crawlerItem' => $crawlerItem]])}})">SKU-明細</a><br>
                                             銷量 : {{$crawlerItem->sold}}<br>
                                             歷史銷量 : {{$crawlerItem->historical_sold}}<br>
-                                            最後更新時間 : {{$crawlerItem->updated_at->diffForHumans()}}<br>
+                                            最後更新時間 : {{$crawlerItem->updated_at!=null? $crawlerItem->updated_at->diffForHumans() : ""}}<br>
                                         </div>
                                         <div class="col-md-1">
                                             @if(request()->is_active==0)
@@ -134,7 +134,7 @@ $(function() {
         // 当滚动到底部时,自动加载下一页
         autoTrigger: true,
         // 限制自动加载, 仅限前两页, 后面就要用户点击才加载
-        autoTriggerUntil: 4-1,
+        autoTriggerUntil: 20-1,
         // 设置加载下一页缓冲时的图片
         loadingHtml: '<div class="text-center"><img class="center-block" src="{{asset('images/default/icons/loading.gif')}}" alt="Loading..." /><div>',
         padding: 0,
