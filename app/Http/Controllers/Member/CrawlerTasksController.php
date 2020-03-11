@@ -18,16 +18,11 @@ class CrawlerTasksController extends MemberCoreController
     {
         $this->middleware('auth:member');
         $this->crawlerTaskService = $crawlerTaskService;
-//        $crawler_items = CrawlerItem::where(function ($query) {
-//            $query->whereDate('updated_at','<>',Carbon::today())->orWhereNull('updated_at');
-//        })->take(config('crawler.update_item_qty'))->get();
-//        dd($crawler_items);
-
     }
 
     public function create()
     {
-        return view(config('theme.member.view').'crawlerTask.create', compact(''));
+        return view(config('theme.member.view').'crawlerTask.create');
     }
 
     public function store(CrawlerTaskRequest $request)
