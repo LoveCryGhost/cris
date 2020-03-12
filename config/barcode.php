@@ -17,6 +17,8 @@ return [
 
 
         //爬蟲
-        'crawlertask' => 'CT'
+        'crawlertask' => 'CT',
+
+        'staff' => 'ST'
 
 ];

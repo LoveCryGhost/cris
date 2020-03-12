@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateStaffsTable extends Migration
@@ -15,28 +16,39 @@ class CreateStaffsTable extends Migration
     {
         Schema::create('staff_departments', function (Blueprint $table) {
             $table->bigIncrements('d_id')->unsigned();
-            $table->integer('dp_id')->default(0);
+            $table->bigInteger('p_id')->nullable()->default(0);
+
+            $table->tinyInteger('sort_order')->default(0);
+            $table->tinyInteger('is_active')->default(1);
             $table->string('dp_code')->nullable();
-            $table->string('name');
+            $table->string('processes');
+            $table->string('name')->nullable();
             $table->string('description')->nullable();
-            $table->string('local')->nullable();
+            $table->string('local')->default('zh-cn');
+//            $table->foreign('p_id')->references('d_id')->on('staff_departments');
             $table->timestamps();
         });
 
         Schema::create('staffs', function (Blueprint $table) {
-            $table->bigIncrements('staff_id')->unsigned();
-            $table->string('staff_code')->nullable();
-            $table->bigInteger('d_id')->unsigned();
-            $table->bigInteger('pic')->unsigned();
-
+            $table->bigIncrements('id')->unsigned();
+            $table->string('id_code')->nullable();
+            $table->tinyInteger('is_active')->default(1);
             $table->string('name');
+            $table->string('email')->unique();
             $table->string('avatar')->nullable();
+            $table->date('birthday')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->bigInteger('d_id')->nullable()->unsigned();
+            $table->bigInteger('pic')->nullable()->unsigned();
+
+            $table->tinyInteger('level')->default(0)->nullable();
 
             //面試日期
-            $table->date('birthday')->nullable();
-            $table->tinyInteger('sex');
+            $table->tinyInteger('sex')->nullable();
 
-            $table->string('identify_code')->unique();
+            $table->string('identify_code')->nullable()->unique();
             $table->string('photo_id1')->nullable();
             $table->string('photo_id2')->nullable();
 
@@ -50,7 +62,7 @@ class CreateStaffsTable extends Migration
             $table->string('address_fix')->nullable();
             $table->string('address_current')->nullable();
 
-            $table->string('description')->nullable();
+            $table->string('introduction')->nullable();
 
             //面試日期
             $table->date('join_at')->nullable();
@@ -86,8 +98,9 @@ class CreateStaffsTable extends Migration
 
             $table->string('local')->nullable();
             $table->foreign('d_id')->references('d_id')->on('staff_departments')->onDelete('cascade');
-            $table->foreign('pic')->references('staff_id')->on('staffs')->onDelete('cascade');
-            $table->timestamps();
+            $table->foreign('pic')->references('id')->on('staffs')->onDelete('cascade');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

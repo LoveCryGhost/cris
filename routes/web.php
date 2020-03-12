@@ -64,6 +64,19 @@ Route::prefix('')->group(function() {
         Route::post('/password/reset', 'Auth\MemberResetPasswordController@reset')->name('member.password.update');
         Route::get('/password/reset/{token}', 'Auth\MemberResetPasswordController@showResetForm')->name('member.password.reset');
     });
+
+    //Member
+    Route::prefix('staff')->group(function() {
+        Route::get('/login', 'Auth\StaffLoginController@showLoginForm')->name('staff.login');
+        Route::post('/login', 'Auth\StaffLoginController@login')->name('staff.login.submit');
+        Route::post('/logout', 'Auth\StaffLoginController@logout')->name('staff.logout');
+
+        //Password Reset Route
+        Route::post('/password/email', 'Auth\StaffForgotPasswordController@sendResetLinkEmail')->name('staff.password.email');
+        Route::get('/password/reset', 'Auth\StaffForgotPasswordController@showRequestForm')->name('staff.password.request');
+        Route::post('/password/reset', 'Auth\StaffResetPasswordController@reset')->name('staff.password.update');
+        Route::get('/password/reset/{token}', 'Auth\StaffResetPasswordController@showResetForm')->name('staff.password.reset');
+    });
 });
 
 
@@ -74,7 +87,7 @@ Route::middleware('auth')->prefix('')->namespace('User')->name('')->group(functi
 });
 
 //Admin
-Route::prefix('')->namespace('Admin')->name('')->group(function(){
+Route::prefix('')->namespace('Admin')->group(function(){
     Route::prefix('admin')->name('admin.')->group(function(){
 
         //Guard-Switcher-User
@@ -122,6 +135,15 @@ Route::prefix('member')->namespace('Member')->group(function(){
         Route::resource('crawleritemsku', 'CrawlerItemSKUsController');
     });
 
+});
+
+//Staff
+Route::prefix('')->namespace('Staff')->group(function(){
+    Route::put('staff_update_password/{staff}', 'StaffsController@update_password')->name('staff.update_password');
+    Route::resource('staff', 'StaffsController');
+    Route::prefix('staff')->name('staff.')->group(function(){
+
+    });
 });
 
 
