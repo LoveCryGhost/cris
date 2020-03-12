@@ -17,17 +17,30 @@ class Staff extends Authenticatable implements MustVerifyEmailContract
     protected $primaryKey='id';
 
     protected $fillable = [
-        'is_active', 'd_id', 'pic',
-        'name', 'avatar', 'level', 'birthday',
-        'sex', 'identify_code', 'photo_id1', 'photo_id2',
+        'id_code', 'is_active', 'is_block',
+        'pic',
+        'name', 'sex', 'identify_code',
+        'avatar',
+
+        'birthday',
+
+        'interview_at', 'joint_at', 'social_security_at',
+        'apply_for_leave_at', 'leave_at',
+
+        'email',
+        'introduction',
+
+        'level',
+
         'tel1', 'phone1', 'contact1',
         'tel2', 'phone2', 'contact2',
+
+        'photo_id1', 'photo_id2',
+
+
         'address_fix', 'address_current',
-        'introduction',
-        'joint_at',
-        'social_security_at',
-        'apply_for_leave_at',
-        'leave_at',
+
+
         'education1_from',
         'education1_to',
         'education1_level',

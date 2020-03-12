@@ -25,7 +25,187 @@
                         <div class="col-xl-12 col-lg-12">
                             @include(config('theme.staff.view').'layouts.errors')
                         </div>
-                        {{--個人照片--}}
+                        {{--個人信息--}}
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="box box-solid box-inverse box-dark">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">個人信息</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">員工編號</label>
+                                                <div class="col-sm-4">
+                                                    <input class="form-control" type="text" name="is_active" placeholder="使用者名稱" value="{{$staff->name}}">
+                                                </div>
+                                                <label class="col-sm-2 col-form-label">啟用</label>
+                                                <div class="col-sm-1">
+                                                    <input class="form-control" type="text" name="is_active" placeholder="使用者名稱" value="{{$staff->name}}">
+                                                </div>
+                                                <label class="col-sm-2 col-form-label">鎖定</label>
+                                                <div class="col-sm-1">
+                                                    <input class="form-control" type="text" name="is_block" placeholder="使用者名稱" value="{{$staff->name}}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">姓名</label>
+                                                <div class="col-sm-4">
+                                                    <input class="form-control" type="text" name="name" placeholder="姓名" value="{{$staff->name}}">
+                                                </div>
+                                                <label class="col-sm-2 col-form-label">性別</label>
+                                                <div class="col-sm-1">
+                                                    <input class="form-control" type="text" name="sex" placeholder="Sex" value="{{$staff->sex}}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">身份字號</label>
+                                                <div class="col-sm-4">
+                                                    <input class="form-control" type="text" name="sex" placeholder="Sex" value="{{$staff->sex}}">
+                                                </div>
+
+                                                <label class="col-sm-2 col-form-label">生日</label>
+                                                <div class="col-sm-4">
+                                                    <input class="form-control" type="text" name="birthday" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask value="{{$staff->birthday}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group row pull-right">
+                                                <div class="img-preview-frame text-center" >
+                                                    <input type="file" name="avatar" id="avatar"  onchange="showPreview(this,['avatar_img'])" style="display: none;"/>
+                                                    <label for="avatar">
+                                                        <img id="avatar_img" class="rounded img-fluid mx-auto d-block max-w-150" style="cursor: pointer;" src="{{$staff->avatar? asset($staff->avatar):asset('theme/cryptoadmin/images/2.jpg')}}" width="200px">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">面試日期</label>
+                                                <div class="col-sm-2">
+                                                    <input class="form-control" type="text" name="birthday" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask value="{{$staff->birthday}}">
+                                                </div>
+                                                <label class="col-sm-2 col-form-label">入職日期</label>
+                                                <div class="col-sm-2">
+                                                    <input class="form-control" type="text" name="birthday" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask value="{{$staff->birthday}}">
+                                                </div>
+                                                <label class="col-sm-2 col-form-label">社保日期</label>
+                                                <div class="col-sm-2">
+                                                    <input class="form-control" type="text" name="birthday" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask value="{{$staff->birthday}}">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">申請離職</label>
+                                                <div class="col-sm-2">
+                                                    <input class="form-control" type="text" name="birthday" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask value="{{$staff->birthday}}">
+                                                </div>
+                                                <label class="col-sm-2 col-form-label">離職日期</label>
+                                                <div class="col-sm-2">
+                                                    <input class="form-control" type="text" name="birthday" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask value="{{$staff->birthday}}">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">郵箱</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="email" value="{{$staff->email}}" placeholder="郵箱" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">自我介紹</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" type="text" name="introduction" placeholder="自我介紹">{{$staff->introduction}}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group row pull-right">
+                                                <label class="col-sm-2 col-form-label"></label>
+                                                <div class="col-sm-10">
+                                                    <button type="submit" class="btn btn-warning">提交訊息</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="box box-solid box-inverse box-dark">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">聯繫人</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <div class="row"></div>
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">聯繫人1</label>
+                                            <div class="col-sm-2">
+                                                <input class="form-control" type="text" name="contact1" placeholder="聯繫人1" value="{{$staff->contact1}}">
+                                            </div>
+                                            <label class="col-sm-2 col-form-label">電話1</label>
+                                            <div class="col-sm-2">
+                                                <input class="form-control" type="text" name="tel1" placeholder="電話1" value="{{$staff->tel1}}">
+                                            </div>
+                                            <label class="col-sm-2 col-form-label">手機1</label>
+                                            <div class="col-sm-2">
+                                                <input class="form-control" type="text" name="phone1"  placeholder="手機1" value="{{$staff->phone1}}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">聯繫人2</label>
+                                            <div class="col-sm-2">
+                                                <input class="form-control" type="text" name="contact2" placeholder="聯繫人2" value="{{$staff->contact2}}">
+                                            </div>
+                                            <label class="col-sm-2 col-form-label">電話2</label>
+                                            <div class="col-sm-2">
+                                                <input class="form-control" type="text" name="tel2" placeholder="電話2" value="{{$staff->tel2}}">
+                                            </div>
+                                            <label class="col-sm-2 col-form-label">手機2</label>
+                                            <div class="col-sm-2">
+                                                <input class="form-control" type="text" name="phone2" placeholder="手機2"  value="{{$staff->phone2}}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+
+                                        <div class="form-group row pull-right">
+                                            <label class="col-sm-2 col-form-label"></label>
+                                            <div class="col-sm-10">
+                                                <button type="submit" class="btn btn-warning">提交訊息</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+{{--                        --}}
                         <div class="col-xl-4 col-lg-5">
                             <!-- Profile Image -->
                             <div class="box bg-warning bg-deathstar-dark">
@@ -59,50 +239,12 @@
                                 <div class="box-body">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">使用者名稱</label>
-                                                <div class="col-sm-10">
-                                                    <input class="form-control" type="text" name="name" placeholder="使用者名稱" value="{{$staff->name}}">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">郵箱地址</label>
-                                                <div class="col-sm-10">
-                                                    <input class="form-control" type="email" value="{{$staff->email}}" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">電話號碼</label>
-                                                <div class="col-sm-10">
-                                                    <input class="form-control" type="tel" name="phone" placeholder="電話號碼">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">生日</label>
-                                                <div class="col-sm-10">
-                                                    <input class="form-control" type="text" name="birthday" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask value="{{$staff->birthday}}">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">自我介紹</label>
-                                                <div class="col-sm-10">
-                                                    <textarea class="form-control" type="text" name="introduction" placeholder="自我介紹">{{$staff->introduction}}</textarea>
-                                                </div>
-                                            </div>
 
 
 
 
 
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label"></label>
-                                                <div class="col-sm-10">
-                                                    <button type="submit" class="btn btn-warning">提交訊息</button>
-                                                </div>
-                                            </div>
+
                                         </div>
 
                                     </div>

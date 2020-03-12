@@ -33,20 +33,26 @@ class CreateStaffsTable extends Migration
             $table->bigIncrements('id')->unsigned();
             $table->string('id_code')->nullable();
             $table->tinyInteger('is_active')->default(1);
-            $table->string('name');
+            $table->tinyInteger('is_block')->default(0);
             $table->string('email')->unique();
+            $table->bigInteger('pic')->nullable()->unsigned();
+
+
+
+            $table->string('name');
+            $table->tinyInteger('sex')->nullable();
+
             $table->string('avatar')->nullable();
             $table->date('birthday')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->bigInteger('d_id')->nullable()->unsigned();
-            $table->bigInteger('pic')->nullable()->unsigned();
+
 
             $table->tinyInteger('level')->default(0)->nullable();
 
             //面試日期
-            $table->tinyInteger('sex')->nullable();
 
             $table->string('identify_code')->nullable()->unique();
             $table->string('photo_id1')->nullable();
@@ -65,6 +71,7 @@ class CreateStaffsTable extends Migration
             $table->string('introduction')->nullable();
 
             //面試日期
+            $table->date('interview_at')->nullable();
             $table->date('join_at')->nullable();
             //社保
             $table->date('social_security_at')->nullable();
