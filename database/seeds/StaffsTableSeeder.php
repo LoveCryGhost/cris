@@ -27,6 +27,7 @@ class StaffsTableSeeder extends Seeder
                 $Staff->avatar = $faker->randomElement($avatars);
                 $Staff->id_code = (new BarcodeHandler())->barcode_generation(config('barcode.staff'), $index+1);
                 $Staff->d_id = 1;
+                $Staff->sex = 1;
                 $Staff->avatar = '/images/default/avatars/avatar'.($index+1).'.jpg';
             });
 

@@ -17,46 +17,48 @@ class Staff extends Authenticatable implements MustVerifyEmailContract
     protected $primaryKey='id';
 
     protected $fillable = [
-        'id_code', 'is_active', 'is_block',
-        'pic',
+        'id_code', 'pic',
+        'staff_code', 'is_active', 'is_block',
+
         'name', 'sex', 'identify_code',
         'avatar',
 
         'birthday',
 
-        'interview_at', 'joint_at', 'social_security_at',
+        'interview_at', 'join_at', 'social_security_at',
         'apply_for_leave_at', 'leave_at',
 
         'email',
-        'introduction',
 
-        'level',
+        'tel1', 'phone1', 'address_fix',
+        'tel2', 'phone2', 'address_current',
 
-        'tel1', 'phone1', 'contact1',
-        'tel2', 'phone2', 'contact2',
+        'note',
+
+        'introduced_by', 'interviewed_by',
+
+        //學歷
+        'education1_from', 'education1_to', 'education1_level', 'school1_name',
+        'education2_from', 'education2_to', 'education2_level', 'school2_name',
+
+        //經歷
+        'experience1_from', 'experience1_to', 'company1_name',
+        'experience2_from', 'experience2_to', 'company2_name',
+
+        //聯繫人
+        'contact1', 'contact_tel1', 'contact_phone1',
+        'contact2', 'contact_tel2', 'contact_phone2',
+
+        //dorm
+        'dorm_number',
+
+
 
         'photo_id1', 'photo_id2',
 
+        'level',
 
-        'address_fix', 'address_current',
-
-
-        'education1_from',
-        'education1_to',
-        'education1_level',
-        'school1_name',
-        'education2_from',
-        'education2_to',
-        'education2_level',
-        'school2_name',
-        'experience1_from',
-        'experience1_to',
-        'company1_name',
-        'salary1',
-        'experience2_from',
-        'experience2_to',
-        'company2_name',
-        'salary2',
+        //國家
         'local',
 
     ];

@@ -31,54 +31,74 @@ class CreateStaffsTable extends Migration
 
         Schema::create('staffs', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
-            $table->string('id_code')->nullable();
-            $table->tinyInteger('is_active')->default(1);
-            $table->tinyInteger('is_block')->default(0);
-            $table->string('email')->unique();
-            $table->bigInteger('pic')->nullable()->unsigned();
-
-
-
-            $table->string('name');
-            $table->tinyInteger('sex')->nullable();
-
-            $table->string('avatar')->nullable();
-            $table->date('birthday')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->bigInteger('d_id')->nullable()->unsigned();
+
+            //修改者
+            $table->bigInteger('pic')->nullable()->unsigned();
+            $table->string('staff_code')->nullable();
+            $table->string('id_code')->nullable();
+            $table->tinyInteger('is_active')->default(1);
+            $table->tinyInteger('is_block')->default(0);
+
+            $table->string('name');
+            $table->tinyInteger('sex')->nullable();
+            $table->string('identify_code')->nullable()->unique();
+            $table->string('avatar')->nullable();
+
+            $table->date('birthday')->nullable(); //生日
+            $table->date('interview_at')->nullable(); //面試日期
+            $table->date('join_at')->nullable(); //入職日期
+            $table->date('social_security_at')->nullable(); //社保
+            $table->date('apply_for_leave_at')->nullable(); //申請離職日期
+            $table->date('leave_at')->nullable(); //離職日期
+
+            $table->string('email')->unique();  //郵箱
+
+            //聯繫方式
+            $table->string('tel1')->nullable();
+            $table->string('phone1')->nullable();
+            $table->string('address_fix')->nullable();
+            $table->string('tel2')->nullable();
+            $table->string('phone2')->nullable();
+            $table->string('address_current')->nullable();
+
+            $table->string('note')->nullable();
+            $table->bigInteger('introduced_by')->nullable()->unsigned();
+            $table->bigInteger('interviewed_by')->nullable()->unsigned();
+
+
+            //聯繫人
+            $table->string('contact1')->nullable();
+            $table->string('contact_tel1')->nullable();
+            $table->string('contact_phone1')->nullable();
+            $table->string('contact2')->nullable();
+            $table->string('contact_tel2')->nullable();
+            $table->string('contact_phone2')->nullable();
+
+            //宿舍
+            $table->string('dorm_number')->nullable();
 
 
             $table->tinyInteger('level')->default(0)->nullable();
 
-            //面試日期
-
-            $table->string('identify_code')->nullable()->unique();
             $table->string('photo_id1')->nullable();
             $table->string('photo_id2')->nullable();
 
-            $table->string('tel1')->nullable();
-            $table->string('phone1')->nullable();
-            $table->string('contact1')->nullable();
-            $table->string('tel2')->nullable();
-            $table->string('phone2')->nullable();
-            $table->string('contact2')->nullable();
+            //部門
+            $table->bigInteger('d_id')->nullable()->unsigned();
 
-            $table->string('address_fix')->nullable();
-            $table->string('address_current')->nullable();
 
-            $table->string('introduction')->nullable();
 
-            //面試日期
-            $table->date('interview_at')->nullable();
-            $table->date('join_at')->nullable();
-            //社保
-            $table->date('social_security_at')->nullable();
-            //申請離職日期
-            $table->date('apply_for_leave_at')->nullable();
-            //離職日期
-            $table->date('leave_at')->nullable();
+
+
+
+
+
+
+
+
 
             //education
             $table->date('education1_from')->nullable();

@@ -33,18 +33,16 @@ class StaffRequest extends Request
                         'apply_for_leave_at' => 'date',
                         'leave_at' => 'date',
 
-                        'education1_from' => 'date',
-                        'education1_to' => 'date',
-                        'education2_from' => 'date',
-                        'education2_to' => 'date',
+                        'education1_from' => 'date|nullable',
+                        'education1_to' => 'date|nullable',
+                        'education2_from' => 'date|nullable',
+                        'education2_to' => 'date|nullable',
 
-                        'experience1_from' => 'date',
-                        'experience1_to' => 'date',
-                        'salary1' => 'integer',
+                        'experience1_from' => 'date|nullable',
+                        'experience1_to' => 'date|nullable',
 
-                        'experience2_from' => 'date',
-                        'experience2_to' => 'date',
-                        'salary2' => 'integer',
+                        'experience2_from' => 'date|nullable',
+                        'experience2_to' => 'date|nullable',
 
                     ];
                 }
@@ -61,23 +59,21 @@ class StaffRequest extends Request
                         'avatar' => 'mimes:jpeg,bmp,png,gif|dimensions:min_width=208,min_height=208',
 
                         'email' =>'email',
-                        'social_security_at' => 'date',
-                        'join_at' => 'date',
-                        'apply_for_leave_at' => 'date',
-                        'leave_at' => 'date',
+                        'social_security_at' => 'date|nullable',
+                        'join_at' => 'date|nullable',
+                        'apply_for_leave_at' => 'date|nullable',
+                        'leave_at' => 'date|nullable',
 
-                        'education1_from' => 'date',
-                        'education1_to' => 'date',
-                        'education2_from' => 'date',
-                        'education2_to' => 'date',
+                        'education1_from' => 'date|nullable',
+                        'education1_to' => 'date|nullable',
+                        'education2_from' => 'date|nullable',
+                        'education2_to' => 'date|nullable',
 
-                        'experience1_from' => 'date',
-                        'experience1_to' => 'date',
-                        'salary1' => 'integer',
+                        'experience1_from' => 'date|nullable',
+                        'experience1_to' => 'date|nullable',
 
-                        'experience2_from' => 'date',
-                        'experience2_to' => 'date',
-                        'salary2' => 'integer',
+                        'experience2_from' => 'date|nullable',
+                        'experience2_to' => 'date|nullable',
                     ];
                 }
             case 'GET':
