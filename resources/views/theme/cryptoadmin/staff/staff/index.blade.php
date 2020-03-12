@@ -1,6 +1,6 @@
 @extends(config('theme.staff.staff-app'))
 
-@section('title','個人信息')
+@section('title','員工列表')
 
 @section('content')
     <div class="container-full">

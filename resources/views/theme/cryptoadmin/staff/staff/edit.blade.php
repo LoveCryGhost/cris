@@ -18,12 +18,16 @@
 
             <!-- Main content -->
             <section class="content">
-                <form method="post" action="{{route('staff.update', ['staff'=>$staff->id])}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('staff.staff.update', ['staff' => $staff->id])}}" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="row">
                         <div class="col-xl-12 col-lg-12">
                             @include(config('theme.staff.view').'layouts.errors')
+                        </div>
+                        <div class="col-xl-12 col-lg-12 text-right mb-5">
+                            <a class="btn btn-warning" href="{{route('staff.staff.staff_list')}}" ><i class="fa fa-list"></i></a>
+                            @include(config('theme.staff.btn.edit.crud'))
                         </div>
                         {{--個人信息--}}
                         <div class="col-xl-12 col-lg-12">
@@ -36,13 +40,18 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group row">
-                                                <label class="col-sm-1 col-form-label">Barcode</label>
+                                                <label class="col-sm-2 col-form-label">Barcode</label>
                                                 <div class="col-sm-2">
                                                     <input class="form-control" type="text" name="id_code" placeholder="Barcode" value="{{$staff->id_code}}">
                                                 </div>
-                                                <label class="col-sm-1 col-form-label">修改者</label>
+                                                <label class="col-sm-2 col-form-label">修改者</label>
                                                 <div class="col-sm-2">
                                                     <input class="form-control" type="text" name="pic" placeholder="修改者" value="{{$staff->pic}}">
+                                                </div>
+                                                <label class="col-sm-2 col-form-label">部門</label>
+                                                <div class="col-sm-2">
+                                                    <input class="form-control" type="text" placeholder="修改者" disabled value="{{$staff->staffDepartment->parent->name}} - {{$staff->staffDepartment->name}}">
+
                                                 </div>
                                             </div>
                                         </div>
@@ -75,20 +84,20 @@
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">介紹人</label>
-                                                <div class="col-sm-2">
-                                                    <input class="form-control" type="text" name="introduced_by"  data-mask value="{{$staff->introduced_by}}">
+                                                <div class="col-sm-4">
+                                                    <input class="form-control" type="text" name="introduced_by"  value="{{$staff->introduced_by}}">
                                                 </div>
 
                                                 <label class="col-sm-2 col-form-label">面試主管</label>
-                                                <div class="col-sm-2">
-                                                    <input class="form-control" type="text" name="interviewed_by"  data-mask value="{{$staff->interviewed_by}}">
+                                                <div class="col-sm-4">
+                                                    <input class="form-control" type="text" name="interviewed_by"  value="{{$staff->interviewed_by}}">
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">身份字號</label>
                                                 <div class="col-sm-4">
-                                                    <input class="form-control" type="text" name="sex" placeholder="身份字號" value="{{$staff->identify_code}}">
+                                                    <input class="form-control" type="text" name="identify_code" placeholder="身份字號" value="{{$staff->identify_code}}">
                                                 </div>
 
                                                 <label class="col-sm-2 col-form-label">生日</label>
@@ -104,7 +113,7 @@
                                                 <div class="img-preview-frame text-center" >
                                                     <input type="file" name="avatar" id="avatar"  onchange="showPreview(this,['avatar_img'])" style="display: none;"/>
                                                     <label for="avatar">
-                                                        <img id="avatar_img" class="rounded img-fluid mx-auto d-block max-w-150" style="cursor: pointer;" src="{{$staff->avatar? asset($staff->avatar):asset('theme/cryptoadmin/images/2.jpg')}}" width="200px">
+                                                        <img id="avatar_img" class="rounded img-fluid mx-auto d-block max-w-150" style="cursor: pointer;" src="{{$staff->avatar? asset($staff->avatar):asset('theme/cryptoadmin/images/avatar/1.jpg')}}" width="200px">
                                                     </label>
                                                 </div>
                                             </div>
@@ -222,6 +231,42 @@
                         </div>
                     </div>
 
+                    {{--證件--}}
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="box box-solid box-inverse box-dark">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">證件</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="col-md-12 m-0">
+                                    {{--身分證正面--}}
+                                        <div class="img-preview-frame" style="display: inline;" >
+                                            <input type="file" name="photo_id1" id="photo_id1"  onchange="showPreview(this,['photo_id1_img'])" style="display: none;"/>
+                                            <label for="photo_id1">
+                                                <img id="photo_id1_img" class="rounded img-fluid mx-auto d-block max-w-150" style="cursor: pointer;" src="{{$staff->photo_id1? asset($staff->photo_id1):asset('theme/cryptoadmin/images/avatar/1.jpg')}}" width="200px">
+                                            </label>
+                                        </div>
+                                    {{--身分證反面--}}
+                                        <div class="img-preview-frame" style="display: inline;" >
+                                            <input type="file" name="photo_id2" id="photo_id2"  onchange="showPreview(this,['photo_id2_img'])" style="display: none;"/>
+                                            <label for="photo_id2">
+                                                <img id="photo_id2_img" class="rounded img-fluid mx-auto d-block max-w-150" style="cursor: pointer;" src="{{$staff->photo_id2? asset($staff->photo_id2):asset('theme/cryptoadmin/images/avatar/1.jpg')}}" width="200px">
+                                            </label>
+                                        </div>
+                                    {{--健康檢查表--}}
+                                        <div class="img-preview-frame" style="display: inline;" >
+                                            <input type="file" name="medical_check" id="medical_check"  onchange="showPreview(this,['medical_check_img'])" style="display: none;"/>
+                                            <label for="medical_check">
+                                                <img id="medical_check_img" class="rounded img-fluid mx-auto d-block max-w-150" style="cursor: pointer;" src="{{$staff->medical_check? asset($staff->medical_check):asset('theme/cryptoadmin/images/avatar/1.jpg')}}" width="200px">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
                     {{--學歷--}}
@@ -281,7 +326,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     {{--經歷--}}
                     <div class="row">
@@ -359,11 +403,11 @@
                                                 </div>
                                                 <label class="col-sm-2 col-form-label">電話1</label>
                                                 <div class="col-sm-2">
-                                                    <input class="form-control" type="text" name="tel1" placeholder="電話1" value="{{$staff->tel1}}">
+                                                    <input class="form-control" type="text" name="contact_tel1" placeholder="電話1" value="{{$staff->contact_tel1}}">
                                                 </div>
                                                 <label class="col-sm-2 col-form-label">手機1</label>
                                                 <div class="col-sm-2">
-                                                    <input class="form-control" type="text" name="phone1"  placeholder="手機1" value="{{$staff->phone1}}">
+                                                    <input class="form-control" type="text" name="contact_phone1"  placeholder="手機1" value="{{$staff->contact_phone1}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -376,11 +420,11 @@
                                                 </div>
                                                 <label class="col-sm-2 col-form-label">電話2</label>
                                                 <div class="col-sm-2">
-                                                    <input class="form-control" type="text" name="tel2" placeholder="電話2" value="{{$staff->tel2}}">
+                                                    <input class="form-control" type="text" name="contact_tel2" placeholder="電話2" value="{{$staff->contact_tel2}}">
                                                 </div>
                                                 <label class="col-sm-2 col-form-label">手機2</label>
                                                 <div class="col-sm-2">
-                                                    <input class="form-control" type="text" name="phone2" placeholder="手機2"  value="{{$staff->phone2}}">
+                                                    <input class="form-control" type="text" name="contact_phone2" placeholder="手機2"  value="{{$staff->contact_phone2}}">
                                                 </div>
                                             </div>
                                         </div>

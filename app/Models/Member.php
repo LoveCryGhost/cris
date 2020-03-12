@@ -23,7 +23,7 @@ class Member extends Authenticatable implements MustVerifyEmailContract
 
 
     protected $hidden = [
-        'password', 'remember_token',
+        'remember_token',
     ];
 
     protected $casts = [

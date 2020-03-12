@@ -56,7 +56,7 @@ class StaffDepartmentsTableSeeder extends Seeder
                 $dp_process = (new StaffDepartment());
                 $dp_process->processes = $process;
                 $dp_process->name = $process_name;
-                $dp_process->p_id = $staffDepartment->id;
+                $dp_process->parent_id = $staffDepartment->d_id;
                 $dp_process->save();
             }
         }

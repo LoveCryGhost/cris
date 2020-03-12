@@ -16,11 +16,11 @@ class CreateStaffsTable extends Migration
     {
         Schema::create('staff_departments', function (Blueprint $table) {
             $table->bigIncrements('d_id')->unsigned();
-            $table->bigInteger('p_id')->nullable()->default(0);
+            $table->bigInteger('parent_id')->nullable()->default(0);
 
             $table->tinyInteger('sort_order')->default(0);
             $table->tinyInteger('is_active')->default(1);
-            $table->string('dp_code')->nullable();
+            $table->string('id_code')->nullable();
             $table->string('processes');
             $table->string('name')->nullable();
             $table->string('description')->nullable();
@@ -85,6 +85,8 @@ class CreateStaffsTable extends Migration
 
             $table->string('photo_id1')->nullable();
             $table->string('photo_id2')->nullable();
+            $table->string('medical_check')->nullable();
+
 
             //部門
             $table->bigInteger('d_id')->nullable()->unsigned();

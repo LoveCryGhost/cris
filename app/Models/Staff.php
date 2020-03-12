@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
-use App\Notifications\AdminResetPasswordNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -16,8 +14,10 @@ class Staff extends Authenticatable implements MustVerifyEmailContract
     protected $table = "staffs";
     protected $primaryKey='id';
 
+    protected $with=['staffDepartment'];
+
     protected $fillable = [
-        'id_code', 'pic',
+        'id_code', 'pic', 'password',
         'staff_code', 'is_active', 'is_block',
 
         'name', 'sex', 'identify_code',
@@ -52,9 +52,7 @@ class Staff extends Authenticatable implements MustVerifyEmailContract
         //dorm
         'dorm_number',
 
-
-
-        'photo_id1', 'photo_id2',
+        'photo_id1', 'photo_id2', 'medical_check',
 
         'level',
 
@@ -62,4 +60,24 @@ class Staff extends Authenticatable implements MustVerifyEmailContract
         'local',
 
     ];
+
+    protected $dates = [
+        'birthday',
+        'interview_at',
+        'join_at',
+        'social_security_at',
+        'apply_for_leave_at',
+        'leave_at',
+    ];
+
+    protected $hidden = [
+        'remember_token',
+    ];
+
+    public function staffDepartment()
+    {
+        return $this->belongsTo(StaffDepartment::class, 'd_id');
+    }
+
+
 }

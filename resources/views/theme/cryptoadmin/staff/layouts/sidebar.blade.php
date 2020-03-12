@@ -35,7 +35,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{route('staff.edit',['staff' => Auth::guard('staff')->user()->id])}}"><i class="ti-more"></i>個人訊息</a></li>
+                    <li><a href="{{route('staff.staff.edit',['staff' => Auth::guard('staff')->user()->id])}}"><i class="ti-more"></i>個人訊息</a></li>
                 </ul>
             </li>
         </ul>

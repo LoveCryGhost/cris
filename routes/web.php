@@ -140,9 +140,11 @@ Route::prefix('member')->namespace('Member')->group(function(){
 //Staff
 Route::prefix('')->namespace('Staff')->group(function(){
     Route::put('staff_update_password/{staff}', 'StaffsController@update_password')->name('staff.update_password');
-    Route::resource('staff', 'StaffsController');
     Route::prefix('staff')->name('staff.')->group(function(){
+        Route::get('dashboard', 'StaffDashboardsController@dashboard')->name('staff.dashboard');
 
+        Route::get('staff_list', 'StaffsController@list')->name('staff.staff_list');;
+        Route::resource('staff', 'StaffsController');
     });
 });
 

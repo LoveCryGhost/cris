@@ -34,7 +34,7 @@ class RedirectIfAuthenticated
 
             case "staff":
                 if(Auth::guard($guard)->check()){
-                    return redirect()->route('staff.index');
+                    return redirect()->route('staff.staff.dashboard');
                 }
                 break;
 

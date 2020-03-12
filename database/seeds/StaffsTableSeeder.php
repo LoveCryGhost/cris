@@ -18,7 +18,7 @@ class StaffsTableSeeder extends Seeder
 
         // 生成数据集合
         $Staffs = factory(Staff::class)
-            ->times(10)
+            ->times(50)
             ->make()
             ->each(function ($Staff, $index)
             use ($faker, $avatars)
@@ -26,9 +26,10 @@ class StaffsTableSeeder extends Seeder
                 // 从头像数组中随机取出一个并赋值
                 $Staff->avatar = $faker->randomElement($avatars);
                 $Staff->id_code = (new BarcodeHandler())->barcode_generation(config('barcode.staff'), $index+1);
-                $Staff->d_id = 1;
+                $Staff->d_id = rand(2,6);
                 $Staff->sex = 1;
                 $Staff->avatar = '/images/default/avatars/avatar'.($index+1).'.jpg';
+                $Staff->join_at = today();
             });
 
         // 让隐藏字段可见，并将数据集合转换为数组

@@ -16,7 +16,7 @@
         </li>
         <!-- Menu Body -->
         <li class="user-body">
-            <a class="dropdown-item" href="{{route('staff.edit', ['staff'=> Auth::guard('staff')->user()->id])}}"><i class="ion ion-person"></i>會員資料</a>
+            <a class="dropdown-item" href="{{route('staff.staff.edit', ['staff'=> Auth::guard('staff')->user()->id])}}"><i class="ion ion-person"></i>會員資料</a>
             <a class="dropdown-item" href="{{ route('staff.logout') }}"
                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <i class="fa fa-sign-out text-primary"></i> 登出

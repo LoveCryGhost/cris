@@ -52,7 +52,7 @@ class StaffLoginController extends StaffCoreController
             event(new StaffLoginSuccessfulEvent(Auth::guard('staff')->user(), new Agent(), $ip, time()));
 
             //if successful , the redirect to their intended location
-            return redirect()->intended(route('staff.index'));
+            return redirect()->intended(route('staff.staff.index'));
         }
 
         //if unsuccessful, then redirect back to login with the form data

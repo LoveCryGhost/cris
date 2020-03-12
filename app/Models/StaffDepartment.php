@@ -16,10 +16,21 @@ class StaffDepartment extends Authenticatable implements MustVerifyEmailContract
     protected $primaryKey='d_id';
 
     protected $fillable = [
-        'dp_id', 'sort_order', 'is_active',
-        'dp_code', 'name', 'description', 'local'
+        'parent_id', 'sort_order', 'is_active',
+        'id_code', 'name', 'description', 'local'
     ];
 
+    public $with =['parent'];
+
+    public function parent()
+    {
+        return $this->belongsTo(StaffDepartment::class, 'parent_id', 'd_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(StaffDepartment::class, 'parent_id');
+    }
 
 
 }
