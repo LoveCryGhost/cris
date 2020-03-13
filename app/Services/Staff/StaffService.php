@@ -40,7 +40,7 @@ class StaffService extends StaffCoreService implements StaffServiceInterface
 
     public function store($data)
     {
-        // TODO: Implement store() method.
+        return $this->StaffRepo->builder()->create($data);
     }
 
     public function set_avatar($Staff, $data, $uploader){
@@ -61,7 +61,7 @@ class StaffService extends StaffCoreService implements StaffServiceInterface
 
     public function destroy($model, $data)
     {
-        // TODO: Implement destroy() method.
+
     }
 
 
@@ -74,11 +74,11 @@ class StaffService extends StaffCoreService implements StaffServiceInterface
 
     public function create()
     {
-        // TODO: Implement create() method.
+
     }
 
     public function edit()
     {
-        // TODO: Implement edit() method.
+
     }
 }

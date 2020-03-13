@@ -40,6 +40,20 @@ class StaffsController extends StaffCoreController
         return view(config('theme.staff.view').'staff.edit', compact('staff'));
     }
 
+    //顯示使用者資料
+    public function create(Staff $staff)
+    {
+        return view(config('theme.staff.view').'staff.create');
+    }
+
+    //顯示使用者資料
+    public function store(StaffRequest $request, Staff $staff)
+    {
+        $data = $request->all();
+        $toast = $this->staffService->store($data);
+        return redirect()->route('staff.staff.staff_list')->with('toast', parent::$toast_store);
+    }
+
     public function update(StaffRequest $request,  ImageUploadHandler $uploader,Staff $staff)
     {
         $this->authorize('update', $staff);

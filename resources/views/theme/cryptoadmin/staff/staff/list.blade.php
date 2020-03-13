@@ -22,6 +22,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="box">
+                        <div class="col-xl-12 col-lg-12 text-right mb-5">
+                            <a class="btn btn-warning" href="{{route('staff.staff.create')}}" ><i class="fa fa-plus"></i></a>
+                        </div>
                     {{--瀑布方式加載--}}
                         <div class="infinite-scroll">
                             @foreach($staffs as $staff)
@@ -76,7 +79,7 @@
 
 @section('js')
     @parent
-    <script src="https://cdn.bootcss.com/jscroll/2.4.1/jquery.jscroll.min.js"></script>
+    <script src="{{asset('js/jscroll.min.js')}}"></script>
 
     <script type="text/javascript">
         $(function() {
