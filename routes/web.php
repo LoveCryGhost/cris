@@ -65,7 +65,7 @@ Route::prefix('')->group(function() {
         Route::get('/password/reset/{token}', 'Auth\MemberResetPasswordController@showResetForm')->name('member.password.reset');
     });
 
-    //Member
+    //Staff
     Route::prefix('staff')->group(function() {
         Route::get('/login', 'Auth\StaffLoginController@showLoginForm')->name('staff.login');
         Route::post('/login', 'Auth\StaffLoginController@login')->name('staff.login.submit');
@@ -145,6 +145,7 @@ Route::prefix('')->namespace('Staff')->group(function(){
 
         Route::get('staff_list', 'StaffsController@list')->name('staff.staff_list');;
         Route::resource('staff', 'StaffsController');
+        Route::resource('staff-department', 'StaffDepartmentsController');
     });
 });
 

@@ -50,8 +50,11 @@
                                                 </div>
                                                 <label class="col-sm-2 col-form-label">部門</label>
                                                 <div class="col-sm-2">
-                                                    <input class="form-control" type="text" placeholder="修改者" disabled value="{{$staff->staffDepartment->parent->name}} - {{$staff->staffDepartment->name}}">
-
+                                                    @if($staff->staffDepartments->last()->parent==null)
+                                                        <input class="form-control" type="text" placeholder="修改者" disabled value="{{$staff->staffDepartments->last()->name}} - ">
+                                                    @else
+                                                        <input class="form-control" type="text" placeholder="修改者" disabled value="{{$staff->staffDepartments->last()->parent->name}} - {{$staff->staffDepartments->last()->name}}">
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -491,6 +494,8 @@
                         </div>
                     </div>
                 </form>
+
+                @include('theme.cryptoadmin.staff.staff.staffDepartment.md-index',['staff' => $staff])
             </section>
         </div>
 @stop

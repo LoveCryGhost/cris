@@ -48,5 +48,11 @@ class StaffsTableSeeder extends Seeder
         $Staff->email = 'Staff2@app.com';
         $Staff->save();
 
+        //Staff - Department
+        $staffs = Staff::get();
+        foreach ($staffs as $staff){
+            $rand_int = rand(1,33);
+            $staff->staffDepartments()->attach([$rand_int => ['created_by' => rand(1,10),'modified_by' => rand(1,10), 'bonus' => rand(100,500), 'start_at' => now()]]);
+        }
     }
 }

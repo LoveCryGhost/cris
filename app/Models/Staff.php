@@ -14,7 +14,7 @@ class Staff extends Authenticatable implements MustVerifyEmailContract
     protected $table = "staffs";
     protected $primaryKey='id';
 
-    protected $with=['staffDepartment'];
+    protected $with=['staffDepartments'];
 
     protected $fillable = [
         'id_code', 'pic', 'password',
@@ -74,10 +74,27 @@ class Staff extends Authenticatable implements MustVerifyEmailContract
         'remember_token',
     ];
 
-    public function staffDepartment()
+    public function staffDepartments()
     {
-        return $this->belongsTo(StaffDepartment::class, 'd_id');
+
+        return $this->belongsToMany(StaffDepartment::class, 'staffs_departments','st_id','d_id')
+            ->withPivot(['st_id', 'd_id', 'created_by', 'modified_by', 'start_at', 'bonus', 'note'])
+            ->withTimestamps();
     }
 
+
+    public function modified_by()
+    {
+        return $this->belongsToMany(Staff::class, 'staffs_departments','modified_by','st_id')
+            ->withPivot(['st_id', 'd_id', 'created_by', 'modified_by', 'start_at', 'bonus', 'note'])
+            ->withTimestamps();
+    }
+
+    public function created_by()
+    {
+        return $this->belongsToMany(Staff::class, 'staffs_departments','created_by','st_id')
+            ->withPivot(['st_id', 'd_id', 'created_by', 'modified_by', 'start_at', 'bonus', 'note'])
+            ->withTimestamps();
+    }
 
 }

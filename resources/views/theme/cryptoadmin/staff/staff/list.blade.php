@@ -39,7 +39,12 @@
                                         </div>
                                         <div class="col-md-3">
                                             {{$staff->name}}<br>
-                                            {{$staff->staffDepartment->parent->name}} - {{$staff->staffDepartment->name}}
+                                            @if($staff->staffDepartments->last()->parent==null)
+                                                {{$staff->staffDepartments->last()->name}} -
+                                            @else
+                                                {{$staff->staffDepartments->last()->parent->name}} - {{$staff->staffDepartments->last()->name}}
+                                            @endif
+
                                         </div>
                                         <div class="col-md-3">
                                             {{$staff->phone1}} / {{$staff->address_fix}}<br>

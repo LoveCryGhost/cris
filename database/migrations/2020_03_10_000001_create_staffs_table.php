@@ -25,7 +25,6 @@ class CreateStaffsTable extends Migration
             $table->string('name')->nullable();
             $table->string('description')->nullable();
             $table->string('local')->default('zh-cn');
-//            $table->foreign('p_id')->references('d_id')->on('staff_departments');
             $table->timestamps();
         });
 
@@ -68,7 +67,6 @@ class CreateStaffsTable extends Migration
             $table->bigInteger('introduced_by')->nullable()->unsigned();
             $table->bigInteger('interviewed_by')->nullable()->unsigned();
 
-
             //聯繫人
             $table->string('contact1')->nullable();
             $table->string('contact_tel1')->nullable();
@@ -79,28 +77,14 @@ class CreateStaffsTable extends Migration
 
             //宿舍
             $table->string('dorm_number')->nullable();
-
-
             $table->tinyInteger('level')->default(0)->nullable();
 
             $table->string('photo_id1')->nullable();
             $table->string('photo_id2')->nullable();
             $table->string('medical_check')->nullable();
 
-
             //部門
             $table->bigInteger('d_id')->nullable()->unsigned();
-
-
-
-
-
-
-
-
-
-
-
 
             //education
             $table->date('education1_from')->nullable();
@@ -124,12 +108,29 @@ class CreateStaffsTable extends Migration
             $table->string('company2_name')->nullable();
             $table->integer('salary2')->nullable();
 
-
             $table->string('local')->nullable();
             $table->foreign('d_id')->references('d_id')->on('staff_departments')->onDelete('cascade');
             $table->foreign('pic')->references('id')->on('staffs')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+        });
+
+        Schema::create('staffs_departments', function (Blueprint $table) {
+            $table->bigIncrements('sd_id')->unsigned();
+            $table->bigInteger('d_id')->unsigned();
+            $table->bigInteger('st_id')->unsigned();
+            $table->date('start_at')->nullable();
+            $table->bigInteger('created_by')->unsigned();
+            $table->bigInteger('modified_by')->unsigned();
+            $table->integer('bonus')->nullable();
+            $table->text('note')->nullable();
+
+            $table->foreign('modified_by')->references('id')->on('staffs')->onDelete('cascade');
+            $table->foreign('created_by')->references('id')->on('staffs')->onDelete('cascade');
+
+            $table->foreign('st_id')->references('id')->on('staffs')->onDelete('cascade');
+            $table->foreign('d_id')->references('d_id')->on('staff_departments')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -140,7 +141,9 @@ class CreateStaffsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('staffs_departments');
         Schema::dropIfExists('staffs');
         Schema::dropIfExists('staff_departments');
+
     }
 }

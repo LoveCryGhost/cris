@@ -3,11 +3,11 @@
 
 
 {{--標題--}}
-<title>Staff - @yield('title')</title>
+<title>member - @yield('title')</title>
 
 
 {{--CSS--}}
-@include(config('theme.staff.css.default'))
+@include(config('theme.member.css.default'))
 @section('css')
     @parent
     @yield('css')
@@ -22,11 +22,11 @@
 <body class="hold-transition fixed light-skin dark-sidebar sidebar-mini theme-blue sidebar-collapse">
 <div id="app"  class="{{ route_class() }}-page">
     @section('app-content')
-        @guest('staff')
-            @include(config('theme.staff.header'))
+        @guest('member')
+            @include(config('theme.member.header'))
         @else
-            @include(config('theme.staff.header-login'))
-            @include(config('theme.staff.sidebar'))
+            @include(config('theme.member.header-login'))
+            @include(config('theme.member.sidebar'))
         @endguest
     @endsection
 
@@ -38,8 +38,8 @@
 
     @section('app-content-footer')
         @yield('content-footer')
-        @auth('staff')
-            @include(config('theme.staff.footer'))
+        @auth('member')
+            @include(config('theme.member.footer'))
         @endauth
     @endsection
 </div>
@@ -52,4 +52,4 @@
 @endsection
 
 {{--Footer--}}
-@include(config('theme.staff.js.default'))
+@include(config('theme.member.js.default'))
