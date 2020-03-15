@@ -27,11 +27,22 @@
             @endif
         </a>
     </div>
+
+    <div class="align-middle mt-2">
+        <a href="{{route('staff.login')}}">
+            @if(Auth::guard('staff')->check())
+                <span class="badge badge-pill badge-success">Staff</span>
+            @else
+                <span class="badge badge-pill badge-default">Staff</span>
+            @endif
+        </a>
+    </div>
 </div>
 
 @php
     $users = App\Models\User::get();
     $members = App\Models\Member::get();
+    $staffs = App\Models\Staff::get();
     $admins = App\Models\Admin::get();
 @endphp
 
@@ -77,6 +88,17 @@
                 @endforeach
             </select>
 
+            Staff:
+            <select class="form-control" id="slt-admin" data-select-id="slt-admin" data-guard="staff">
+                <option selected>Select...</option>
+                @foreach($staffs as $staff)
+                    @auth('staff')
+                        <option value="{{$staff->id}}" {{$staff->id==Auth::guard('staff')->user()->id? "selected":""}}>{{$staff->name}}</option>
+                    @else
+                        <option value="{{$staff->id}}">{{$staff->name}}</option>
+                    @endauth
+                @endforeach
+            </select>
         </form>
     </div>
 </div>
@@ -90,7 +112,7 @@
         bottom: 0px;
         right: 0px;
         width: 70px;
-        height: 100px;
+        height: 130px;
         background: lightgrey;
         border: lightgrey solid 1px;
         z-index: 99;

@@ -3,6 +3,7 @@
 $user_style='theme.cryptoadmin.user';
 $admin_style = 'theme.cryptoadmin.admin';
 $member_style = 'theme.cryptoadmin.member';
+$staff_style = 'theme.cryptoadmin.staff';
 return [
 
         'user'=> [
@@ -95,6 +96,43 @@ return [
                 'default' =>$member_style.'.layouts.js.default',
                 'toast' => $member_style.'.layouts.js.toast',
             ],
+        ],
+        'staff'=> [
 
+            'view' => $staff_style.'.',
+            'btn' => [
+                'index' => [
+                    'crud'=> $staff_style.'.layouts.btn-index-crud',
+                    'table_tr'=> $staff_style.'.layouts.btn-index-table_tr',
+                ],
+                'edit' => [
+                    'crud'=> $staff_style.'.layouts.btn-edit-crud',
+                ],
+                'create' => [
+                    'crud'=> $staff_style.'.layouts.btn-create-crud',
+                ]
+
+            ],
+
+            'staff-app' => $staff_style.'.layouts.staff-app',
+            'staff-app-login' => $staff_style.'.layouts.staff-app-login',
+            'header' => $staff_style.'.layouts.header',
+            'header-login' => $staff_style.'.layouts.header-login',
+            'footer' => $staff_style.'.layouts.footer',
+            'sidebar' => $staff_style.'.layouts.sidebar',
+
+            'welcome' => $staff_style.'.welcome',
+            'header-notifications' => $staff_style.'.layouts.header-notifications',
+            'header-staff-profiles' => $staff_style.'.layouts.header-staff-profiles',
+            'errors' => $staff_style.'.layouts.errors',
+            'css' => [
+                'default' => $staff_style.'.layouts.css.default',
+                'toast' => $staff_style.'.layouts.css.toast'
+            ],
+
+            'js' => [
+                'default' =>$staff_style.'.layouts.js.default',
+                'toast' => $staff_style.'.layouts.js.toast',
+            ],
         ]
     ];

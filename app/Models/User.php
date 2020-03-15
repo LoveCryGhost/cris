@@ -18,11 +18,9 @@ class User extends Authenticatable implements MustVerifyEmailContract
         'birthday', 'is_active', 'avatar', 'introduction'
     ];
 
-
     protected $hidden = [
         'password', 'remember_token',
     ];
-
 
     protected $casts = [
         'email_verified_at' => 'datetime',

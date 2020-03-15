@@ -14,11 +14,6 @@ class Product_SKU_SupplierRequest extends Request
         {
             // CREATE
             case 'POST':
-                {
-                    return [
-                        'price' => ['required','numeric'],
-                    ];
-                }
             case 'PUT':
             case 'PATCH':
                 {
