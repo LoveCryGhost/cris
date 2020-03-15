@@ -130,7 +130,8 @@ class CreateStaffsTable extends Migration
 
             $table->foreign('st_id')->references('id')->on('staffs')->onDelete('cascade');
             $table->foreign('d_id')->references('d_id')->on('staff_departments')->onDelete('cascade');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

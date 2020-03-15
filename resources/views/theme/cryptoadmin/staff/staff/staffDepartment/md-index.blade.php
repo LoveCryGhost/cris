@@ -31,7 +31,7 @@
                     <tbody>
                         @if(count($staff->staffDepartments)>0 )
                             @foreach($staff->staffDepartments as $staffDepartment)
-                               <tr data-ss-id="{{$staffDepartment->pivot->sd_id}}">
+                               <tr data-sd-id="{{$staffDepartment->pivot->sd_id}}">
                                    <td>
                                         <span class="handle" style="cursor: move;">
                                             <i class="fa fa-ellipsis-v"></i>
@@ -87,10 +87,11 @@
     });
 
     function md_staff_department_edit(_this,  php_inject){
+        staff_department_id = $(_this).parents('tr').data('sd-id');
         $.ajaxSetup(active_ajax_header());
         $.ajax({
             type: 'get',
-            url: '{{route('staff.staff-department.index')}}/'+php_inject.models.staff.id+'/edit',
+            url: '{{route('staff.staff-department.index')}}/'+php_inject.models.staff.id+'/edit?st_id='+php_inject.models.staff.id + '&sd_id='+staff_department_id,
             data: '',
             async: true,
             crossDomain: true,

@@ -22,6 +22,13 @@ class StaffDepartment extends Authenticatable implements MustVerifyEmailContract
 
     public $with =['parent'];
 
+    public function staff()
+    {
+        return $this->belongsToMany(Staff::class, 'staffs_departments','d_id','st_id')
+            ->withPivot(['sd_id', 'st_id', 'd_id', 'created_by', 'modified_by', 'start_at', 'bonus', 'note'])
+            ->withTimestamps();
+    }
+
     public function parent()
     {
         return $this->belongsTo(StaffDepartment::class, 'parent_id', 'd_id');

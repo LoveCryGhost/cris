@@ -76,25 +76,20 @@ class Staff extends Authenticatable implements MustVerifyEmailContract
 
     public function staffDepartments()
     {
-
         return $this->belongsToMany(StaffDepartment::class, 'staffs_departments','st_id','d_id')
-            ->withPivot(['st_id', 'd_id', 'created_by', 'modified_by', 'start_at', 'bonus', 'note'])
+            ->withPivot(['sd_id', 'st_id', 'd_id', 'created_by', 'modified_by', 'start_at', 'bonus', 'note'])
             ->withTimestamps();
     }
 
 
     public function modified_by()
     {
-        return $this->belongsToMany(Staff::class, 'staffs_departments','modified_by','st_id')
-            ->withPivot(['st_id', 'd_id', 'created_by', 'modified_by', 'start_at', 'bonus', 'note'])
-            ->withTimestamps();
+        return $this->belongsToMany(Staff::class, 'staffs_departments','modified_by','st_id');
     }
 
     public function created_by()
     {
-        return $this->belongsToMany(Staff::class, 'staffs_departments','created_by','st_id')
-            ->withPivot(['st_id', 'd_id', 'created_by', 'modified_by', 'start_at', 'bonus', 'note'])
-            ->withTimestamps();
+        return $this->belongsToMany(Staff::class, 'staffs_departments','created_by','st_id');
     }
 
 }

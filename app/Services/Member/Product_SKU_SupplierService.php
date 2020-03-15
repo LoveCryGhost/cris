@@ -52,7 +52,6 @@ class Product_SKU_SupplierService extends MemberCoreService implements MemberSer
                     'price' => $data['price'],
                     'url' => $data['url']
                 ]);
-
     }
 
     public function destroy($model, $data)

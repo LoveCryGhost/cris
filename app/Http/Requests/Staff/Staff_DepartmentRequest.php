@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Member;
+namespace App\Http\Requests\Staff;
 
 use App\Http\Requests\Request;
-use Illuminate\Validation\Rule;
 
-class Product_SKURequest extends Request
+class Staff_DepartmentRequest extends Request
 {
     public function rules()
     {
@@ -17,8 +16,9 @@ class Product_SKURequest extends Request
             case 'PATCH':
                 {
                     return [
-                        'price' => ['required','numeric'],
-                        'sku_name' => ['required'],
+                        'bonus' => ['integer', 'nullable'],
+                        'start_at' => 'date|nullable',
+                        'd_id' => 'integer|required'
                     ];
                 }
             case 'GET':
@@ -33,10 +33,8 @@ class Product_SKURequest extends Request
     public function messages()
     {
         return [
-
-            'price.required' => '售價不能為空',
-            'price.numeric' => '售價必須為數字',
-            'sku_name.required' => 'SKU 名稱不能為空'
+            'bonus.integer' => '獎金必須是數字格式',
+            'start_at.date' => '起始日期必須是日期格式',
         ];
     }
 }

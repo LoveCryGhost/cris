@@ -72,10 +72,10 @@ Route::prefix('')->group(function() {
         Route::post('/logout', 'Auth\StaffLoginController@logout')->name('staff.logout');
 
         //Password Reset Route
-        Route::post('/password/email', 'Auth\StaffForgotPasswordController@sendResetLinkEmail')->name('staff.password.email');
-        Route::get('/password/reset', 'Auth\StaffForgotPasswordController@showRequestForm')->name('staff.password.request');
-        Route::post('/password/reset', 'Auth\StaffResetPasswordController@reset')->name('staff.password.update');
-        Route::get('/password/reset/{token}', 'Auth\StaffResetPasswordController@showResetForm')->name('staff.password.reset');
+//        Route::post('/password/email', 'Auth\StaffForgotPasswordController@sendResetLinkEmail')->name('staff.password.email');
+//        Route::get('/password/reset', 'Auth\StaffForgotPasswordController@showRequestForm')->name('staff.password.request');
+//        Route::post('/password/reset', 'Auth\StaffResetPasswordController@reset')->name('staff.password.update');
+//        Route::get('/password/reset/{token}', 'Auth\StaffResetPasswordController@showResetForm')->name('staff.password.reset');
     });
 });
 
@@ -145,7 +145,7 @@ Route::prefix('')->namespace('Staff')->group(function(){
 
         Route::get('staff_list', 'StaffsController@list')->name('staff.staff_list');;
         Route::resource('staff', 'StaffsController');
-        Route::resource('staff-department', 'StaffDepartmentsController');
+        Route::resource('staff-department', 'Staff_DepartmentsController');
     });
 });
 

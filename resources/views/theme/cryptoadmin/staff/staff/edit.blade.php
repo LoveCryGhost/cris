@@ -88,12 +88,20 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">介紹人</label>
                                                 <div class="col-sm-4">
-                                                    <input class="form-control" type="text" name="introduced_by"  value="{{$staff->introduced_by}}">
+                                                    <select name="introduced_by" class="form-control">
+                                                        @foreach($staffs as $_staff)
+                                                            <option value="{{$_staff->id}}" {{$_staff->id==$staff->introduced_by? "selected":""}}>{{$_staff->name}}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
 
                                                 <label class="col-sm-2 col-form-label">面試主管</label>
                                                 <div class="col-sm-4">
-                                                    <input class="form-control" type="text" name="interviewed_by"  value="{{$staff->interviewed_by}}">
+                                                    <select name="interviewed_by" class="form-control">
+                                                        @foreach($staffs as $_staff)
+                                                            <option value="{{$_staff->id}}" {{$_staff->id==$staff->interviewed_by? "selected":""}}>{{$_staff->name}}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
 
@@ -464,20 +472,20 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">舊密碼</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" name="old_password" placeholder="新密碼" >
+                                                    <input class="form-control" type="password" name="old_password" placeholder="新密碼" >
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">新密碼</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" name="new_password" placeholder="新密碼" >
+                                                    <input class="form-control" type="password" name="new_password" placeholder="新密碼" >
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">再次確認密碼</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" name="new_password_confirmation" placeholder="再次確認密碼" >
+                                                    <input class="form-control" type="password" name="new_password_confirmation" placeholder="再次確認密碼" >
                                                 </div>
                                             </div>
 

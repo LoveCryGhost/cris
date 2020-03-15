@@ -17,6 +17,7 @@ class StaffsController extends StaffCoreController
     {
         $this->middleware('auth:staff');
         $this->staffService = $staffService;
+
     }
 
     public function list()
@@ -37,7 +38,8 @@ class StaffsController extends StaffCoreController
     public function edit(Staff $staff)
     {
         $this->authorize('update', $staff);
-        return view(config('theme.staff.view').'staff.edit', compact('staff'));
+        $staffs = $this->staffService->StaffRepo->builder()->get();
+        return view(config('theme.staff.view').'staff.edit', compact('staff', 'staffs'));
     }
 
     //顯示使用者資料
