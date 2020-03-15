@@ -29,6 +29,16 @@ class StaffDepartment extends Authenticatable implements MustVerifyEmailContract
             ->withTimestamps();
     }
 
+    public function modified_by()
+    {
+        return $this->belongsToMany(Staff::class, 'staffs_departments','st_id','modified_by');
+    }
+
+    public function created_by()
+    {
+        return $this->belongsToMany(Staff::class, 'staffs_departments','st_id','created_by');
+    }
+
     public function parent()
     {
         return $this->belongsTo(StaffDepartment::class, 'parent_id', 'd_id');

@@ -5,45 +5,22 @@
             <div class="col-12 text-right">
                 <a href="#" class="btn btn-primary"
                    onclick="event.preventDefault();
-                           md_product_sku_supplier_store(this, php_inject={{json_encode(['models'=>['sku' => $sku]])}});">
+                       md_staff_department_store(this, php_inject={{json_encode(['models'=>['staff'=>$staff]])}});">
                     <i class="fa fa-save"></i></a>
-            </div>
-            <div class="col-2">
-                <div class="form-group row">
-                    <div class=" img-preview-frame text-center" >
-                        <label for="sku_thumbnail">
-                            <img id="sku_thumbnail_img" class="rounded img-fluid mx-auto d-block max-w-150" style="cursor: pointer;" src="{{$sku->thumbnail? asset($sku->thumbnail):asset('images/default/products/product.jpg')}}" width="200px">
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-10">
-                @include(config('theme.member.view').'layouts.errors')
-                <table class="table table-bordered">
-                    <tbody>
-                    <tr class="m-0"><td>Barcode</td><td>{{$sku->id_code}}</td></tr>
-                    <tr class="m-0"><td>啟用</td>
-                        <td>
-                            <input type="checkbox" class="bt-switch" name="is_active" id="is_active" value="1" {{$sku->is_active==1? "checked":""}}
-                            data-label-width="100%"
-                                   data-label-text="啟用" data-size="min"
-                                   data-on-text="On"    data-on-color="primary"
-                                   data-off-text="Off"  data-off-color="danger"/>
-                        </td>
-                    </tr>
-                    <tr class="m-0"><td>售價</td><td>{{$sku->price}}</td></tr>
-                    <tr class="m-0"><td>SKU名稱</td><td>{{$sku->sku_name}}</td></tr>
-                    </tbody>
-                </table>
             </div>
             <div class="col-md-12">
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">供應商</label>
+                    <label class="col-sm-2 col-form-label">轉調部門</label>
                     <div class="col-sm-10">
-                        <select class="select2_item form-control" name="sku_supplier" id="sku_supplier" style="z-index: 9999;">
-                            <option value="">Select...</option>
-                            @foreach($suppliers as $supplier)
-                                <option value="{{$supplier->s_id}}" data-md-id="{{$supplier->s_id}}">{{$supplier->id_code}} - {{$supplier->s_name}}</option>
+                        <select  class="form-control" id="d_id">
+                            @foreach($staffDepartments as $staffDepartment)
+                                <option value="{{$staffDepartment->d_id}}">
+                                    @if($staffDepartment->parent==null)
+                                        {{$staffDepartment->name}}
+                                    @else
+                                        {{$staffDepartment->parent->name}} - {{$staffDepartment->name}}
+                                    @endif
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -51,19 +28,37 @@
             </div>
             <div class="col-md-12">
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">進貨價</label>
+                    <label class="col-sm-2 col-form-label">轉調起始日期</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" name="price" id="price" placeholder="price"
-                               value="{{old('price')}}">
+                        <input class="form-control" type="text" id="start_at"
+                               data-inputmask="'alias': 'yyyy-mm-dd'" data-mask value="{{date('Y-m-d')}}">
                     </div>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">URL</label>
+                    <label class="col-sm-2 col-form-label">獎金</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" name="url" id="url" placeholder="url"
-                               value="{{old('url')}}">
+                        <input class="form-control" type="text" id="bonus" placeholder="bonus"
+                               value="0">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">建立者</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" id="created_by" disabled placeholder="created_by"
+                               value="{{Auth::guard('staff')->user()->name}}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">更改者</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" id="modified_by" disabled placeholder="modified_by"
+                               value="{{Auth::guard('staff')->user()->name}}">
                     </div>
                 </div>
             </div>
@@ -74,97 +69,73 @@
 <script type="text/javascript">
 
     $(function () {
-        //Select2
-        active_select2(select2_class="select2_item", options={});
-        //排序表格
-        active_table_sortable(table_id="tbl-product-sku-supplier", eq_order_index=1, options={});
-        //Switch
-        active_switch(switch_class='bt-switch', options=[]);
 
-        //檢查是否有重複的Attribute & 並將其設定成Disable
-        $('#tbl-product-sku-supplier tbody tr').each(function () {
-            select_a_id_val = $(this).children('td:eq(3)').find('input').val();
-            $(".select2_item[id=sku_supplier] option[value='"+select_a_id_val+"']").attr('disabled', 'disabled').append(' -- (已被選擇)');
-        });
     });
 
-    function md_product_sku_supplier_store(_this,  php_inject) {
-        s_id = $('#sku_supplier').find(':selected').data('md-id');
-        //先判別更改的是否等於原先設定 或是 空值
-        if(s_id === "" || s_id === undefined){
-            //關閉modal
-            clean_close_modal(modal_id="modal-lg");
-            return false;
-        }
+    function md_staff_department_store(_this,  php_inject) {
 
         var formData = new FormData();
-        formData.append('s_id', s_id);
-        formData.append('sku_id', php_inject.models.sku.sku_id);
-        formData.append('url', $('#url').val());
-        formData.append('price', $('#price').val());
+        formData.append('st_id', {{$data['st_id']}});
+        _d_id =$('#d_id').find(':selected').val();
+        formData.append('d_id', _d_id);
+
+        formData.append('start_at', $('#start_at').val());
+        formData.append('bonus', $('#bonus').val());
 
         $.ajaxSetup(active_ajax_header());
         $.ajax({
             type: 'post',
-            url: '{{route('member.product-sku-supplier.index')}}?sku_id='+php_inject.models.sku.sku_id,
+            url: "{{route('staff.staff-department.index')}}?st_id={{$data['st_id']}}" ,
             data: formData,
             async: true,
-            crossDomain: true,
+            cache: false,
             contentType: false,
             processData: false,
             success: function(data) {
 
-                //搜尋sku_supplier
-                sku_supplier = data.models.sku.sku_suppliers.find(function (sku_supplier, index, array) {
-                    return sku_supplier.pivot.s_id ==  data.models.skuSupplier.s_id &&  sku_supplier.pivot.sku_id == data.models.sku.sku_id  ;
-                });
-
                 //關閉modal
                 clean_close_modal(modal_id="modal-lg");
+
+
+                //最後一筆資料為最新資料
+                _length = data.models.staff.staff_departments.length;
+                staff_department = data.models.staff.staff_departments[_length-1];
+
+                models = {"models":{"staff": data.models.staff}};
 
                 //顯示到modal left
                 cursor_move = '<span class="handle" style="cursor: move;">' +
                     '                                        <i class="fa fa-ellipsis-v"></i>' +
                     '                                        <i class="fa fa-ellipsis-v"></i>' +
                     '                                  </span>';
+                crud_btn = '<a  class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-lg"'+
+                    'onclick="event.preventDefault();'+
+                    'md_staff_department_edit(this, php_inject=models)">'+
+                    '<i class="fa fa-edit mr-5"></i>編輯</a> ';
 
-                url_path = "{{asset('/')}}";
-                if (sku_supplier.name_card != null) {
-                    img_supplier = '<img src="' + url_path + sku_supplier.name_card + '" style="width:70px;">';
-                } else {
-                    img_supplier = '<img src="' + url_path + '/images/default/products/product.jpg" style="width:70px;">';
+
+                models = {"models":{"staff": data.models.staff, "staffDepartment": data.models.staffDepartment},"options":{"sd_id":staff_department.pivot.sd_id}}
+                crud_btn = crud_btn +
+                '<a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-lg"' +
+                '                                          onclick="event.preventDefault(); md_staff_department_destroy(this, php_inject=models);">' +
+                '                                           <i class="fa fa-trash mr-5"></i>刪除' +
+                '                                       </a>'
+                if(staff_department.parent === null){
+                    staff_department_name = staff_department.name;
+                }else{
+                    staff_department_name = staff_department.parent.name + "-" + staff_department.name;
                 }
-                s_name = sku_supplier.s_name;
 
-                switch_btn_checked = "";
-                if (sku_supplier.is_active === 1) {
-                    switch_btn_checked = "checked";
-                }
-                switch_btn = '<input type="checkbox" class="bt-switch" name="is_active"  value="1" ' + switch_btn_checked +
-                    '                                                   data-label-width="100%"' +
-                    '                                                   data-label-text="啟用"' +
-                    '                                                   data-on-text="On"    data-on-color="primary"' +
-                    '                                                   data-off-text="Off"  data-off-color="danger"/>';
+                html='<tr data-sd-id="'+ staff_department.pivot.sd_id+ '"><td>'+cursor_move+'</td><td></td><td>'+staff_department_name+'</td><td>'+
+                    staff_department.pivot.bonus+'</td><td>'+staff_department.pivot.start_at+'</td><td>'+"{{Auth::guard('staff')->user()->name}}"+
+                    '</td><td>'+"{{Auth::guard('staff')->user()->name}}"+'</td><td>'+crud_btn+'</td></tr>';
 
-                price = sku_supplier.pivot.price;
-                url = '<a class="btn btn-sm btn-primary" href="' + sku_supplier.pivot.url + '" target="_blank"><i class="fa fa-link"></i></a>';
 
-                models = {"models":{"sku":data.models.sku, "skuSupplier": data.models.skuSupplier}};
-                crud = '<a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-lg"' +
-                    '                                          onclick="event.preventDefault(); md_product_sku_supplier_edit(this, php_inject=models);">' +
-                    '                                           <i class="fa fa-edit mr-5">編輯</i>' +
-                    '                                       </a>';
-                html = '<tr data-ss-id="' + sku_supplier.pivot.ss_id + '"><td>' + cursor_move + '</td><td></td><td>' + img_supplier + '</td><td>' + s_name + '</td><td>' + switch_btn + '</td><td>' + price + '</td><td>' + url + '</td><td>' + crud + '</td></tr>';
-                tr = $('#tbl-product-sku-supplier tbody').append(html);
+                //輸出
+                tr = $('#tbl-staff-staff_department tbody').append(html);
 
-                //排序
-                $('#tbl-product-sku-supplier tbody tr').each(function ($index) {
-                    input_a_id = $(this).children('td:eq(2)').find('input').attr('name', 'sku_suppliers[s_id]');
-                    $(this).children('td:eq(1)').html($index + 1);
-                })
-
-                //Switch
-                active_switch(switch_class = 'bt-switch', options = []);
+                //Table重新排序
+                active_table_tr_reorder_nth(table_id="tbl-staff-staff_department", eq_order_index=1);
             },
             error: function(data) {
                 master_detail_errors(_this, data);

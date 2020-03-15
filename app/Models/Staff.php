@@ -84,12 +84,12 @@ class Staff extends Authenticatable implements MustVerifyEmailContract
 
     public function modified_by()
     {
-        return $this->belongsToMany(Staff::class, 'staffs_departments','modified_by','st_id');
+        return $this->belongsToMany(Staff::class, 'staffs_departments','st_id','modified_by');
     }
 
     public function created_by()
     {
-        return $this->belongsToMany(Staff::class, 'staffs_departments','created_by','st_id');
+        return $this->belongsToMany(Staff::class, 'staffs_departments','st_id','created_by');
     }
 
 }

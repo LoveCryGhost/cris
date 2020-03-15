@@ -34,7 +34,7 @@ class Staff_DepartmentService extends StaffCoreService implements StaffServiceIn
     {
         $staff = $model;
 
-        return  $staff->staffDepartments()->updateExistingPivot(
+        return  $staff->staffDepartments()->wherePivot('sd_id', $data['sd_id'])->updateExistingPivot(
             $data['old_d_id'] , [
             'st_id' => $data['st_id'],
             'bonus' => $data['bonus'],

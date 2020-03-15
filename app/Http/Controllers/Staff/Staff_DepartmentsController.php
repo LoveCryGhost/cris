@@ -7,6 +7,7 @@ use App\Http\Requests\Staff\Staff_DepartmentRequest;
 use App\Models\StaffDepartment;
 use App\Services\Staff\Staff_DepartmentService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Staff_DepartmentsController extends StaffCoreController
 {
@@ -18,46 +19,32 @@ class Staff_DepartmentsController extends StaffCoreController
         $this->staff_DepartmentService = $staff_DepartmentService;
     }
 
+    public function create(Request $request)
+    {
+        $data = $request->all();
+        $staff = $this->staff_DepartmentService->StaffRepo->getById($data['st_id']);
+        $staffDepartments = StaffDepartment::get();
+        $view = view(config('theme.staff.view').'staff.staffDepartment.md-create',compact('data','staff', 'staffDepartments'))->render();
 
-//    public function index(Request $request)
-//    {
-//        return [
-//            'errors' => '',
-//            'models'=> [
-//                'sku' => '',
-//            ],
-//            'request' => $request->all(),
-//            'view' => 'xxxxxx',
-//            'options'=>[]
-//        ];
-//    }
-
-//    public function create(Request $request)
-//    {
-//        $data = $request->all();
-//
-//        $sku = $this->product_SKU_SupplierService->skuRepo->getById($data['sku_id']);
-//        $suppliers = $this->product_SKU_SupplierService->supplierRepo->builder()->get();
-//        $view = view(config('theme.member.view').'product.productSku.productSkuSupplier.md-create', compact('sku', 'suppliers'))->render();
-//        return [
-//            'errors' => '',
-//            'models'=> [
-//                'sku' => $sku,
-//                'suppliers' => $suppliers
-//            ],
-//            'request' => $request->all(),
-//            'view' => $view,
-//            'options'=>[]
-//        ];
-//    }
+        return [
+            'errors' => '',
+            'models'=> [
+                'sku' => '',
+            ],
+            'request' => request()->all(),
+            'view' => $view,
+            'options'=>[]
+        ];
+    }
 
     public function edit()
     {
         $data = request()->all();
         $staff = $this->staff_DepartmentService->StaffRepo->getById($data['st_id']);
         $staff_department_current_pivot = $staff->staffDepartments()->wherePivot('sd_id',$data['sd_id'])->get()->last()->pivot;
+        $creator_name = $this->staff_DepartmentService->StaffRepo->getById($staff_department_current_pivot->created_by);
         $staffDepartments = StaffDepartment::get();
-        $view = view(config('theme.staff.view').'staff.staffDepartment.md-edit',compact('data','staff','staffDepartments', 'staff_department_current_pivot'))->render();
+        $view = view(config('theme.staff.view').'staff.staffDepartment.md-edit',compact('data','staff','staffDepartments', 'staff_department_current_pivot','creator_name'))->render();
 
         return [
             'errors' => '',
@@ -90,28 +77,36 @@ class Staff_DepartmentsController extends StaffCoreController
         ];
     }
 
-    public function store(Product_SKU_SupplierRequest $request)
+    public function store(Staff_DepartmentRequest $request)
     {
         $data = $request->all();
-        $TF = $this->product_SKU_SupplierService->store($data);
-        $sku = $this->product_SKU_SupplierService->skuRepo->getById($data['sku_id']);
+        $staff = $this->staff_DepartmentService->StaffRepo->getById($data['st_id']);
+        $staff->staffDepartments()->attach([
+            $data['d_id']=> [
+                                'created_by' => Auth::guard('staff')->user()->id,
+                                'modified_by' => Auth::guard('staff')->user()->id,
+                                'bonus' => $data['bonus'],
+                                'start_at' =>  $data['start_at']
+                            ]
+        ]);
+        $staff = $this->staff_DepartmentService->StaffRepo->getById($data['st_id']);
 
-        $skuSupplier = $this->product_SKU_SupplierService->supplierRepo->getById($data['s_id']);
         return [
             'errors' => '',
             'models'=> [
-                'sku' => $sku,
-                'skuSupplier' => $skuSupplier,
+                'staff' => $staff,
             ],
             'request' => $request->all(),
             'view' => '',
             'options'=>[]
         ];
     }
-//
-//    public function destroy(Attribute $attribute)
-//    {
-//        $toast = $this->attributeService->destroy($attribute);
-//        return redirect()->route('member.attribute.index')->with('toast', $toast);
-//    }
+
+    public function destroy(Request $request)
+    {
+        $data = $request->all();
+        $staff = $this->staff_DepartmentService->StaffRepo->getById($data['st_id']);
+
+        $staff->staffDepartments()->wherePivot('sd_id', $data['sd_id'])->detach();
+    }
 }
