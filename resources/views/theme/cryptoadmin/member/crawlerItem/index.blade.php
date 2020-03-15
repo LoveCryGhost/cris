@@ -87,8 +87,8 @@
                                         <div class="col-md-3">
                                             <a class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal-left"
                                                onclick="show_crawler_item_skus(this, php_inject={{json_encode(['models' => ['crawlerItem' => $crawlerItem]])}})">SKU-明細</a><br>
-                                            銷量 : {{$crawlerItem->sold}}<br>
-                                            歷史銷量 : {{$crawlerItem->historical_sold}}<br>
+                                            月銷量 : {{number_format($crawlerItem->sold,0,".",",")}}<br>
+                                            歷史銷量 : {{number_format($crawlerItem->historical_sold,0,".",",")}}<br>
                                             最後更新時間 : {{$crawlerItem->updated_at!=null? $crawlerItem->updated_at->diffForHumans() : ""}}<br>
                                         </div>
                                         <div class="col-md-1">
