@@ -16,7 +16,7 @@ class CreateCrawlerTasksTable extends Migration
         Schema::create('crawler_tasks', function (Blueprint $table) {
             $table->bigIncrements('ct_id');
             $table->string('id_code')->unique()->nullable();
-            $table->boolean('is_active')->default(0);
+            $table->boolean('is_active')->default(1);
             $table->tinyInteger('sort_order')->default(0);
             $table->string('ct_name');
             $table->string('url');
