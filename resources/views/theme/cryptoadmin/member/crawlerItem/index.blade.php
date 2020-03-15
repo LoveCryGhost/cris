@@ -71,12 +71,18 @@
                                         <div class="col-md-1">
                                             <img src="https://cf.shopee.tw/file/{{$crawlerItem->images}}_tn" class="item-image"><br>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <a>{{ $crawlerItem->name }}</a><br>
                                             <a class="btn btn-sm btn-info" target="_blank"
                                                href="https://shopee.tw/{{$crawlerItem->name}}-i.{{$crawlerItem->shopid}}.{{$crawlerItem->itemid}}" ><i class="fa fa-external-link"></i></a>
                                             <a class="btn btn-sm btn-info" target="_blank"
                                                href="https://shopee.tw/shop/{{$crawlerItem->shopid}}" ><i class="fa fa-shopping-bag"></i></a>
+                                        </div>
+                                        <div class="col-md-1">
+                                            最高:{{number_format($crawlerItem->crawlerItemSKUs->max('price'),0,".",",")}}
+                                        </div>
+                                        <div class="col-md-1">
+                                            最低:{{number_format($crawlerItem->crawlerItemSKUs->min('price'),0,".",",")}}
                                         </div>
                                         <div class="col-md-3">
                                             <a class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal-left"
