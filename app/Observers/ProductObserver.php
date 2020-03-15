@@ -12,7 +12,7 @@ class ProductObserver extends Observer
 
     public function saving(Product $product)
     {
-        if($product->is_active == 1 or $product->is_active ==true){
+        if(request()->is_active == 1 or request()->is_active ==true){
             $product->is_active = 1;
         }else{
             $product->is_active = 0;

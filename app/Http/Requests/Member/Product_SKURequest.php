@@ -9,17 +9,10 @@ class Product_SKURequest extends Request
 {
     public function rules()
     {
-        $sku=$this->product_sku;
         switch($this->method())
         {
             // CREATE
             case 'POST':
-                {
-                    return [
-                        'price' => ['required','numeric'],
-                        'sku_name' => ['required'],
-                    ];
-                }
             case 'PUT':
             case 'PATCH':
                 {
