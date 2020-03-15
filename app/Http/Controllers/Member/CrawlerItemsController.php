@@ -25,7 +25,7 @@ class CrawlerItemsController extends MemberCoreController
         $crawlerTask = $this->crawlerService->crawlerTaskRepo->getById(request()->crawlerTask);
         $crawlerItems = $crawlerTask->crawlerItems()
             ->where('is_active', request()->is_active)
-            ->paginate(5);
+            ->paginate(50);
         return view(config('theme.member.view').'crawlerItem.index',
             [
                 'crawlerTask' => $crawlerTask,
