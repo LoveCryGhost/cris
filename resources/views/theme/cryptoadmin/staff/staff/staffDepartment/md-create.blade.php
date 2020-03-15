@@ -116,7 +116,7 @@
 
                 models = {"models":{"staff": data.models.staff, "staffDepartment": data.models.staffDepartment},"options":{"sd_id":staff_department.pivot.sd_id}}
                 crud_btn = crud_btn +
-                '<a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-lg"' +
+                '<a class="btn btn-warning btn-sm" ' +
                 '                                          onclick="event.preventDefault(); md_staff_department_destroy(this, php_inject=models);">' +
                 '                                           <i class="fa fa-trash mr-5"></i>刪除' +
                 '                                       </a>'

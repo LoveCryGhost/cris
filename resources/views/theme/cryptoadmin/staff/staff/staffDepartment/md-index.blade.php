@@ -63,7 +63,7 @@
                                           onclick="event.preventDefault(); md_staff_department_edit(this, php_inject={{json_encode(['models' => [ 'staff' => $staff]])}});">
                                            <i class="fa fa-edit mr-5"></i>編輯
                                        </a>
-                                       <a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-lg"
+                                       <a class="btn btn-warning btn-sm"
                                           onclick="event.preventDefault(); md_staff_department_destroy(this, php_inject={{json_encode(['models' => [ 'staff' => $staff], 'options'=> ['sd_id'=>$staffDepartment->pivot->sd_id]])}});">
                                            <i class="fa fa-trash mr-5"></i>刪除
                                        </a>
