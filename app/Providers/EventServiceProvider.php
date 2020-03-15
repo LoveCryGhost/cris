@@ -30,9 +30,14 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\UserLoginSuccessfulEvent' => [
             'App\Listeners\UserLoginSuccessfulListener',
         ],
-        //User登入監聽
+        //Member登入監聽
         'App\Events\MemberLoginSuccessfulEvent' => [
             'App\Listeners\MemberLoginSuccessfulListener',
+        ],
+
+        //Staff登入監聽
+        'App\Events\StaffLoginSuccessfulEvent' => [
+            'App\Listeners\StaffLoginSuccessfulListener',
         ],
     ];
 

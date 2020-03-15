@@ -133,6 +133,27 @@ class CreateStaffsTable extends Migration
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
+
+        Schema::create('staff_logs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('ip');
+            $table->timestamp('login_at');
+            $table->bigInteger('user_id')->unsigned();
+
+            $table->string('address')->nullable(); // zhuzhichao/ip-location-zh 包含的方法獲取ip地理位置
+            $table->string('browser')->nullable();
+            $table->string('platform')->nullable(); //作業系統
+
+            // jenssegers/agent 的方法來提取agent資訊
+            $table->string('device')->nullable(); //裝置名稱
+            $table->string('device_type')->nullable(); //裝置型別
+            $table->string('language')->nullable(); //裝置型別
+
+
+            $table->foreign('user_id')->references('id')->on('staffs')->onDelete('cascade');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+        });
     }
 
     /**

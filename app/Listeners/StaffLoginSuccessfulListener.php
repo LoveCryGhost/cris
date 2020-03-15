@@ -39,7 +39,7 @@ class StaffLoginSuccessfulListener
         $login_info = [
             'ip' => $ip,
             'login_at' => $timestamp,
-            'Staff_id' => $Staff->id
+            'user_id' => $Staff->id
         ];
 
         // zhuzhichao/ip-location-zh 包含的方法獲取ip地理位置
