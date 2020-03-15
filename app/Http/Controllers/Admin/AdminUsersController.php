@@ -24,7 +24,7 @@ class AdminUsersController extends AdminCoreController
 
     //Dashboard
     public function index(){
-        $users = User::withCount(['userLogs'])->paginate(5);
+        $users = User::withCount(['userLogs'])->paginate(10);
         return view(config('theme.admin.view').'user.index', compact('users'));
     }
 
@@ -81,38 +81,10 @@ class AdminUsersController extends AdminCoreController
 
 
     public function create(){
-        return view(config('theme.admin.view').'user.create', compact(''));
+        return view(config('theme.admin.view').'user.create');
     }
 
-//    //顯示使用者資料
-//    public function edit(Admin $admin)
-//    {
-//        $this->authorize('update', $admin);
-//        return view(config('theme.admin.view').'admin.edit', compact('admin'));
-//    }
-//
-//    public function update(AdminRequest $request,  ImageUploadHandler $uploader,Admin $admin)
-//    {
-//        $this->authorize('update', $admin);
-//        $data = $request->all();
-//        if($request->avatar) {
-//            $result = $uploader->save($request->avatar, 'avatars', $admin->id, 416);
-//            if ($result) {
-//                $data['avatar'] = $result['path'];
-//            }
-//        }
-//        $admin->update($data);
-//        return redirect()->route('admin.edit',['admin'=>$admin->id])
-//            ->with('toast', [
-//                "heading" => "個人訊息 - 更新成功",
-//                "text" =>  '',
-//                "position" => "top-right",
-//                "loaderBg" => "#ff6849",
-//                "icon" => "success",
-//                "hideAfter" => 3000,
-//                "stack" => 6
-//            ]);
-//    }
+
 
 
 }

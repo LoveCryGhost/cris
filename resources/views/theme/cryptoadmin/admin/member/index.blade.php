@@ -1,6 +1,6 @@
 @extends(config('theme.admin.admin-app'))
 
-@section('title','新增會員')
+@section('title','會員列表')
 
 @section('content')
     <div class="container-full">

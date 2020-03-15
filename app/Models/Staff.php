@@ -92,4 +92,8 @@ class Staff extends Authenticatable implements MustVerifyEmailContract
         return $this->belongsToMany(Staff::class, 'staffs_departments','st_id','created_by');
     }
 
+    public function staffLogs()
+    {
+        return $this->hasMany( StaffLog::class, 'staff_id','id');
+    }
 }
