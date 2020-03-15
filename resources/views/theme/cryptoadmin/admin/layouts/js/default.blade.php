@@ -113,11 +113,125 @@
 <!-- FastClick -->
 <script src="{{asset('theme/cryptoadmin/vendor_components/fastclick/lib/fastclick.js')}}"></script>
 
+<script>
 
-{{--<script src="{{asset('theme/cryptoadmin/js/pages/amcharts/charts.js')}}" type="text/javascript"></script>--}}
+    function null_to_empty(str) {
+        if(str==null){
+            return "";
+        }
+        return str;
+    }
+    function active_ajax_header(){
+        return {
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        };
+    }
 
-{{--<!-- Crypto Admin App -->--}}
-{{--<script src="{{asset('theme/cryptoadmin/js/template.js')}}"></script>--}}
+
+    function active_switch(switch_class, options=[]) {
+        $bt_switch = $('.'+switch_class);
+        $bt_switch.bootstrapSwitch('toggleState', true);
+    }
+
+    function active_select2(select2_class, options={}){
+        //active
+        select2_item = $('.'+select2_class);
+        //theme
+        if(options.theme !=null){
+            select2_item.select2({
+                theme: options.theme
+            });
+        }else{
+            select2_item.select2();
+        }
+
+    }
 
 
 
+
+    //表格
+    //tr_movable_htlm
+    function tr_movable_html() {
+        return   tr_movable_html =  '<span class="handle" style="cursor: move;">' +
+            '      <i class="fa fa-ellipsis-v"></i>' +
+            '      <i class="fa fa-ellipsis-v"></i>' +
+            '</span>';
+    }
+
+    function active_table_tr_reorder_in_1st_td() {
+        //排序
+        $('#'+table_id+' tbody tr').each(function ($index) {
+            $(this).children('td:eq(1)').html($index+1);
+        })
+    }
+
+
+    function active_table_tr_reorder_in_2nd_td() {
+        //排序
+        $('#'+table_id+' tbody tr').each(function ($index) {
+            $(this).children('td:eq(2)').html($index+1);
+        })
+    }
+    function active_table_tr_reorder_nth(table_id, eq_order_index=1) {
+        //排序
+        $('#'+table_id+' tbody tr').each(function ($index) {
+            $(this).children('td:eq('+eq_order_index+')').html($index+1);
+        })
+    }
+
+    //排序表格
+    function active_table_sortable(table_id, eq_order_index=1, options={}) {
+        if(eq_order_index === 1){
+            $('#'+table_id+' tbody').sortable({
+                placeholder         : 'sort-highlight',
+                handle              : '.handle',
+                forcePlaceholderSize: false,
+                zIndex              : 999999,
+                update              : active_table_tr_reorder_in_1st_td
+            });
+        }else if(eq_order_index === 2){
+            $('#'+table_id+' tbody').sortable({
+                placeholder         : 'sort-highlight',
+                handle              : '.handle',
+                forcePlaceholderSize: false,
+                zIndex              : 999999,
+                update              : active_table_tr_reorder_in_2nd_td
+            });
+        }
+    }
+
+
+    function clean_close_modal(modal_id) {
+        _modal = $('#'+modal_id);
+        _modal.children().find('.close').click();
+        _modal.children().find('.modal-body').html('');
+    }
+
+    function master_detail_errors(_this, data) {
+        //轉換物件
+        var request = $.parseJSON(data.responseText);
+        error_bag = $(_this).parents().closest('div.box-body').children().find('#modal_errors_div');
+        error_bag.html('');
+        $.each(request.errors, function(key, value) {
+            error_bag.append('<li>' + value + '</li>');
+        });
+        error_bag.show();
+    }
+
+    function swal_delete_info(){
+        return {
+            title: "您確定要刪除?",
+            text: "刪除後，您將無法復原此資料!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "確認刪除!",
+            cancelButtonText: "取消",
+            closeOnConfirm: false
+        }
+    }
+
+</script>

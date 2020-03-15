@@ -100,6 +100,11 @@ Route::prefix('')->namespace('Admin')->group(function(){
         //AdminMember
         Route::put('member_update_password/{member}', 'AdminMembersController@update_password')->name('member.update_password');
         Route::resource('member', 'AdminMembersController');
+
+        //AdminMember
+        Route::put('staff_update_password/{staff}', 'AdminStaffsController@update_password')->name('staff.update_password');
+        Route::resource('staff', 'AdminStaffsController');
+
     });
     Route::resource('admin', 'AdminsController');
 });

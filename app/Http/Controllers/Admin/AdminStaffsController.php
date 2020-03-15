@@ -18,29 +18,30 @@ class AdminStaffsController extends AdminCoreController
     public function __construct(StaffService $staffService)
     {
         $this->middleware('auth:admin');
-        $this->StaffService = $staffService;
+        $this->staffService = $staffService;
     }
 
     //Dashboard
     public function index(){
-        $staffs = Staff::withCount(['StaffLogs'])->paginate(5);
-        return view(config('theme.admin.view').'staff.index', compact('Staffs'));
+        $staffs = Staff::withCount(['staffLogs'])->paginate(10);
+        return view(config('theme.admin.view').'staff.index', compact('staffs'));
     }
 
     public function edit(Staff $staff){
-        return view(config('theme.admin.view').'staff.edit', compact('Staff'));
+        $staffs = $this->staffService->StaffRepo->builder()->get();
+        return view(config('theme.admin.view').'staff.edit', compact('staff', 'staffs'));
     }
 
     public function update(AdminStaffRequest $request , ImageUploadHandler $uploader, Staff $staff)
     {
         $data = $request->all();
 
-        $data = $this->StaffService->save_avatar($data, $staff,$request, $uploader);
+        $data = $this->staffService->save_avatar($data, $staff,$request, $uploader);
 
         $staff->update($data);
-        return redirect()->route('admin.Staff.index')
+        return redirect()->route('admin.staff.edit',['staff'=>$staff->id])
             ->with('toast', [
-                "heading" => "個人訊息 - 更新成功",
+                "heading" => "員工訊息 - 更新成功",
                 "text" =>  '',
                 "position" => "top-right",
                 "loaderBg" => "#ff6849",
@@ -63,10 +64,10 @@ class AdminStaffsController extends AdminCoreController
         ]);
 
         $data = $request->all();
-        $data = $this->StaffService->save_change_password($data, $staff,$request);
+        $data = $this->staffService->save_change_password($data, $staff,$request);
 
         $staff->update($data);
-        return redirect()->route('admin.Staff.edit', ['Staff'=> $staff->id])
+        return redirect()->route('admin.staff.edit', ['staff'=> $staff->id])
             ->with('toast', [
                 "heading" => "Staff 密碼 - 更新成功",
                 "text" =>  '',
@@ -80,38 +81,6 @@ class AdminStaffsController extends AdminCoreController
 
 
     public function create(){
-        return view(config('theme.admin.view').'staff.create', compact(''));
+        return view(config('theme.admin.view').'staff.create');
     }
-
-//    //顯示使用者資料
-//    public function edit(Admin $admin)
-//    {
-//        $this->authorize('update', $admin);
-//        return view(config('theme.admin.view').'admin.edit', compact('admin'));
-//    }
-//
-//    public function update(AdminRequest $request,  ImageUploadHandler $uploader,Admin $admin)
-//    {
-//        $this->authorize('update', $admin);
-//        $data = $request->all();
-//        if($request->avatar) {
-//            $result = $uploader->save($request->avatar, 'avatars', $admin->id, 416);
-//            if ($result) {
-//                $data['avatar'] = $result['path'];
-//            }
-//        }
-//        $admin->update($data);
-//        return redirect()->route('admin.edit',['admin'=>$admin->id])
-//            ->with('toast', [
-//                "heading" => "個人訊息 - 更新成功",
-//                "text" =>  '',
-//                "position" => "top-right",
-//                "loaderBg" => "#ff6849",
-//                "icon" => "success",
-//                "hideAfter" => 3000,
-//                "stack" => 6
-//            ]);
-//    }
-
-
 }

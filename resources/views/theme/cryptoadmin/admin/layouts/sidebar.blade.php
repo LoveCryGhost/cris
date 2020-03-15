@@ -36,6 +36,7 @@
                 <ul class="treeview-menu">
                     <li><a href="{{route('admin.user.index')}}"><i class="ti-more"></i>User - 清單</a></li>
                     <li><a href="{{route('admin.member.index')}}"><i class="ti-more"></i>Member - 清單</a></li>
+                    <li><a href="{{route('admin.staff.index')}}"><i class="ti-more"></i>Staff - 清單</a></li>
                 </ul>
             </li>
             <li class="treeview">
