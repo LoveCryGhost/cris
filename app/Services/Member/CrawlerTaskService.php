@@ -17,7 +17,6 @@ class CrawlerTaskService extends MemberCoreService implements MemberServiceInter
     {
         $this->crawlertaskRepo = $crawlerTaskRepository;
         $this->shopeeHandler = $shopeeHandler;
-
     }
 
     public function index()
@@ -28,7 +27,6 @@ class CrawlerTaskService extends MemberCoreService implements MemberServiceInter
 
     public function create()
     {
-//        return $this->get();
     }
 
 
@@ -58,8 +56,8 @@ class CrawlerTaskService extends MemberCoreService implements MemberServiceInter
 
     public function destroy($model, $data)
     {
-//        $type = $model;
-//        return $type->delete();
+        $crawlertask = $model;
+        return $crawlertask->delete();
     }
 
 

@@ -48,7 +48,7 @@
                                         <td>頁數</td><td>{{$crawlerTask->pages}}</td>
                                     </tr>
                                     <tr>
-                                        <td>網址</td><td  colspan="5">{{$crawlerTask->url}}</td>
+                                        <td>網址</td><td  colspan="5"><a href="{{$crawlerTask->url}}" target="_blank">{{$crawlerTask->url}}</a></td>
                                     </tr>
                                     <tr>
                                         <td>類別</td><td>{{$crawlerTask->cat}}</td>

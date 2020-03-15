@@ -8,6 +8,7 @@ use App\Models\CrawlerItemSKU;
 use App\Models\CrawlerTask;
 use App\Services\Member\CrawlerTaskService;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class CrawlerTasksController extends MemberCoreController
 {
@@ -51,11 +52,11 @@ class CrawlerTasksController extends MemberCoreController
         return redirect()->route('member.crawlertask.index')->with('toast', parent::$toast_update);
     }
 
-//    public function destroy(Request $request, Type $type)
-//    {
-//        $data = $request->all();
-//        $toast = $this->typeService->destroy($type, $data);
-//        return redirect()->route('member.type.index')->with('toast', parent::$toast_destroy);
-//    }
+    public function destroy(Request $request, CrawlerTask $crawlertask)
+    {
+        $data = $request->all();
+        $toast = $this->crawlerTaskService->destroy($crawlertask, $data);
+        return redirect()->route('member.crawlertask.index')->with('toast', parent::$toast_destroy);
+    }
 
 }
