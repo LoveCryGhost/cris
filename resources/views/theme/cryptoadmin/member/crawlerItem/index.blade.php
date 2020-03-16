@@ -146,7 +146,7 @@ $(function() {
         nextSelector: 'a.jscroll-next:last',
         contentSelector: 'div.infinite-scroll',
         callback:function() {
-            float_image(className="item-image", x=90, y=0)
+            float_image(className="item-image", x=90, y=-10)
         }
     });
 

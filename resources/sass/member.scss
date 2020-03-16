@@ -60,14 +60,15 @@
         margin: 3px;
     }
 
-    #tooltip{
-        position:absolute;
-        border:1px solid #ccc;
-        background:#333;
-        padding:2px;
-        display:none;
-        color:#fff;
-        z-index: 1000000000000000;
-    }
-}
 
+
+}
+#tooltip{
+    position:absolute;
+    border:1px solid #ccc;
+    background:#333;
+    padding:2px;
+    display:none;
+    color:#fff;
+    z-index: 1000000000000000;
+}
