@@ -133,19 +133,21 @@
 @section('js')
     @parent
 <script src="https://cdn.bootcss.com/jscroll/2.4.1/jquery.jscroll.min.js"></script>
-
 <script type="text/javascript">
 $(function() {
     $('.infinite-scroll').jscroll({
         // 当滚动到底部时,自动加载下一页
         autoTrigger: true,
         // 限制自动加载, 仅限前两页, 后面就要用户点击才加载
-        autoTriggerUntil: 0,
+        autoTriggerUntil: 5,
         // 设置加载下一页缓冲时的图片
         loadingHtml: '<div class="text-center"><img class="center-block" src="{{asset('images/default/icons/loading.gif')}}" alt="Loading..." /><div>',
         padding: 0,
         nextSelector: 'a.jscroll-next:last',
         contentSelector: 'div.infinite-scroll',
+        callback:function() {
+            float_image(className="item-image", x=90, y=0)
+        }
     });
 
     $(".crawlertask").bootstrapSwitch({
@@ -154,6 +156,9 @@ $(function() {
             toggle_crawler_items_reload($(this), state);
         },
     }).bootstrapSwitch('toggleState',true);
+    float_image(className="item-image", x=90, y=0)
+
+
 });
 
 function show_crawler_item_skus(_this, php_inject) {
