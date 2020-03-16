@@ -90,7 +90,7 @@
                                             月銷量 : {{number_format($crawlerItem->sold,0,".",",")}}<br>
                                             歷史銷量 : {{number_format($crawlerItem->historical_sold,0,".",",")}}<br>
                                             最後更新時間 : {{$crawlerItem->updated_at!=null? $crawlerItem->updated_at->diffForHumans() : ""}}<br>
-                                            <div class="text-right">{{$crawlerItem->updated_at}}</div>
+                                            <div class="text-right">{{now()}} - {{$crawlerItem->updated_at}}</div>
                                         </div>
                                         <div class="col-md-1">
                                             @if(request()->is_active==0)
