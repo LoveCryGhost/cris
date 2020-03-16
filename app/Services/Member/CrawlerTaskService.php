@@ -42,8 +42,8 @@ class CrawlerTaskService extends MemberCoreService implements MemberServiceInter
         $url_params = (new ShopeeHandler())->shopee_url($url);
         $data['url_params'] = $url_params;
         $data['local'] = $data['url_params']['local'];
-        $data['sort_by'] = $data['url_params']['gets']['sortBy'];
         $data['domain'] = $data['url_params']['domain'];
+        $data['sort_by'] = $data['url_params']['gets']['sortBy'];
         $data['cat'] = $data['url_params']['cat'];
         return $this->crawlertaskRepo->builder()->create($data);
     }

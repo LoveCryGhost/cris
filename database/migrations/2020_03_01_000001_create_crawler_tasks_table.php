@@ -19,7 +19,7 @@ class CreateCrawlerTasksTable extends Migration
             $table->boolean('is_active')->default(1);
             $table->tinyInteger('sort_order')->default(0);
             $table->string('ct_name');
-            $table->string('url');
+            $table->string('url',500);
             $table->string('domain')->nullable();
             $table->string('pages')->default(2);
             $table->string('cat')->nullable();
