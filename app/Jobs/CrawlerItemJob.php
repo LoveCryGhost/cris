@@ -37,7 +37,7 @@ class CrawlerItemJob implements ShouldQueue
 
         if(count($crawler_items)>0){
             foreach ($crawler_items as $crawler_item){
-                $url = 'https://shopee.tw/api/v2/item/get?itemid='.$crawler_item->itemid.'&shopid='.$crawler_item->shopid;
+                $url = 'https://'.$crawler_item->domain.'/api/v2/item/get?itemid='.$crawler_item->itemid.'&shopid='.$crawler_item->shopid;
                 $ClientResponse = $this->shopeeHandler->ClientHeader_Shopee($url);
                 $json = json_decode($ClientResponse->getBody(), true);
 
@@ -49,6 +49,7 @@ class CrawlerItemJob implements ShouldQueue
                     'images' => $json['item']['images'][0],
                     'sold' => $json['item']['sold'],
                     'historical_sold' => $json['item']['historical_sold'],
+                    'domain' => $crawler_item->domain,
                     'local' => $crawler_item->local,
                     'member_id' => $member_id,
                     'updated_at'=> now()
@@ -67,7 +68,7 @@ class CrawlerItemJob implements ShouldQueue
             }
 
             //重新指派任務
-            dispatch(new CrawlerItemJob());
+            dispatch((new CrawlerItemJob())->onQueue('high'));
         }
     }
 

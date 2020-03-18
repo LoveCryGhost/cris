@@ -40,6 +40,7 @@ class CrawlerShopJob implements ShouldQueue
                     'shopid' => $crawler_shop->shopid,
                     'username' => $json['data']['account']['username'],
                     'shop_location' => $json['data']['shop_location'],
+                    'domain' => $crawler_shop->domain,
                     'local' => $crawler_shop->local,
                     'member_id' => $member_id,
                     'updated_at'=>now()
@@ -49,7 +50,7 @@ class CrawlerShopJob implements ShouldQueue
             //Update CrawlerShop
             $crawlerShop = new CrawlerShop();
             $TF = (new MemberCoreRepository())->massUpdate($crawlerShop, $row_shop);
-            dispatch(new CrawlerShopJob());
+            dispatch((new CrawlerShopJob())->onQueue('low'));
         }
     }
 }

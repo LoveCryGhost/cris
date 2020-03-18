@@ -11,7 +11,12 @@
 |
 */
 
+use App\Handlers\ShopeeHandler;
+use App\Models\CrawlerItem;
+use App\Models\CrawlerTask;
+use App\Repositories\Member\MemberCoreRepository;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 //MultiAuth 用户身份验证相关的路由
@@ -156,9 +161,58 @@ Route::prefix('')->namespace('Staff')->group(function(){
 
 
 Route::get('/', function () {
+
     return view('theme.cryptoadmin.user.welcome');
 });
 
+Route::get('/test', function (){
+
+
+//    $statement = "select `ci_id` from `crawler_items` where (`itemid`, `shopid`) in (('7315080132', '121790231'), ('1815811714', '2478934'))";
+//    dd(DB::select($statement));
+
+    //$url = $this->url;
+    $url = "https://shopee.tw/api/v2/search_items/?&by=relevancy&limit=2&newest=0&locations=-1&fe_categoryids=&page_type=search&version=2";
+    $this->shopeeHandler = new ShopeeHandler();
+    $ClientResponse = $this->shopeeHandler->ClientHeader_Shopee($url);
+    $this->crawlerTask = CrawlerTask::find(3);
+    $json = json_decode($ClientResponse->getBody(), true);
+
+    $member_id = Auth::guard('member')->check()?  Auth::guard('member')->user()->id: '1';
+    foreach ($json['items'] as $item){
+        $row_items[] = [
+            'itemid' => $item['itemid'],
+            'shopid' => $item['shopid'],
+            //'name' => $item['name'], 不完整
+            'images' => $item['image'],
+            'sold' => $item['sold']!==null? $item['sold']: 0,
+            'historical_sold' => $item['historical_sold'],
+            'local' => $this->crawlerTask->local,
+            'member_id' => $member_id,
+        ];
+
+        $row_shops[] =  [
+            'shopid' => $item['shopid'],
+            'shop_location' => "",
+            'local' => $this->crawlerTask->local,
+            'member_id' => $member_id
+        ];
+
+        $value_arr[] = [ $item['itemid'],  $item['shopid'], $this->crawlerTask->local];
+    };
+
+
+    //批量儲存Item
+    $crawlerItem = new CrawlerItem();
+    $TF = (new MemberCoreRepository())->massUpdate($crawlerItem, $row_items);
+
+    //CrawlerTasks sync Items
+    //$crawlerItem_ids = CrawlerItem::whereNull('created_at')->pluck('ci_id');
+    $crawlerItem_ids = CrawlerItem::whereInMultiple(['itemid','shopid','local'], $value_arr)
+        ->pluck('ci_id');
+
+    $this->crawlerTask->crawlerItems()->syncwithoutdetaching($crawlerItem_ids);
+});
 include('route_test.php');
 
 

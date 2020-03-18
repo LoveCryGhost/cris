@@ -19,12 +19,22 @@ class CreateCrawlerTasksTable extends Migration
             $table->boolean('is_active')->default(1);
             $table->tinyInteger('sort_order')->default(0);
             $table->string('ct_name');
-            $table->string('url', 700);
+            $table->string('url',500);
             $table->string('domain')->nullable();
             $table->string('pages')->default(2);
-            $table->string('cat')->nullable();
+            $table->string('category')->nullable();
+            $table->string('subcategory')->nullable();
+            $table->string('keyword')->nullable();
+            $table->string('order')->nullable();
             $table->string('sort_by')->nullable();
+            $table->string('locations')->nullable();
+            $table->string('ratingFilter')->nullable();
+            $table->string('wholesale')->nullable();
+            $table->string('shippingOptions')->nullable();
+            $table->string('facet')->nullable();
+            $table->string('officialMall')->nullable();
             $table->string('local')->nullable();
+
             $table->bigInteger('member_id')->unsigned();
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
             $table->timestamps();

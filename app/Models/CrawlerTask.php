@@ -17,7 +17,18 @@ class CrawlerTask extends Model
 
     protected $fillable = [
         'is_active', 'sort_order',
-        'ct_name', 'url', 'domain','pages', 'cat', 'sort_by', 'local'
+        'ct_name', 'url', 'domain','pages', 'local',
+        'category',
+        'subcategory',
+        'sort_by',
+        'keyword',
+        'order',
+        'locations',
+        'ratingFilter',
+        'facet',
+        'shippingOptions',
+        'wholesale',
+        'officialMall'
     ];
 
     protected $hidden = [

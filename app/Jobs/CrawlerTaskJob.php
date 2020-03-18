@@ -44,6 +44,7 @@ class CrawlerTaskJob implements ShouldQueue
                 'images' => $item['image'],
                 'sold' => $item['sold']!==null? $item['sold']: 0,
                 'historical_sold' => $item['historical_sold'],
+                'domain' => $this->crawlerTask->domain,
                 'local' => $this->crawlerTask->local,
                 'member_id' => $member_id,
             ];
@@ -51,9 +52,11 @@ class CrawlerTaskJob implements ShouldQueue
             $row_shops[] =  [
                 'shopid' => $item['shopid'],
                 'shop_location' => "",
+                'domain' => $this->crawlerTask->domain,
                 'local' => $this->crawlerTask->local,
                 'member_id' => $member_id
             ];
+            $value_arr[] = [ $item['itemid'],  $item['shopid'], $this->crawlerTask->local];
         };
 
         //批量儲存Item
@@ -61,8 +64,12 @@ class CrawlerTaskJob implements ShouldQueue
         $TF = (new MemberCoreRepository())->massUpdate($crawlerItem, $row_items);
 
         //CrawlerTasks sync Items
-        $crawlerItem_ids = CrawlerItem::whereNull('created_at')->pluck('ci_id');
+        //$crawlerItem_ids = CrawlerItem::whereNull('created_at')->pluck('ci_id');
+        $crawlerItem_ids = CrawlerItem::whereInMultiple( ['itemid','shopid','local'], $value_arr)
+            ->pluck('ci_id');
+
         $this->crawlerTask->crawlerItems()->syncwithoutdetaching($crawlerItem_ids);
+
         $crawlerItem->timestamps = false;
         $crawlerItem->whereIn('ci_id',$crawlerItem_ids)->update(['created_at' => now()]);
 
@@ -70,8 +77,8 @@ class CrawlerTaskJob implements ShouldQueue
         $crawlerShop = new CrawlerShop();
         $TF = (new MemberCoreRepository())->massUpdate($crawlerShop, $row_shops);
 
-        dispatch(new CrawlerItemJob());
-        dispatch(new CrawlerShopJob());
+        dispatch((new CrawlerItemJob())->onQueue('low'));
+        dispatch((new CrawlerShopJob())->onQueue('low'));
 
     }
 }

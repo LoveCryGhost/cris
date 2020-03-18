@@ -48,7 +48,7 @@
                                         <td>頁數</td><td>{{$crawlerTask->pages}}</td>
                                     </tr>
                                     <tr>
-                                        <td>網址</td><td  colspan="5"><a href="{{$crawlerTask->url}}" target="_blank">{{$crawlerTask->url}}</a></td>
+                                        <td>網址</td><td  colspan="5"><a href="{{$crawlerTask->url}}" target="_blank">顯示Shopee頁面</a></td>
                                     </tr>
                                     <tr>
                                         <td>類別</td><td>{{$crawlerTask->cat}}</td>
@@ -69,14 +69,16 @@
                                             [{{($crawlerItems->currentPage()-1)*($crawlerItems->perPage()) + $loop->iteration}}]
                                         </div>
                                         <div class="col-md-1">
-                                            <img src="https://cf.shopee.tw/file/{{$crawlerItem->images}}_tn" class="item-image"><br>
+                                            <img src="https://cf.{{$crawlerTask->domain}}/file/{{$crawlerItem->images}}_tn" class="item-image"><br>
                                         </div>
                                         <div class="col-md-4">
                                             <a>{{ $crawlerItem->name }}</a><br>
+
+
                                             <a class="btn btn-sm btn-info" target="_blank"
-                                               href="https://shopee.tw/{{$crawlerItem->name}}-i.{{$crawlerItem->shopid}}.{{$crawlerItem->itemid}}" ><i class="fa fa-external-link"></i></a>
+                                               href="https://{{$crawlerTask->domain}}/{{$crawlerItem->name}}-i.{{$crawlerItem->shopid}}.{{$crawlerItem->itemid}}" ><i class="fa fa-external-link"></i></a>
                                             <a class="btn btn-sm btn-info" target="_blank"
-                                               href="https://shopee.tw/shop/{{$crawlerItem->shopid}}" ><i class="fa fa-shopping-bag"></i></a>
+                                               href="https://{{$crawlerTask->domain}}/shop/{{$crawlerItem->shopid}}" ><i class="fa fa-shopping-bag"></i></a>
                                         </div>
                                         <div class="col-md-1">
                                             最低:{{number_format($crawlerItem->crawlerItemSKUs->min('price')/10, 0,".",",")}}
@@ -133,7 +135,7 @@
 
 @section('js')
     @parent
-<script src="https://cdn.bootcss.com/jscroll/2.4.1/jquery.jscroll.min.js"></script>
+    <script src="{{asset('js/jscroll.min.js')}}"></script>
 <script type="text/javascript">
 $(function() {
     $('.infinite-scroll').jscroll({

@@ -41,12 +41,49 @@ class CrawlerTaskObserver extends Observer
 
         $index = ceil($item_qty/$insert_item_qty);
         for ($i=0; $i<=$index-1; $i++){
-            $urls[] = 'https://'.$crawlertask->domain.'/api/v2/search_items/?by='.$crawlertask->sort_by.
-                        '&limit='.$insert_item_qty.'&match_id='.$crawlertask->cat.'&newest='.($i*$insert_item_qty).'&order=desc&page_type=search&version=2';
+            $url =   'https://'.$crawlertask->domain.'/api/v2/search_items/?';
+
+            if(!is_null($crawlertask->sort_by)){
+                $url.= '&by='.$crawlertask->sort_by;
+            }
+
+            $url.=   '&limit='.$insert_item_qty;
+            $url.=   '&newest='.($i*$insert_item_qty);
+
+
+            if(!is_null($crawlertask->locations)){
+                $url.= '&locations='.$crawlertask->locations;
+            }
+
+            if(!is_null($crawlertask->subcategory)){
+                $url.=   '&fe_categoryids='.$crawlertask->subcategory;
+            }else{
+                $url.=   '&fe_categoryids='.$crawlertask->category;
+            }
+            if(!is_null($crawlertask->facet)){
+                $url.= '&categoryids='.$crawlertask->facet;
+            }
+            if(!is_null($crawlertask->ratingFilter)){
+                $url.= '&rating_filter='.$crawlertask->ratingFilter;
+            }
+            if(!is_null($crawlertask->wholesale)){
+                $url.= '&wholesale='.$crawlertask->wholesale;
+            }
+            if(!is_null($crawlertask->shippingOptions)){
+                $url.= '&shippings='.$crawlertask->shippingOptions;
+            }
+            if(!is_null($crawlertask->officialMall)){
+                $url.= '&official_mall='.$crawlertask->officialMall;
+            }
+
+            $url.=   '&page_type=search';
+            $url.=   '&version=2';
+
+            $urls[] = $url;
         }
 
         foreach ($urls as $url){
-            dispatch(new CrawlerTaskJob($crawlertask, $url));
+            dispatch((new CrawlerTaskJob($crawlertask, $url))->onQueue('high'));
         }
     }
 

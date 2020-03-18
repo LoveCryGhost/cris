@@ -27,6 +27,7 @@ class ShopeeHandler
 
         $params = (new StringHandler())->url($url);
 
+
         //Shopee網址
 
         //local
@@ -46,6 +47,7 @@ class ShopeeHandler
             case "shopee.com.my":
                 $params['local'] = 'my';
                 break;
+
             default;
                 $params['local'] = null;
                 break;
@@ -57,9 +59,10 @@ class ShopeeHandler
             //是否有sub cat
             $sub_cat = explode('.', $cat[1]);
             if(count($sub_cat)==2){
-                $params['cat'] = $sub_cat[1];
+                $params['gets']['category'] = $sub_cat[0];
+                $params['gets']['subcategory'] = $sub_cat[1];
             }else{
-                $params['cat'] = $cat[1];
+                $params['gets']['category'] = $cat[1];
             }
         }
 
