@@ -167,15 +167,14 @@ Route::get('/', function () {
 
 Route::get('/test', function (){
 
-
 //    $statement = "select `ci_id` from `crawler_items` where (`itemid`, `shopid`) in (('7315080132', '121790231'), ('1815811714', '2478934'))";
 //    dd(DB::select($statement));
 
     //$url = $this->url;
-    $url = "https://shopee.tw/api/v2/search_items/?&by=relevancy&limit=2&newest=0&locations=-1&fe_categoryids=&page_type=search&version=2";
+    $url = "https://shopee.tw/api/v2/search_items/?&by=relevancy&limit=5&newest=0&locations=-1&fe_categoryids=&page_type=search&version=2";
     $this->shopeeHandler = new ShopeeHandler();
     $ClientResponse = $this->shopeeHandler->ClientHeader_Shopee($url);
-    $this->crawlerTask = CrawlerTask::find(3);
+    $this->crawlerTask = CrawlerTask::find(1);
     $json = json_decode($ClientResponse->getBody(), true);
 
     $member_id = Auth::guard('member')->check()?  Auth::guard('member')->user()->id: '1';
@@ -187,6 +186,7 @@ Route::get('/test', function (){
             'images' => $item['image'],
             'sold' => $item['sold']!==null? $item['sold']: 0,
             'historical_sold' => $item['historical_sold'],
+            'domain_name' => $this->crawlerTask->domain_name,
             'local' => $this->crawlerTask->local,
             'member_id' => $member_id,
         ];
@@ -201,11 +201,10 @@ Route::get('/test', function (){
         $value_arr[] = [ $item['itemid'],  $item['shopid'], $this->crawlerTask->local];
     };
 
-
     //批量儲存Item
     $crawlerItem = new CrawlerItem();
     $TF = (new MemberCoreRepository())->massUpdate($crawlerItem, $row_items);
-
+    dd(12);
     //CrawlerTasks sync Items
     //$crawlerItem_ids = CrawlerItem::whereNull('created_at')->pluck('ci_id');
     $crawlerItem_ids = CrawlerItem::whereInMultiple(['itemid','shopid','local'], $value_arr)

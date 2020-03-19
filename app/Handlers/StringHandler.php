@@ -68,9 +68,9 @@ class StringHandler
         $domains = explode("/",$url_paths[0]);
 
         if(count($domains)>=2){
-            $params['domain'] = $domains[0];
+            $params['domain_name'] = $domains[0];
         }else{
-            $params['domain'] = $url_paths;
+            $params['domain_name'] = $url_paths;
         }
 
 

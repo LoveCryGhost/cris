@@ -69,16 +69,14 @@
                                             [{{($crawlerItems->currentPage()-1)*($crawlerItems->perPage()) + $loop->iteration}}]
                                         </div>
                                         <div class="col-md-1">
-                                            <img src="https://cf.{{$crawlerTask->domain}}/file/{{$crawlerItem->images}}_tn" class="item-image"><br>
+                                            <img src="https://cf.{{$crawlerTask->domain_name}}/file/{{$crawlerItem->images}}_tn" class="item-image"><br>
                                         </div>
                                         <div class="col-md-4">
                                             <a>{{ $crawlerItem->name }}</a><br>
-
-
                                             <a class="btn btn-sm btn-info" target="_blank"
-                                               href="https://{{$crawlerTask->domain}}/{{$crawlerItem->name}}-i.{{$crawlerItem->shopid}}.{{$crawlerItem->itemid}}" ><i class="fa fa-external-link"></i></a>
+                                               href="https://{{$crawlerTask->domain_name}}/{{$crawlerItem->name==null? "waiting-upload-data":$crawlerItem->name}}-i.{{$crawlerItem->shopid}}.{{$crawlerItem->itemid}}" ><i class="fa fa-external-link"></i></a>
                                             <a class="btn btn-sm btn-info" target="_blank"
-                                               href="https://{{$crawlerTask->domain}}/shop/{{$crawlerItem->shopid}}" ><i class="fa fa-shopping-bag"></i></a>
+                                               href="https://{{$crawlerTask->domain_name}}/shop/{{$crawlerItem->shopid}}" ><i class="fa fa-shopping-bag"></i></a>
                                         </div>
                                         <div class="col-md-1">
                                             最低:{{number_format($crawlerItem->crawlerItemSKUs->min('price')/10, 0,".",",")}}

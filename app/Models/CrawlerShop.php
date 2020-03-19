@@ -18,9 +18,8 @@ class CrawlerShop extends Model
     protected $fillable = [
         'shopid',
         'username',
-         'sold', 'historical_sold', 'shop_location',
-        'domain', 'local',
-
+        'sold', 'historical_sold', 'shop_location',
+        'domain_name', 'local',
     ];
 
     protected $hidden = [

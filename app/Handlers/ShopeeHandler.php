@@ -31,7 +31,7 @@ class ShopeeHandler
         //Shopee網址
 
         //local
-        switch ($shopee_url = $params['domain']){
+        switch ($shopee_url = $params['domain_name']){
             case "shopee.tw":
                 $params['local'] = 'tw';
                 break;

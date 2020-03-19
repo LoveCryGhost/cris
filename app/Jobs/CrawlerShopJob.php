@@ -32,7 +32,7 @@ class CrawlerShopJob implements ShouldQueue
 
         if(count($crawler_shops)>0) {
             foreach ($crawler_shops as $crawler_shop){
-                $url = 'https://shopee.tw/api/v2/shop/get?shopid='.$crawler_shop->shopid;
+                $url = 'https://'.$crawler_shop->domain_name.'/api/v2/shop/get?shopid='.$crawler_shop->shopid;
                 $ClientResponse = $this->shopeeHandler->ClientHeader_Shopee($url);
                 $json = json_decode($ClientResponse->getBody(), true);
 
@@ -40,7 +40,7 @@ class CrawlerShopJob implements ShouldQueue
                     'shopid' => $crawler_shop->shopid,
                     'username' => $json['data']['account']['username'],
                     'shop_location' => $json['data']['shop_location'],
-                    'domain' => $crawler_shop->domain,
+                    'domain_name' => $crawler_shop->domain_name,
                     'local' => $crawler_shop->local,
                     'member_id' => $member_id,
                     'updated_at'=>now()

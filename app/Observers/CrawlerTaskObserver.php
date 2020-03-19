@@ -38,10 +38,9 @@ class CrawlerTaskObserver extends Observer
         //爬蟲
         $item_qty = $crawlertask->pages*50;
         $insert_item_qty = config('crawler.insert_item_qty');
-
         $index = ceil($item_qty/$insert_item_qty);
         for ($i=0; $i<=$index-1; $i++){
-            $url =   'https://'.$crawlertask->domain.'/api/v2/search_items/?';
+            $url =   'https://'.$crawlertask->domain_name.'/api/v2/search_items/?';
 
             if(!is_null($crawlertask->sort_by)){
                 $url.= '&by='.$crawlertask->sort_by;
@@ -57,9 +56,10 @@ class CrawlerTaskObserver extends Observer
 
             if(!is_null($crawlertask->subcategory)){
                 $url.=   '&fe_categoryids='.$crawlertask->subcategory;
-            }else{
+            }elseif(!is_null($crawlertask->category)){
                 $url.=   '&fe_categoryids='.$crawlertask->category;
             }
+
             if(!is_null($crawlertask->facet)){
                 $url.= '&categoryids='.$crawlertask->facet;
             }
@@ -75,12 +75,21 @@ class CrawlerTaskObserver extends Observer
             if(!is_null($crawlertask->officialMall)){
                 $url.= '&official_mall='.$crawlertask->officialMall;
             }
+            if(!is_null($crawlertask->keyword)){
+                $url.= '&keyword='.$crawlertask->keyword;
+            }
+
+            if(!is_null($crawlertask->order)){
+                $url.= '&order='.$crawlertask->order;
+            }
 
             $url.=   '&page_type=search';
             $url.=   '&version=2';
 
             $urls[] = $url;
         }
+
+        //dd($crawlertask, $url);
 
         foreach ($urls as $url){
             dispatch((new CrawlerTaskJob($crawlertask, $url))->onQueue('high'));

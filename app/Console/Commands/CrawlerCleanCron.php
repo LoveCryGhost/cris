@@ -2,10 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class CrawlerCleanCron extends Command
 {
@@ -32,18 +30,5 @@ class CrawlerCleanCron extends Command
         //刪除SKU
 
         //山除SKU Detail
-//        $name= 'a'.random_int(1000, 9999999);
-//        $email = $name.'@app.comTestCorn';
-//        User::create([
-//            'name' => $name,
-//            'email' => $email,
-//            'email_verified_at' => now(),
-//            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-//            'remember_token' => Str::random(10),
-//            'avatar' => '',
-//            'birthday' => null,
-//            'introduction' => 'aaa',
-//        ]);
-
     }
 }

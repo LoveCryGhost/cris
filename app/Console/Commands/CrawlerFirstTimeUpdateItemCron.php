@@ -23,6 +23,6 @@ class CrawlerFirstTimeUpdateItemCron extends Command
     //EveryMintu
     public function handle()
     {
-        dispatch(new CrawlerItemJob());
+        dispatch((new CrawlerItemJob())->onQueue('low'));
     }
 }

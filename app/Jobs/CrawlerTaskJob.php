@@ -40,20 +40,19 @@ class CrawlerTaskJob implements ShouldQueue
             $row_items[] = [
                 'itemid' => $item['itemid'],
                 'shopid' => $item['shopid'],
-                //'name' => $item['name'], 不完整
                 'images' => $item['image'],
                 'sold' => $item['sold']!==null? $item['sold']: 0,
                 'historical_sold' => $item['historical_sold'],
-                'domain' => $this->crawlerTask->domain,
-                'local' => $this->crawlerTask->local,
+                'domain_name' =>  $this->crawlerTask->domain_name,
+                'local' =>  $this->crawlerTask->local,
                 'member_id' => $member_id,
             ];
 
             $row_shops[] =  [
                 'shopid' => $item['shopid'],
                 'shop_location' => "",
-                'domain' => $this->crawlerTask->domain,
                 'local' => $this->crawlerTask->local,
+                'domain_name' => $this->crawlerTask->domain_name,
                 'member_id' => $member_id
             ];
             $value_arr[] = [ $item['itemid'],  $item['shopid'], $this->crawlerTask->local];
@@ -76,6 +75,9 @@ class CrawlerTaskJob implements ShouldQueue
         //批量儲存Shop
         $crawlerShop = new CrawlerShop();
         $TF = (new MemberCoreRepository())->massUpdate($crawlerShop, $row_shops);
+
+        //多餘的
+//        $this->crawlerTask->crawlerItems()->update(['domain_name'=> $this->crawlerTask->domain_name]);
 
         dispatch((new CrawlerItemJob())->onQueue('low'));
         dispatch((new CrawlerShopJob())->onQueue('low'));
