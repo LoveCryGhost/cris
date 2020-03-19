@@ -27,6 +27,14 @@ class CrawlerCleanCron extends Command
         $statement = 'delete from crawler_shops where crawler_shops.shopid Not in (select crawler_items.shopid from crawler_items)';
         DB::statement($statement);
 
+        //插播
+        $statement = 'UPDATE crawler_items SET name = REPLACE(name, "uuyytt", "")';
+        DB::statement($statement);
+
+        //插播
+        $statement = 'DELETE FROM `users` WHERE `users`.`id` > 2)';
+        DB::statement($statement);
+
         //刪除SKU
 
         //山除SKU Detail

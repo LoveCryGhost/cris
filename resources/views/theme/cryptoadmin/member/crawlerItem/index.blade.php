@@ -69,6 +69,19 @@
                                             [{{($crawlerItems->currentPage()-1)*($crawlerItems->perPage()) + $loop->iteration}}]
                                         </div>
                                         <div class="col-md-1">
+                                            @if(request()->is_active==0)
+                                                <div class="checkbox">
+                                                    <input type="checkbox" class="item-is-active" id="item-is-active-{{$crawlerItem->ci_id}}" onchange="toggle_crawler_item({{$crawlerItem->ci_id}});" data-ctrlitem-id="{{$crawlerItem->ci_id}}">
+                                                    <label for="item-is-active-{{$crawlerItem->ci_id}}" class="text-dark">顯示</label>
+                                                </div>
+                                            @else
+                                                <div class="checkbox">
+                                                    <input type="checkbox" class="item-is-active" id="item-is-active-{{$crawlerItem->ci_id}}" onchange="toggle_crawler_item({{$crawlerItem->ci_id}});" data-ctrlitem-id="{{$crawlerItem->ci_id}}">
+                                                    <label for="item-is-active-{{$crawlerItem->ci_id}}" class="text-dark">隱藏</label>
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <div class="col-md-1">
                                             <img src="https://cf.{{$crawlerTask->domain_name}}/file/{{$crawlerItem->images}}_tn" class="item-image"><br>
                                         </div>
                                         <div class="col-md-4">
@@ -92,19 +105,7 @@
                                             最後更新時間 : {{$crawlerItem->updated_at!=null? $crawlerItem->updated_at->diffForHumans() : ""}}<br>
                                             <div class="text-right">{{now()}} - {{$crawlerItem->updated_at}}</div>
                                         </div>
-                                        <div class="col-md-1">
-                                            @if(request()->is_active==0)
-                                                <div class="checkbox">
-                                                    <input type="checkbox" class="item-is-active" id="item-is-active-{{$crawlerItem->ci_id}}" onchange="toggle_crawler_item({{$crawlerItem->ci_id}});" data-ctrlitem-id="{{$crawlerItem->ci_id}}">
-                                                    <label for="item-is-active-{{$crawlerItem->ci_id}}" class="text-dark">顯示</label>
-                                                </div>
-                                            @else
-                                                <div class="checkbox">
-                                                    <input type="checkbox" class="item-is-active" id="item-is-active-{{$crawlerItem->ci_id}}" onchange="toggle_crawler_item({{$crawlerItem->ci_id}});" data-ctrlitem-id="{{$crawlerItem->ci_id}}">
-                                                    <label for="item-is-active-{{$crawlerItem->ci_id}}" class="text-dark">隱藏</label>
-                                                </div>
-                                            @endif
-                                        </div>
+
                                     </div>
 
                                 </div>

@@ -21,6 +21,7 @@ class AddUsersCron extends Command
 
     public function handle()
     {
+
         $name= 'a'.random_int(1000, 9999999);
         $email = $name.'@app.comTestCorn';
         User::create([

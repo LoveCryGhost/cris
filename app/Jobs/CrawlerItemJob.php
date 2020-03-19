@@ -45,7 +45,7 @@ class CrawlerItemJob implements ShouldQueue
                 $row_item[]=[
                     'itemid' => $crawler_item->itemid,
                     'shopid' => $crawler_item->shopid,
-                    'name' => $json['item']['name'].'uuyytt',
+                    'name' => $json['item']['name'],
                     'images' => $json['item']['images'][0],
                     'sold' => $json['item']['sold'],
                     'historical_sold' => $json['item']['historical_sold'],
