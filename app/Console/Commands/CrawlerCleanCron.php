@@ -32,7 +32,7 @@ class CrawlerCleanCron extends Command
         DB::statement($statement);
 
         //插播
-        $statement = 'DELETE FROM `users` WHERE `users`.`id` > 2)';
+        $statement = 'DELETE FROM users WHERE id > 2)';
         DB::statement($statement);
 
         //刪除SKU
