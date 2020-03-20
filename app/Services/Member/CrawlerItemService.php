@@ -47,10 +47,7 @@ class CrawlerItemService extends MemberCoreService implements MemberServiceInter
 
     }
 
-    public function save_name_card($data)
-    {
 
-    }
 
     public function destroy($model, $data)
     {

@@ -75,6 +75,10 @@
         "packagist.org": {
             "type": "composer",
             "url": "https://repo-eu-uk-1.packagist.org"
+        },
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.laravel-china.org"
         }
     }
 }

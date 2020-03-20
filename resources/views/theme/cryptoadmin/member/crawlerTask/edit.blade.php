@@ -86,7 +86,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Domain</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" name="domain" placeholder="Domain" disabled  value="{{$crawlertask->domain}}">
+                                            <input class="form-control" type="text" name="domain_name" placeholder="Domain" disabled  value="{{$crawlertask->domain_name}}">
                                         </div>
                                     </div>
 

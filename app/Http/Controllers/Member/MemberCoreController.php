@@ -28,7 +28,7 @@ class MemberCoreController extends Controller
     ];
 
     public static $toast_destroy = [
-        "heading" => "新增成功",
+        "heading" => "刪除成功",
         "text" =>  '',
         "position" => "top-right",
         "loaderBg" => "#ff6849",

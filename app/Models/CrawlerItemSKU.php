@@ -50,7 +50,7 @@ class CrawlerItemSKU extends Model
 
 
 
-    public function NdaysSales($ndays = 30)
+    public function NDaysSales($ndays = 30)
     {
         $CrawlerItemSKUs = $this->crawlerItemSKUDetails($ndays)->get();
         $first_day_sale =  $CrawlerItemSKUs->first()->sold;

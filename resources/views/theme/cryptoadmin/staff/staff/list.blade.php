@@ -99,7 +99,6 @@
                 nextSelector: 'a.jscroll-next:last',
                 contentSelector: 'div.infinite-scroll',
             });
-
         });
     </script>
 @endsection

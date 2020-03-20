@@ -13,25 +13,38 @@
                             <th>No</th>
                             <th>名稱</th>
                             <th>售價</th>
+                            <th>庫存</th>
                             <th>週銷量</th>
                             <th>月銷量</th>
                             <th>歷史銷量</th>
                             <th>歷史銷量(%)</th>
 
-                            <th>庫存</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $daySales7 =0;
+                            $daySales7_total=0;
+                            $daySales30 =0;
+                            $daySales30_total=0
+                        @endphp
                         @foreach($crawlerItem->crawlerItemSKUs as $crawlerItemSKU)
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$crawlerItemSKU->name}}</td>
-                            <td>{{$crawlerItemSKU->price}}</td>
-                            <td>{{$crawlerItemSKU->ndaysSales(7)}}</td>
-                            <td>{{$crawlerItemSKU->ndaysSales(30)}}</td>
-                            <td>{{number_format($crawlerItemSKU->sold, 0, "", ",")}}</td>
-                            <td>{{number_format(($crawlerItemSKU->sold/$crawlerItem->crawlerItemSKUs->sum('sold'))*100, 2, ".", ",")}}%</td>
-                            <td>{{number_format($crawlerItemSKU->stock, 0, ".", ",")}}</td>
+                            <td class="text-right">{{number_format($crawlerItemSKU->price/10,0,".",",")}}</td>
+                            <td class="text-right">{{number_format($crawlerItemSKU->stock, 0, ".", ",")}}</td>
+                                @php
+                                    $daySales7 = $crawlerItemSKU->nDaysSales(7);
+                                    $daySales30 = $crawlerItemSKU->nDaysSales(30);
+                                    $daySales7_total+= $daySales7;
+                                    $daySales30_total+= $daySales30;
+                                @endphp
+                            <td class="text-right">{{$daySales7}}</td>
+                            <td class="text-right">{{$daySales30}}</td>
+                            <td class="text-right">{{number_format($crawlerItemSKU->sold, 0, "", ",")}}</td>
+                            <td class="text-right">{{number_format(($crawlerItemSKU->sold/$crawlerItem->crawlerItemSKUs->sum('sold'))*100, 0, ".", ",")}}%</td>
+
                         </tr>
                         @endforeach
                     </tbody>
@@ -40,11 +53,12 @@
                             <th></th>
                             <th></th>
                             <th></th>
-                            <th></th>
-                            <th></th>
-                            <th>{{number_format($crawlerItem->crawlerItemSKUs->sum('sold'), 0, "", ",")}}</th>
-                            <th>100%</th>
-                            <th>{{number_format($crawlerItem->crawlerItemSKUs->sum('stock'), 0, "", ",")}}</th>
+                            <th class="text-right">{{number_format($crawlerItem->crawlerItemSKUs->sum('stock'), 0, "", ",")}}</th>
+                            <th class="text-right">{{$daySales7_total}}</th>
+                            <th class="text-right">{{$daySales30_total}}</th>
+                            <th class="text-right">{{number_format($crawlerItem->crawlerItemSKUs->sum('sold'), 0, "", ",")}}</th>
+                            <th class="text-right">100%</th>
+
                         </tr>
                     </tfoot>
                 </table>

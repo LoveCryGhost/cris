@@ -4,41 +4,24 @@ namespace App\Console\Commands;
 
 use App\Models\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class TestCron extends Command
+class AddUsersCron extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'command:test_cron';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Command test_corn_description';
+    protected $signature = 'command:add_users';
 
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
+    protected $description = 'Command add_users';
+
     public function __construct()
     {
         parent::__construct();
     }
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
     public function handle()
     {
+
         $name= 'a'.random_int(1000, 9999999);
         $email = $name.'@app.comTestCorn';
         User::create([
