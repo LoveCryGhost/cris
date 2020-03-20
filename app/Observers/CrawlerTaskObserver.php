@@ -89,7 +89,7 @@ class CrawlerTaskObserver extends Observer
             $urls[] = $url;
         }
 
-        //dd($crawlertask, $url);
+//        dd($crawlertask, $url);
 
         foreach ($urls as $url){
             dispatch((new CrawlerTaskJob($crawlertask, $url))->onQueue('high'));
