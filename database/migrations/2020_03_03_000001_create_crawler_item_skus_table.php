@@ -37,8 +37,8 @@ class CreateCrawlerItemSkusTable extends Migration
             $table->string('itemid');
             $table->string('modelid');
             $table->primary(['shopid', 'itemid', 'modelid','created_at']);
-            $table->integer('price')->default(0);
-            $table->integer('price_before_discount')->default(0);
+            $table->decimal('price',20)->default(0);
+            $table->decimal('price_before_discount',20)->default(0);
             $table->integer('sold')->default(0);
             $table->integer('stock')->default(0);
             $table->date('created_at')->useCurrent();
