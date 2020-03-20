@@ -48,7 +48,7 @@
                                         <td>頁數</td><td>{{$crawlerTask->pages}}</td>
                                     </tr>
                                     <tr>
-                                        <td>網址</td><td  colspan="5">{{$crawlerTask->url}}</td>
+                                        <td>網址</td><td  colspan="5"><a href="{{$crawlerTask->url}}" target="_blank">顯示Shopee頁面</a></td>
                                     </tr>
                                     <tr>
                                         <td>類別</td><td>{{$crawlerTask->cat}}</td>
@@ -69,23 +69,6 @@
                                             [{{($crawlerItems->currentPage()-1)*($crawlerItems->perPage()) + $loop->iteration}}]
                                         </div>
                                         <div class="col-md-1">
-                                            <img src="https://cf.shopee.tw/file/{{$crawlerItem->images}}_tn" class="item-image"><br>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <a>{{ $crawlerItem->name }}</a><br>
-                                            <a class="btn btn-sm btn-info" target="_blank"
-                                               href="https://shopee.tw/{{$crawlerItem->name}}-i.{{$crawlerItem->shopid}}.{{$crawlerItem->itemid}}" ><i class="fa fa-external-link"></i></a>
-                                            <a class="btn btn-sm btn-info" target="_blank"
-                                               href="https://shopee.tw/shop/{{$crawlerItem->shopid}}" ><i class="fa fa-shopping-bag"></i></a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal-left"
-                                               onclick="show_crawler_item_skus(this, php_inject={{json_encode(['models' => ['crawlerItem' => $crawlerItem]])}})">SKU-明細</a><br>
-                                            銷量 : {{$crawlerItem->sold}}<br>
-                                            歷史銷量 : {{$crawlerItem->historical_sold}}<br>
-                                            最後更新時間 : {{$crawlerItem->updated_at!=null? $crawlerItem->updated_at->diffForHumans() : ""}}<br>
-                                        </div>
-                                        <div class="col-md-1">
                                             @if(request()->is_active==0)
                                                 <div class="checkbox">
                                                     <input type="checkbox" class="item-is-active" id="item-is-active-{{$crawlerItem->ci_id}}" onchange="toggle_crawler_item({{$crawlerItem->ci_id}});" data-ctrlitem-id="{{$crawlerItem->ci_id}}">
@@ -98,6 +81,31 @@
                                                 </div>
                                             @endif
                                         </div>
+                                        <div class="col-md-1">
+                                            <img src="https://cf.{{$crawlerTask->domain_name}}/file/{{$crawlerItem->images}}_tn" class="item-image"><br>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a>{{ $crawlerItem->name }}</a><br>
+                                            <a class="btn btn-sm btn-info" target="_blank"
+                                               href="https://{{$crawlerTask->domain_name}}/{{$crawlerItem->name==null? "waiting-upload-data":$crawlerItem->name}}-i.{{$crawlerItem->shopid}}.{{$crawlerItem->itemid}}" ><i class="fa fa-external-link"></i></a>
+                                            <a class="btn btn-sm btn-info" target="_blank"
+                                               href="https://{{$crawlerTask->domain_name}}/shop/{{$crawlerItem->shopid}}" ><i class="fa fa-shopping-bag"></i></a>
+                                        </div>
+                                        <div class="col-md-1">
+                                            最低:{{number_format($crawlerItem->crawlerItemSKUs->min('price')/10, 0,".",",")}}
+                                        </div>
+                                        <div class="col-md-1">
+                                            最高:{{number_format($crawlerItem->crawlerItemSKUs->max('price')/10, 0,".",",")}}
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal-left"
+                                               onclick="show_crawler_item_skus(this, php_inject={{json_encode(['models' => ['crawlerItem' => $crawlerItem]])}})">SKU-明細</a><br>
+                                            月銷量 : {{number_format($crawlerItem->sold,0,".",",")}}<br>
+                                            歷史銷量 : {{number_format($crawlerItem->historical_sold,0,".",",")}}<br>
+                                            最後更新時間 : {{$crawlerItem->updated_at!=null? $crawlerItem->updated_at->diffForHumans() : ""}}<br>
+                                            <div class="text-right">{{now()}} - {{$crawlerItem->updated_at}}</div>
+                                        </div>
+
                                     </div>
 
                                 </div>
@@ -126,20 +134,22 @@
 
 @section('js')
     @parent
-<script src="https://cdn.bootcss.com/jscroll/2.4.1/jquery.jscroll.min.js"></script>
-
+    <script src="{{asset('js/jscroll.min.js')}}"></script>
 <script type="text/javascript">
 $(function() {
     $('.infinite-scroll').jscroll({
         // 当滚动到底部时,自动加载下一页
         autoTrigger: true,
         // 限制自动加载, 仅限前两页, 后面就要用户点击才加载
-        autoTriggerUntil: 20-1,
+        autoTriggerUntil: 0,
         // 设置加载下一页缓冲时的图片
         loadingHtml: '<div class="text-center"><img class="center-block" src="{{asset('images/default/icons/loading.gif')}}" alt="Loading..." /><div>',
         padding: 0,
         nextSelector: 'a.jscroll-next:last',
         contentSelector: 'div.infinite-scroll',
+        callback:function() {
+            float_image(className="item-image", x=90, y=-10)
+        }
     });
 
     $(".crawlertask").bootstrapSwitch({
@@ -148,6 +158,9 @@ $(function() {
             toggle_crawler_items_reload($(this), state);
         },
     }).bootstrapSwitch('toggleState',true);
+    float_image(className="item-image", x=90, y=0)
+
+
 });
 
 function show_crawler_item_skus(_this, php_inject) {

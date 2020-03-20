@@ -17,7 +17,6 @@ class CrawlerTaskService extends MemberCoreService implements MemberServiceInter
     {
         $this->crawlertaskRepo = $crawlerTaskRepository;
         $this->shopeeHandler = $shopeeHandler;
-
     }
 
     public function index()
@@ -28,7 +27,6 @@ class CrawlerTaskService extends MemberCoreService implements MemberServiceInter
 
     public function create()
     {
-//        return $this->get();
     }
 
 
@@ -42,12 +40,44 @@ class CrawlerTaskService extends MemberCoreService implements MemberServiceInter
     {
         $url = $data['url'];
         $url_params = (new ShopeeHandler())->shopee_url($url);
-
         $data['url_params'] = $url_params;
         $data['local'] = $data['url_params']['local'];
-        $data['sort_by'] = $data['url_params']['gets']['sortBy'];
-        $data['domain'] = $data['url_params']['domain'];
-        $data['cat'] = $data['url_params']['cat'];
+        $data['domain_name'] = $data['url_params']['domain_name'];
+        if(isset( $data['url_params']['gets']['sortBy'])){
+            $data['sort_by'] = $data['url_params']['gets']['sortBy'];
+        }else{
+            $data['sort_by'] = 'relevancy';
+        }
+        if(isset( $data['url_params']['gets']['category'])){
+            $data['category'] = $data['url_params']['gets']['category'];
+        }
+        if(isset( $data['url_params']['gets']['subcategory'])){
+            $data['subcategory'] = $data['url_params']['gets']['subcategory'];
+        }
+        if(isset( $data['url_params']['gets']['keyword'])){
+            $data['keyword'] = $data['url_params']['gets']['keyword'];
+        }
+
+        if(isset( $data['url_params']['gets']['order'])){
+            $data['order'] = $data['url_params']['gets']['order'];
+        }
+
+        if(isset( $data['url_params']['gets']['locations'])){
+            $data['locations'] = $data['url_params']['gets']['locations'];
+        }
+        if(isset( $data['url_params']['gets']['ratingFilter'])){
+            $data['ratingFilter'] = $data['url_params']['gets']['ratingFilter'];
+        }
+        if(isset( $data['url_params']['gets']['facet'])){
+            $data['facet'] = $data['url_params']['gets']['facet'];
+        }
+        if(isset( $data['url_params']['gets']['shippingOptions'])){
+            $data['shippingOptions'] = $data['url_params']['gets']['shippingOptions'];
+        }
+        if(isset( $data['url_params']['gets']['officialMall'])){
+            $data['officialMall'] = $data['url_params']['gets']['officialMall'];
+        }
+
         return $this->crawlertaskRepo->builder()->create($data);
     }
 
@@ -59,8 +89,8 @@ class CrawlerTaskService extends MemberCoreService implements MemberServiceInter
 
     public function destroy($model, $data)
     {
-//        $type = $model;
-//        return $type->delete();
+        $crawlertask = $model;
+        return $crawlertask->delete();
     }
 
 

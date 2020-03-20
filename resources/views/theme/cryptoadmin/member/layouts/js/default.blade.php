@@ -153,9 +153,6 @@
 
     }
 
-
-
-
     //表格
     //tr_movable_htlm
     function tr_movable_html() {
@@ -238,5 +235,18 @@
         }
     }
 
+    function float_image(className, x=40, y=10){
+        $("img."+className).mouseover(function (e) {
+            var tooltip = "<div id='tooltip'><img src='" + this.src + "' alt='产品预览图' width='300px;' style='z-index: 99999;'/><\/div>"; //创建 div 元素
+            $("body").append(tooltip);	//把它追加到文档中
+            $("#tooltip")
+                .css({
+                    "top": ($(this).offset().top) + y+ "px",
+                    "left": ($(this).offset().left + x ) + "px"
+                }).show("fast");	  //设置x坐标和y坐标，并且显示
+        }).mouseout(function () {
+            $("#tooltip").remove();	 //移除
+        });
+    }
 </script>
 

@@ -37,7 +37,7 @@ class CrawlerItemJob implements ShouldQueue
 
         if(count($crawler_items)>0){
             foreach ($crawler_items as $crawler_item){
-                $url = 'https://shopee.tw/api/v2/item/get?itemid='.$crawler_item->itemid.'&shopid='.$crawler_item->shopid;
+                $url = 'https://'.$crawler_item->domain_name.'/api/v2/item/get?itemid='.$crawler_item->itemid.'&shopid='.$crawler_item->shopid;
                 $ClientResponse = $this->shopeeHandler->ClientHeader_Shopee($url);
                 $json = json_decode($ClientResponse->getBody(), true);
 
@@ -49,6 +49,7 @@ class CrawlerItemJob implements ShouldQueue
                     'images' => $json['item']['images'][0],
                     'sold' => $json['item']['sold'],
                     'historical_sold' => $json['item']['historical_sold'],
+                    'domain_name' => '2222',
                     'local' => $crawler_item->local,
                     'member_id' => $member_id,
                     'updated_at'=> now()
@@ -67,13 +68,13 @@ class CrawlerItemJob implements ShouldQueue
             }
 
             //重新指派任務
-            dispatch(new CrawlerItemJob());
+            dispatch((new CrawlerItemJob())->onQueue('high'));
         }
     }
 
     public function row_model_details($json, $crawler_item){
         foreach ($json['item']['models'] as $model){
-            $row_item_modes[] = [
+            $row_item_models[] = [
                 'ci_id' => $crawler_item->ci_id,
                 'shopid' => $json['item']['shopid'],
                 'itemid' => $model['itemid'],
@@ -84,7 +85,7 @@ class CrawlerItemJob implements ShouldQueue
                 'sold' => $model['sold'],
                 'stock' => $model['stock'],
             ];
-            $row_item_mode_details[] = [
+            $row_item_model_details[] = [
                 'shopid' => $json['item']['shopid'],
                 'itemid' => $model['itemid'],
                 'modelid' => $model['modelid'],
@@ -98,11 +99,11 @@ class CrawlerItemJob implements ShouldQueue
 
         //UpdateOrCreate CrawlerItemSKU
         $crawlerItemSKU = new CrawlerItemSKU();
-        $TF = (new MemberCoreRepository())->massUpdate($crawlerItemSKU, $row_item_modes);
+        $TF = (new MemberCoreRepository())->massUpdate($crawlerItemSKU, $row_item_models);
 
         //UpdateOrCreate CrawlerItemSKUDetail
         $crawlerItemSKUDetail = new CrawlerItemSKUDetail();
-        $TF = (new MemberCoreRepository())->massUpdate($crawlerItemSKUDetail, $row_item_mode_details);
+        $TF = (new MemberCoreRepository())->massUpdate($crawlerItemSKUDetail, $row_item_model_details);
     }
 
     public function row_item_detail($json, $crawler_item){
@@ -118,7 +119,7 @@ class CrawlerItemJob implements ShouldQueue
 
             'sold' => $json['item']['sold'],
             'stock' => $json['item']['stock'],
-            'local' => 'tw',
+            'local' => $crawler_item->local,
         ];
         $row_item_mode_details[] = [
             'shopid' => $json['item']['shopid'],

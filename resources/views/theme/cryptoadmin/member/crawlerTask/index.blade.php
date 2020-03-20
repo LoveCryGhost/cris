@@ -53,7 +53,7 @@
                                                     <a href="#"><strong>{{$crawlerTask->ct_name}}</strong></a><br>
                                                 </p>
                                             </td>
-                                            <td>{{$crawlerTask->domain}}</td>
+                                            <td>{{$crawlerTask->domain_name}}</td>
                                             <td>{{$crawlerTask->local}}</td>
                                             <td>{{$crawlerTask->pages}}</td>
                                             <td>{{$crawlerTask->sort_by}}</td>
