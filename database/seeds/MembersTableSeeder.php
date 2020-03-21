@@ -35,14 +35,32 @@ class MembersTableSeeder extends Seeder
         Member::insert($member_array);
 
         $member = Member::find(1);
-        $member->name = 'member-1';
-        $member->email = 'member1@app.com';
+        $member->name = 'Andy';
+        $member->email = 'andy@app.com';
         $member->avatar = '';
         $member->save();
 
         $member = Member::find(2);
-        $member->name = 'member-2';
-        $member->email = 'member2@app.com';
+        $member->name = 'cris';
+        $member->email = 'cris@app.com';
+        $member->avatar = '';
+        $member->save();
+
+        $member = Member::find(3);
+        $member->name = 'kenny';
+        $member->email = 'kenny@app.com';
+        $member->avatar = '';
+        $member->save();
+
+        $member = Member::find(4);
+        $member->name = 'risca';
+        $member->email = 'risca@app.com';
+        $member->avatar = '';
+        $member->save();
+
+        $member = Member::find(5);
+        $member->name = 'member1';
+        $member->email = 'member1@app.com';
         $member->avatar = '';
         $member->save();
 
