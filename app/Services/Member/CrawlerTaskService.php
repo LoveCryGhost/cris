@@ -6,6 +6,7 @@ use App\Handlers\ShopeeHandler;
 use App\Repositories\Member\AttributeRepository;
 use App\Repositories\Member\CrawlerTaskRepository;
 use App\Repositories\Member\TypeRepository;
+use Illuminate\Support\Facades\Auth;
 
 class CrawlerTaskService extends MemberCoreService implements MemberServiceInterface
 {
@@ -21,7 +22,9 @@ class CrawlerTaskService extends MemberCoreService implements MemberServiceInter
 
     public function index()
     {
-        $crawlerTasks = $this->crawlertaskRepo->builder()->with(['member'])->paginate(10);
+        $crawlerTasks = $this->crawlertaskRepo->builder()
+            ->where('member_id', Auth::guard('member')->user()->id)
+            ->with(['member'])->paginate(10);
         return $crawlerTasks;
     }
 

@@ -21,6 +21,7 @@ class CrawlerTaskRequest extends Request
                     return [
                         'url' => ['required'],
                         'ct_name' => ['required'],
+                        'pages' => 'required|integer'
 
                     ];
                 }
@@ -29,6 +30,7 @@ class CrawlerTaskRequest extends Request
                 {
                     return [
                         'ct_name' => ['required'],
+                        'pages' => 'required|integer'
                     ];
                 }
             case 'GET':
@@ -45,6 +47,8 @@ class CrawlerTaskRequest extends Request
         return [
             'url.required' => '網址不能為空',
             'ct_name.required' => '任務不能為空',
+            'pages.required' => '頁數不能為空',
+            'pages.integer' => '頁數必須是數字格式',
         ];
     }
 }

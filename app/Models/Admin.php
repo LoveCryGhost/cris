@@ -49,4 +49,10 @@ class Admin extends Authenticatable implements MustVerifyEmailContract
     {
         $this->notify(new AdminResetPasswordNotification($token));
     }
+
+    //判別是不是作者
+    public function isAuthorOf($model)
+    {
+        return $model->admin_id === $this->id;
+    }
 }

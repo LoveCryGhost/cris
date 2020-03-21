@@ -59,4 +59,10 @@ class Member extends Authenticatable implements MustVerifyEmailContract
     {
         return $this->hasMany( MemberLog::class, 'member_id','id');
     }
+
+    //判別是不是作者
+    public function isAuthorOf($model)
+    {
+        return $model->member_id === $this->id;
+    }
 }

@@ -96,10 +96,10 @@
                                                href="https://{{$crawlerTask->domain_name}}/shop/{{$crawlerItem->shopid}}" ><i class="fa fa-shopping-bag"></i></a>
                                         </div>
                                         <div class="col-md-1">
-                                            最低:{{number_format($crawlerItem->crawlerItemSKUs->min('price')/10, 0,".",",")}}
+                                            {{number_format($crawlerItem->crawlerItemSKUs->min('price')/10, 0,".",",")}}
                                         </div>
                                         <div class="col-md-1">
-                                            最高:{{number_format($crawlerItem->crawlerItemSKUs->max('price')/10, 0,".",",")}}
+                                            {{number_format($crawlerItem->crawlerItemSKUs->max('price')/10, 0,".",",")}}
                                         </div>
                                         <div class="col-md-3">
                                             <a class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal-left"

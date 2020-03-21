@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Member;
 
 use App\Http\Requests\Member\CrawlerTaskRequest;
-use App\Models\CrawlerItem;
-use App\Models\CrawlerItemSKU;
 use App\Models\CrawlerTask;
 use App\Services\Member\CrawlerTaskService;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CrawlerTasksController extends MemberCoreController
@@ -42,11 +40,13 @@ class CrawlerTasksController extends MemberCoreController
 
     public function edit(CrawlerTask $crawlertask)
     {
+        $this->authorize('update', $crawlertask);
         return view(config('theme.member.view').'crawlerTask.edit', compact('crawlertask'));
     }
 
     public function update(CrawlerTaskRequest $request, CrawlerTask $crawlertask)
     {
+        $this->authorize('update', $crawlertask);
         $data = $request->all();
         $TF = $this->crawlerTaskService->update($crawlertask,$data);
 
@@ -55,6 +55,7 @@ class CrawlerTasksController extends MemberCoreController
 
     public function destroy(Request $request, CrawlerTask $crawlertask)
     {
+        $this->authorize('destroy', $crawlertask);
         $data = $request->all();
         $toast = $this->crawlerTaskService->destroy($crawlertask, $data);
         return redirect()->route('member.crawlertask.index')->with('toast', parent::$toast_destroy);
@@ -63,10 +64,12 @@ class CrawlerTasksController extends MemberCoreController
     public function refresh()
     {
         //CrawlerTask
-        DB::table('crawler_tasks')->update(array('updated_at' => null));
+        DB::table('crawler_tasks')->where('member_id', Auth::guard('member')->user()->id)
+            ->update(array('updated_at' => null));
 
         //CrawlerItem
-        DB::table('crawler_items')->update(array('updated_at' => null));
+        DB::table('crawler_items')->where('member_id', Auth::guard('member')->user()->id)
+            ->update(array('updated_at' => null));
 
         return redirect()->route('member.crawlertask.index');
     }

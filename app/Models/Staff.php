@@ -96,4 +96,10 @@ class Staff extends Authenticatable implements MustVerifyEmailContract
     {
         return $this->hasMany( StaffLog::class, 'staff_id','id');
     }
+
+    //判別是不是作者
+    public function isAuthorOf($model)
+    {
+        return $model->staff_id === $this->id;
+    }
 }

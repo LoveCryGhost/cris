@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Member;
 
 use App\Models\CrawlerItem;
-use App\Models\CrawlerTask;
 use App\Services\Member\CrawlerItemService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CrawlerItemsController extends MemberCoreController
 {
@@ -22,7 +22,10 @@ class CrawlerItemsController extends MemberCoreController
 
     public function index()
     {
-        $crawlerTask = $this->crawlerService->crawlerTaskRepo->getById(request()->crawlerTask);
+        $crawlerTask = $this->crawlerService->crawlerTaskRepo->builder()
+            ->where('member_id', Auth::guard('member')->user()->id)->find(request()->crawlerTask);
+        $this->authorize('index', new CrawlerItem());
+
         $crawlerItems = $crawlerTask->crawlerItems()
             ->where('is_active', request()->is_active)
             ->with('crawlerItemSKUs')
