@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCrawlerTasksTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('crawler_tasks', function (Blueprint $table) {
@@ -43,11 +39,6 @@ class CreateCrawlerTasksTable extends Migration
 
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('crawler_tasks');

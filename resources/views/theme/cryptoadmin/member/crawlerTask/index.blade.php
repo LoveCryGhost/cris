@@ -25,6 +25,15 @@
                         <div class="box-body">
                             <div class="col-xl-12 col-lg-12 text-right mb-5">
                                 @include(config('theme.member.btn.index.crud'))
+                                <form action="{{route('member.crawler.refresh')}}" method="post"
+                                      style="display: inline-block;"
+                                      onsubmit="return confirm('您确定要重新爬蟲吗？');">
+                                    @csrf
+                                    @method('post')
+                                    <button type="submit" class="btn btn-secondary">
+                                        <i class="fa fa-refresh"></i>
+                                    </button>
+                                </form>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-hover">
@@ -68,7 +77,7 @@
                                             <td>
                                                 <p class="mb-0">
                                                     <small>修改人 : {{$crawlerTask->member->name}}</small><br>
-                                                    <small>最後更新 : {{$crawlerTask->updated_at->diffForHumans()}}</small>
+                                                    <small>最後更新 : {{$crawlerTask->updated_at==null? "": $crawlerTask->updated_at->diffForHumans()}}</small>
                                                 </p>
                                             </td>
                                             <td>

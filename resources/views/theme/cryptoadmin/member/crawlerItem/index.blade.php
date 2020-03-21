@@ -82,7 +82,11 @@
                                             @endif
                                         </div>
                                         <div class="col-md-1">
-                                            <img src="https://cf.{{$crawlerTask->domain_name}}/file/{{$crawlerItem->images}}_tn" class="item-image"><br>
+                                            @if($crawlerItem->images==null)
+                                                <img src="{{asset('images/default/avatars/avatar.jpg')}}" class="item-image"><br>
+                                            @else
+                                                <img src="https://cf.{{$crawlerTask->domain_name}}/file/{{$crawlerItem->images}}_tn" class="item-image"><br>
+                                            @endif
                                         </div>
                                         <div class="col-md-4">
                                             <a>{{ $crawlerItem->name }}</a><br>

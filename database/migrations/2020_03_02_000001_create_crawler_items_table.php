@@ -13,8 +13,6 @@ class CreateCrawlerItemsTable extends Migration
      */
     public function up()
     {
-
-
         Schema::create('crawler_items', function (Blueprint $table) {
             $table->bigIncrements('ci_id');
             $table->boolean('is_active')->default(1);
@@ -47,6 +45,7 @@ class CreateCrawlerItemsTable extends Migration
 
         Schema::create('ctasks_items', function (Blueprint $table) {
             $table->bigIncrements('ct_i_d');
+            $table->integer('sort_order')->default(9999);
             $table->bigInteger('ct_id')->unsigned();
             $table->foreign('ct_id')->references('ct_id')->on('crawler_tasks')->onDelete('cascade');
             $table->bigInteger('ci_id')->unsigned();

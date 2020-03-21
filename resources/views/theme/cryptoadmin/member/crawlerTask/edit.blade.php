@@ -42,7 +42,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">最後更新時間</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" placeholder="最後更新時間" disabled value="{{$crawlertask->updated_at->diffForHumans()}}">
+                                            <input class="form-control" type="text" placeholder="最後更新時間" disabled value=" {{$crawlertask->updated_at==null? "": $crawlertask->updated_at->diffForHumans()}}">
                                         </div>
                                     </div>
                                     <div class="form-group row">

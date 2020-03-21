@@ -14,6 +14,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CrawlerTaskJob implements ShouldQueue
 {
@@ -23,23 +24,20 @@ class CrawlerTaskJob implements ShouldQueue
     private $shopeeHandler;
     private $crawlerTask;
 
-    public function __construct($crawlerTask, $url)
+    public function __construct()
     {
-        $this->shopeeHandler = new ShopeeHandler();
-
-
-
         $this->shopeeHandler = new ShopeeHandler();
     }
 
     //處理的工作
     public function handle()
     {
-        $crawler_tasks = CrawlerTask::where(function ($query) {
-                            $query->whereDate('updated_at','<>',Carbon::today())->orWhereNull('updated_at');
-                        })->first();
-        if(count($crawler_tasks)>0) {
-            $urls = $this->shopeeHandler->crawlerTaskGenerateAPIUrl($crawler_tasks);
+        $crawlerTask = CrawlerTask::where(function ($query) {
+            $query->whereDate('updated_at','<>',Carbon::today())->orWhereNull('updated_at');
+        })->first();
+
+        if($crawlerTask) {
+            $urls = $this->shopeeHandler->crawlerTaskGenerateAPIUrl($crawlerTask);
             foreach ($urls as $url) {
                 $ClientResponse = $this->shopeeHandler->ClientHeader_Shopee($url);
                 $json = json_decode($ClientResponse->getBody(), true);
@@ -49,22 +47,22 @@ class CrawlerTaskJob implements ShouldQueue
                     $row_items[] = [
                         'itemid' => $item['itemid'],
                         'shopid' => $item['shopid'],
-                        'images' => $item['image'],
                         'sold' => $item['sold'] !== null ? $item['sold'] : 0,
                         'historical_sold' => $item['historical_sold'],
-                        'domain_name' => $this->crawlerTask->domain_name,
-                        'local' => $this->crawlerTask->local,
+                        'domain_name' => $crawlerTask->domain_name,
+                        'local' => $crawlerTask->local,
                         'member_id' => $member_id,
                     ];
 
                     $row_shops[] = [
                         'shopid' => $item['shopid'],
                         'shop_location' => "",
-                        'local' => $this->crawlerTask->local,
-                        'domain_name' => $this->crawlerTask->domain_name,
+                        'local' => $crawlerTask->local,
+                        'domain_name' => $crawlerTask->domain_name,
                         'member_id' => $member_id
                     ];
-                    $value_arr[] = [$item['itemid'], $item['shopid'], $this->crawlerTask->local];
+                    $value_arr[] = [$item['itemid'], $item['shopid'], $crawlerTask->local];
+                    $items_order[]=$item['itemid'];
                 };
 
                 //批量儲存Item
@@ -72,11 +70,15 @@ class CrawlerTaskJob implements ShouldQueue
                 $TF = (new MemberCoreRepository())->massUpdate($crawlerItem, $row_items);
 
                 //CrawlerTasks sync Items
-                //$crawlerItem_ids = CrawlerItem::whereNull('created_at')->pluck('ci_id');
+                $xx = implode(", ", $items_order);
                 $crawlerItem_ids = CrawlerItem::whereInMultiple(['itemid', 'shopid', 'local'], $value_arr)
-                    ->pluck('ci_id');
+                    ->pluck('ci_id', 'itemid');
 
-                $this->crawlerTask->crawlerItems()->syncwithoutdetaching($crawlerItem_ids);
+                $index=0;
+                foreach ($items_order as $itemid){
+                    $sync_ids[$crawlerItem_ids[$itemid]]= ['sort_order'=>$index++];
+                }
+                $crawlerTask->crawlerItems()->syncwithoutdetaching($sync_ids);
 
                 $crawlerItem->timestamps = false;
                 $crawlerItem->whereIn('ci_id', $crawlerItem_ids)->update(['created_at' => now()]);
@@ -85,12 +87,13 @@ class CrawlerTaskJob implements ShouldQueue
                 $crawlerShop = new CrawlerShop();
                 $TF = (new MemberCoreRepository())->massUpdate($crawlerShop, $row_shops);
 
-
                 dispatch((new CrawlerTaskJob())->onQueue('high'));
 
                 dispatch((new CrawlerItemJob())->onQueue('low'));
                 dispatch((new CrawlerShopJob())->onQueue('low'));
             }
+            $crawlerTask->updated_at = now();
+            $crawlerTask->save();
         }
     }
 }

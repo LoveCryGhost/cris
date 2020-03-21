@@ -3,15 +3,16 @@
 namespace App\Console\Commands;
 
 use App\Jobs\CrawlerItemJob;
+use App\Jobs\CrawlerShopJob;
 use Illuminate\Console\Command;
 
-class CrawlerFirstTimeUpdateItemCron extends Command
+class CrawlerFirstTimeUpdateItemAndShopCron extends Command
 {
 
-    protected $signature = 'command:crawler_first_time_update_item';
+    protected $signature = 'command:crawler_first_time_update_item_and_shop';
 
 
-    protected $description = 'Command crawler_first_time_update_item';
+    protected $description = 'Command crawler_first_time_update_item_and_shop';
 
 
     public function __construct()
@@ -24,5 +25,6 @@ class CrawlerFirstTimeUpdateItemCron extends Command
     public function handle()
     {
         dispatch((new CrawlerItemJob())->onQueue('low'));
+        dispatch((new CrawlerShopJob())->onQueue('low'));
     }
 }

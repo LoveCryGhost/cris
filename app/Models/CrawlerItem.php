@@ -15,7 +15,6 @@ class CrawlerItem extends CoreModel
     protected $table = "crawler_items";
     protected $primaryKey = 'ci_id';
 
-//    protected $with=['crawlerTask'];
     protected $fillable = [
         'is_active',
         'itemid', 'shopid',

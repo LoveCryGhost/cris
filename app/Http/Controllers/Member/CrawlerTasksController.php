@@ -9,6 +9,7 @@ use App\Models\CrawlerTask;
 use App\Services\Member\CrawlerTaskService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CrawlerTasksController extends MemberCoreController
 {
@@ -59,4 +60,14 @@ class CrawlerTasksController extends MemberCoreController
         return redirect()->route('member.crawlertask.index')->with('toast', parent::$toast_destroy);
     }
 
+    public function refresh()
+    {
+        //CrawlerTask
+        DB::table('crawler_tasks')->update(array('updated_at' => null));
+
+        //CrawlerItem
+        DB::table('crawler_items')->update(array('updated_at' => null));
+
+        return redirect()->route('member.crawlertask.index');
+    }
 }

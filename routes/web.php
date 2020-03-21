@@ -140,6 +140,7 @@ Route::prefix('member')->namespace('Member')->group(function(){
 
         //Crawler
         Route::resource('crawlertask', 'CrawlerTasksController');
+        Route::post('crawlertask_refresh', 'CrawlerTasksController@refresh')->name('crawler.refresh');
         Route::resource('crawleritem', 'CrawlerItemsController');
         Route::post('crawleritem_toggle', 'CrawlerItemsController@toggle')->name('crawleritem.toggle');
         Route::resource('crawleritemsku', 'CrawlerItemSKUsController');
@@ -161,7 +162,6 @@ Route::prefix('')->namespace('Staff')->group(function(){
 
 
 Route::get('/', function () {
-
     return view('theme.cryptoadmin.user.welcome');
 });
 
@@ -213,6 +213,7 @@ Route::get('/test', function (){
     $this->crawlerTask->crawlerItems()->syncwithoutdetaching($crawlerItem_ids);
 });
 include('route_test.php');
+
 
 
 
